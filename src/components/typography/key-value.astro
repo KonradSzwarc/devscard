@@ -1,0 +1,25 @@
+---
+const { key, value } = Astro.props;
+---
+
+<style lang="scss">
+  .key-value {
+    font-size: 16px;
+    line-height: 24px;
+
+    :first-child {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    :last-child {
+      font-weight: 400;
+      color: var(--text-secondary);
+    }
+  }
+</style>
+
+<div class="key-value">
+  <span>{key}:</span>
+  <span>{value}</span>
+</div>
