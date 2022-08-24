@@ -28,6 +28,8 @@
     // Force the usage of the indexed syntax to access fields declared using an index signature.
     "noUncheckedIndexedAccess": true,
     // Report an error when the value `undefined` is given to an optional property that doesn't specify `undefined` as a valid value.
-    "exactOptionalPropertyTypes": true
+    "exactOptionalPropertyTypes": true,
+    // Enable intellisense for imports from CSS Modules.
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   }
 }

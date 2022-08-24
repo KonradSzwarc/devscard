@@ -1,53 +1,53 @@
 ---
-import SectionCard from "../components/section-card.astro";
-import SectionTitle from "../components/typography/section-title.astro";
-import SectionSubtitle from "../components/typography/section-subtitle.astro";
-import ItemTitle from "../components/typography/item-title.astro";
-import ItemSubtitle from "../components/typography/item-subtitle.astro";
-import Content from "../components/typography/content.astro";
-import ItemDescription from "../components/typography/item-description.astro";
-import MainTitle from "../components/typography/main-title.astro";
-import KeyValue from "../components/typography/key-value.astro";
+import { SectionCard } from '../components/section-card';
+import { SectionTitle } from '../components/typography/section-title';
+import { SectionSubtitle } from '../components/typography/section-subtitle';
+import { ItemTitle } from '../components/typography/item-title';
+import { ItemSubtitle } from '../components/typography/item-subtitle';
+import { Content } from '../components/typography/content';
+import { ItemDescription } from '../components/typography/item-description';
+import { MainTitle } from '../components/typography/main-title';
+import { LabelledValue } from '../components/typography/labelled-value';
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Welcome to Astro</title>
-	</head>
-	<body>
-		<main>
-			<SectionCard>
-				<MainTitle>Main title</MainTitle>
-				<SectionTitle>Section title</SectionTitle>
-				<SectionSubtitle>Section subtitle</SectionSubtitle>
-				<ItemTitle>Item title</ItemTitle>
-				<ItemSubtitle>Item subtitle</ItemSubtitle>
-				<ItemDescription>Item description</ItemDescription>
-				<Content>Content</Content>
-				<KeyValue key="Phone" value="+48 604 343 212" />
-			</SectionCard>
-		</main>
-		<style>
-			:root {
-				--text-title: #111827;
-				--text-primary: #374151;
-				--text-secondary: #6b7280;
-				--white: #fff;
-			}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Welcome to Astro</title>
+  </head>
+  <body>
+    <main>
+      <SectionCard>
+        <MainTitle>Main title</MainTitle>
+        <SectionTitle>Section title</SectionTitle>
+        <SectionSubtitle>Section subtitle</SectionSubtitle>
+        <ItemTitle>Item title</ItemTitle>
+        <ItemSubtitle>Item subtitle</ItemSubtitle>
+        <ItemDescription>Item description</ItemDescription>
+        <Content>Content</Content>
+        <LabelledValue label="Phone" value="+48 604 343 212" />
+      </SectionCard>
+    </main>
+    <style>
+      :root {
+        --text-title: #111827;
+        --text-primary: #374151;
+        --text-secondary: #6b7280;
+        --white: #fff;
+      }
 
-			html {
-				font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
-					"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-			}
+      html {
+        font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+          'Segoe UI Symbol';
+      }
 
-			body {
-				margin: 0;
-			}
-		</style>
-	</body>
+      body {
+        margin: 0;
+      }
+    </style>
+  </body>
 </html>

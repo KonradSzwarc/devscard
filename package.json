@@ -11,7 +11,14 @@
     "astro": "astro"
   },
   "devDependencies": {
+    "@astrojs/react": "^1.0.0",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
     "astro": "^1.0.8",
-    "sass": "^1.54.5"
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.54.5",
+    "typescript-plugin-css-modules": "^3.4.0"
   }
 }
