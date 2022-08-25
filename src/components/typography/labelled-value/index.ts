@@ -1,1 +1,0 @@
-export * from './labelled-value';

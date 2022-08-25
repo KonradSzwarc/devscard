@@ -1,13 +1,7 @@
 ---
 import { SectionCard } from '../components/section-card';
-import { SectionTitle } from '../components/typography/section-title';
-import { SectionSubtitle } from '../components/typography/section-subtitle';
-import { ItemTitle } from '../components/typography/item-title';
-import { ItemSubtitle } from '../components/typography/item-subtitle';
-import { Content } from '../components/typography/content';
-import { ItemDescription } from '../components/typography/item-description';
-import { MainTitle } from '../components/typography/main-title';
-import { LabelledValue } from '../components/typography/labelled-value';
+import { Typography } from '../components/typograpy';
+import { LabelledValue } from '../components/labelled-value';
 ---
 
 <!DOCTYPE html>
@@ -19,35 +13,20 @@ import { LabelledValue } from '../components/typography/labelled-value';
     <meta name="generator" content={Astro.generator} />
     <title>Welcome to Astro</title>
   </head>
-  <body>
+  <body class="bg-gray-50">
     <main>
       <SectionCard>
-        <MainTitle>Main title</MainTitle>
-        <SectionTitle>Section title</SectionTitle>
-        <SectionSubtitle>Section subtitle</SectionSubtitle>
-        <ItemTitle>Item title</ItemTitle>
-        <ItemSubtitle>Item subtitle</ItemSubtitle>
-        <ItemDescription>Item description</ItemDescription>
-        <Content>Content</Content>
-        <LabelledValue label="Phone" value="+48 604 343 212" />
+        <Typography variant="main-title">Main title</Typography>
+        <Typography variant="main-subtitle">Main subtitle</Typography>
+        <Typography variant="section-title">Section title</Typography>
+        <Typography variant="section-subtitle">Section subtitle</Typography>
+        <Typography variant="item-title">Item title</Typography>
+        <Typography variant="item-subtitle">Item subtitle</Typography>
+        <Typography variant="tile-title">Tile title</Typography>
+        <Typography variant="tile-subtitle">Tile subtitle</Typography>
+        <Typography variant="paragraph">Paragraph</Typography>
+        <LabelledValue label="Phone">+48 604 343 212</LabelledValue>
       </SectionCard>
     </main>
-    <style>
-      :root {
-        --text-title: #111827;
-        --text-primary: #374151;
-        --text-secondary: #6b7280;
-        --white: #fff;
-      }
-
-      html {
-        font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-          'Segoe UI Symbol';
-      }
-
-      body {
-        margin: 0;
-      }
-    </style>
   </body>
 </html>
