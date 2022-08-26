@@ -26,6 +26,13 @@
     // Report an error when a parameter is declared but never used.
     "noUnusedParameters": true,
     // Force the usage of the indexed syntax to access fields declared using an index signature.
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    // Force import casing to match file name casing on the disk.
+    "forceConsistentCasingInFileNames": true,
+    // Add aliases for common paths.
+    "baseUrl": ".",
+    "paths": {
+      "@/atoms/*": ["src/components/atoms/*"]
+    }
   }
 }
