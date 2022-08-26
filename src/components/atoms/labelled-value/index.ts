@@ -1,1 +1,1 @@
-export { default as LabelledValue } from './labelled-value';
+export { LabelledValue } from './labelled-value';

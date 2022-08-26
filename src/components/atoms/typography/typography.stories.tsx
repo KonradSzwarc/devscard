@@ -1,13 +1,13 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import TypographyComponent from './typography';
+import * as C from './typography';
 
 export default {
   title: 'Typography',
-  component: TypographyComponent,
-} as ComponentMeta<typeof TypographyComponent>;
+  component: C.Typography,
+} as ComponentMeta<typeof C.Typography>;
 
-export const Typography: ComponentStory<typeof TypographyComponent> = (args) => <TypographyComponent {...args} />;
+export const Typography: ComponentStory<typeof C.Typography> = (args) => <C.Typography {...args} />;
 
 Typography.args = {
   children: 'Typography text',

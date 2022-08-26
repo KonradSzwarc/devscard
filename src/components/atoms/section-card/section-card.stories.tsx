@@ -1,13 +1,13 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import SectionCardComponent from './section-card';
+import * as C from './section-card';
 
 export default {
   title: 'SectionCard',
-  component: SectionCardComponent,
-} as ComponentMeta<typeof SectionCardComponent>;
+  component: C.SectionCard,
+} as ComponentMeta<typeof C.SectionCard>;
 
-export const SectionCard: ComponentStory<typeof SectionCardComponent> = (args) => <SectionCardComponent {...args} />;
+export const SectionCard: ComponentStory<typeof C.SectionCard> = (args) => <C.SectionCard {...args} />;
 
 SectionCard.args = {
   children: 'Card content',

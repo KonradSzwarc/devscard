@@ -1,5 +1,5 @@
-import type { ComponentPropsWithoutRef } from 'react';
 import clsx from 'clsx';
+import type { ComponentPropsWithoutRef } from 'react';
 
 type TypographyVariant =
   | 'item-title'
@@ -40,10 +40,8 @@ const variantToClassName = {
   paragraph: 'text-base leading-relaxed font-normal text-gray-500',
 };
 
-const Typography = ({ variant = 'paragraph', className, ...props }: TypographyProps) => {
+export const Typography = ({ variant = 'paragraph', className, ...props }: TypographyProps) => {
   const Element = variantToElement[variant];
 
   return <Element className={clsx(variantToClassName[variant], className)} {...props} />;
 };
-
-export default Typography;

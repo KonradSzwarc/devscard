@@ -1,16 +1,16 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import ButtonComponent from './button';
+import * as C from './button';
 
 export default {
   title: 'Button',
-  component: ButtonComponent,
+  component: C.Button,
   argTypes: {
     onClick: { action: 'onClick' },
   },
-} as ComponentMeta<typeof ButtonComponent>;
+} as ComponentMeta<typeof C.Button>;
 
-export const Button: ComponentStory<typeof ButtonComponent> = (args) => <ButtonComponent {...args} />;
+export const Button: ComponentStory<typeof C.Button> = (args) => <C.Button {...args} />;
 
 Button.args = {
   children: 'Button text',

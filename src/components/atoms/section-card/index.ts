@@ -1,1 +1,1 @@
-export { default as SectionCard } from './section-card';
+export { SectionCard } from './section-card';

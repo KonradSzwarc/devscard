@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef } from 'react';
 
 interface ButtonProps extends ComponentPropsWithoutRef<'button'> {}
 
-const Button = ({ className, ...props }: ButtonProps) => (
+export const Button = ({ className, ...props }: ButtonProps) => (
   <button
     type="button"
     className={clsx(
@@ -13,5 +13,3 @@ const Button = ({ className, ...props }: ButtonProps) => (
     {...props}
   />
 );
-
-export default Button;

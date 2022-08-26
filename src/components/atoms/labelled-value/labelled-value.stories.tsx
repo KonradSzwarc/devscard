@@ -1,15 +1,13 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import LabelledValueComponent from './labelled-value';
+import * as C from './labelled-value';
 
 export default {
   title: 'LabelledValue',
-  component: LabelledValueComponent,
-} as ComponentMeta<typeof LabelledValueComponent>;
+  component: C.LabelledValue,
+} as ComponentMeta<typeof C.LabelledValue>;
 
-export const LabelledValue: ComponentStory<typeof LabelledValueComponent> = (args) => (
-  <LabelledValueComponent {...args} />
-);
+export const LabelledValue: ComponentStory<typeof C.LabelledValue> = (args) => <C.LabelledValue {...args} />;
 
 LabelledValue.args = {
   label: 'Label',
