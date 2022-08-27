@@ -1,7 +1,11 @@
 ---
-import { SectionCard } from '@/atoms/section-card';
-import { Typography } from '@/atoms/typography';
-import { LabelledValue } from '@/atoms/labelled-value';
+import { ExperienceSection } from '@/sections/experience';
+import { FavoritesSection } from '@/sections/favorites';
+import { MainSection } from '@/sections/main';
+import { PortfolioSection } from '@/sections/portfolio';
+import { SkillsSection } from '@/sections/skills';
+import { TestimonialsSection } from '@/sections/testimonials';
+import { data } from '../data';
 ---
 
 <!DOCTYPE html>
@@ -11,22 +15,17 @@ import { LabelledValue } from '@/atoms/labelled-value';
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Welcome to Astro</title>
+    <title>{data.seo.title}</title>
+    <meta name="description" content={data.seo.description} />
   </head>
   <body class="bg-gray-50">
     <main>
-      <SectionCard>
-        <Typography variant="main-title">Main title</Typography>
-        <Typography variant="main-subtitle">Main subtitle</Typography>
-        <Typography variant="section-title">Section title</Typography>
-        <Typography variant="section-subtitle">Section subtitle</Typography>
-        <Typography variant="item-title">Item title</Typography>
-        <Typography variant="item-subtitle">Item subtitle</Typography>
-        <Typography variant="tile-title">Tile title</Typography>
-        <Typography variant="tile-subtitle">Tile subtitle</Typography>
-        <Typography variant="paragraph">Paragraph</Typography>
-        <LabelledValue label="Phone">+48 604 343 212</LabelledValue>
-      </SectionCard>
+      <MainSection {...data.main} />
+      {data.skills && <SkillsSection {...data.skills} />}
+      {data.experience && <ExperienceSection {...data.experience} />}
+      {data.portfolio && <PortfolioSection {...data.portfolio} />}
+      {data.testimonials && <TestimonialsSection {...data.testimonials} />}
+      {data.favorites && <FavoritesSection {...data.favorites} />}
     </main>
   </body>
 </html>

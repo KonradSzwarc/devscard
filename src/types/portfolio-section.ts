@@ -1,8 +1,8 @@
-import type { Detail, SectionConfig, Social, Tag } from './common';
+import type { Detail, LocalImage, SectionConfig, Social, Tag } from './common';
 
 interface Project {
   name: string;
-  image?: string;
+  image?: LocalImage;
   startDate: Date;
   endDate: Date | null;
   details: Detail[];

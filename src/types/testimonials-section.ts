@@ -1,7 +1,7 @@
-import type { SectionConfig } from './common';
+import type { LocalImage, SectionConfig } from './common';
 
 interface Testimonial {
-  image: string;
+  image: LocalImage;
   author: string;
   relation: string;
   content: string;

@@ -32,7 +32,10 @@
     // Add aliases for common paths.
     "baseUrl": ".",
     "paths": {
-      "@/atoms/*": ["src/components/atoms/*"]
+      "@/atoms/*": ["src/components/atoms/*"],
+      "@/sections/*": ["src/components/sections/*"],
+      "@/assets/*": ["src/assets/*"],
+      "@/types/*": ["src/types/*"]
     }
   }
 }
