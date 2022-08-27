@@ -1,6 +1,4 @@
-import clsx from 'clsx';
-import type { ComponentPropsWithoutRef } from 'react';
-
+---
 type TypographyVariant =
   | 'item-title'
   | 'item-subtitle'
@@ -11,10 +9,6 @@ type TypographyVariant =
   | 'section-title'
   | 'section-subtitle'
   | 'paragraph';
-
-interface TypographyProps extends ComponentPropsWithoutRef<'div'> {
-  variant?: TypographyVariant;
-}
 
 const variantToElement = {
   'main-title': 'h1',
@@ -40,8 +34,12 @@ const variantToClassName = {
   paragraph: 'text-base leading-relaxed font-normal text-gray-500',
 };
 
-export const Typography = ({ variant = 'paragraph', className, ...props }: TypographyProps) => {
-  const Element = variantToElement[variant];
+export interface Props extends Omit<astroHTML.JSX.HTMLAttributes, 'slot'> {
+  variant?: TypographyVariant;
+}
 
-  return <Element className={clsx(variantToClassName[variant], className)} {...props} />;
-};
+const { variant = 'paragraph', ...props } = Astro.props;
+const Element = variantToElement[variant];
+---
+
+<Element {...props} class:list={[variantToClassName[variant], props.class]}><slot /></Element>
