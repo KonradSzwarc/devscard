@@ -1,4 +1,6 @@
-export type Icon = string;
+import type { IconifyIcon } from '@iconify/react';
+
+export type Icon = IconifyIcon;
 
 export type LocalImage = {
   src: string;
@@ -19,6 +21,7 @@ export interface Social {
 export interface Tag {
   name: string;
   icon?: Icon;
+  iconColor?: string;
   url?: string;
   description?: string;
 }

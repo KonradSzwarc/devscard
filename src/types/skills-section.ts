@@ -10,6 +10,6 @@ interface SkillSet<SkillType> {
 }
 
 export interface SkillsSection {
-  skillSets: SkillSet<Tag> | SkillSet<LevelledSkill>;
+  skillSets: SkillSet<Tag>[] | SkillSet<LevelledSkill>[];
   config: SectionConfig;
 }

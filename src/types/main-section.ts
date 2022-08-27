@@ -9,7 +9,7 @@ export interface MainSection {
   tags: Tag[];
   action: {
     label: string;
-    href: string;
+    url: string;
   };
   socials: Social[];
   config: Omit<SectionConfig, 'title'>;
