@@ -1,7 +1,7 @@
 import myImage from '@/assets/my-image.jpeg';
 import type { Data } from '@/types/data';
 
-export const data: Data = {
+const data: Data = {
   seo: {
     title: 'Mark Freeman - Senior React Developer',
     description:
@@ -142,3 +142,5 @@ export const data: Data = {
     ],
   },
 };
+
+export default data;

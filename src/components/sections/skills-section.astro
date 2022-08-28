@@ -1,10 +1,11 @@
 ---
 import { Icon } from 'astro-icon';
+
 import SectionCard from '@/atoms/section-card.astro';
 import type { SkillsSection } from '@/types/skills-section';
 
 export interface Props extends SkillsSection {}
-const props = Astro.props;
+const { props } = Astro;
 ---
 
 <SectionCard>

@@ -1,43 +1,14 @@
 {
   "root": true,
-  "plugins": ["file-progress"],
   "overrides": [
     {
-      // All files.
-      "files": ["*.ts", "*.tsx", "*.cjs"],
-      "extends": [
-        "airbnb",
-        "plugin:eslint-comments/recommended",
-        "plugin:storybook/recommended",
-        "plugin:prettier/recommended" // This config needs to be the last one as it overrides rules from other configs.
-      ],
-      "rules": {
-        // We prefer named exports as they ensure that import name is the same as the export name.
-        "import/prefer-default-export": 0,
-        "import/no-default-export": 2,
-
-        // Shows information about currently processing file in the console.
-        "file-progress/activate": 1,
-
-        // Removes eslint-disable comments when they are not needed.
-        "eslint-comments/no-unused-disable": 2,
-
-        // Ensure each eslint-disable has a description comment.
-        "eslint-comments/require-description": [2, { "ignore": ["eslint-enable"] }]
-      }
-    },
-    {
-      // TypeScript files.
-      "files": ["*.ts", "*.tsx"],
-      "plugins": ["simple-import-sort"],
-      "extends": [
-        "airbnb-typescript",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:prettier/recommended"
-      ],
+      // Files containing TypeScript code.
+      "files": ["*.ts", "*.tsx", "*.astro"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "parser": "@typescript-eslint/parser",
       "parserOptions": {
-        "project": "./tsconfig.eslint.json"
+        "project": "./tsconfig.eslint.json",
+        "extraFileExtensions": [".astro"]
       },
       "settings": {
         "import/resolver": {
@@ -45,28 +16,19 @@
         }
       },
       "rules": {
-        // We can create an empty interface only when it extends other interface.
-        "@typescript-eslint/no-empty-interface": [2, { "allowSingleExtends": true }],
-
-        // Rules for imports and exports order.
-        "simple-import-sort/imports": [
-          2,
-          {
-            "groups": [
-              ["^\\u0000"], // Side effects
-              ["^@?\\w"], // Packages
-              ["^"], // Absolute imports
-              ["^\\."] // Relative imports
-            ]
-          }
-        ],
-        "simple-import-sort/exports": 2
+        // Create empty interface only when it extends other interface.
+        "@typescript-eslint/no-empty-interface": [2, { "allowSingleExtends": true }]
       }
     },
     {
-      // Files with React components.
       "files": ["*.tsx"],
-      "extends": ["airbnb/hooks", "plugin:react/jsx-runtime", "plugin:prettier/recommended"],
+      "extends": [
+        "airbnb",
+        "airbnb-typescript",
+        "airbnb/hooks",
+        "plugin:react/jsx-runtime",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
       "rules": {
         // Write all components as arrow functions.
         "react/function-component-definition": [
@@ -82,20 +44,60 @@
       }
     },
     {
-      // Storybook stories
-      "files": ["*.stories.tsx"],
-      "rules": {
-        "import/no-default-export": 0
+      "files": ["*.ts"],
+      "extends": [
+        "airbnb/base",
+        "airbnb-typescript/base",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ]
+    },
+    {
+      "files": ["*.astro"],
+      "globals": {
+        "astroHTML": true
+      },
+      "extends": ["airbnb/base", "airbnb-typescript/base", "plugin:astro/all"],
+      "parser": "astro-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser"
       }
     },
     {
-      // Configuration files
-      "files": ["astro.config.ts", "tailwind.config.cjs", ".storybook/*"],
+      "files": ["*.cjs"],
+      "extends": ["airbnb/base"]
+    },
+    {
+      // All linted files.
+      "files": ["*.ts", "*.tsx", "*.astro", "*.cjs"],
+      "plugins": ["file-progress", "simple-import-sort"],
+      "extends": ["plugin:eslint-comments/recommended", "plugin:prettier/recommended"],
       "rules": {
-        "import/no-default-export": 0,
-        "import/no-extraneous-dependencies": [2, { "devDependencies": true }]
+        // Shows information about currently processing file in the console.
+        "file-progress/activate": 1,
+
+        // Removes eslint-disable comments when they are not needed.
+        "eslint-comments/no-unused-disable": 2,
+
+        // Ensure each eslint-disable has a description comment.
+        "eslint-comments/require-description": [2, { "ignore": ["eslint-enable"] }],
+
+        // Allow devDependencies in some files.
+        "import/no-extraneous-dependencies": [2, { "devDependencies": ["astro.config.ts", "tailwind.config.cjs"] }],
+
+        // Imports and exports order.
+        "simple-import-sort/imports": [
+          2,
+          {
+            "groups": [
+              ["^\\u0000"], // Side effects
+              ["^@?\\w"], // Packages
+              ["^"], // Absolute imports
+              ["^\\."] // Relative imports
+            ]
+          }
+        ],
+        "simple-import-sort/exports": 2
       }
     }
-  ],
-  "ignorePatterns": ["!.storybook"]
+  ]
 }

@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint . --ext .cjs,.ts,.tsx --ignore-path .gitignore",
+    "lint": "eslint . --ext .cjs,.ts,.tsx,.astro --ignore-path .gitignore",
     "lint:ts": "tsc --jsx preserve --skipLibCheck",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -16,6 +16,7 @@
   "dependencies": {
     "astro-icon": "^0.7.3",
     "clsx": "^1.2.1",
+    "prettier-plugin-astro": "^0.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -37,6 +38,7 @@
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.0",
+    "eslint-plugin-astro": "^0.17.1",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-file-progress": "^1.3.0",
     "eslint-plugin-import": "^2.26.0",
