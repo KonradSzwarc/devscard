@@ -138,6 +138,48 @@ const data: Data = {
           },
         ],
       },
+      {
+        title: 'I want to learn',
+        skills: [
+          {
+            icon: 'simple-icons:apollographql',
+            iconColor: '#311C87',
+            name: 'Apollo GraphQL',
+          },
+          {
+            icon: 'simple-icons:astro',
+            iconColor: '#FF5D01',
+            name: 'Astro',
+          },
+          {
+            icon: 'simple-icons:supabase',
+            iconColor: '#3ECF8E',
+            name: 'Supabase',
+          },
+          {
+            icon: 'simple-icons:cypress',
+            iconColor: '#17202C',
+            name: 'Cypress',
+          },
+        ],
+      },
+      {
+        title: 'I speak',
+        skills: [
+          {
+            icon: 'cif:pl',
+            name: 'Polish - native',
+          },
+          {
+            icon: 'cif:us',
+            name: 'English - C1',
+          },
+          {
+            icon: 'cif:es',
+            name: 'Spanish - B1',
+          },
+        ],
+      },
     ],
   },
   experience: {
