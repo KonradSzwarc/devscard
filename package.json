@@ -14,6 +14,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@astrojs/image": "0.3.6",
     "astro-icon": "0.7.3",
     "clsx": "1.2.1",
     "prettier-plugin-astro": "0.5.3",

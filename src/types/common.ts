@@ -1,7 +1,9 @@
+import type { ImageMetadata } from '@astrojs/image';
+
 export type Icon = string;
 
 export type LocalImage = {
-  src: string;
+  src: Promise<{ default: ImageMetadata }>;
   alt: string;
 };
 

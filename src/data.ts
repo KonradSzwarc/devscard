@@ -1,4 +1,3 @@
-import myImage from '@/assets/my-image.jpeg';
 import type { Data } from '@/types/data';
 
 const data: Data = {
@@ -11,7 +10,7 @@ const data: Data = {
     config: {
       icon: 'fa6-solid:user',
     },
-    image: { src: myImage, alt: 'Mark Freeman picture' },
+    image: { src: import('@/assets/my-image.jpeg'), alt: 'Mark Freeman picture' },
     fullName: 'Mark Freeman',
     role: 'Senior React Developer',
     details: [
