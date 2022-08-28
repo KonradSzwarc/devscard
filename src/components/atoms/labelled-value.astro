@@ -7,7 +7,7 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {
 const { label, value, ...props } = Astro.props;
 ---
 
-<div {...props} class:list={['text-base space-x-1', props.class]}>
+<div {...props} class:list={['text-base', props.class]}>
   <span class="font-medium text-gray-700">{label}:</span>
   <span class="font-normal text-gray-500">{value}</span>
 </div>
