@@ -1,6 +1,4 @@
-import type { IconifyIcon } from '@iconify/react';
-
-export type Icon = IconifyIcon;
+export type Icon = string;
 
 export type LocalImage = {
   src: string;

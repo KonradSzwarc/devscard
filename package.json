@@ -14,10 +14,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@iconify-icons/fa6-brands": "^1.2.5",
-    "@iconify-icons/fa6-solid": "^1.2.6",
-    "@iconify-icons/simple-icons": "^1.2.23",
-    "@iconify/react": "^3.2.2",
+    "astro-icon": "^0.7.3",
     "clsx": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

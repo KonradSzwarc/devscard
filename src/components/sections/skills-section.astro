@@ -1,8 +1,19 @@
 ---
+import { Icon } from 'astro-icon';
 import SectionCard from '@/atoms/section-card.astro';
 import type { SkillsSection } from '@/types/skills-section';
 
 export interface Props extends SkillsSection {}
+const props = Astro.props;
 ---
 
-<SectionCard>Skills section</SectionCard>
+<SectionCard>
+  Skills section
+  <div class="inline-flex space-x-4 ml-4">
+    {
+      props.skillSets.flatMap((skillSet) =>
+        skillSet.skills.map(({ icon, iconColor }) => <Icon name={icon} size={24} color={iconColor} />)
+      )
+    }
+  </div>
+</SectionCard>
