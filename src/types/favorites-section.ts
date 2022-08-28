@@ -28,7 +28,7 @@ interface Media {
 
 interface SubSection<Data> {
   title: string;
-  data: Data;
+  data: Data[];
 }
 
 export interface FavoritesSection {

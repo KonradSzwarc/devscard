@@ -1,6 +1,6 @@
 import type { SectionConfig, Social, Tag } from './common';
 
-interface ExperienceItem {
+interface Job {
   role: string;
   company: string;
   startDate: Date;
@@ -11,6 +11,6 @@ interface ExperienceItem {
 }
 
 export interface ExperienceSection {
-  items: ExperienceItem[];
+  jobs: Job[];
   config: SectionConfig;
 }

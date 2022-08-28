@@ -140,6 +140,50 @@ const data: Data = {
       },
     ],
   },
+  experience: {
+    config: {
+      title: 'Work experience',
+      icon: 'fa6-solid:suitcase',
+    },
+    jobs: [],
+  },
+  portfolio: {
+    config: {
+      title: 'Projects',
+      icon: 'fa6-solid:rocket',
+      filter: null,
+    },
+    projects: [],
+  },
+  testimonials: {
+    config: {
+      title: 'Testimonials',
+      icon: 'fa6-solid:comment',
+    },
+    testimonials: [],
+  },
+  favorites: {
+    config: {
+      title: 'My favorites',
+      icon: 'fa6-solid:star',
+    },
+    books: {
+      title: 'Books I read',
+      data: [],
+    },
+    medias: {
+      title: 'People I learn from',
+      data: [],
+    },
+    people: {
+      title: 'Videos I watched',
+      data: [],
+    },
+    videos: {
+      title: 'Media I follow',
+      data: [],
+    },
+  },
 };
 
 export default data;
