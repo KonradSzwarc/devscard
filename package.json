@@ -9,9 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . --ext .cjs,.ts,.tsx,.astro --ignore-path .gitignore",
-    "lint:ts": "tsc --jsx preserve --skipLibCheck",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "lint:ts": "tsc --jsx preserve --skipLibCheck"
   },
   "dependencies": {
     "@astrojs/image": "0.3.6",
