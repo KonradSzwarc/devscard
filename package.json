@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/image": "0.3.6",
-    "astro-icon": "0.7.3",
+    "@iconify-icon/react": "1.0.0-beta.3",
     "clsx": "1.2.1",
     "prettier-plugin-astro": "0.5.3",
     "react": "18.2.0",

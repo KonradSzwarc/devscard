@@ -167,15 +167,15 @@ const data: Data = {
         title: 'I speak',
         skills: [
           {
-            icon: 'cif:pl',
+            icon: 'circle-flags:pl',
             name: 'Polish - native',
           },
           {
-            icon: 'cif:us',
+            icon: 'circle-flags:us',
             name: 'English - C1',
           },
           {
-            icon: 'cif:es',
+            icon: 'circle-flags:es-variant',
             name: 'Spanish - B1',
           },
         ],

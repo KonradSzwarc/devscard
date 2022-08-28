@@ -1,6 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
-
+import Icon from '@/atoms/icon';
 import SectionCard from '@/atoms/section-card.astro';
 import type { SkillsSection } from '@/types/skills-section';
 
@@ -13,7 +12,7 @@ const { props } = Astro;
   <div class="inline-flex space-x-4 ml-4">
     {
       props.skillSets.flatMap((skillSet) =>
-        skillSet.skills.map(({ icon, iconColor }) => <Icon name={icon} size={24} color={iconColor} />)
+        skillSet.skills.map(({ icon, iconColor }) => <Icon client:idle name={icon} size={24} color={iconColor} />)
       )
     }
   </div>
