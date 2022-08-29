@@ -7,7 +7,7 @@ interface Project {
   endDate: Date | null;
   details: Detail[];
   description: string;
-  technologies: Tag[];
+  tags: Tag[];
   socials: Social[];
 }
 
