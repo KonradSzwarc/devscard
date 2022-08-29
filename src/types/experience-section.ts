@@ -6,7 +6,7 @@ interface Job {
   startDate: Date;
   endDate: Date | null;
   description: string | string[];
-  technologies: Tag[];
+  tags: Tag[];
   socials: Social[];
 }
 
