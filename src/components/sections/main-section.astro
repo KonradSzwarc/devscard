@@ -1,11 +1,8 @@
 ---
-import { Image } from '@astrojs/image/components';
-
 import SectionCard from '@/atoms/section-card.astro';
 import type { MainSection } from '@/types/main-section';
 
 export interface Props extends MainSection {}
-const { image } = Astro.props;
 ---
 
-<SectionCard>Main section <Image src={image.src} alt={image.alt} width={200} height={200} format="webp" /></SectionCard>
+<SectionCard>Main section</SectionCard>
