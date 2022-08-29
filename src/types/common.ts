@@ -2,10 +2,7 @@ import type { ImageMetadata } from '@astrojs/image';
 
 export type Icon = string;
 
-export type LocalImage = {
-  src: Promise<{ default: ImageMetadata }>;
-  alt: string;
-};
+export type LocalImage = Promise<{ default: ImageMetadata }>;
 
 export interface Detail {
   label: string;
