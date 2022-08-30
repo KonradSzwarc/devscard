@@ -1,3 +1,5 @@
+import type { StringKeyOf, ValueOf } from 'type-fest';
+
 type IconSets = {
   'fa6-brands': typeof import('@iconify/json/json/fa6-brands.json');
   'fa6-solid': typeof import('@iconify/json/json/fa6-solid.json');
@@ -5,13 +7,6 @@ type IconSets = {
   'circle-flags': typeof import('@iconify/json/json/circle-flags.json');
 };
 
-type CreateFullIconName<IconSetName extends keyof IconSets, IconNames> = IconNames extends string
-  ? `${IconSetName}:${IconNames}`
-  : never;
-
-type ValueOf<T> = T[keyof T];
-type ExtractedIcons = {
-  [IconSetName in keyof IconSets]: CreateFullIconName<IconSetName, keyof IconSets[IconSetName]['icons']>;
-};
-
-export type Icon = ValueOf<ExtractedIcons>;
+export type Icon = ValueOf<{
+  [IconSet in keyof IconSets]: `${IconSet}:${StringKeyOf<IconSets[IconSet]['icons']>}`;
+}>;
