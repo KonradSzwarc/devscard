@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "mgmcdermott.vscode-language-babel",
+    "EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss"
+  ]
+}
