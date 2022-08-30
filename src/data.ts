@@ -511,7 +511,38 @@ const data: Data = {
       title: 'Testimonials',
       icon: 'fa6-solid:comment',
     },
-    testimonials: [],
+    testimonials: [
+      {
+        image: import('@/assets/testimonials/testimonial-1.jpeg'),
+        author: 'Howard Stewart',
+        relation: 'We work together as front-end developers at Google',
+        content:
+          'In nec mattis sem. Morbi purus lorem, euismod ac varius at, aliquet vitae augue. Pellentesque ut facilisis felis. In sed dui blandit, aliquet odio eu, elementum leo. In facilisis dapibus tortor ac volutpat. Cras cursus nec odio maximus elementum.',
+        socials: [
+          { name: 'GitHub', icon: 'fa6-brands:github', url: '#' },
+          { name: 'LinkedIn', icon: 'fa6-brands:linkedin-in', url: '#' },
+        ],
+      },
+      {
+        image: import('@/assets/testimonials/testimonial-2.jpeg'),
+        author: 'Jean Richards',
+        relation: 'My project manager at GitLab',
+        content:
+          'Praesent nec congue elit. Vestibulum lobortis congue ipsum, a gravida mi tempus ac. Mauris aliquet purus nibh, vel varius turpis tempus non. Nullam eget ultricies orci. Quisque nulla ante, auctor eget varius ac, imperdiet nec magna.',
+        socials: [{ name: 'LinkedIn', icon: 'fa6-brands:linkedin-in', url: '#' }],
+      },
+      {
+        image: import('@/assets/testimonials/testimonial-3.jpeg'),
+        author: 'Jason Fisher',
+        relation: 'My customer for sidewing.com website',
+        content:
+          'Mauris tincidunt at purus vehicula porta. Mauris eget mollis turpis. Sed iaculis rutrum pharetra. Vivamus risus quam, suscipit et semper ut, aliquet ut tellus. Donec quis auctor nunc.',
+        socials: [
+          { name: 'GitHub', icon: 'fa6-brands:github', url: '#' },
+          { name: 'Website', icon: 'fa6-solid:globe', url: '#' },
+        ],
+      },
+    ],
   },
   favorites: {
     config: {
@@ -520,19 +551,128 @@ const data: Data = {
     },
     books: {
       title: 'Books I read',
-      data: [],
-    },
-    medias: {
-      title: 'People I learn from',
-      data: [],
+      data: [
+        {
+          cover: import('@/assets/favorites/books/book-1.jpeg'),
+          title: 'The Pragmatic Programmer: From Journeyman to Master',
+          author: 'Andy Hunt, Dave Thomas',
+          url: 'https://www.goodreads.com/book/show/4099.The_Pragmatic_Programmer',
+        },
+        {
+          cover: import('@/assets/favorites/books/book-2.jpeg'),
+          title: 'Domain-Driven Design: Tackling Complexity in the Heart of Software',
+          author: 'Eric Evans',
+          url: 'https://www.goodreads.com/book/show/179133.Domain_Driven_Design',
+        },
+        {
+          cover: import('@/assets/favorites/books/book-3.jpeg'),
+          title: 'Clean Code: A Handbook of Agile Software Craftsmanship',
+          author: 'Robert C. Martin',
+          url: 'https://www.goodreads.com/book/show/3735293-clean-code',
+        },
+        {
+          cover: import('@/assets/favorites/books/book-4.jpeg'),
+          title: 'The Clean Coder: A Code of Conduct for Professional Programmers',
+          author: 'Robert C. Martin',
+          url: 'https://www.goodreads.com/book/show/10284614-the-clean-coder',
+        },
+      ],
     },
     people: {
-      title: 'Videos I watched',
-      data: [],
+      title: 'People I learn from',
+      data: [
+        {
+          image: import('@/assets/favorites/people/person-1.jpg'),
+          name: 'Kent C. Dodds',
+          url: 'https://kentcdodds.com/',
+        },
+        {
+          image: import('@/assets/favorites/people/person-2.jpeg'),
+          name: 'Kent Beck',
+          url: 'https://www.kentbeck.com/',
+        },
+        {
+          image: import('@/assets/favorites/people/person-3.jpeg'),
+          name: 'Eric Evans',
+          url: 'https://www.domainlanguage.com/',
+        },
+        {
+          image: import('@/assets/favorites/people/person-4.jpeg'),
+          name: 'Martin Fowler',
+          url: 'https://martinfowler.com/',
+        },
+        {
+          image: import('@/assets/favorites/people/person-5.jpg'),
+          name: 'Robert C. Martin',
+          url: 'http://cleancoder.com/',
+        },
+        {
+          image: import('@/assets/favorites/people/person-6.jpeg'),
+          name: 'Adam Dymitruk',
+          url: 'https://eventmodeling.org/',
+        },
+      ],
     },
     videos: {
+      title: 'Videos I watched',
+      data: [
+        {
+          thumbnail: import('@/assets/favorites/videos/video-1.jpeg'),
+          title: 'Building Resilient Frontend Architecture • Monica Lent • GOTO 2019',
+          url: 'https://youtu.be/TqfbAXCCVwE',
+        },
+        {
+          thumbnail: import('@/assets/favorites/videos/video-2.jpeg'),
+          title: 'Scaling Yourself • Scott Hanselman • GOTO 2012',
+          url: 'https://youtu.be/FS1mnISoG7U',
+        },
+        {
+          thumbnail: import('@/assets/favorites/videos/video-3.jpeg'),
+          title: "Why Isn't Functional Programming the Norm? - Richard Feldman",
+          url: 'https://youtu.be/QyJZzq0v7Z4',
+        },
+      ],
+    },
+    medias: {
       title: 'Media I follow',
-      data: [],
+      data: [
+        {
+          image: import('@/assets/favorites/media/media-1.jpeg'),
+          title: 'Fireship.io',
+          type: 'YouTube channel',
+          url: 'https://www.youtube.com/c/Fireship',
+        },
+        {
+          image: import('@/assets/favorites/media/media-2.jpeg'),
+          title: 'Healthy Software Developer',
+          type: 'YouTube channel',
+          url: 'https://www.youtube.com/channel/UCfe_znKY1ukrqlGActlFmaQ',
+        },
+        {
+          image: import('@/assets/favorites/media/media-3.png'),
+          title: 'Bytes',
+          type: 'Newsletter',
+          url: 'https://bytes.dev/',
+        },
+        {
+          image: import('@/assets/favorites/media/media-4.png'),
+          title: 'TypeScript Weekly',
+          type: 'Newsletter',
+          url: 'https://typescript-weekly.com/',
+        },
+        {
+          image: import('@/assets/favorites/media/media-5.jpeg'),
+          title: 'Front End Happy Hour',
+          type: 'Podcast',
+          url: 'https://www.frontendhappyhour.com/',
+        },
+        {
+          image: import('@/assets/favorites/media/media-6.webp'),
+          title: '.cult by Honeypot',
+          type: 'Blog',
+          url: 'https://cult.honeypot.io/',
+        },
+      ],
     },
   },
 };
