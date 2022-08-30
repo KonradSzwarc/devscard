@@ -3,6 +3,12 @@
   "description": "Template for creating a comprehensive virtual CV for developers.",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": ">=14",
+    "npm": ">=6",
+    "yarn": "please-use-npm",
+    "pnpm": "please-use-npm"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
