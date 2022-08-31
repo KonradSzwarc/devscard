@@ -99,14 +99,7 @@
             ]
           }
         ],
-        "simple-import-sort/exports": 2,
-
-        "prettier/prettier": [
-          "error",
-          {
-            "endOfLine": "auto"
-          }
-        ]
+        "simple-import-sort/exports": 2
       }
     }
   ]
