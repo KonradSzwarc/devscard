@@ -6,7 +6,6 @@
     ":automergePr",
     ":automergeRequireAllStatusChecks",
     ":separateMultipleMajorReleases",
-    "npm:unpublishSafe",
     "schedule:daily"
   ],
   "packageRules": [
