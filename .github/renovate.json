@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:js-app",
+    ":rebaseStalePrs",
+    ":automergePr",
+    ":automergeRequireAllStatusChecks",
+    ":separateMultipleMajorReleases",
+    "npm:unpublishSafe",
+    "schedule:daily"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "automerge": true
+    }
+  ]
+}
