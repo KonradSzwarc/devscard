@@ -18,21 +18,21 @@
     "lint:ts": "tsc --jsx preserve --skipLibCheck"
   },
   "dependencies": {
-    "@astrojs/image": "0.3.6",
+    "@astrojs/image": "0.3.7",
     "@iconify-icon/react": "1.0.0-beta.3",
     "clsx": "1.2.1",
-    "prettier-plugin-astro": "0.5.3",
+    "prettier-plugin-astro": "0.5.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@astrojs/react": "1.1.0",
+    "@astrojs/react": "1.1.1",
     "@astrojs/tailwind": "1.0.0",
-    "@types/react": "18.0.17",
+    "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
-    "@typescript-eslint/eslint-plugin": "5.35.1",
-    "@typescript-eslint/parser": "5.35.1",
-    "astro": "1.1.1",
+    "@typescript-eslint/eslint-plugin": "5.36.1",
+    "@typescript-eslint/parser": "5.36.1",
+    "astro": "1.1.2",
     "eslint": "8.23.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-typescript": "17.0.0",
