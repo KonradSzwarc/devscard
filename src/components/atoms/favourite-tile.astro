@@ -1,0 +1,69 @@
+---
+import Typography from '@/atoms/typography.astro';
+import { Image } from '@astrojs/image/components';
+
+type FavouriteElementVariant =
+  | 'book'
+  | 'media'
+  | 'video'
+  | 'person';
+
+const variantToTileWidth = {
+  'book': 51,
+  'media': 29,
+  'video': 70,
+  'person': 29
+} as const;
+
+const variantToWidth = {
+  'book': 200,
+  'media': 122.66,
+  'video': 277.33,
+  'person': 122.66
+} as const;
+
+const variantToHeight = {
+  'book': 260,
+  'media': 122.66,
+  'video': 156,
+  'person': 122.66
+} as const;
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  value: FavouriteElement;
+  variant: FavouriteElementVariant;
+}
+
+const { value, variant, ...props } = Astro.props;
+const FavouriteTile = 'div';
+const tileWidth = variantToTileWidth[variant];
+---
+
+<FavouriteTile 
+  class:list={[
+    variant, 
+    props.class, 
+    'flex', 
+    'flex-col',
+    'gap-3',
+    `w-${tileWidth}`
+    ]}>
+  <Image 
+    class:list={['rounded-lg', 'shadow-md', 'object-cover']}
+    src={value.image || value.cover || value.thumbnail} 
+    alt= {value.title} 
+    width={variantToWidth[variant]} 
+    height={variantToHeight[variant]} 
+    format='webp' />
+  <div class:list={['gap-1']}>
+    <Typography
+      class={'leading-5'}
+      variant="tile-title">
+      {value.title || value.name}
+    </Typography>
+    <Typography 
+      variant='tile-subtitle'>
+      {value.type || value.author}
+    </Typography>
+  </div>
+</FavouriteTile>

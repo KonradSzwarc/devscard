@@ -1,0 +1,51 @@
+---
+import type { Book, Person, Media, Video } from '@types/favorites-section.astro';
+import Typography from '@/atoms/typography.astro';
+
+import FavouriteTile from '@/atoms/favourite-tile.astro';
+
+const book: Book = {
+  cover: import('@/assets/favorites/books/book-1.jpeg'),
+  title: 'The Pragmatic Programmer: From Journeyman to Master',
+  author: 'Andy Hunt, Dave Thomas',
+  url: 'https://www.goodreads.com/book/show/4099.The_Pragmatic_Programmer',
+};
+
+const person: Person = {
+  image: import('@/assets/favorites/people/person-1.jpg'),
+  name: 'Kent C. Dodds',
+  url: 'https://kentcdodds.com/',
+};
+
+const video: Video = {
+  thumbnail: import('@/assets/favorites/videos/video-1.jpeg'),
+  title: 'Building Resilient Frontend Architecture • Monica Lent • GOTO 2019',
+  url: 'https://youtu.be/TqfbAXCCVwE',
+};
+
+const media: Media = {
+  image: import('@/assets/favorites/media/media-1.jpeg'),
+  title: 'Fireship.io',
+  type: 'YouTube channel',
+  url: 'https://www.youtube.com/c/Fireship',
+};
+
+---
+
+<div class="m-4">
+    <Typography class="mb-2 font-mono" variant="item-title">Favourite Book</Typography>
+    <FavouriteTile variant={'book'} value={book}/>
+</div>
+<div class="m-4">
+    <Typography class="mb-2 font-mono" variant="item-title">Favourite Person</Typography>
+    <FavouriteTile variant={'person'} value={person}/>
+</div>
+<div class="m-4">
+    <Typography class="mb-2 font-mono" variant="item-title">Favourite Video</Typography>
+    <FavouriteTile variant={'video'} value={video}/>
+</div>
+<div class="m-4">
+    <Typography class="mb-2 font-mono" variant="item-title">Favourite Media</Typography>
+    <FavouriteTile variant={'media'} value={media}/>
+</div>
+
