@@ -1,6 +1,6 @@
 import type { LocalImage, SectionConfig } from './common';
 
-interface Book {
+export interface Book {
   title: string;
   cover: LocalImage;
   author: string;

@@ -1,6 +1,4 @@
-import type { ImageMetadata } from '@astrojs/image';
-
-export type Icon = string;
+import type { Icon } from './icon';
 
 export type LocalImage = Promise<{ default: ImageMetadata }>;
 

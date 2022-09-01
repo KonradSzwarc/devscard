@@ -9,10 +9,10 @@ type FavouriteElementVariant =
   | 'person';
 
 const variantToTileWidth = {
-  'book': 51,
-  'media': 29,
-  'video': 70,
-  'person': 29
+  'book': 'w-51',
+  'media': 'w-29',
+  'video': 'w-70',
+  'person': 'w-29'
 } as const;
 
 const variantToWidth = {
@@ -35,22 +35,27 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {
 }
 
 const { value, variant, ...props } = Astro.props;
-const FavouriteTile = 'div';
-const tileWidth = variantToTileWidth[variant];
+const FavouriteTile = 'a';
+
 ---
 
 <FavouriteTile 
+  href={value.url}
   class:list={[
     variant, 
     props.class, 
     'flex', 
     'flex-col',
     'gap-3',
-    `w-${tileWidth}`
+    variantToTileWidth[variant]
     ]}>
   <Image 
-    class:list={['rounded-lg', 'shadow-md', 'object-cover']}
-    src={value.image || value.cover || value.thumbnail} 
+    class:list={['rounded-lg', 'shadow-md', 'object-cover', variant==='person' && 'grayscale']}
+    src={
+      value.image 
+      || value.cover 
+      || 'https://img.youtube.com/vi/'+value.url.split("/").pop()+'/0.jpg'
+    } 
     alt= {value.title} 
     width={variantToWidth[variant]} 
     height={variantToHeight[variant]} 

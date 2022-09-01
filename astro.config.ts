@@ -7,7 +7,4 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   integrations: [react(), tailwind(), image()],
   vite: { ssr: { external: ['svgo'] } },
-  devOptions: {
-    tailwindConfig: './tailwind.config.cjs',
-  },
 });
