@@ -1,6 +1,9 @@
 ---
-import FavouriteTile from '@/atoms/favorite-tile.astro';
+import BookTile from '@/atoms/book-tile.astro';
+import MediaTile from '@/atoms/media-tile.astro';
+import PersonTile from '@/atoms/person-tile.astro';
 import Typography from '@/atoms/typography.astro';
+import VideoTile from '@/atoms/video-tile.astro';
 import type { Book, Media, Person, Video } from '@/types/favorites-section';
 
 const book: Book = {
@@ -30,19 +33,19 @@ const media: Media = {
 };
 ---
 
-<div class="m-4">
-  <Typography class="mb-2 font-mono" variant="item-title">Favourite Book</Typography>
-  <FavouriteTile variant={'book'} value={book} />
+<Typography class="m-2 font-mono" variant="item-title">Favourite Book</Typography>
+<div class="m-4 grid grid-flow-col grid-cols-[1fr_400px_4fr]">
+  <BookTile value={book} />
 </div>
-<div class="m-4">
-  <Typography class="mb-2 font-mono" variant="item-title">Favourite Person</Typography>
-  <FavouriteTile variant={'person'} value={person} />
+<Typography class="m-2 font-mono" variant="item-title">Favourite Person</Typography>
+<div class="m-4 grid grid-flow-col grid-cols-[1fr_600px_4fr]">
+  <PersonTile value={person} />
 </div>
-<div class="m-4">
-  <Typography class="mb-2 font-mono" variant="item-title">Favourite Video</Typography>
-  <FavouriteTile variant={'video'} value={video} />
+<Typography class="m-2 font-mono" variant="item-title">Favourite Video</Typography>
+<div class="m-4 grid grid-flow-col grid-cols-[1fr_200px_4fr]">
+  <VideoTile value={video} />
 </div>
-<div class="m-4">
-  <Typography class="mb-2 font-mono" variant="item-title">Favourite Media</Typography>
-  <FavouriteTile variant={'media'} value={media} />
+<Typography class="m-2 font-mono" variant="item-title">Favourite Media</Typography>
+<div class="m-4 grid grid-flow-col grid-cols-[1fr_600px_4fr]">
+  <MediaTile value={media} />
 </div>
