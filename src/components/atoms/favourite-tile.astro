@@ -1,33 +1,31 @@
 ---
-import Typography from '@/atoms/typography.astro';
 import { Image } from '@astrojs/image/components';
 
-type FavouriteElementVariant =
-  | 'book'
-  | 'media'
-  | 'video'
-  | 'person';
+import Typography from '@/atoms/typography.astro';
+import type FavouriteElement from '@/types/favourites-section';
+
+type FavouriteElementVariant = 'book' | 'media' | 'video' | 'person';
 
 const variantToTileWidth = {
-  'book': 'w-51',
-  'media': 'w-29',
-  'video': 'w-70',
-  'person': 'w-29'
-} as const;
+  book: 'w-51',
+  media: 'w-29',
+  video: 'w-70',
+  person: 'w-29',
+};
 
 const variantToWidth = {
-  'book': 200,
-  'media': 122.66,
-  'video': 277.33,
-  'person': 122.66
-} as const;
+  book: 200,
+  media: 122.66,
+  video: 277.33,
+  person: 122.66,
+};
 
 const variantToHeight = {
-  'book': 260,
-  'media': 122.66,
-  'video': 156,
-  'person': 122.66
-} as const;
+  book: 260,
+  media: 122.66,
+  video: 156,
+  person: 122.66,
+};
 
 export interface Props extends astroHTML.JSX.HTMLAttributes {
   value: FavouriteElement;
@@ -36,49 +34,44 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {
 
 const { value, variant, ...props } = Astro.props;
 const FavouriteTile = 'a';
-
 ---
 
-<FavouriteTile 
+<FavouriteTile
   href={value.url}
   class:list={[
-    variant, 
-    props.class, 
-    'flex', 
+    variant,
+    props.class,
+    'flex',
     'group',
     'flex-col',
     'gap-3',
     'transition',
     'duration-300',
     'hover:translate-y-2',
-    variantToTileWidth[variant]
-    ]}>
-  <Image 
+    variantToTileWidth[variant],
+  ]}
+>
+  <Image
     class:list={[
-      'rounded-lg', 
-      'shadow-md', 
+      'rounded-lg',
+      'shadow-md',
       'object-cover',
-      variant==='person' && 'grayscale', 'hover:grayscale-0',
+      variant === 'person' && 'grayscale',
+      'hover:grayscale-0',
       'transition',
       'duration-300',
-      ]}
-    src={
-      value.image 
-      || value.cover 
-      || 'https://img.youtube.com/vi/'+value.url.split("/").pop()+'/0.jpg'
-    } 
-    alt= {value.title} 
-    width={variantToWidth[variant]} 
-    height={variantToHeight[variant]} 
-    format='webp' />
+    ]}
+    src={value.image || value.cover || `https://img.youtube.com/vi/${value.url.split('/').pop()}/0.jpg`}
+    alt={value.title}
+    width={variantToWidth[variant]}
+    height={variantToHeight[variant]}
+    format="webp"
+  />
   <div class:list={['gap-1']}>
-    <Typography
-      class={'leading-5', 'hover:text-gray-900'}
-      variant="tile-title">
+    <Typography class:list={['leading-5', 'hover:text-gray-900']} variant="tile-title">
       {value.title || value.name}
     </Typography>
-    <Typography 
-      variant='tile-subtitle'>
+    <Typography variant="tile-subtitle">
       {value.type || value.author}
     </Typography>
   </div>

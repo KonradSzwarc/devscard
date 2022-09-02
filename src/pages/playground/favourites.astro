@@ -1,8 +1,8 @@
 ---
-import type { Book, Person, Media, Video } from '@types/favorites-section.astro';
-import Typography from '@/atoms/typography.astro';
+import type { Book, Media, Person, Video } from '@types/favorites-section.astro';
 
 import FavouriteTile from '@/atoms/favourite-tile.astro';
+import Typography from '@/atoms/typography.astro';
 
 const book: Book = {
   cover: import('@/assets/favorites/books/book-1.jpeg'),
@@ -29,23 +29,21 @@ const media: Media = {
   type: 'YouTube channel',
   url: 'https://www.youtube.com/c/Fireship',
 };
-
 ---
 
 <div class="m-4">
-    <Typography class="mb-2 font-mono" variant="item-title">Favourite Book</Typography>
-    <FavouriteTile variant={'book'} value={book}/>
+  <Typography class="mb-2 font-mono" variant="item-title">Favourite Book</Typography>
+  <FavouriteTile variant={'book'} value={book} />
 </div>
 <div class="m-4">
-    <Typography class="mb-2 font-mono" variant="item-title">Favourite Person</Typography>
-    <FavouriteTile variant={'person'} value={person}/>
+  <Typography class="mb-2 font-mono" variant="item-title">Favourite Person</Typography>
+  <FavouriteTile variant={'person'} value={person} />
 </div>
 <div class="m-4">
-    <Typography class="mb-2 font-mono" variant="item-title">Favourite Video</Typography>
-    <FavouriteTile variant={'video'} value={video}/>
+  <Typography class="mb-2 font-mono" variant="item-title">Favourite Video</Typography>
+  <FavouriteTile variant={'video'} value={video} />
 </div>
 <div class="m-4">
-    <Typography class="mb-2 font-mono" variant="item-title">Favourite Media</Typography>
-    <FavouriteTile variant={'media'} value={media}/>
+  <Typography class="mb-2 font-mono" variant="item-title">Favourite Media</Typography>
+  <FavouriteTile variant={'media'} value={media} />
 </div>
-
