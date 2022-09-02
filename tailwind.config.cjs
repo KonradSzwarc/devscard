@@ -11,6 +11,11 @@ module.exports = {
       primary: colors.indigo,
       gray: colors.gray,
     },
+    extend: {
+      spacing: {
+        22: '5.5rem',
+      },
+    },
   },
   plugins: [],
 };
