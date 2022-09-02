@@ -34,6 +34,10 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {
 
 const { value, variant, ...props } = Astro.props;
 const FavouriteTile = 'a';
+
+const getVideoThumbnail = (url: string) => {
+  return `https://img.youtube.com/vi/${url.split('/').pop()}/0.jpg`;
+};
 ---
 
 <FavouriteTile
@@ -61,7 +65,7 @@ const FavouriteTile = 'a';
       'transition',
       'duration-300',
     ]}
-    src={value.image || value.cover || `https://img.youtube.com/vi/${value.url.split('/').pop()}/0.jpg`}
+    src={value.image || value.cover || getVideoThumbnail(value.url)}
     alt={value.title}
     width={variantToWidth[variant]}
     height={variantToHeight[variant]}
