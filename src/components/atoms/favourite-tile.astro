@@ -45,12 +45,23 @@ const FavouriteTile = 'a';
     variant, 
     props.class, 
     'flex', 
+    'group',
     'flex-col',
     'gap-3',
+    'transition',
+    'duration-300',
+    'hover:translate-y-2',
     variantToTileWidth[variant]
     ]}>
   <Image 
-    class:list={['rounded-lg', 'shadow-md', 'object-cover', variant==='person' && 'grayscale']}
+    class:list={[
+      'rounded-lg', 
+      'shadow-md', 
+      'object-cover',
+      variant==='person' && 'grayscale', 'hover:grayscale-0',
+      'transition',
+      'duration-300',
+      ]}
     src={
       value.image 
       || value.cover 
@@ -62,7 +73,7 @@ const FavouriteTile = 'a';
     format='webp' />
   <div class:list={['gap-1']}>
     <Typography
-      class={'leading-5'}
+      class={'leading-5', 'hover:text-gray-900'}
       variant="tile-title">
       {value.title || value.name}
     </Typography>
