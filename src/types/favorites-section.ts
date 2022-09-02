@@ -7,19 +7,19 @@ export interface Book {
   url?: string;
 }
 
-interface Person {
+export interface Person {
   name: string;
   image: LocalImage;
   url?: string;
 }
 
-interface Video {
+export interface Video {
   title: string;
   thumbnail: LocalImage;
   url: string;
 }
 
-interface Media {
+export interface Media {
   title: string;
   type: string;
   image: LocalImage;
@@ -40,3 +40,5 @@ export interface FavoritesSection {
 }
 
 export type FavoriteElement = Book | Person | Video | Media;
+
+export type FavoriteElementVariant = 'book' | 'media' | 'video' | 'person';

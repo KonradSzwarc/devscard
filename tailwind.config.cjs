@@ -11,13 +11,6 @@ module.exports = {
       primary: colors.indigo,
       gray: colors.gray,
     },
-    extend: {
-      width: {
-        29: '7.66rem',
-        51: '12.5rem',
-        70: '17.33rem',
-      },
-    },
   },
   plugins: [],
 };

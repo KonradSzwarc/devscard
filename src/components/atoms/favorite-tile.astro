@@ -2,15 +2,13 @@
 import { Image } from '@astrojs/image/components';
 
 import Typography from '@/atoms/typography.astro';
-import type FavouriteElement from '@/types/favourites-section';
-
-type FavouriteElementVariant = 'book' | 'media' | 'video' | 'person';
+import type { Book, FavoriteElement, FavoriteElementVariant, Media, Person, Video } from '@/types/favorites-section';
 
 const variantToTileWidth = {
-  book: 'w-51',
-  media: 'w-29',
-  video: 'w-70',
-  person: 'w-29',
+  book: 'w-[12.5rem]',
+  media: 'w-[7.66rem]',
+  video: 'w-[17.33rem]',
+  person: 'w-[7.66rem]',
 };
 
 const variantToWidth = {
@@ -28,8 +26,8 @@ const variantToHeight = {
 };
 
 export interface Props extends astroHTML.JSX.HTMLAttributes {
-  value: FavouriteElement;
-  variant: FavouriteElementVariant;
+  value: FavoriteElement;
+  variant: FavoriteElementVariant;
 }
 
 const { value, variant, ...props } = Astro.props;
@@ -37,6 +35,13 @@ const FavouriteTile = 'a';
 
 const getVideoThumbnail = (url: string) => {
   return `https://img.youtube.com/vi/${url.split('/').pop()}/0.jpg`;
+};
+
+const getSrcImage = (el: FavoriteElement, elVariant: FavoriteElementVariant) => {
+  if (elVariant === 'book') return (el as Book).cover;
+  if (elVariant === 'video') return getVideoThumbnail((el as Video).url);
+  if (elVariant === 'person' || variant === 'media') return ((el as Person) || (el as Media)).image;
+  return '';
 };
 ---
 
@@ -65,18 +70,18 @@ const getVideoThumbnail = (url: string) => {
       'transition',
       'duration-300',
     ]}
-    src={value.image || value.cover || getVideoThumbnail(value.url)}
-    alt={value.title}
+    src={getSrcImage(value, variant)}
+    alt={(value as Book | Video | Media).title || (value as Person).name}
     width={variantToWidth[variant]}
     height={variantToHeight[variant]}
     format="webp"
   />
   <div class:list={['gap-1']}>
     <Typography class:list={['leading-5', 'hover:text-gray-900']} variant="tile-title">
-      {value.title || value.name}
+      {(value as Book | Media | Video).title || (value as Person).name}
     </Typography>
     <Typography variant="tile-subtitle">
-      {value.type || value.author}
+      {(value as Media).type || (value as Person).name || (value as Book).author}
     </Typography>
   </div>
 </FavouriteTile>
