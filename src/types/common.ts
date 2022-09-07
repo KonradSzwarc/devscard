@@ -1,3 +1,5 @@
+import type { IconProps } from '@/atoms/icon';
+
 import type { Icon } from './icon';
 
 export type LocalImage = Promise<{ default: ImageMetadata }>;
@@ -9,7 +11,7 @@ export interface Detail {
 
 export interface Social {
   name: string;
-  icon: Icon;
+  icon: IconProps;
   url: string;
 }
 

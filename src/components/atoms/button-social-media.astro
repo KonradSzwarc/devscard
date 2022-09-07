@@ -1,0 +1,21 @@
+---
+import Icon from './icon';
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  icon: string;
+}
+
+const { props } = Astro;
+---
+
+<a
+  href={props.name}
+  {...props}
+  class:list={[
+    'flex flex-row items-center justify-center h-8 w-8 mt-2 rounded-md text-gray-400 bg-gray-100 active:translate-y-px focus:outline-none focus:ring-2 ',
+    props.class,
+  ]}
+>
+  <Icon client:load name={props.icon} size={16} />
+  <slot />
+</a>

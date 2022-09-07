@@ -1,7 +1,12 @@
 ---
+import data from 'src/data';
+
 import Button from '@/atoms/button.astro';
+import ButtonSocialMedia from '@/atoms/button-social-media.astro';
 ---
 
 <div class="p-5">
   <Button>Button text</Button>
+
+  {data.main.socials.map((social) => <ButtonSocialMedia icon={social.icon} name={social.name} />)}
 </div>
