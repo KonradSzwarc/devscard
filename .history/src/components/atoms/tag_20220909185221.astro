@@ -7,9 +7,9 @@ const { props } = Astro;
 <tag
   type="span"
   {...props}
-  class:list={[
-    'inline-flex text-black text-center text-sm font-medium align-middle rounded border-x-8 bg-gray-200',
+class:list={[
+    'inline-flex text-black text-center text-base text-sm font-medium align-middle rounded border-x-8 bg-gray-200',
     props.class,
-  ]}
-  ><slot />
+    ]}
+    ><slot />
 </tag>
