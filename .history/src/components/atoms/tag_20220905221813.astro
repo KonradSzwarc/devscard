@@ -1,0 +1,11 @@
+---
+export interface Props extends astroHTML.JSX.HTMLAttributes {}
+
+const { props } = Astro;
+---
+
+<tag
+    type="span"
+    {...props}
+    class>
+</tag>
