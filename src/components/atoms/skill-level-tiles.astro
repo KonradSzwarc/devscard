@@ -1,15 +1,40 @@
 ---
 export interface Props extends astroHTML.JSX.HTMLAttributes {
- skillLevel: number;
+  skillLevel: number;
 }
-const {skillLevel} = Astro.props;
+const { skillLevel } = Astro.props;
 
-const Levels: number[]= [1, 2, 3, 4, 5]
+const Levels: number[] = [1, 2, 3, 4, 5];
 ---
 
-  <div class:list={['flex', 'flex-row', 'justify-between']}>
-    {Levels.map((level) => (
-      level > skillLevel ? <div class:list={[ 'w-9', 'h-2', 'bg-gray-300', 'last:rounded-l-none', 'last:rounded-r-sm', 'first:rounded-l-sm', 'first:rounded-r-none']} /> :
-      <div class:list={[ 'w-9', 'h-2',  'bg-gray-500',  'last:rounded-l-none', 'last:rounded-r-sm', 'first:rounded-l-sm', 'first:rounded-r-none']}/>
-      ))}
-  </div>
+<div class:list={['flex', 'flex-row', 'justify-between']}>
+  {
+    Levels.map((level) =>
+      level > skillLevel ? (
+        <div
+          class:list={[
+            'w-9',
+            'h-2',
+            'bg-gray-300',
+            'last:rounded-l-none',
+            'last:rounded-r-sm',
+            'first:rounded-l-sm',
+            'first:rounded-r-none',
+          ]}
+        />
+      ) : (
+        <div
+          class:list={[
+            'w-9',
+            'h-2',
+            'bg-gray-500',
+            'last:rounded-l-none',
+            'last:rounded-r-sm',
+            'first:rounded-l-sm',
+            'first:rounded-r-none',
+          ]}
+        />
+      )
+    )
+  }
+</div>
