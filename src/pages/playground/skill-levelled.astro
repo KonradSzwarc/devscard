@@ -1,0 +1,22 @@
+---
+import SkillLevel from '@/organisms/skill-level.astro';
+import type { LevelledSkill} from '@/types/skills-section';
+
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+}
+
+const levelledSkill: LevelledSkill =
+          {
+            icon: 'simple-icons:react',
+            iconColor: '#61DAFB',
+            name: 'React.js',
+            level: 3,
+            url: 'https://reactjs.org/',
+            description:
+              'Proin ut erat sed massa tempus suscipit. Mauris efficitur nunc sem, nec scelerisque ligula bibendum ut.',
+          }
+---
+
+    <SkillLevel levelledSkill={levelledSkill} />
+
