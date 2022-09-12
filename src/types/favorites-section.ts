@@ -38,7 +38,3 @@ export interface FavoritesSection {
   videos: SubSection<Video>;
   medias: SubSection<Media>;
 }
-
-export type FavoriteElement = Book | Person | Video | Media;
-
-export type FavoriteElementVariant = 'book' | 'media' | 'video' | 'person';
