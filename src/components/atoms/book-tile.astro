@@ -14,21 +14,12 @@ const BookTile = 'a';
 
 <BookTile
   href={value.url}
-  class:list={[
-    props.class,
-    'book-tile',
-    'flex',
-    'flex-col',
-    'gap-3',
-    'transition',
-    'duration-300',
-    'hover:translate-y-2',
-  ]}
+  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', props.class]}
 >
   <Image
     class:list={['rounded-lg', 'shadow-md', 'object-cover']}
     src={value.cover}
-    aspectRatio={'3/4'}
+    aspectRatio="1.3"
     alt={value.title}
     format="webp"
   />
