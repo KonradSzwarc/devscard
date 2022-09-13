@@ -1,0 +1,23 @@
+---
+import Icon from './icon';
+
+export interface Props extends astroHTML.JSX.ButtonHTMLAttributes {
+  icon: string;
+  name: string;
+  size: "small" | "large"}
+
+const {icon, name, size, ...props } = Astro.props;
+---
+
+<a
+  {...props}
+  class:list={[
+    `flex flex-row items-center w-${size} h-${size}
+    justify-center mt-2 rounded-md text-gray-400 bg-gray-100 active:translate-y-px focus:outline-none focus:ring-2 `,
+    props.class,
+  ]}
+>
+  <Icon client:load name={icon} size={16} />
+  <slot />
+</a>
+
