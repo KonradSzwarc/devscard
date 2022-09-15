@@ -1,15 +1,15 @@
 ---
-import SkillLevelTiles from '@/atoms/skill-level-tiles.astro';
-import type { LevelledSkill } from '@/types/skills-section';
-
+import SkillLevelTile from '@/atoms/skill-level-tile.astro'
 export interface Props extends astroHTML.JSX.HTMLAttributes {
-  levelledSkill: LevelledSkill;
+  skillLevel: number;
 }
+const { skillLevel } = Astro.props;
 
-const { levelledSkill, ...props } = Astro.props;
+const LEVELS = [1, 2, 3, 4, 5];
 ---
 
-<div class:list={['w-[228px]']} {...props}>
-  <div>{levelledSkill.name}</div>
-  <SkillLevelTiles skillLevel={levelledSkill.level} />
+<div class:list={['grid', 'grid-cols-5', 'gap-0.5', 'w-48']}>
+  {
+    LEVELS.map((tileLevel) => <SkillLevelTile tileLevel={tileLevel} skillLevel={skillLevel} />)
+  }
 </div>

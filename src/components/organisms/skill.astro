@@ -1,0 +1,15 @@
+---
+import SkillLevel from './skill-level.astro';
+import type { LevelledSkill } from '@/types/skills-section';
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  levelledSkill: LevelledSkill;
+}
+
+const { levelledSkill, ...props } = Astro.props;
+---
+
+<div class:list={['grid', 'grid-rows-2']} {...props}>
+  <div>{levelledSkill.name}</div>
+  <SkillLevel skillLevel={levelledSkill.level} />
+</div>
