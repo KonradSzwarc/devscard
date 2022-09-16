@@ -1,0 +1,15 @@
+---
+export interface Props extends astroHTML.JSX.HTMLAttributes {}
+
+const { props } = Astro;
+---
+
+<tag
+  type="span"
+  {...props}
+  class:list={[
+    'inline-flex items-center text-base font-medium rounded-md text-black bg-gray-300',
+    props.class,
+  ]}
+  ><slot />
+</tag>
