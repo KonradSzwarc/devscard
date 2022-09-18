@@ -4,4 +4,6 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {}
 const { props } = Astro;
 ---
 
-<nav class:list={['w-14 min-w-[56px] h-72 rounded-lg bg-white shadow-md', props.class]}></nav>
+<nav class:list={['flex p-2 rounded-lg gap-2 bg-white shadow-md', props.class]}>
+  <slot />
+</nav>
