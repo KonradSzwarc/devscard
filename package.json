@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@astrojs/react": "1.1.4",
-    "@astrojs/tailwind": "1.0.1",
+    "@astrojs/tailwind": "2.0.2",
     "@iconify/json": "2.1.116",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
