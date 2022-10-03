@@ -18,23 +18,23 @@
     "lint:ts": "tsc --jsx preserve --skipLibCheck"
   },
   "dependencies": {
-    "@astrojs/image": "0.7.1",
+    "@astrojs/image": "0.9.1",
     "@iconify-icon/react": "1.0.0",
     "clsx": "1.2.1",
-    "prettier-plugin-astro": "0.5.4",
+    "prettier-plugin-astro": "0.5.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@astrojs/react": "1.1.4",
-    "@astrojs/tailwind": "1.0.1",
-    "@iconify/json": "2.1.110",
-    "@types/react": "18.0.20",
+    "@astrojs/tailwind": "2.0.2",
+    "@iconify/json": "2.1.116",
+    "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
-    "@typescript-eslint/eslint-plugin": "5.38.0",
-    "@typescript-eslint/parser": "5.38.0",
-    "astro": "1.2.8",
-    "eslint": "8.23.1",
+    "@typescript-eslint/eslint-plugin": "5.38.1",
+    "@typescript-eslint/parser": "5.38.1",
+    "astro": "1.4.2",
+    "eslint": "8.24.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-typescript": "17.0.0",
     "eslint-config-prettier": "8.5.0",
@@ -48,11 +48,11 @@
     "eslint-plugin-react": "7.31.8",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-simple-import-sort": "8.0.0",
-    "postcss": "8.4.16",
+    "postcss": "8.4.17",
     "prettier": "2.7.1",
     "tailwindcss": "3.1.8",
-    "type-fest": "2.19.0",
-    "vite": "3.1.3",
-    "vite-tsconfig-paths": "3.5.0"
+    "type-fest": "3.0.0",
+    "vite": "3.1.4",
+    "vite-tsconfig-paths": "3.5.1"
   }
 }
