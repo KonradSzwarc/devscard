@@ -15,7 +15,7 @@ const { props } = Astro;
   type="button"
   class:list={[
     `inline-flex justify-center items-center h-10 w-10 rounded-lg transition hover:bg-primary-600`,
-    `${props.active && 'bg-primary-600'} `,
+    props.active && 'bg-primary-600',
     props.class,
   ]}
 >
