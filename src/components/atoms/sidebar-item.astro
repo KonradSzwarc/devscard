@@ -1,0 +1,24 @@
+---
+import type { Icon as IconName } from '@/types/icon';
+
+import Icon from './icon';
+
+export interface Props extends astroHTML.JSX.ButtonHTMLAttributes {
+  icon: IconName;
+  active?: boolean;
+}
+
+const { props } = Astro;
+---
+
+<button
+  type="button"
+  class:list={[
+    `inline-flex justify-center items-center h-10 w-10 rounded-lg transition hover:bg-primary-600`,
+    props.active && 'bg-primary-600',
+    props.class,
+  ]}
+>
+  <Icon client:load name={props.icon} size={20} color={props.active ? 'white' : 'gray'} />
+  <slot />
+</button>
