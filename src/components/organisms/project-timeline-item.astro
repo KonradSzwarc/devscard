@@ -1,0 +1,69 @@
+---
+import { Image } from '@astrojs/image/components';
+
+import Typography from '@/atoms/typography.astro';
+import type { Project } from '@/types/portfolio-section';
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  value: Project;
+}
+const { value, ...props } = Astro.props;
+const ProjectTimelineItem = 'div';
+
+const getFormattedDate = (date: Date): string =>
+  new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date).concat(' ', date.getFullYear().toString());
+---
+
+<ProjectTimelineItem class:list={[props.class]}>
+  <div class:list={['flex', 'flex-col', 'sm:grid', 'overflow-hidden', 'grid-cols-[120px_minmax(200px,_1fr)]', 'gap-2']}>
+    <Image
+      class:list={['rounded-lg', 'object-cover', 'max-w-[120px]', 'm-0', 'overflow-hidden', 'sm:block', 'hidden']}
+      src={value.image}
+      aspectRatio="1/1"
+      alt={''}
+      format="webp"
+    />
+    <div class:list={['col-start-2', 'col-span-2', 'sm:mx-6']}>
+      <Typography class="font-mono" variant="item-title">{value.name}</Typography>
+      <Typography variant="item-subtitle">
+        {getFormattedDate(value.startDate).concat(' - ', value.endDate ? getFormattedDate(value.endDate) : 'Now')}
+      </Typography>
+      <Image
+        class:list={['rounded-lg', 'object-cover', 'my-2', 'max-w-[200px]', 'sm:block', 'sm:hidden']}
+        src={value.image}
+        aspectRatio="1/1"
+        alt={''}
+        format="webp"
+      />
+      <div
+        class:list={[
+          'grid',
+          'overflow-hidden',
+          'sm:grid-cols-[160px_minmax(300px,_1fr)]',
+          'md:grid-cols-[220px_minmax(300px,_1fr)]',
+          'sm:grid-cols-2',
+          'md:gap-1',
+          'my-4',
+        ]}
+      >
+        {
+          value.details.map((d) => (
+            <div>
+              <Typography variant="item-subtitle">
+                {d.label}:
+                <span class:list={'font-normal'}>
+                  {Array.isArray(d.value)
+                    ? d.value.map((v, id) => (id !== d.value.length - 1 ? v.concat(', ') : v))
+                    : d.value}
+                </span>
+              </Typography>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="col-start-1 col-span-3">
+      <Typography variant="paragraph">{value.description}</Typography>
+    </div>
+  </div>
+</ProjectTimelineItem>

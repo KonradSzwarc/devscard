@@ -1,6 +1,6 @@
 import type { Detail, LocalImage, SectionConfig, Social, Tag } from './common';
 
-interface Project {
+export interface Project {
   name: string;
   image?: LocalImage;
   startDate: Date;
