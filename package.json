@@ -28,7 +28,7 @@
   "devDependencies": {
     "@astrojs/react": "1.2.0",
     "@astrojs/tailwind": "2.1.0",
-    "@iconify/json": "2.1.121",
+    "@iconify/json": "2.1.122",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "@typescript-eslint/eslint-plugin": "5.40.0",
