@@ -4,17 +4,17 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {
   tileLevel: number;
 }
 const { skillLevel, tileLevel } = Astro.props;
-
 ---
-      <div
-        class:list={[
-          'w-full',
-          'h-2',
-          'last:rounded-l-none',
-          'last:rounded-r-sm',
-          'first:rounded-l-sm',
-          'first:rounded-r-none',
-          { 'bg-gray-300': tileLevel > skillLevel, 'bg-gray-500': !(tileLevel > skillLevel) },
-        ]}
-      />
 
+<div
+  class:list={[
+    'w-full',
+    'h-2',
+    'last:rounded-l-none',
+    'last:rounded-r-sm',
+    'first:rounded-l-sm',
+    'first:rounded-r-none',
+    { 'bg-gray-300': tileLevel > skillLevel, 'bg-gray-500': !(tileLevel > skillLevel) },
+  ]}
+>
+</div>

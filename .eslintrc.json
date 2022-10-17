@@ -62,8 +62,7 @@
         "parser": "@typescript-eslint/parser"
       },
       "rules": {
-        "astro/jsx-a11y/alt-text": [2, { "img": ["Image", "Picture"] }],
-        "format": "['snake-case']"
+        "astro/jsx-a11y/alt-text": [2, { "img": ["Image", "Picture"] }]
       }
     },
     {

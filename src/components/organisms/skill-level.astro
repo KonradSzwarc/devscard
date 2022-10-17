@@ -1,5 +1,6 @@
 ---
-import SkillLevelTile from '@/atoms/skill-level-tile.astro'
+import SkillLevelTile from '@/atoms/skill-level-tile.astro';
+
 export interface Props extends astroHTML.JSX.HTMLAttributes {
   skillLevel: number;
 }
@@ -9,7 +10,5 @@ const LEVELS = [1, 2, 3, 4, 5];
 ---
 
 <div class:list={['grid', 'grid-cols-5', 'gap-0.5', 'w-48']}>
-  {
-    LEVELS.map((tileLevel) => <SkillLevelTile tileLevel={tileLevel} skillLevel={skillLevel} />)
-  }
+  {LEVELS.map((tileLevel) => <SkillLevelTile tileLevel={tileLevel} skillLevel={skillLevel} />)}
 </div>
