@@ -1,0 +1,23 @@
+---
+import Icon from '@/atoms/icon';
+import Typography from '@/atoms/typography.astro';
+import type { LevelledSkill } from '@/types/skills-section';
+
+import SkillLevel from './skill-level.astro';
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  levelledSkill: LevelledSkill;
+}
+
+const { levelledSkill, ...props } = Astro.props;
+---
+
+<div class:list={['flex', 'flex-col', 'gap-2']} {...props}>
+  <div class:list={['flex', 'gap-2', 'h-5']}>
+    <a href={levelledSkill.url} target="_blank" rel="noopener noreferrer">
+      <Icon client:load name={levelledSkill.icon} color={levelledSkill.iconColor} size={20} />
+    </a>
+    <Typography variant="tile-subtitle" class="text-gray-700">{levelledSkill.name}</Typography>
+  </div>
+  <SkillLevel skillLevel={levelledSkill.level} />
+</div>

@@ -15,6 +15,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . --ext .cjs,.ts,.tsx,.astro --ignore-path .gitignore",
+    "lint:fix": "eslint . --ext .cjs,.ts,.tsx,.astro --ignore-path .gitignore --fix",
     "lint:ts": "tsc --jsx preserve --skipLibCheck"
   },
   "dependencies": {
@@ -51,6 +52,7 @@
     "postcss": "8.4.18",
     "prettier": "2.7.1",
     "tailwindcss": "3.1.8",
+    "typescript": "4.8.3",
     "type-fest": "3.1.0",
     "vite": "3.1.8",
     "vite-tsconfig-paths": "3.5.1"
