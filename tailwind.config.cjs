@@ -15,14 +15,6 @@ module.exports = {
       spacing: {
         22: '5.5rem',
       },
-      width: {
-        small: 28,
-        large: 34,
-      },
-      height: {
-        small: 28,
-        large: 34,
-      },
     },
   },
   plugins: [],

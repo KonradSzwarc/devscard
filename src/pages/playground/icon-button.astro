@@ -2,9 +2,9 @@
 import IconButton from '@/atoms/icon-button.astro';
 ---
 
-<div class="p-5">
-  <IconButton icon="fa6-brands:facebook-f" name="Facebook" size="small" />
-  <IconButton icon="fa6-brands:github" name="GitHub" size="large" />
-  <IconButton icon="fa6-brands:linkedin-in" name="LinkedIn" size="large" />
-  <IconButton icon="fa6-brands:twitter" name="Twitter" size="large" />
+<div class:list={['p-5', 'flex', 'flex-col', 'gap-2']}>
+  <IconButton icon="fa6-brands:facebook-f" name="Facebook" size="small" href="https://facebook.com/" target="_blank" />
+  <IconButton icon="fa6-brands:github" name="GitHub" size="small" href="https://github.com/" target="_blank" />
+  <IconButton icon="fa6-brands:linkedin-in" name="LinkedIn" size="large" href="https://linkedin.com/" target="_blank" />
+  <IconButton icon="fa6-brands:twitter" name="Twitter" size="large" href="https://twitter.com/" target="_blank" />
 </div>
