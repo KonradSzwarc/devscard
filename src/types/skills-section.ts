@@ -1,6 +1,6 @@
 import type { SectionConfig, Tag } from './common';
 
-interface LevelledSkill extends Tag {
+export interface LevelledSkill extends Tag {
   level: 1 | 2 | 3 | 4 | 5;
 }
 

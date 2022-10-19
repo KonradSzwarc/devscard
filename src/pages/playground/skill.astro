@@ -1,0 +1,14 @@
+---
+import Skill from '@/organisms/skill.astro';
+import type { LevelledSkill } from '@/types/skills-section';
+
+const levelledSkill: LevelledSkill = {
+  icon: 'simple-icons:react',
+  iconColor: '#61DAFB',
+  name: 'React.js',
+  level: 3,
+  url: 'https://reactjs.org/',
+};
+---
+
+<Skill levelledSkill={levelledSkill} />
