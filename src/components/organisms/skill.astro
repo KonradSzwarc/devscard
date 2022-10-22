@@ -12,9 +12,7 @@ const { url, icon, iconColor, name, level } = Astro.props;
 
 <div class:list={['flex', 'flex-col', 'gap-2']}>
   <div class:list={['flex', 'gap-2', 'h-5']}>
-    <a href={url} target="_blank" rel="noopener noreferrer">
-      <Icon client:load name={icon} color={iconColor} size={20} />
-    </a>
+    <Icon client:load name={icon} color={iconColor} size={20} url={url} />
     <Typography variant="tile-subtitle" class="text-gray-700">{name}</Typography>
   </div>
   <SkillLevel skillLevel={level} />
