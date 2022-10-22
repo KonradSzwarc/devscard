@@ -1,8 +1,73 @@
 ---
+import { Image } from '@astrojs/image/components';
+
+import Button from '@/atoms/button.astro';
+import IconButton from '@/atoms/icon-button.astro';
 import SectionCard from '@/atoms/section-card.astro';
+import Tag from '@/atoms/tag.astro';
+import Typography from '@/atoms/typography.astro';
 import type { MainSection } from '@/types/main-section';
 
 export interface Props extends MainSection {}
+
+const {
+  image,
+  fullName,
+  role,
+  socials,
+  details,
+  description,
+  action: { label, url, downloadedFileName },
+  tags,
+} = Astro.props;
 ---
 
-<SectionCard>Main section</SectionCard>
+<SectionCard>
+  <div class:list={['flex', 'gap-6']}>
+    <div class:list={['flex', 'flex-col', 'gap-4', 'items-center']}>
+      <Image src={image} alt={fullName} class:list={['w-52', 'h-52', 'rounded-lg', 'max-w-none']} />
+      <Button href={url} download={downloadedFileName}>{label}</Button>
+    </div>
+    <div class:list={['w-full', 'flex', 'flex-col', 'gap-5']}>
+      <div class:list={['w-full', 'flex', 'justify-between']}>
+        <div class:list={['w-full']}>
+          <Typography variant="main-title">{fullName}</Typography>
+          <Typography variant="main-subtitle">{role}</Typography>
+        </div>
+        {
+          socials.length > 0 && (
+            <div class:list={['flex', 'gap-3']}>
+              {socials.map(({ icon, url: iconUrl }) => (
+                <IconButton href={iconUrl} icon={icon} size="small" target="_blank" />
+              ))}
+            </div>
+          )
+        }
+      </div>
+      <div class:list={['flex', 'flex-col', 'gap-6']}>
+        <div class:list={['grid', 'grid-cols-2']}>
+          {
+            details.map(({ label: detailLabel, value }) => (
+              <div class:list={['flex', 'gap-1']}>
+                <Typography variant="paragraph" class="text-gray-700">
+                  {detailLabel}:
+                </Typography>
+                <Typography variant="paragraph">{value}</Typography>
+              </div>
+            ))
+          }
+        </div>
+        <div class:list={['flex', 'flex-col', 'gap-4']}>
+          <Typography variant="paragraph">{description}</Typography>
+          <div class:list={['flex', 'flex-wrap', 'gap-3']}>
+            {
+              tags.map(({ icon, iconColor, name }) => (
+                <Tag icon={icon ? { name: icon, color: iconColor } : undefined}>{name}</Tag>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</SectionCard>

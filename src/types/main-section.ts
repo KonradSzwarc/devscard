@@ -1,4 +1,4 @@
-import type { Detail, LocalImage, SectionConfig, Social, Tag } from './common';
+import type { Detail, LocalImage, Social, Tag } from './common';
 
 export interface MainSection {
   image: LocalImage;
@@ -10,7 +10,7 @@ export interface MainSection {
   action: {
     label: string;
     url: string;
+    downloadedFileName?: string;
   };
   socials: Social[];
-  config: Omit<SectionConfig, 'title'>;
 }
