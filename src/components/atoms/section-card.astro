@@ -1,7 +1,1 @@
----
-export interface Props extends astroHTML.JSX.HTMLAttributes {}
-
-const { props } = Astro;
----
-
-<div {...props} class:list={['p-8 bg-white rounded-2xl shadow-md', props.class]}><slot /></div>
+<div class="p-8 bg-white rounded-2xl shadow-md"><slot /></div>

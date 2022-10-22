@@ -1,11 +1,14 @@
 ---
+import type { IconName } from '@/types/icon';
+
 import Icon from './icon';
 
 type IconButtonSize = 'small' | 'large';
 
-export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
-  icon: string;
-  name: string;
+export interface Props {
+  icon: IconName;
+  target?: astroHTML.JSX.AnchorHTMLAttributes['target'];
+  href: string;
   size: IconButtonSize;
 }
 
@@ -14,11 +17,12 @@ const sizeMap: Record<IconButtonSize, string> = {
   large: 'w-9 h-9',
 };
 
-const { icon, name, size, ...props } = Astro.props;
+const { icon, href, target, size } = Astro.props;
 ---
 
 <a
-  {...props}
+  href={href}
+  target={target}
   class:list={[
     'flex',
     'items-center',
@@ -29,12 +33,10 @@ const { icon, name, size, ...props } = Astro.props;
     'active:translate-y-px',
     'focus:outline-none',
     'focus:ring-2',
+    'focus:ring-offset-2',
+    'focus:ring-primary-500',
     sizeMap[size],
-    props.class,
   ]}
-  tabindex="-1"
 >
-  <button class:list={['flex', 'items-center', 'justify-center', 'w-full', 'h-full']}>
-    <Icon client:load name={icon} size={16} />
-  </button>
+  <Icon client:load name={icon} size={16} />
 </a>

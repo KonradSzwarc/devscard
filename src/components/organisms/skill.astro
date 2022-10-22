@@ -5,19 +5,17 @@ import type { LevelledSkill } from '@/types/skills-section';
 
 import SkillLevel from './skill-level.astro';
 
-export interface Props extends astroHTML.JSX.HTMLAttributes {
-  levelledSkill: LevelledSkill;
-}
+export interface Props extends LevelledSkill {}
 
-const { levelledSkill, ...props } = Astro.props;
+const { url, icon, iconColor, name, level } = Astro.props;
 ---
 
-<div class:list={['flex', 'flex-col', 'gap-2']} {...props}>
+<div class:list={['flex', 'flex-col', 'gap-2']}>
   <div class:list={['flex', 'gap-2', 'h-5']}>
-    <a href={levelledSkill.url} target="_blank" rel="noopener noreferrer">
-      <Icon client:load name={levelledSkill.icon} color={levelledSkill.iconColor} size={20} />
+    <a href={url} target="_blank" rel="noopener noreferrer">
+      <Icon client:load name={icon} color={iconColor} size={20} />
     </a>
-    <Typography variant="tile-subtitle" class="text-gray-700">{levelledSkill.name}</Typography>
+    <Typography variant="tile-subtitle" class="text-gray-700">{name}</Typography>
   </div>
-  <SkillLevel skillLevel={levelledSkill.level} />
+  <SkillLevel skillLevel={level} />
 </div>

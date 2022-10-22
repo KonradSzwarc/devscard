@@ -3,7 +3,7 @@ export interface Props {
   href: string;
 }
 
-const { props } = Astro;
+const { href } = Astro.props;
 
 const classes = {
   main: 'inline-flex items-center px-4 h-10 text-base font-medium rounded-md shadow-sm text-white bg-primary-600 select-none cursor-pointer',
@@ -13,4 +13,4 @@ const classes = {
 };
 ---
 
-<a href={props.href} class:list={[classes.main, classes.hover, classes.active, classes.focus]}><slot /></a>
+<a href={href} class:list={[classes.main, classes.hover, classes.active, classes.focus]}><slot /></a>

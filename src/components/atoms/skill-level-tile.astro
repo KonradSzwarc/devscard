@@ -1,9 +1,11 @@
 ---
-export interface Props extends astroHTML.JSX.HTMLAttributes {
+export interface Props {
   skillLevel: number;
   tileLevel: number;
 }
+
 const { skillLevel, tileLevel } = Astro.props;
+
 const isFilled = skillLevel >= tileLevel;
 ---
 
