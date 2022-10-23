@@ -7,6 +7,9 @@ const data: Data = {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales ac dui at vestibulum. In condimentum metus id dui tincidunt, in blandit mi vehicula.',
   },
   main: {
+    config: {
+      icon: 'fa6-solid:user',
+    },
     image: import('@/assets/my-image.jpeg'),
     fullName: 'Mark Freeman',
     role: 'Senior React Developer',
