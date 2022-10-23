@@ -23,5 +23,5 @@ export interface Tag {
 
 export interface SectionConfig {
   title: string;
-  icon?: IconName;
+  icon: IconName;
 }
