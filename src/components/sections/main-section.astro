@@ -23,20 +23,24 @@ const {
 ---
 
 <SectionCard>
-  <div class:list={['flex', 'gap-6']}>
-    <div class:list={['flex', 'flex-col', 'gap-4', 'items-center']}>
-      <Image src={image} alt={fullName} class:list={['w-52', 'h-52', 'rounded-lg', 'max-w-none']} />
+  <div class:list={['flex', 'gap-6', 'flex-col', 'sm:flex-row', 'items-start']}>
+    <div class:list={['flex', 'sm:flex-col', 'gap-4', 'items-center']}>
+      <Image
+        src={image}
+        alt={fullName}
+        class:list={['w-24', 'h-24', 'sm:w-36', 'sm:h-36', 'md:w-52', 'md:h-52', 'rounded-lg', 'max-w-none']}
+      />
       <Button href={url} download={downloadedFileName}>{label}</Button>
     </div>
     <div class:list={['w-full', 'flex', 'flex-col', 'gap-5']}>
-      <div class:list={['w-full', 'flex', 'justify-between']}>
+      <div class:list={['w-full', 'flex', 'flex-col', 'sm:flex-row', 'justify-between', 'gap-2']}>
         <div class:list={['w-full']}>
           <Typography variant="main-title">{fullName}</Typography>
           <Typography variant="main-subtitle">{role}</Typography>
         </div>
         {
           socials.length > 0 && (
-            <div class:list={['flex', 'gap-3']}>
+            <div class:list={['flex', 'gap-3', 'flex-wrap', 'sm:flex-nowrap']}>
               {socials.map(({ icon, url: iconUrl }) => (
                 <IconButton href={iconUrl} icon={icon} size="small" target="_blank" />
               ))}
@@ -45,14 +49,14 @@ const {
         }
       </div>
       <div class:list={['flex', 'flex-col', 'gap-6']}>
-        <div class:list={['grid', 'grid-cols-2']}>
+        <div class:list={['inline-grid', 'xl:grid-cols-[auto_auto]']}>
           {
             details.map(({ label: detailLabel, value }) => (
-              <div class:list={['flex', 'gap-1']}>
-                <Typography variant="paragraph" class="text-gray-700">
-                  {detailLabel}:
+              <div class="w-fit">
+                <Typography variant="paragraph">
+                  <span class="text-gray-700">{detailLabel}: </span>
+                  <span class="break-all">{value}</span>
                 </Typography>
-                <Typography variant="paragraph">{value}</Typography>
               </div>
             ))
           }

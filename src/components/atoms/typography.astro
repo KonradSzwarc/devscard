@@ -25,8 +25,8 @@ const variantToElement = {
 } as const;
 
 const variantToClassName = {
-  'main-title': 'text-4xl font-extrabold text-gray-900',
-  'main-subtitle': 'text-lg font-medium text-gray-700',
+  'main-title': 'text-3xl sm:text-4xl font-extrabold text-gray-900',
+  'main-subtitle': 'text-md sm:text-lg font-medium text-gray-700',
   'section-title': 'text-3xl font-extrabold text-gray-900',
   'section-subtitle': 'text-lg font-extrabold text-gray-900',
   'item-title': 'text-xl font-extrabold text-gray-900',
@@ -34,7 +34,7 @@ const variantToClassName = {
   'item-subtitle': 'text-md font-medium text-gray-700',
   'tile-title': 'text-sm font-medium text-gray-700',
   'tile-subtitle': 'text-sm font-normal text-gray-500',
-  paragraph: 'text-base leading-relaxed font-normal text-gray-500',
+  paragraph: 'text-sm sm:text-base leading-relaxed font-normal text-gray-500',
 };
 
 export interface Props extends Omit<astroHTML.JSX.HTMLAttributes, 'slot'> {
