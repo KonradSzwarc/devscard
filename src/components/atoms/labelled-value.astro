@@ -1,13 +1,13 @@
 ---
-export interface Props extends astroHTML.JSX.HTMLAttributes {
+export interface Props {
   label: string;
   value: string;
 }
 
-const { label, value, ...props } = Astro.props;
+const { label, value } = Astro.props;
 ---
 
-<div {...props} class:list={['text-base', props.class]}>
+<div class="text-base">
   <span class="font-medium text-gray-700">{label}:</span>
   <span class="font-normal text-gray-500">{value}</span>
 </div>

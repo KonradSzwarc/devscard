@@ -7,6 +7,6 @@ type IconSets = {
   'circle-flags': typeof import('@iconify/json/json/circle-flags.json');
 };
 
-export type Icon = ValueOf<{
+export type IconName = ValueOf<{
   [IconSet in keyof IconSets]: `${IconSet}:${StringKeyOf<IconSets[IconSet]['icons']>}`;
 }>;
