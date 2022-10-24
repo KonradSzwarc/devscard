@@ -1,4 +1,4 @@
-import type { Icon } from './icon';
+import type { IconName } from './icon';
 
 export type LocalImage = Promise<{ default: ImageMetadata }>;
 
@@ -9,13 +9,13 @@ export interface Detail {
 
 export interface Social {
   name: string;
-  icon: Icon;
+  icon: IconName;
   url: string;
 }
 
 export interface Tag {
   name: string;
-  icon?: Icon;
+  icon?: IconName;
   iconColor?: string;
   url?: string;
   description?: string;
@@ -23,5 +23,5 @@ export interface Tag {
 
 export interface SectionConfig {
   title: string;
-  icon: Icon;
+  icon: IconName;
 }

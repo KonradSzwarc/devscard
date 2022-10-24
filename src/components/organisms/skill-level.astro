@@ -1,0 +1,15 @@
+---
+import SkillLevelTile from '@/atoms/skill-level-tile.astro';
+
+export interface Props {
+  skillLevel: number;
+}
+
+const { skillLevel } = Astro.props;
+
+const levels = [1, 2, 3, 4, 5];
+---
+
+<div class:list={['flex', 'gap-1']}>
+  {levels.map((tileLevel) => <SkillLevelTile tileLevel={tileLevel} skillLevel={skillLevel} />)}
+</div>
