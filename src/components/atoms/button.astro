@@ -1,15 +1,16 @@
 ---
-export interface Props extends astroHTML.JSX.ButtonHTMLAttributes {}
+export interface Props {
+  href: string;
+}
 
-const { props } = Astro;
+const { href } = Astro.props;
+
+const classes = {
+  main: 'inline-flex items-center px-4 h-10 text-base font-medium rounded-md shadow-sm text-white bg-primary-600 select-none cursor-pointer',
+  hover: 'hover:bg-primary-700',
+  active: 'active:translate-y-px',
+  focus: 'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500',
+};
 ---
 
-<button
-  type="button"
-  {...props}
-  class:list={[
-    'inline-flex items-center px-4 h-10 text-base font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 active:translate-y-px focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500',
-    props.class,
-  ]}
-  ><slot />
-</button>
+<a href={href} class:list={[classes.main, classes.hover, classes.active, classes.focus]}><slot /></a>

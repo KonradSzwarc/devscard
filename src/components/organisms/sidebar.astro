@@ -1,7 +1,11 @@
 ---
-export interface Props extends astroHTML.JSX.HTMLAttributes {}
+export interface Props {
+  className: string;
+}
 
-const { props } = Astro;
+const { className } = Astro.props;
 ---
 
-<nav class:list={['w-14 min-w-[56px] h-72 rounded-lg bg-white shadow-md', props.class]}></nav>
+<nav class:list={['flex flex-col w-max h-fit p-2 rounded-lg gap-2 bg-white shadow-md', className]}>
+  <slot />
+</nav>
