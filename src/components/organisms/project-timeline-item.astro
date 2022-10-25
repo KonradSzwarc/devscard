@@ -4,6 +4,7 @@ import { Image } from '@astrojs/image/components';
 import IconButton from '@/atoms/icon-button.astro';
 import Tag from '@/atoms/tag.astro';
 import Typography from '@/atoms/typography.astro';
+import type { IconName } from '@/types/icon';
 import type { Project } from '@/types/portfolio-section';
 
 export interface Props extends astroHTML.JSX.HTMLAttributes {
@@ -16,7 +17,7 @@ const getFormattedDate = (date: Date): string =>
   new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date).concat(' ', date.getFullYear().toString());
 ---
 
-<ProjectTimelineItem class:list={[props.class]}>
+<ProjectTimelineItem class:list={[props.className]}>
   <div class:list={['flex', 'flex-col', 'sm:grid', 'overflow-hidden', 'grid-cols-[120px_minmax(200px,_1fr)]', 'gap-2']}>
     <Image
       class:list={['rounded-lg', 'object-cover', 'max-w-[120px]', 'm-0', 'overflow-hidden', 'sm:block', 'hidden']}
@@ -27,8 +28,8 @@ const getFormattedDate = (date: Date): string =>
     />
     <div class:list={['col-start-2', 'col-span-2', 'sm:mx-6']}>
       <div class:list={['flex', 'justify-between']}>
-        <Typography class="font-mono" variant="item-title">{value.name}</Typography>
-        <div class:list={['flex', 'gap-3']}>
+        <Typography variant="item-title">{value.name}</Typography>
+        <div class:list={['fixed', 'top-3', 'right-3', 'md:flex', 'md:flex-wrap', 'gap-3', '[&>a]:my-2']}>
           {value.socials?.map(({ icon, url }) => <IconButton icon={icon} href={url} target="_blank" size="small" />)}
         </div>
       </div>
@@ -36,7 +37,7 @@ const getFormattedDate = (date: Date): string =>
         {getFormattedDate(value.startDate).concat(' - ', value.endDate ? getFormattedDate(value.endDate) : 'Now')}
       </Typography>
       <Image
-        class:list={['rounded-lg', 'object-cover', 'my-2', 'max-w-[200px]', 'sm:block', 'sm:hidden']}
+        class:list={['rounded-lg', 'object-cover', 'my-2', 'max-w-[120px]', 'sm:block', 'sm:hidden']}
         src={value.image}
         aspectRatio="1/1"
         alt={''}
@@ -72,8 +73,8 @@ const getFormattedDate = (date: Date): string =>
     <div class="col-start-1 col-span-3">
       <Typography variant="paragraph">{value.description}</Typography>
     </div>
-    <div>
-      {value?.tags.map((t) => <Tag icon={{ name: t.name, color: t.iconColor }} />)}
+    <div class:list={['flex', 'gap-3', 'flex-wrap', 'sm:flex-nowrap', 'mt-6']}>
+      {value.tags.map((t) => <Tag icon={{ name: t.icon as IconName, color: t.iconColor as string }}>{t.name}</Tag>)}
     </div>
   </div>
 </ProjectTimelineItem>
