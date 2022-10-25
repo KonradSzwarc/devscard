@@ -2,6 +2,7 @@
 import { Image } from '@astrojs/image/components';
 
 import IconButton from '@/atoms/icon-button.astro';
+import LabelledValue from '@/atoms/labelled-value.astro';
 import Tag from '@/atoms/tag.astro';
 import Typography from '@/atoms/typography.astro';
 import type { IconName } from '@/types/icon';
@@ -10,11 +11,14 @@ import type { Project } from '@/types/portfolio-section';
 export interface Props extends astroHTML.JSX.HTMLAttributes {
   value: Project;
 }
-const { value, socials, ...props } = Astro.props;
+const { value, ...props } = Astro.props;
 const ProjectTimelineItem = 'div';
 
 const getFormattedDate = (date: Date): string =>
   new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date).concat(' ', date.getFullYear().toString());
+
+const setLabelValue = (val: string | string[]) =>
+  Array.isArray(val) ? val.map((v, id) => (id !== val.length - 1 ? v.concat(', ') : v)) : val;
 ---
 
 <ProjectTimelineItem class:list={[props.className]}>
@@ -43,34 +47,24 @@ const getFormattedDate = (date: Date): string =>
         alt={''}
         format="webp"
       />
-      <div
-        class:list={[
-          'grid',
-          'overflow-hidden',
-          'sm:grid-cols-[160px_minmax(300px,_1fr)]',
-          'md:grid-cols-[220px_minmax(300px,_1fr)]',
-          'sm:grid-cols-2',
-          'md:gap-1',
-          'my-4',
-        ]}
-      >
-        {
-          value?.details.map((d) => (
-            <div>
-              <Typography variant="item-subtitle">
-                {d.label}:
-                <span class:list={'font-normal'}>
-                  {Array.isArray(d.value)
-                    ? d.value.map((v, id) => (id !== d.value.length - 1 ? v.concat(', ') : v))
-                    : d.value}
-                </span>
-              </Typography>
-            </div>
-          ))
-        }
+      <div class:list={['flex', 'md:gap-3', 'md:flex-row', 'flex-col', 'my-4']}>
+        <div class:list={['md:w-2/6']}>
+          {
+            value.details
+              .slice(0, value.details.length / 2)
+              .map((d) => <LabelledValue label={d.label} value={setLabelValue(d.value)} />)
+          }
+        </div>
+        <div>
+          {
+            value.details
+              .slice(value.details.length / 2)
+              .map((d) => <LabelledValue label={d.label} value={setLabelValue(d.value)} />)
+          }
+        </div>
       </div>
     </div>
-    <div class="col-start-1 col-span-3">
+    <div class:list={['col-start-1 col-span-3']}>
       <Typography variant="paragraph">{value.description}</Typography>
     </div>
     <div class:list={['flex', 'gap-3', 'flex-wrap', 'sm:flex-nowrap', 'mt-6']}>
