@@ -1,0 +1,11 @@
+---
+import type { Job } from '@/types/experience-section';
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  job: Job;
+}
+const { job, ...props } = Astro.props;
+const WorkTimelineItem = 'div';
+---
+
+<WorkTimelineItem class:list={[props.className]} />
