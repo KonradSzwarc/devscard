@@ -6,13 +6,11 @@ import Icon from './icon';
 export interface Props {
   icon?: {
     name: IconName;
-    color: string;
+    color?: string;
   };
 }
 
-const {
-  props: { icon },
-} = Astro;
+const { icon } = Astro.props;
 ---
 
 <div class="flex items-center w-fit h-6 px-2.5 rounded text-sm font-medium text-gray-700 bg-gray-100 gap-x-1.5">

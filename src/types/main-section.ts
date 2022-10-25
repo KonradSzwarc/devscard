@@ -10,6 +10,7 @@ export interface MainSection {
   action: {
     label: string;
     url: string;
+    downloadedFileName?: string;
   };
   socials: Social[];
   config: Omit<SectionConfig, 'title'>;
