@@ -65,14 +65,15 @@ const {
           <Typography variant="paragraph">{description}</Typography>
           <div class:list={['flex', 'flex-wrap', 'gap-3']}>
             {
-              tags.map(({ icon, iconColor, name, url: tagUrl }) => (
-                <Tag
-                  anchorProps={{ href: tagUrl, target: '_blank', rel: 'noopener noreferrer' }}
-                  icon={icon ? { name: icon, color: iconColor } : undefined}
-                >
-                  {name}
-                </Tag>
-              ))
+              tags.map(({ icon, iconColor, name, url: tagUrl }) =>
+                tagUrl ? (
+                  <a href={tagUrl} target="_blank" rel="noopener noreferrer">
+                    <Tag icon={icon ? { name: icon, color: iconColor } : undefined}>{name}</Tag>
+                  </a>
+                ) : (
+                  <Tag icon={icon ? { name: icon, color: iconColor } : undefined}>{name}</Tag>
+                )
+              )
             }
           </div>
         </div>

@@ -8,7 +8,7 @@ export interface IconProps {
   size: number;
 }
 
-const Icon = ({ name = undefined, color = undefined, size }: Omit<IconProps, 'url'>) =>
+const Icon = ({ name = undefined, color = undefined, size }: IconProps) =>
   name ? <IconComponent icon={name} width={size} height={size} style={{ color }} /> : null;
 
 export default Icon;
