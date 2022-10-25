@@ -2,6 +2,7 @@
 import { Image } from '@astrojs/image/components';
 
 import IconButton from '@/atoms/icon-button.astro';
+import Tag from '@/atoms/tag.astro';
 import Typography from '@/atoms/typography.astro';
 import type { Project } from '@/types/portfolio-section';
 
@@ -53,7 +54,7 @@ const getFormattedDate = (date: Date): string =>
         ]}
       >
         {
-          value.details.map((d) => (
+          value?.details.map((d) => (
             <div>
               <Typography variant="item-subtitle">
                 {d.label}:
@@ -70,6 +71,9 @@ const getFormattedDate = (date: Date): string =>
     </div>
     <div class="col-start-1 col-span-3">
       <Typography variant="paragraph">{value.description}</Typography>
+    </div>
+    <div>
+      {value?.tags.map((t) => <Tag icon={{ name: t.name, color: t.iconColor }} />)}
     </div>
   </div>
 </ProjectTimelineItem>
