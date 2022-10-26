@@ -23,14 +23,6 @@ import data from '../data';
   </head>
   <body class="flex justify-center bg-gray-50">
     <div class="flex relative transform-none gap-8 w-full max-w-5xl px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
-      <main class="w-full relative space-y-4 sm:space-y-6 lg:space-y-8">
-        <MainSection {...data.main} />
-        {data.skills && <SkillsSection {...data.skills} />}
-        {data.experience && <ExperienceSection {...data.experience} />}
-        {data.portfolio && <PortfolioSection {...data.portfolio} />}
-        {data.testimonials && <TestimonialsSection {...data.testimonials} />}
-        {data.favorites && <FavoritesSection {...data.favorites} />}
-      </main>
       <div class="absolute -right-2">
         <Sidebar className="hidden lg:flex fixed">
           <SidebarItem icon="fa6-solid:user" />
@@ -41,6 +33,14 @@ import data from '../data';
           {data.favorites && <SidebarItem icon="fa6-solid:star" />}
         </Sidebar>
       </div>
+      <main class="w-full relative space-y-4 sm:space-y-6 lg:space-y-8">
+        <MainSection {...data.main} />
+        {data.skills && <SkillsSection {...data.skills} />}
+        {data.experience && <ExperienceSection {...data.experience} />}
+        {data.portfolio && <PortfolioSection {...data.portfolio} />}
+        {data.testimonials && <TestimonialsSection {...data.testimonials} />}
+        {data.favorites && <FavoritesSection {...data.favorites} />}
+      </main>
     </div>
   </body>
 </html>
