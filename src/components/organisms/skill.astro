@@ -8,12 +8,17 @@ import SkillLevel from './skill-level.astro';
 export interface Props extends LevelledSkill {}
 
 const { url, icon, iconColor, name, level } = Astro.props;
+
+const IconWrapper = url ? 'a' : 'div';
 ---
 
 <div class:list={['flex', 'flex-col', 'gap-2']}>
-  <div class:list={['flex', 'gap-2', 'h-5']}>
-    <Icon client:load name={icon} color={iconColor} size={20} url={url} />
+  <IconWrapper
+    class:list={['flex', 'gap-2', 'h-5']}
+    {...(url && { href: url, target: "_blank", rel: "noopener noreferrer" })}
+  >
+    <Icon client:load name={icon} color={iconColor} size={20} />
     <Typography variant="tile-subtitle" class="text-gray-700">{name}</Typography>
-  </div>
+  </IconWrapper>
   <SkillLevel skillLevel={level} />
 </div>
