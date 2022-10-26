@@ -22,8 +22,8 @@ import data from '../data';
     <meta name="description" content={data.seo.description} />
   </head>
   <body class="flex justify-center bg-gray-50">
-    <div class="flex gap-8 w-full max-w-6xl px-2 py-3 sm:px-8 sm:py-12 lg:px-16 lg:py-20 lg:ml-22">
-      <main class="w-full space-y-4 sm:space-y-6 lg:space-y-8">
+    <div class="flex relative transform-none gap-8 w-full max-w-5xl px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
+      <main class="w-full relative space-y-4 sm:space-y-6 lg:space-y-8">
         <MainSection {...data.main} />
         {data.skills && <SkillsSection {...data.skills} />}
         {data.experience && <ExperienceSection {...data.experience} />}
@@ -31,14 +31,16 @@ import data from '../data';
         {data.testimonials && <TestimonialsSection {...data.testimonials} />}
         {data.favorites && <FavoritesSection {...data.favorites} />}
       </main>
-      <Sidebar className="hidden lg:flex">
-        <SidebarItem icon="fa6-solid:user" />
-        {data.skills && <SidebarItem icon="fa6-solid:bars-progress" />}
-        {data.experience && <SidebarItem icon="fa6-solid:suitcase" />}
-        {data.portfolio && <SidebarItem icon="fa6-solid:rocket" />}
-        {data.testimonials && <SidebarItem icon="fa6-solid:comment" />}
-        {data.favorites && <SidebarItem icon="fa6-solid:star" />}
-      </Sidebar>
+      <div class="absolute -right-2">
+        <Sidebar className="hidden lg:flex fixed">
+          <SidebarItem icon="fa6-solid:user" />
+          {data.skills && <SidebarItem icon="fa6-solid:bars-progress" />}
+          {data.experience && <SidebarItem icon="fa6-solid:suitcase" />}
+          {data.portfolio && <SidebarItem icon="fa6-solid:rocket" />}
+          {data.testimonials && <SidebarItem icon="fa6-solid:comment" />}
+          {data.favorites && <SidebarItem icon="fa6-solid:star" />}
+        </Sidebar>
+      </div>
     </div>
   </body>
 </html>
