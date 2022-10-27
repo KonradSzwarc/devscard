@@ -14,10 +14,10 @@ const {
   skillSet: { skills, title },
 } = Astro.props;
 
-const isLevelledSkillSection = (skillSet: Tag[] | LevelledSkill[]) => {
-  if (!skillSet[0]) return false;
+const isLevelledSkillSection = (skillsSectionData: Tag[] | LevelledSkill[]): skillsSectionData is LevelledSkill[] => {
+  if (!skillsSectionData[0]) return false;
 
-  return 'level' in skillSet[0];
+  return (skillsSectionData[0] as LevelledSkill).level !== undefined;
 };
 ---
 
@@ -26,11 +26,11 @@ const isLevelledSkillSection = (skillSet: Tag[] | LevelledSkill[]) => {
   {
     isLevelledSkillSection(skills) ? (
       <div class:list={['flex', 'flex-wrap', 'gap-8']}>
-        <LevelledSkillSubsection skills={skills as LevelledSkill[]} />
+        <LevelledSkillSubsection skills={skills} />
       </div>
     ) : (
       <div class:list={['flex', 'flex-wrap', 'gap-3', 'items-center']}>
-        <TagSkillSubsection skills={skills as Tag[]} />
+        <TagSkillSubsection skills={skills} />
       </div>
     )
   }
