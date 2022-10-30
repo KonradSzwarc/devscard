@@ -11,9 +11,5 @@ const { skills } = Astro.props;
 ---
 
 <div class:list={['flex', 'flex-wrap', 'gap-8']}>
-  {
-    skills.map((skill) => {
-      return <Skill {...skill} />;
-    })
-  }
+  {skills.map((skill) => <Skill {...skill} />)}
 </div>

@@ -25,13 +25,9 @@ const isLevelledSkillSection = (skillsSectionData: Tag[] | LevelledSkill[]): ski
   <Typography variant="section-subtitle">{title}</Typography>
   {
     isLevelledSkillSection(skills) ? (
-      <div class:list={['flex', 'flex-wrap', 'gap-8']}>
-        <LevelledSkillSubsection skills={skills} />
-      </div>
+      <LevelledSkillSubsection skills={skills} />
     ) : (
-      <div class:list={['flex', 'flex-wrap', 'gap-3', 'items-center']}>
-        <TagSkillSubsection skills={skills} />
-      </div>
+      <TagSkillSubsection skills={skills} />
     )
   }
 </div>

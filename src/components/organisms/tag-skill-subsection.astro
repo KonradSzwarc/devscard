@@ -23,14 +23,14 @@ const getIconProps = (name?: IconName, color?: string) => {
 
 <div class:list={['flex', 'flex-wrap', 'gap-3', 'items-center']}>
   {
-    skills.map(({ name, icon, iconColor, url }) => {
-      return url ? (
+    skills.map(({ name, icon, iconColor, url }) =>
+      url ? (
         <a href={url} target="_blank" rel="noopener noreferrer">
           <Tag icon={getIconProps(icon, iconColor)}>{name}</Tag>
         </a>
       ) : (
         <Tag icon={getIconProps(icon, iconColor)}>{name}</Tag>
-      );
-    })
+      )
+    )
   }
 </div>
