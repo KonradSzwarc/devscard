@@ -18,7 +18,9 @@ const IconWrapper = url ? 'a' : 'div';
     {...(url && { href: url, target: "_blank", rel: "noopener noreferrer" })}
   >
     <Icon client:load name={icon} color={iconColor} size={20} />
-    <Typography variant="tile-subtitle" class="text-gray-700">{name}</Typography>
+    <Typography variant="tile-subtitle">
+      <span class="text-gray-700">{name}</span>
+    </Typography>
   </IconWrapper>
   <SkillLevel skillLevel={level} />
 </div>
