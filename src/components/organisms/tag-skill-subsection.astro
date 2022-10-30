@@ -1,24 +1,12 @@
 ---
 import Tag from '@/atoms/tag.astro';
 import type { Tag as TagData } from '@/types/common';
-import type { IconName } from '@/types/icon';
 
 export interface Props {
   skills: TagData[];
 }
 
 const { skills } = Astro.props;
-
-const getIconProps = (name?: IconName, color?: string) => {
-  if (name) {
-    return {
-      name,
-      color,
-    };
-  }
-
-  return undefined;
-};
 ---
 
 <div class:list={['flex', 'flex-wrap', 'gap-3', 'items-center']}>
@@ -26,10 +14,14 @@ const getIconProps = (name?: IconName, color?: string) => {
     skills.map(({ name, icon, iconColor, url }) =>
       url ? (
         <a href={url} target="_blank" rel="noopener noreferrer">
-          <Tag icon={getIconProps(icon, iconColor)}>{name}</Tag>
+          <Tag name={icon} color={iconColor}>
+            {name}
+          </Tag>
         </a>
       ) : (
-        <Tag icon={getIconProps(icon, iconColor)}>{name}</Tag>
+        <Tag name={icon} color={iconColor}>
+          {name}
+        </Tag>
       )
     )
   }

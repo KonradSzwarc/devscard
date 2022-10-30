@@ -68,10 +68,14 @@ const {
               tags.map(({ icon, iconColor, name, url: tagUrl }) =>
                 tagUrl ? (
                   <a href={tagUrl} target="_blank" rel="noopener noreferrer">
-                    <Tag icon={icon ? { name: icon, color: iconColor } : undefined}>{name}</Tag>
+                    <Tag name={icon} color={iconColor}>
+                      {name}
+                    </Tag>
                   </a>
                 ) : (
-                  <Tag icon={icon ? { name: icon, color: iconColor } : undefined}>{name}</Tag>
+                  <Tag name={icon} color={iconColor}>
+                    {name}
+                  </Tag>
                 )
               )
             }
