@@ -15,9 +15,10 @@ const {
 } = Astro.props;
 
 const isLevelledSkillSection = (skillsSectionData: Tag[] | LevelledSkill[]): skillsSectionData is LevelledSkill[] => {
-  if (!skillsSectionData[0]) return false;
+  const firstSkill = skillsSectionData[0];
+  if (!firstSkill) return false;
 
-  return (skillsSectionData[0] as LevelledSkill).level !== undefined;
+  return 'level' in firstSkill && firstSkill.level !== undefined;
 };
 ---
 
