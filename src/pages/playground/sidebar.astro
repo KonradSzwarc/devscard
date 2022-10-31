@@ -1,7 +1,12 @@
 ---
-import Sidebar from '@/organisms/sidebar';
+import SidebarItem from '@/atoms/sidebar-item';
+import Sidebar from '@/organisms/sidebar.astro';
 ---
 
-<div class="relative">
-  <Sidebar client:only="react" />
+<div class="relative p-5">
+  <Sidebar>
+    <SidebarItem client:only="react" icon="fa6-solid:bars-progress" section="skills" />
+    <SidebarItem client:only="react" icon="fa6-solid:suitcase" section="experience" />
+    <SidebarItem client:only="react" icon="fa6-solid:rocket" section="portfolio" />
+  </Sidebar>
 </div>
