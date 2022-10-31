@@ -1,31 +1,29 @@
-import data from 'src/data';
+import { useHash } from 'react-use';
 
-import SECTION_IDS from '@/constants/sectionIds';
 import type { Section } from '@/types/data';
+import type { IconName } from '@/types/icon';
 
 import Icon from './icon';
 
 export interface Props {
   section: Section;
-  activeHash: string;
+  icon: IconName;
 }
 
-const SidebarItem = ({ activeHash, section }: Props) => {
-  if (!data[section]) {
-    return null;
-  }
-
-  const id = SECTION_IDS[section];
-  const active = activeHash === id;
+const SidebarItem = ({ section, icon }: Props) => {
+  const [hash] = useHash();
+  const href = `#${section}`;
+  const active = hash === href;
 
   return (
     <a
-      href={`#${id}`}
+      href={href}
       className={`inline-flex justify-center items-center h-10 w-10 rounded-lg transition
-        ${active ? 'bg-primary-600 text-white' : ''}
-        ${!active ? 'bg-white text-gray-400 hover:bg-primary-600 hover:text-white' : ''}`}
+        ${active ? 'bg-primary-600 text-white' : 'bg-white text-gray-400 hover:bg-primary-600 hover:text-white'}
+        `}
+      aria-current={active ? 'page' : undefined}
     >
-      <Icon name={data[section]?.config.icon} size={20} />
+      <Icon name={icon} size={20} />
     </a>
   );
 };

@@ -1,5 +1,6 @@
 ---
-import Sidebar from '@/organisms/sidebar';
+import SidebarItem from '@/atoms/sidebar-item';
+import Sidebar from '@/organisms/sidebar.astro';
 import ExperienceSection from '@/sections/experience-section.astro';
 import FavoritesSection from '@/sections/favorites-section.astro';
 import MainSection from '@/sections/main-section.astro';
@@ -23,7 +24,22 @@ import data from '../data';
   <body class="flex justify-center bg-gray-50">
     <div class="flex relative transform-none gap-8 w-full max-w-5xl px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
       <div class="absolute -right-2">
-        <Sidebar client:only="react" className="hidden xl:flex fixed" />
+        <Sidebar className="hidden xl:flex fixed">
+          <SidebarItem client:only="react" icon={data.main.config.icon} section="main" />
+          {data.skills && <SidebarItem client:only="react" icon={data.skills.config.icon} section="skills" />}
+          {
+            data.experience && (
+              <SidebarItem client:only="react" icon={data.experience.config.icon} section="experience" />
+            )
+          }
+          {data.portfolio && <SidebarItem client:only="react" icon={data.portfolio.config.icon} section="portfolio" />}
+          {
+            data.testimonials && (
+              <SidebarItem client:only="react" icon={data.testimonials.config.icon} section="testimonials" />
+            )
+          }
+          {data.favorites && <SidebarItem client:only="react" icon={data.favorites.config.icon} section="favorites" />}
+        </Sidebar>
       </div>
       <main class="w-full relative space-y-4 sm:space-y-6 lg:space-y-8">
         <MainSection {...data.main} />

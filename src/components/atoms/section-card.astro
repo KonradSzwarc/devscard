@@ -1,5 +1,4 @@
 ---
-import SECTION_IDS from '@/constants/sectionIds';
 import type { Section } from '@/types/data';
 
 export interface Props {
@@ -9,4 +8,4 @@ export interface Props {
 const { section } = Astro.props;
 ---
 
-<div id={SECTION_IDS[section]} class="p-8 bg-white rounded-2xl shadow-md flex flex-col gap-6"><slot /></div>
+<div id={section} class="p-8 bg-white rounded-2xl shadow-md flex flex-col gap-6"><slot /></div>
