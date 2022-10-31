@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import data from 'src/data';
 
 import SidebarItem from '@/atoms/sidebar-item';
 import SECTION_IDS from '@/constants/sectionIds';
@@ -26,14 +25,12 @@ const Sidebar = ({ className = '' }: Props) => {
 
   return (
     <nav className={`flex flex-col w-max h-fit p-2 rounded-lg gap-2 bg-white shadow-md ${className}`}>
-      <SidebarItem icon="fa6-solid:user" id={SECTION_IDS.main} activeHash={activeHash} />
-      {data.skills && <SidebarItem icon="fa6-solid:bars-progress" id={SECTION_IDS.skills} activeHash={activeHash} />}
-      {data.experience && <SidebarItem icon="fa6-solid:suitcase" id={SECTION_IDS.experience} activeHash={activeHash} />}
-      {data.portfolio && <SidebarItem icon="fa6-solid:rocket" id={SECTION_IDS.portfolio} activeHash={activeHash} />}
-      {data.testimonials && (
-        <SidebarItem icon="fa6-solid:comment" id={SECTION_IDS.testimonials} activeHash={activeHash} />
-      )}
-      {data.favorites && <SidebarItem icon="fa6-solid:star" id={SECTION_IDS.favorites} activeHash={activeHash} />}
+      <SidebarItem section="main" activeHash={activeHash} />
+      <SidebarItem section="skills" activeHash={activeHash} />
+      <SidebarItem section="experience" activeHash={activeHash} />
+      <SidebarItem section="portfolio" activeHash={activeHash} />
+      <SidebarItem section="testimonials" activeHash={activeHash} />
+      <SidebarItem section="favorites" activeHash={activeHash} />
     </nav>
   );
 };

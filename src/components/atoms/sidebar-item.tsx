@@ -1,14 +1,21 @@
-import type { IconName } from '@/types/icon';
+import data from 'src/data';
+
+import SECTION_IDS from '@/constants/sectionIds';
+import type { Section } from '@/types/data';
 
 import Icon from './icon';
 
 export interface Props {
-  icon: IconName;
-  id: string;
+  section: Section;
   activeHash: string;
 }
 
-const SidebarItem = ({ icon, id, activeHash }: Props) => {
+const SidebarItem = ({ activeHash, section }: Props) => {
+  if (!data[section]) {
+    return null;
+  }
+
+  const id = SECTION_IDS[section];
   const active = activeHash === id;
 
   return (
@@ -18,7 +25,7 @@ const SidebarItem = ({ icon, id, activeHash }: Props) => {
         ${active ? 'bg-primary-600 text-white' : ''}
         ${!active ? 'bg-white text-gray-400 hover:bg-primary-600 hover:text-white' : ''}`}
     >
-      <Icon name={icon} size={20} />
+      <Icon name={data[section]?.config.icon} size={20} />
     </a>
   );
 };

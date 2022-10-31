@@ -1,6 +1,6 @@
-import type { Data } from '@/types/data';
+import type { Section } from '@/types/data';
 
-const SECTION_IDS: Record<Exclude<keyof Data, 'seo'>, string> = {
+const SECTION_IDS: Record<Section, string> = {
   experience: 'experience',
   favorites: 'favorites',
   main: '',
