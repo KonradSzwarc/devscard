@@ -10,14 +10,25 @@ export interface Props {
   icon: IconName;
 }
 
+const MAIN_SECTION: Section = 'main';
+
 const SidebarItem = ({ section, icon }: Props) => {
   const [hash] = useHash();
   const href = `#${section}`;
-  const active = hash === href;
+
+  const isActive = () => {
+    if (hash === '') {
+      return section === MAIN_SECTION;
+    }
+
+    return hash === href;
+  };
+
+  const active = isActive();
 
   return (
     <a
-      href={href}
+      href={`#${section}`}
       className={`inline-flex justify-center items-center h-10 w-10 rounded-lg transition
         ${active ? 'bg-primary-600 text-white' : 'bg-white text-gray-400 hover:bg-primary-600 hover:text-white'}
         `}
