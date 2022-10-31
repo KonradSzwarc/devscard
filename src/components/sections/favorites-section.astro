@@ -2,11 +2,7 @@
 import SectionCard from '@/atoms/section-card.astro';
 import type { FavoritesSection } from '@/types/favorites-section';
 
-export interface Props extends FavoritesSection {
-  id: string;
-}
-
-const { id } = Astro.props;
+export interface Props extends FavoritesSection {}
 ---
 
-<SectionCard id={id}>Favorites section</SectionCard>
+<SectionCard section="favorites">Favorites section</SectionCard>

@@ -4,18 +4,15 @@ import Typography from '@/atoms/typography.astro';
 import SkillSubsection from '@/organisms/skill-subsection.astro';
 import type { SkillsSection } from '@/types/skills-section';
 
-export interface Props extends SkillsSection {
-  id: string;
-}
+export interface Props extends SkillsSection {}
 
 const {
   config: { title },
   skillSets,
-  id,
 } = Astro.props;
 ---
 
-<SectionCard id={id}>
+<SectionCard section="skills">
   <Typography variant="section-title">{title}</Typography>
   <div class:list={['flex', 'flex-col', 'gap-10']}>
     {skillSets.map((skillSet) => <SkillSubsection skillSet={skillSet} />)}
