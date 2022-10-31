@@ -36,7 +36,8 @@
       "@/organisms/*": ["src/components/organisms/*"],
       "@/sections/*": ["src/components/sections/*"],
       "@/assets/*": ["src/assets/*"],
-      "@/types/*": ["src/types/*"]
+      "@/types/*": ["src/types/*"],
+      "@/constants/*": ["src/constants/*"]
     }
   }
 }

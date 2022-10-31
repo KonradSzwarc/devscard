@@ -8,7 +8,9 @@ import Tag from '@/atoms/tag.astro';
 import Typography from '@/atoms/typography.astro';
 import type { MainSection } from '@/types/main-section';
 
-export interface Props extends MainSection {}
+export interface Props extends MainSection {
+  id: string;
+}
 
 const {
   image,
@@ -19,10 +21,11 @@ const {
   description,
   action: { label, url, downloadedFileName },
   tags,
+  id,
 } = Astro.props;
 ---
 
-<SectionCard>
+<SectionCard id={id}>
   <div class:list={['flex', 'gap-6', 'flex-col', 'sm:flex-row', 'items-start']}>
     <div class:list={['flex', 'sm:flex-col', 'gap-4', 'items-center']}>
       <Image

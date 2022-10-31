@@ -1,1 +1,9 @@
-<div class="p-8 bg-white rounded-2xl shadow-md flex flex-col gap-6"><slot /></div>
+---
+export interface Props {
+  id: astroHTML.JSX.HTMLAttributes['id'];
+}
+
+const { id } = Astro.props;
+---
+
+<div id={id} class="p-8 bg-white rounded-2xl shadow-md flex flex-col gap-6"><slot /></div>

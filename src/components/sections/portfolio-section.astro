@@ -2,7 +2,11 @@
 import SectionCard from '@/atoms/section-card.astro';
 import type { PortfolioSection } from '@/types/portfolio-section';
 
-export interface Props extends PortfolioSection {}
+export interface Props extends PortfolioSection {
+  id: string;
+}
+
+const { id } = Astro.props;
 ---
 
-<SectionCard>Portfolio section</SectionCard>
+<SectionCard id={id}>Portfolio section</SectionCard>

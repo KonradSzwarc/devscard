@@ -1,6 +1,6 @@
 ---
-import SidebarItem from '@/atoms/sidebar-item.astro';
-import Sidebar from '@/organisms/sidebar.astro';
+import SECTION_IDS from '@/constants/sectionIds';
+import Sidebar from '@/organisms/sidebar';
 import ExperienceSection from '@/sections/experience-section.astro';
 import FavoritesSection from '@/sections/favorites-section.astro';
 import MainSection from '@/sections/main-section.astro';
@@ -12,7 +12,7 @@ import data from '../data';
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -24,22 +24,15 @@ import data from '../data';
   <body class="flex justify-center bg-gray-50">
     <div class="flex relative transform-none gap-8 w-full max-w-5xl px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
       <div class="absolute -right-2">
-        <Sidebar className="hidden xl:flex fixed">
-          <SidebarItem icon="fa6-solid:user" />
-          {data.skills && <SidebarItem icon="fa6-solid:bars-progress" />}
-          {data.experience && <SidebarItem icon="fa6-solid:suitcase" />}
-          {data.portfolio && <SidebarItem icon="fa6-solid:rocket" />}
-          {data.testimonials && <SidebarItem icon="fa6-solid:comment" />}
-          {data.favorites && <SidebarItem icon="fa6-solid:star" />}
-        </Sidebar>
+        <Sidebar client:only="react" className="hidden xl:flex fixed" />
       </div>
       <main class="w-full relative space-y-4 sm:space-y-6 lg:space-y-8">
-        <MainSection {...data.main} />
-        {data.skills && <SkillsSection {...data.skills} />}
-        {data.experience && <ExperienceSection {...data.experience} />}
-        {data.portfolio && <PortfolioSection {...data.portfolio} />}
-        {data.testimonials && <TestimonialsSection {...data.testimonials} />}
-        {data.favorites && <FavoritesSection {...data.favorites} />}
+        <MainSection {...data.main} id={SECTION_IDS.main} />
+        {data.skills && <SkillsSection {...data.skills} id={SECTION_IDS.skills} />}
+        {data.experience && <ExperienceSection {...data.experience} id={SECTION_IDS.experience} />}
+        {data.portfolio && <PortfolioSection {...data.portfolio} id={SECTION_IDS.portfolio} />}
+        {data.testimonials && <TestimonialsSection {...data.testimonials} id={SECTION_IDS.testimonials} />}
+        {data.favorites && <FavoritesSection {...data.favorites} id={SECTION_IDS.favorites} />}
       </main>
     </div>
   </body>

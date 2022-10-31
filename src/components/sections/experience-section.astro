@@ -2,7 +2,11 @@
 import SectionCard from '@/atoms/section-card.astro';
 import type { ExperienceSection } from '@/types/experience-section';
 
-export interface Props extends ExperienceSection {}
+export interface Props extends ExperienceSection {
+  id: string;
+}
+
+const { id } = Astro.props;
 ---
 
-<SectionCard>Experience section</SectionCard>
+<SectionCard id={id}>Experience section</SectionCard>
