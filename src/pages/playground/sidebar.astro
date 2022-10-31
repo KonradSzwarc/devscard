@@ -1,9 +1,7 @@
 ---
-import SidebarItem from '@/atoms/sidebar-item.astro';
-import Sidebar from '@/organisms/sidebar.astro';
+import Sidebar from '@/organisms/sidebar';
 ---
 
-<Sidebar>
-  <SidebarItem icon="fa6-brands:accusoft" />
-  <SidebarItem icon="fa6-brands:accusoft" active={true} />
-</Sidebar>
+<div class="relative">
+  <Sidebar client:only="react" />
+</div>
