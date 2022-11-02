@@ -7,8 +7,11 @@ import MainSection from '@/sections/main-section.astro';
 import PortfolioSection from '@/sections/portfolio-section.astro';
 import SkillsSection from '@/sections/skills-section.astro';
 import TestimonialsSection from '@/sections/testimonials-section.astro';
+import getObjectKeys from '@/utils/getObjectKeys';
 
 import data from '../data';
+
+const { seo, ...dataWithoutSeo } = data;
 ---
 
 <!DOCTYPE html>
@@ -18,27 +21,19 @@ import data from '../data';
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{data.seo.title}</title>
-    <meta name="description" content={data.seo.description} />
+    <title>{seo.title}</title>
+    <meta name="description" content={seo.description} />
   </head>
   <body class="flex justify-center bg-gray-50">
     <div class="flex relative transform-none gap-8 w-full max-w-5xl px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
       <div class="absolute -right-2">
         <Sidebar className="hidden xl:flex fixed">
-          <SidebarItem client:only="react" icon={data.main.config.icon} section="main" />
-          {data.skills && <SidebarItem client:only="react" icon={data.skills.config.icon} section="skills" />}
           {
-            data.experience && (
-              <SidebarItem client:only="react" icon={data.experience.config.icon} section="experience" />
-            )
+            getObjectKeys(dataWithoutSeo).map((key) => {
+              const sectionData = dataWithoutSeo[key];
+              return sectionData && <SidebarItem client:only="react" icon={sectionData.config.icon} section={key} />;
+            })
           }
-          {data.portfolio && <SidebarItem client:only="react" icon={data.portfolio.config.icon} section="portfolio" />}
-          {
-            data.testimonials && (
-              <SidebarItem client:only="react" icon={data.testimonials.config.icon} section="testimonials" />
-            )
-          }
-          {data.favorites && <SidebarItem client:only="react" icon={data.favorites.config.icon} section="favorites" />}
         </Sidebar>
       </div>
       <main class="w-full relative space-y-4 sm:space-y-6 lg:space-y-8">
