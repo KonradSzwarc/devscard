@@ -12,7 +12,7 @@ const {
 } = Astro.props;
 ---
 
-<SectionCard>
+<SectionCard section="skills">
   <Typography variant="section-title">{title}</Typography>
   <div class:list={['flex', 'flex-col', 'gap-10']}>
     {skillSets.map((skillSet) => <SkillSubsection skillSet={skillSet} />)}
