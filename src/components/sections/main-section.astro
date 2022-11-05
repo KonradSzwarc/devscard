@@ -6,6 +6,7 @@ import IconButton from '@/atoms/icon-button.astro';
 import SectionCard from '@/atoms/section-card.astro';
 import Tag from '@/atoms/tag.astro';
 import Typography from '@/atoms/typography.astro';
+import type { Section } from '@/types/data';
 import type { MainSection } from '@/types/main-section';
 
 export interface Props extends MainSection {}
@@ -20,9 +21,11 @@ const {
   action: { label, url, downloadedFileName },
   tags,
 } = Astro.props;
+
+const section: Section = 'main';
 ---
 
-<SectionCard section="main">
+<SectionCard section={section}>
   <div class:list={['flex', 'gap-6', 'flex-col', 'sm:flex-row', 'items-start']}>
     <div class:list={['flex', 'sm:flex-col', 'gap-4', 'items-center']}>
       <Image
@@ -35,7 +38,7 @@ const {
     <div class:list={['w-full', 'flex', 'flex-col', 'gap-5']}>
       <div class:list={['w-full', 'flex', 'flex-col', 'sm:flex-row', 'justify-between', 'gap-2']}>
         <div class:list={['w-full']}>
-          <Typography variant="main-title">{fullName}</Typography>
+          <Typography variant="main-title" id={`${section}-heading`}>{fullName}</Typography>
           <Typography variant="main-subtitle">{role}</Typography>
         </div>
         {
