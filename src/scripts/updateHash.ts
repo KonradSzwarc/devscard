@@ -10,6 +10,7 @@ document.addEventListener('scroll', () => {
       if (!sectionWrapper) return [];
 
       const { bottom } = sectionWrapper.getBoundingClientRect();
+
       return {
         section,
         bottom,
@@ -21,5 +22,5 @@ document.addEventListener('scroll', () => {
     previous.bottom < current.bottom ? previous : current
   );
 
-  window.location.hash = currentSection.section;
+  window.history.pushState({}, '', `${window.location.pathname}#${currentSection.section}`);
 });
