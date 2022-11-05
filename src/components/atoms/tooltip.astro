@@ -1,0 +1,106 @@
+---
+type TooltipPosition = 'left' | 'right' | 'top' | 'bottom';
+
+export interface Props {
+  tooltipContent: string;
+  tooltipPosition?: TooltipPosition;
+}
+
+const sharedStyles = [
+  'relative',
+  'before:z-50',
+  'before:absolute',
+  'before:w-max',
+  'before:max-w-[250px]',
+  'before:bg-gray-700',
+  'before:text-white',
+  'before:invisible',
+  'before:content-[attr(data-tip)]',
+  'after:z-50',
+  'after:absolute',
+  'after:h-0',
+  'after:w-0',
+  'cursor-pointer',
+  'after:border-8',
+  'after:invisible',
+  'hover:before:visible',
+  'hover:after:visible',
+];
+
+const positionStyles: Record<TooltipPosition, string[]> = {
+  left: [
+    ...sharedStyles,
+    'before:-left-3 before:top-1/2 before:-translate-x-full before:-translate-y-1/2 before:rounded-md before:px-3 before:py-2 after:-left-[0.8rem] after:top-1/2 after:translate-x-0 after:-translate-y-1/2 after:border-l-gray-700 after:border-r-transparent after:border-b-transparent after:border-t-transparent',
+  ],
+  right: [
+    ...sharedStyles,
+    'before:-right-3 before:top-1/2 before:translate-x-full before:-translate-y-1/2 before:rounded-md before:px-3 before:py-2 after:-right-[0.8rem] after:top-1/2 after:translate-x-0 after:-translate-y-1/2 after:border-r-gray-700 after:border-l-transparent after:border-b-transparent after:border-t-transparent',
+  ],
+  top: [
+    ...sharedStyles,
+    'before:left-1/2 before:-top-3 before:-translate-x-1/2 before:-translate-y-full before:rounded-lg before:px-2 before:py-1.5 after:left-1/2 after:-top-3 after:-translate-x-1/2 after:border-t-gray-700 after:border-l-transparent after:border-b-transparent after:border-r-transparent',
+  ],
+  bottom: [
+    ...sharedStyles,
+    'before:left-1/2 before:-bottom-3 before:-translate-x-1/2 before:translate-y-full before:rounded-lg before:px-2 before:py-1.5 after:left-1/2 after:-bottom-3 after:-translate-x-1/2 after:border-b-gray-700 after:border-l-transparent after:border-t-transparent after:border-r-transparent',
+  ],
+};
+
+const { tooltipContent, tooltipPosition = 'left' } = Astro.props;
+
+const tooltipContentCapitalized = tooltipContent.charAt(0).toUpperCase() + tooltipContent.slice(1);
+
+const generateTooltipId = () => {
+  return Math.random().toString(36).substring(2, 9);
+};
+
+const tooltipId = generateTooltipId();
+---
+
+<div
+  class:list={[...positionStyles[tooltipPosition]]}
+  role="tooltip"
+  data-tip={tooltipContentCapitalized}
+  id={tooltipId}
+>
+  <slot />
+</div>
+<script define:vars={{ tooltipId, positionStyles }}>
+  /* eslint-env es6 */
+
+  document.getElementById(tooltipId).addEventListener('mouseenter', () => {
+    const tooltip = document.getElementById(tooltipId);
+    const tooltipBounding = tooltip.getBoundingClientRect();
+    const beforeWidth = +window.getComputedStyle(tooltip, ':before').width.replace('px', '');
+    const beforeHeight = +window.getComputedStyle(tooltip, ':before').height.replace('px', '');
+
+    if (
+      tooltipBounding.x - beforeWidth > 0 &&
+      tooltipBounding.right + beforeWidth < window.innerWidth &&
+      tooltipBounding.y - beforeHeight > 0 &&
+      tooltipBounding.y + beforeHeight > document.body.clientHeight
+    ) {
+      return;
+    }
+
+    if (tooltipBounding.right + beforeWidth > window.innerWidth) {
+      tooltip.classList = positionStyles.left.join(' ');
+      return;
+    }
+
+    if (tooltipBounding.left - beforeWidth < 0) {
+      tooltip.classList = positionStyles.right.join(' ');
+      return;
+    }
+
+    if (tooltipBounding.y + beforeHeight > document.body.clientHeight) {
+      tooltip.classList = positionStyles.top.join(' ');
+      return;
+    }
+
+    if (tooltipBounding.y - beforeHeight < 0) {
+      tooltip.classList = positionStyles.bottom.join(' ');
+      return;
+    }
+  });
+</script>

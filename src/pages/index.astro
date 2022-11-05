@@ -1,5 +1,6 @@
 ---
 import SidebarItem from '@/atoms/sidebar-item';
+import Tooltip from '@/atoms/tooltip.astro';
 import Sidebar from '@/organisms/sidebar.astro';
 import ExperienceSection from '@/sections/experience-section.astro';
 import FavoritesSection from '@/sections/favorites-section.astro';
@@ -26,12 +27,18 @@ const { seo, ...dataWithoutSeo } = data;
   </head>
   <body class="flex justify-center bg-gray-50">
     <div class="flex relative transform-none gap-8 w-full max-w-5xl px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
-      <div class="absolute -right-2">
+      <div class="absolute z-40 -right-2">
         <Sidebar className="hidden xl:flex fixed">
           {
             getObjectKeys(dataWithoutSeo).map((key) => {
               const sectionData = dataWithoutSeo[key];
-              return sectionData && <SidebarItem client:only="react" icon={sectionData.config.icon} section={key} />;
+              return (
+                sectionData && (
+                  <Tooltip tooltipContent={`${key === 'main' ? key : dataWithoutSeo[key]?.config.title} section`}>
+                    <SidebarItem client:only="react" icon={sectionData.config.icon} section={key} />
+                  </Tooltip>
+                )
+              );
             })
           }
         </Sidebar>
