@@ -58,18 +58,21 @@ const tooltipId = generateTooltipId();
 ---
 
 <div
-  class:list={[...positionStyles[tooltipPosition]]}
+  class:list={[...positionStyles[tooltipPosition], 'tooltip']}
   role="tooltip"
   data-tip={tooltipContentCapitalized}
   id={tooltipId}
 >
   <slot />
 </div>
-<script define:vars={{ tooltipId, positionStyles }}>
+<script define:vars={{ tooltipId, positionStyles, tooltipPosition }}>
   /* eslint-env es6 */
 
   document.getElementById(tooltipId).addEventListener('mouseenter', () => {
     const tooltip = document.getElementById(tooltipId);
+
+    tooltip.classList = positionStyles[tooltipPosition].join(' ');
+
     const tooltipBounding = tooltip.getBoundingClientRect();
     const beforeWidth = +window.getComputedStyle(tooltip, ':before').width.replace('px', '');
     const beforeHeight = +window.getComputedStyle(tooltip, ':before').height.replace('px', '');
