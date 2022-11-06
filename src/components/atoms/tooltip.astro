@@ -67,8 +67,7 @@ const tooltipId = generateTooltipId();
 </div>
 <script define:vars={{ tooltipId, positionStyles, tooltipPosition }}>
   /* eslint-env es6 */
-
-  document.getElementById(tooltipId).addEventListener('mouseenter', () => {
+  const positionTooltip = () => {
     const tooltip = document.getElementById(tooltipId);
 
     tooltip.classList = positionStyles[tooltipPosition].join(' ');
@@ -105,5 +104,8 @@ const tooltipId = generateTooltipId();
       tooltip.classList = positionStyles.bottom.join(' ');
       return;
     }
-  });
+  };
+
+  document.getElementById(tooltipId).addEventListener('mouseenter', positionTooltip);
+  window.addEventListener('resize', positionTooltip);
 </script>
