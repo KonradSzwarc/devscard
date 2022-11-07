@@ -1,0 +1,15 @@
+---
+import type { LevelledSkill } from '@/types/skills-section';
+
+import Skill from './skill.astro';
+
+export interface Props {
+  skills: LevelledSkill[];
+}
+
+const { skills } = Astro.props;
+---
+
+<div class:list={['flex', 'flex-wrap', 'gap-8']}>
+  {skills.map((skill) => <Skill {...skill} />)}
+</div>

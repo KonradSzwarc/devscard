@@ -1,1 +1,11 @@
-<div class="p-8 bg-white rounded-2xl shadow-md flex flex-col gap-6"><slot /></div>
+---
+import type { Section } from '@/types/data';
+
+export interface Props {
+  section: Section;
+}
+
+const { section } = Astro.props;
+---
+
+<div id={section} class="p-8 bg-white rounded-2xl shadow-md flex flex-col gap-6"><slot /></div>
