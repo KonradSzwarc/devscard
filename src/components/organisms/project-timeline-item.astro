@@ -6,13 +6,15 @@ import LabelledValue from '@/atoms/labelled-value.astro';
 import Tag from '@/atoms/tag.astro';
 import Timestamp from '@/atoms/timestamp.astro';
 import Typography from '@/atoms/typography.astro';
+import type { I18n } from '@/types/i18n';
 import type { IconName } from '@/types/icon';
 import type { Project } from '@/types/portfolio-section';
 
 export interface Props extends astroHTML.JSX.HTMLAttributes {
   value: Project;
+  i18n: I18n;
 }
-const { value, ...props } = Astro.props;
+const { value, i18n, ...props } = Astro.props;
 const ProjectTimelineItem = 'div';
 
 const setLabelValue = (val: string | string[]) =>
@@ -35,7 +37,12 @@ const setLabelValue = (val: string | string[]) =>
           {value.socials?.map(({ icon, url }) => <IconButton icon={icon} href={url} target="_blank" size="small" />)}
         </div>
       </div>
-      <Timestamp startDate={value.startDate} endDate={value.endDate} />
+      <Timestamp
+        startDate={value.startDate}
+        endDate={value.endDate}
+        locale={i18n.locale}
+        translationForNow={i18n.translations.now[i18n.language]}
+      />
       <Image
         class:list={['rounded-lg', 'object-cover', 'my-2', 'max-w-[120px]', 'sm:block', 'sm:hidden']}
         src={value.image}

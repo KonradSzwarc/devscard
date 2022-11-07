@@ -1,15 +1,17 @@
 ---
 import Typography from '@/atoms/typography.astro';
+import type { Locale } from '@/types/locale';
 
 export interface Props extends astroHTML.JSX.HTMLAttributes {
   startDate: Date;
   endDate: Date | null;
+  locale: Locale;
 }
-const { startDate, endDate, ...props } = Astro.props;
+const { startDate, endDate, locale, translationForNow, ...props } = Astro.props;
 const getFormattedDate = (date: Date): string =>
-  new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date).concat(' ', date.getFullYear().toString());
+  new Intl.DateTimeFormat(locale, { month: 'long' }).format(date).concat(' ', date.getFullYear().toString());
 ---
 
 <Typography variant="item-subtitle" class:list={[props.class]}>
-  {getFormattedDate(startDate).concat(' - ', endDate ? getFormattedDate(endDate) : 'Now')}
+  {getFormattedDate(startDate).concat(' - ', endDate ? getFormattedDate(endDate) : translationForNow)}
 </Typography>
