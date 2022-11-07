@@ -1,6 +1,19 @@
 import type { Data } from '@/types/data';
 
 const data: Data = {
+  i18n: {
+    locale: 'en-US',
+    language: 'en',
+    translations: {
+      now: {
+        en: 'now',
+        pl: 'obecnie',
+        es: 'presente',
+        de: 'aktuell',
+        fr: 'aktuel',
+      },
+    },
+  },
   seo: {
     title: 'Mark Freeman - Senior React Developer',
     description:

@@ -6,13 +6,14 @@ import LabelledValue from '@/atoms/labelled-value.astro';
 import Tag from '@/atoms/tag.astro';
 import Timestamp from '@/atoms/timestamp.astro';
 import Typography from '@/atoms/typography.astro';
-import type { IconName } from '@/types/icon';
+import type { I18n } from '@/types/i18n';
 import type { Project } from '@/types/portfolio-section';
 
 export interface Props extends astroHTML.JSX.HTMLAttributes {
   value: Project;
+  i18n: I18n;
 }
-const { value, ...props } = Astro.props;
+const { value, i18n, ...props } = Astro.props;
 const ProjectTimelineItem = 'div';
 
 const setLabelValue = (val: string | string[]) =>
@@ -35,7 +36,12 @@ const setLabelValue = (val: string | string[]) =>
           {value.socials?.map(({ icon, url }) => <IconButton icon={icon} href={url} target="_blank" size="small" />)}
         </div>
       </div>
-      <Timestamp startDate={value.startDate} endDate={value.endDate} />
+      <Timestamp
+        startDate={value.startDate}
+        endDate={value.endDate}
+        locale={i18n.locale}
+        translationForNow={i18n.translations.now[i18n.language]}
+      />
       <Image
         class:list={['rounded-lg', 'object-cover', 'my-2', 'max-w-[120px]', 'sm:block', 'sm:hidden']}
         src={value.image}
@@ -47,14 +53,14 @@ const setLabelValue = (val: string | string[]) =>
         <div class:list={['md:w-2/6']}>
           {
             value.details
-              .slice(0, value.details.length / 2)
+              .slice(0, Math.round(value.details.length / 2))
               .map((d) => <LabelledValue label={d.label} value={setLabelValue(d.value)} />)
           }
         </div>
         <div>
           {
             value.details
-              .slice(value.details.length / 2)
+              .slice(Math.round(value.details.length / 2))
               .map((d) => <LabelledValue label={d.label} value={setLabelValue(d.value)} />)
           }
         </div>
@@ -64,7 +70,13 @@ const setLabelValue = (val: string | string[]) =>
       <Typography variant="paragraph">{value.description}</Typography>
     </div>
     <div class:list={['flex', 'gap-3', 'flex-wrap', 'sm:flex-nowrap', 'mt-6']}>
-      {value.tags.map((t) => <Tag icon={{ name: t.icon as IconName, color: t.iconColor as string }}>{t.name}</Tag>)}
+      {
+        value.tags.map((t) => (
+          <Tag name={t.icon} color={t.iconColor}>
+            {t.name}
+          </Tag>
+        ))
+      }
     </div>
   </div>
 </ProjectTimelineItem>
