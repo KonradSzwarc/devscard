@@ -1,8 +1,8 @@
-import data from '../data';
+import type { Data } from '@/types/data';
 
-const { seo, ...dataWithoutSeo } = data;
+const updateHash = (data: Data) => {
+  const { seo, ...dataWithoutSeo } = data;
 
-document.addEventListener('scroll', () => {
   const distancesToHeadingBottom = Object.keys(dataWithoutSeo)
     .flatMap((section) => {
       const sectionWrapper = document.getElementById(`${section}-heading`);
@@ -23,4 +23,6 @@ document.addEventListener('scroll', () => {
   );
 
   window.history.pushState({}, '', `${window.location.pathname}#${currentSection.section}`);
-});
+};
+
+export default updateHash;
