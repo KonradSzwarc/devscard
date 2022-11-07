@@ -1,4 +1,4 @@
-import { useHash } from 'react-use';
+import { useLocation } from 'react-use';
 
 import { MAIN_SECTION } from '@/constants/section';
 import type { Section } from '@/types/data';
@@ -12,7 +12,7 @@ export interface Props {
 }
 
 const SidebarItem = ({ section, icon }: Props) => {
-  const [hash] = useHash();
+  const { hash } = useLocation();
   const href = `#${section}`;
 
   const active = hash === '' ? section === MAIN_SECTION : hash === href;

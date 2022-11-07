@@ -46,4 +46,10 @@ const { seo, ...dataWithoutSeo } = data;
       </main>
     </div>
   </body>
+  <script>
+    import updateHash from '../scripts/updateHash';
+    import data from '../data';
+
+    document.addEventListener('scroll', () => updateHash(data));
+  </script>
 </html>
