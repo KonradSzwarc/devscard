@@ -1,8 +1,18 @@
 ---
 import SectionCard from '@/atoms/section-card.astro';
+import Typography from '@/atoms/typography.astro';
+import type { Section } from '@/types/data';
 import type { PortfolioSection } from '@/types/portfolio-section';
 
 export interface Props extends PortfolioSection {}
+
+const {
+  config: { title },
+} = Astro.props;
+
+const section: Section = 'portfolio';
 ---
 
-<SectionCard section="portfolio">Portfolio section</SectionCard>
+<SectionCard section={section}
+  ><Typography variant="section-title" id={`${section}-heading`}>{title}</Typography>
+</SectionCard>

@@ -1,8 +1,18 @@
 ---
 import SectionCard from '@/atoms/section-card.astro';
+import Typography from '@/atoms/typography.astro';
+import type { Section } from '@/types/data';
 import type { ExperienceSection } from '@/types/experience-section';
 
 export interface Props extends ExperienceSection {}
+
+const {
+  config: { title },
+} = Astro.props;
+
+const section: Section = 'experience';
 ---
 
-<SectionCard section="experience">Experience section</SectionCard>
+<SectionCard section={section}
+  ><Typography variant="section-title" id={`${section}-heading`}>{title}</Typography>
+</SectionCard>
