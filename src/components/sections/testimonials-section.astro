@@ -3,6 +3,7 @@ import Divider from '@/atoms/divider.astro';
 import SectionCard from '@/atoms/section-card.astro';
 import Typography from '@/atoms/typography.astro';
 import Testimonial from '@/organisms/testimonial.astro';
+import type { Section } from '@/types/data';
 import type { TestimonialsSection } from '@/types/testimonials-section';
 
 export interface Props extends TestimonialsSection {}
@@ -11,10 +12,12 @@ const {
   testimonials,
   config: { title },
 } = Astro.props;
+
+const section: Section = 'testimonials';
 ---
 
-<SectionCard>
-  <Typography variant="section-title">{title}</Typography>
+<SectionCard section={section}>
+  <Typography variant="section-title" id={`${section}-heading`}>{title}</Typography>
   <div class:list={['flex', 'flex-col']}>
     {
       testimonials.map((testimonial, index) => (

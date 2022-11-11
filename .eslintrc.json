@@ -101,6 +101,12 @@
         ],
         "simple-import-sort/exports": 2
       }
+    },
+    {
+      "files": ["**/constants/*.ts"],
+      "rules": {
+        "import/prefer-default-export": 0
+      }
     }
   ]
 }
