@@ -1,6 +1,6 @@
 ---
 import Icon from '@/atoms/icon';
-import Tooltip from '@/atoms/tooltip.astro';
+import IconWithTooltip from '@/atoms/icon-with-tooltip';
 import Typography from '@/atoms/typography.astro';
 import type { IconName } from '@/types/icon';
 import type { LevelledSkill } from '@/types/skills-section';
@@ -27,9 +27,14 @@ const IconWrapper = url ? 'a' : 'div';
     </IconWrapper>
     {
       description && (
-        <Tooltip tooltipContent={description} tooltipPosition="top">
-          <Icon client:load name={'akar-icons:info-fill' as IconName} color="#D1D5DB" size={14} />
-        </Tooltip>
+        <IconWithTooltip
+          client:load
+          name={'akar-icons:info-fill' as IconName}
+          color="#D1D5DB"
+          size={14}
+          content={description}
+          placement="top"
+        />
       )
     }
   </div>

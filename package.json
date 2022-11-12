@@ -21,6 +21,7 @@
   "dependencies": {
     "@astrojs/image": "0.11.1",
     "@iconify-icon/react": "1.0.1",
+    "@tippyjs/react": "4.2.6",
     "clsx": "1.2.1",
     "prettier-plugin-astro": "0.7.0",
     "react": "18.2.0",

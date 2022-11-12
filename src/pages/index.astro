@@ -1,6 +1,5 @@
 ---
 import SidebarItem from '@/atoms/sidebar-item';
-import Tooltip from '@/atoms/tooltip.astro';
 import Sidebar from '@/organisms/sidebar.astro';
 import ExperienceSection from '@/sections/experience-section.astro';
 import FavoritesSection from '@/sections/favorites-section.astro';
@@ -34,9 +33,12 @@ const { seo, ...dataWithoutSeo } = data;
               const sectionData = dataWithoutSeo[key];
               return (
                 sectionData && (
-                  <Tooltip tooltipContent={`${key === 'main' ? key : dataWithoutSeo[key]?.config.title} section`}>
-                    <SidebarItem client:only="react" icon={sectionData.config.icon} section={key} />
-                  </Tooltip>
+                  <SidebarItem
+                    client:load
+                    title={key !== 'main' ? dataWithoutSeo[key]?.config.title : undefined}
+                    icon={sectionData.config.icon}
+                    section={key}
+                  />
                 )
               );
             })

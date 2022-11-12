@@ -1,19 +1,10 @@
 ---
-import Button from '@/atoms/button.astro';
-import Tooltip from '@/atoms/tooltip.astro';
+import SidebarItem from '@/atoms/sidebar-item';
+import Tooltip from '@/atoms/tooltip';
 ---
 
-<div class="p-12 flex items-center gap-10">
-  <Tooltip tooltipContent="I'm a tooltips content" tooltipPosition="right"
-    ><Button href="#">Tooltip at the right</Button>
-  </Tooltip>
-  <Tooltip tooltipContent="I'm a tooltips content" tooltipPosition="bottom"
-    ><Button href="#">Tooltip at the bottom</Button>
-  </Tooltip>
-  <Tooltip tooltipContent="I'm a tooltips content" tooltipPosition="top"
-    ><Button href="#">Tooltip at the top</Button>
-  </Tooltip>
-  <Tooltip tooltipContent="I'm a tooltips content" tooltipPosition="left"
-    ><Button href="#">Tooltip at the left</Button>
+<div class="p-10">
+  <Tooltip client:only="react" content="siemano">
+    <SidebarItem client:load section="experience" icon="fa6-solid:user" />
   </Tooltip>
 </div>
