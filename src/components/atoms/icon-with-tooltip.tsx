@@ -6,7 +6,7 @@ type Props = IconProps & Omit<TooltipProps, 'children'>;
 
 const IconWithTooltip = ({ name, color, size, ...tooltipProps }: Props) => (
   <Tooltip {...tooltipProps}>
-    <div>
+    <div className="cursor-pointer">
       <Icon name={name} color={color} size={size} />
     </div>
   </Tooltip>

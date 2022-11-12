@@ -34,7 +34,7 @@ const { seo, ...dataWithoutSeo } = data;
               return (
                 sectionData && (
                   <SidebarItem
-                    client:load
+                    client:only="react"
                     title={sectionData.config.title}
                     icon={sectionData.config.icon}
                     section={key}

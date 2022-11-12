@@ -1,4 +1,6 @@
 ---
+import type { ComponentInstance } from 'astro';
+
 import BookTile from '@/atoms/book-tile.astro';
 import MediaTile from '@/atoms/media-tile.astro';
 import PersonTile from '@/atoms/person-tile.astro';
@@ -19,23 +21,38 @@ const {
   videos,
 } = Astro.props;
 
-const favoritesData = {
-  books: {
-    Component: BookTile,
-    ...books,
-  },
-  people: {
-    Component: PersonTile,
-    ...people,
-  },
-  videos: {
-    Component: VideoTile,
-    ...videos,
-  },
-  medias: {
-    Component: MediaTile,
-    ...medias,
-  },
+interface FavoritesSectionWithProps<T> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- required to avoid type casting
+  Component: (_props: { value: any }) => ComponentInstance;
+  data: T[];
+  title: string;
+}
+
+const booksWithComponent: FavoritesSectionWithProps<Book> = {
+  Component: BookTile,
+  ...books,
+};
+
+const mediasWithComponent: FavoritesSectionWithProps<Media> = {
+  Component: MediaTile,
+  ...medias,
+};
+
+const peopleWithComponent: FavoritesSectionWithProps<Person> = {
+  Component: PersonTile,
+  ...people,
+};
+
+const videosWithComponent: FavoritesSectionWithProps<Video> = {
+  Component: VideoTile,
+  ...videos,
+};
+
+const subsections: Record<string, FavoritesSectionWithProps<Book | Media | Person | Video>> = {
+  books: booksWithComponent,
+  medias: mediasWithComponent,
+  people: peopleWithComponent,
+  videos: videosWithComponent,
 };
 
 const section: Section = 'favorites';
@@ -45,15 +62,21 @@ const section: Section = 'favorites';
   ><Typography variant="section-title" id={`${section}-heading`}>{title}</Typography>
   <div class:list={['flex', 'flex-col', 'gap-16']}>
     {
-      getObjectKeys(favoritesData).map((key) => {
-        const { data, Component, title: subsectionTitle } = favoritesData[key];
+      getObjectKeys(subsections).map((key) => {
+        const subsection = subsections[key];
+
+        if (!subsection) return null;
+
+        const { Component, data: componentData, title: subsectionTitle } = subsection;
 
         return (
-          <div class:list={['flex', 'flex-col', 'gap-6']}>
-            <Typography variant="section-subtitle">{subsectionTitle}</Typography>
+          <div class:list={['flex', 'flex-col', 'gap-8']}>
+            <Typography variant="section-subtitle" id={`${section}-${key}-heading`}>
+              {subsectionTitle}
+            </Typography>
             <div class:list={['flex', 'gap-8', 'flex-wrap']}>
-              {data.map((value) => (
-                <Component value={value as Book & Media & Person & Video} />
+              {componentData.map((value) => (
+                <Component value={value} />
               ))}
             </div>
           </div>
