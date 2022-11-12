@@ -13,5 +13,5 @@ export interface MainSection {
     downloadedFileName?: string;
   };
   socials: Social[];
-  config: Omit<SectionConfig, 'title'>;
+  config: SectionConfig;
 }

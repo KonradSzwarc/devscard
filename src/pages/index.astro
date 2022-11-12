@@ -35,7 +35,7 @@ const { seo, ...dataWithoutSeo } = data;
                 sectionData && (
                   <SidebarItem
                     client:load
-                    title={key !== 'main' ? dataWithoutSeo[key]?.config.title : undefined}
+                    title={sectionData.config.title}
                     icon={sectionData.config.icon}
                     section={key}
                   />
