@@ -14,16 +14,30 @@ const VideoTile = 'a';
 const getVideoThumbnail = (url: string) => {
   return `https://img.youtube.com/vi/${url.split('/').pop()}/0.jpg`;
 };
+
+const imageSizes = {
+  width: '277.33px',
+  height: '156px',
+};
 ---
 
 <VideoTile
   href={value.url}
-  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', props.class]}
+  class:list={[
+    'flex',
+    'flex-col',
+    'gap-3',
+    `w-[${imageSizes.width}]`,
+    'transition',
+    'duration-300',
+    'hover:translate-y-2',
+    props.class,
+  ]}
 >
   <Image
-    class:list={['rounded-lg', 'shadow-md', 'object-cover']}
+    class:list={['rounded-lg', 'shadow-md', 'object-cover', `w-[${imageSizes.width}]`, `h-[${imageSizes.height}]`]}
     src={getVideoThumbnail(value.url)}
-    width="auto"
+    height="auto"
     aspectRatio="1.67"
     alt={value.title}
     format="webp"

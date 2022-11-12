@@ -10,14 +10,28 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {
 
 const { value, ...props } = Astro.props;
 const BookTile = 'a';
+
+const imageSizes = {
+  width: '200px',
+  height: '260px',
+};
 ---
 
 <BookTile
   href={value.url}
-  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', props.class]}
+  class:list={[
+    'flex',
+    'flex-col',
+    'gap-3',
+    `w-[${imageSizes.width}]`,
+    'transition',
+    'duration-300',
+    'hover:translate-y-2',
+    props.class,
+  ]}
 >
   <Image
-    class:list={['rounded-lg', 'shadow-md', 'object-cover']}
+    class:list={['rounded-lg', 'shadow-md', 'object-cover', `w-[${imageSizes.width}]`, `h-[${imageSizes.height}]`]}
     src={value.cover}
     aspectRatio="1.3"
     alt={value.title}

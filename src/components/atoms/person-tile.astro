@@ -10,14 +10,36 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {
 
 const { value, ...props } = Astro.props;
 const PersonTile = 'a';
+
+const imageSizes = {
+  width: '122.66px',
+  height: '122.66px',
+};
 ---
 
 <PersonTile
   href={value.url}
-  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', props.class]}
+  class:list={[
+    'flex',
+    'flex-col',
+    'gap-3',
+    `w-[${imageSizes.width}]`,
+    'transition',
+    'duration-300',
+    'hover:translate-y-2',
+    props.class,
+  ]}
 >
   <Image
-    class:list={['rounded-lg', 'shadow-md', 'object-cover', 'transition', 'duration-300']}
+    class:list={[
+      'rounded-lg',
+      'shadow-md',
+      `w-[${imageSizes.width}]`,
+      `min-h-[${imageSizes.height}]`,
+      'object-cover',
+      'transition',
+      'duration-300',
+    ]}
     src={value.image}
     alt={value.name}
     aspectRatio="1/1"
@@ -25,9 +47,6 @@ const PersonTile = 'a';
   />
   <div class:list={['tile-content', 'gap-1']}>
     <Typography class:list={['leading-5', 'hover:text-gray-900']} variant="tile-title">
-      {value.name}
-    </Typography>
-    <Typography variant="tile-subtitle">
       {value.name}
     </Typography>
   </div>
