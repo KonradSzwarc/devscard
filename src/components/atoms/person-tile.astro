@@ -12,8 +12,8 @@ const { value, ...props } = Astro.props;
 const PersonTile = 'a';
 
 const imageSizes = {
-  width: '122.66px',
-  height: '122.66px',
+  width: 'w-[122.66px]',
+  height: 'h-[122.66px]',
 };
 ---
 
@@ -23,10 +23,10 @@ const imageSizes = {
     'flex',
     'flex-col',
     'gap-3',
-    `w-[${imageSizes.width}]`,
     'transition',
     'duration-300',
     'hover:translate-y-2',
+    imageSizes.width,
     props.class,
   ]}
 >
@@ -34,11 +34,11 @@ const imageSizes = {
     class:list={[
       'rounded-lg',
       'shadow-md',
-      `w-[${imageSizes.width}]`,
-      `min-h-[${imageSizes.height}]`,
       'object-cover',
       'transition',
       'duration-300',
+      imageSizes.width,
+      imageSizes.height,
     ]}
     src={value.image}
     alt={value.name}

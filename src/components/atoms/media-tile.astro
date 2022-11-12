@@ -12,8 +12,8 @@ const { value, ...props } = Astro.props;
 const MediaTile = 'a';
 
 const imageSizes = {
-  width: '122.66px',
-  height: '122.66px',
+  width: 'w-[122.66px]',
+  height: 'h-[122.66px]',
 };
 ---
 
@@ -23,15 +23,15 @@ const imageSizes = {
     'flex',
     'flex-col',
     'gap-3',
-    `w-[${imageSizes.width}]`,
     'transition',
     'duration-300',
     'hover:translate-y-2',
+    imageSizes.width,
     props.class,
   ]}
 >
   <Image
-    class:list={['rounded-lg', 'shadow-md', 'object-cover', `w-[${imageSizes.width}]`, `h-[${imageSizes.height}]`]}
+    class:list={['rounded-lg', 'shadow-md', 'object-cover', imageSizes.width, imageSizes.height]}
     src={value.image}
     alt={value.title}
     aspectRatio="1.1"
