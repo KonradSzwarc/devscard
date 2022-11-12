@@ -5,7 +5,7 @@ Template for creating a comprehensive virtual CV for developers.
 
 ## 🚀 Deployment
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/KonradSzwarc/devscard)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/KonradSzwarc/devscard#NODE_VERSION=16)
 
 ## 🧞 Commands
 
