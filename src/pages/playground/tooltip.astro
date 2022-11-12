@@ -1,0 +1,10 @@
+---
+import SidebarItem from '@/atoms/sidebar-item';
+import Tooltip from '@/atoms/tooltip';
+---
+
+<div class="p-10">
+  <Tooltip client:only="react" content="siemano">
+    <SidebarItem client:load section="experience" icon="fa6-solid:user" />
+  </Tooltip>
+</div>
