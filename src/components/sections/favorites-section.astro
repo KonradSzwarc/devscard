@@ -48,11 +48,21 @@ const videosWithComponent: FavoritesSectionWithProps<Video> = {
   ...videos,
 };
 
-const subsections: Record<string, FavoritesSectionWithProps<Book | Media | Person | Video>> = {
+type Subsection = 'books' | 'medias' | 'people' | 'videos';
+
+const subsections: Record<Subsection, FavoritesSectionWithProps<Book | Media | Person | Video>> = {
   books: booksWithComponent,
-  medias: mediasWithComponent,
   people: peopleWithComponent,
   videos: videosWithComponent,
+  medias: mediasWithComponent,
+} as const;
+
+const getGridColumns = (subsection: Subsection) => {
+  if (subsection === 'books') return 'grid-cols-4';
+
+  if (subsection === 'medias' || subsection === 'people') return 'grid-cols-6';
+
+  return 'grid-cols-3';
 };
 
 const section: Section = 'favorites';
@@ -70,11 +80,11 @@ const section: Section = 'favorites';
         const { Component, data: componentData, title: subsectionTitle } = subsection;
 
         return (
-          <div class:list={['flex', 'flex-col', 'gap-8']}>
+          <div class:list={['flex', 'flex-col', 'gap-6']}>
             <Typography variant="section-subtitle" id={`${section}-${key}-heading`}>
               {subsectionTitle}
             </Typography>
-            <div class:list={['flex', 'gap-8', 'flex-wrap']}>
+            <div class:list={['grid', 'gap-8', getGridColumns(key)]}>
               {componentData.map((value) => (
                 <Component value={value} />
               ))}
