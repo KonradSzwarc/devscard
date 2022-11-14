@@ -1,17 +1,12 @@
+import * as locale from 'locale';
+
 import type { Data } from '@/types/data';
 
 const data: Data = {
   i18n: {
-    locale: 'en-US',
-    language: 'en',
+    locale: new locale.Locales('en_US').toString(),
     translations: {
-      now: {
-        en: 'now',
-        pl: 'obecnie',
-        es: 'presente',
-        de: 'aktuell',
-        fr: 'aktuel',
-      },
+      now: 'now',
     },
   },
   seo: {

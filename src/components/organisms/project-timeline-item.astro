@@ -7,10 +7,6 @@ import Tag from '@/atoms/tag.astro';
 import Timestamp from '@/atoms/timestamp.astro';
 import Typography from '@/atoms/typography.astro';
 import type { I18n } from '@/types/i18n';
-<<<<<<< HEAD
-import type { IconName } from '@/types/icon';
-=======
->>>>>>> 60c7aea0080aae77c0cee894636388ce86d74544
 import type { Project } from '@/types/portfolio-section';
 
 export interface Props extends astroHTML.JSX.HTMLAttributes {
@@ -44,7 +40,7 @@ const setLabelValue = (val: string | string[]) =>
         startDate={value.startDate}
         endDate={value.endDate}
         locale={i18n.locale}
-        translationForNow={i18n.translations.now[i18n.language]}
+        translationForNow={i18n.translations.now}
       />
       <Image
         class:list={['rounded-lg', 'object-cover', 'my-2', 'max-w-[120px]', 'sm:block', 'sm:hidden']}
