@@ -22,6 +22,7 @@ const data: Data = {
   main: {
     config: {
       icon: 'fa6-solid:user',
+      title: 'Profile',
     },
     image: import('@/assets/my-image.jpeg'),
     fullName: 'Mark Freeman',

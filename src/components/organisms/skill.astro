@@ -1,26 +1,42 @@
 ---
 import Icon from '@/atoms/icon';
+import IconWithTooltip from '@/atoms/icon-with-tooltip';
 import Typography from '@/atoms/typography.astro';
+import type { IconName } from '@/types/icon';
 import type { LevelledSkill } from '@/types/skills-section';
 
 import SkillLevel from './skill-level.astro';
 
 export interface Props extends LevelledSkill {}
 
-const { url, icon, iconColor, name, level } = Astro.props;
+const { url, icon, iconColor, name, level, description } = Astro.props;
 
 const IconWrapper = url ? 'a' : 'div';
 ---
 
 <div class:list={['flex', 'flex-col', 'gap-2']}>
-  <IconWrapper
-    class:list={['flex', 'gap-2', 'h-5']}
-    {...(url && { href: url, target: "_blank", rel: "noopener noreferrer" })}
-  >
-    <Icon client:load name={icon} color={iconColor} size={20} />
-    <Typography variant="tile-subtitle">
-      <span class="text-gray-700">{name}</span>
-    </Typography>
-  </IconWrapper>
+  <div class:list={['flex', 'items-center', 'justify-between', 'h-5']}>
+    <IconWrapper
+      class:list={['flex', 'gap-2', 'h-5']}
+      {...(url && { href: url, target: "_blank", rel: "noopener noreferrer" })}
+    >
+      <Icon client:load name={icon} color={iconColor} size={20} />
+      <Typography variant="tile-subtitle">
+        <span class="text-gray-700">{name}</span>
+      </Typography>
+    </IconWrapper>
+    {
+      description && (
+        <IconWithTooltip
+          client:load
+          name={'akar-icons:info-fill' as IconName}
+          color="#D1D5DB"
+          size={14}
+          content={description}
+          placement="top"
+        />
+      )
+    }
+  </div>
   <SkillLevel skillLevel={level} />
 </div>
