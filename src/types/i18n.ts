@@ -1,19 +1,8 @@
-import type { Locale } from './locale';
+import type { Locales } from '@agbury/locales.ts/types';
 
 export interface I18n {
-  locale: Locale;
-  language: Language;
+  locale: Locales;
   translations: {
-    now: TranslationOfWord;
+    now: string;
   };
-}
-
-type Language = 'en' | 'pl' | 'es' | 'de' | 'fr';
-
-interface TranslationOfWord {
-  en: string;
-  pl: string;
-  es: string;
-  de: string;
-  fr: string;
 }

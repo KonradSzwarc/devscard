@@ -29,6 +29,7 @@
     "react-use": "17.4.0"
   },
   "devDependencies": {
+    "@agbury/locales.ts": "1.0.2",
     "@astrojs/react": "1.2.2",
     "@astrojs/tailwind": "2.1.2",
     "@types/react": "18.0.25",
