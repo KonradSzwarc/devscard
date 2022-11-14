@@ -7,7 +7,10 @@ import Tag from '@/atoms/tag.astro';
 import Timestamp from '@/atoms/timestamp.astro';
 import Typography from '@/atoms/typography.astro';
 import type { I18n } from '@/types/i18n';
+<<<<<<< HEAD
 import type { IconName } from '@/types/icon';
+=======
+>>>>>>> 60c7aea0080aae77c0cee894636388ce86d74544
 import type { Project } from '@/types/portfolio-section';
 
 export interface Props extends astroHTML.JSX.HTMLAttributes {
@@ -54,14 +57,14 @@ const setLabelValue = (val: string | string[]) =>
         <div class:list={['md:w-2/6']}>
           {
             value.details
-              .slice(0, value.details.length / 2)
+              .slice(0, Math.round(value.details.length / 2))
               .map((d) => <LabelledValue label={d.label} value={setLabelValue(d.value)} />)
           }
         </div>
         <div>
           {
             value.details
-              .slice(value.details.length / 2)
+              .slice(Math.round(value.details.length / 2))
               .map((d) => <LabelledValue label={d.label} value={setLabelValue(d.value)} />)
           }
         </div>
@@ -71,7 +74,13 @@ const setLabelValue = (val: string | string[]) =>
       <Typography variant="paragraph">{value.description}</Typography>
     </div>
     <div class:list={['flex', 'gap-3', 'flex-wrap', 'sm:flex-nowrap', 'mt-6']}>
-      {value.tags.map((t) => <Tag icon={{ name: t.icon as IconName, color: t.iconColor as string }}>{t.name}</Tag>)}
+      {
+        value.tags.map((t) => (
+          <Tag name={t.icon} color={t.iconColor}>
+            {t.name}
+          </Tag>
+        ))
+      }
     </div>
   </div>
 </ProjectTimelineItem>
