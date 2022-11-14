@@ -18,7 +18,7 @@ const getVideoThumbnail = (url: string) => {
 
 <VideoTile
   href={value.url}
-  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', `w-full`, props.class]}
+  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', 'w-full', props.class]}
 >
   <Image
     class:list={['rounded-lg', 'shadow-md', 'aspect-video', 'object-cover']}
@@ -26,6 +26,7 @@ const getVideoThumbnail = (url: string) => {
     width="auto"
     aspectRatio={16 / 9}
     alt={value.title}
+    format="webp"
   />
   <div class:list={['tile-content', 'gap-1']}>
     <Typography class:list={['leading-5', 'hover:text-gray-900']} variant="tile-title">
