@@ -1,10 +1,8 @@
-import * as locale from 'locale';
-
 import type { Data } from '@/types/data';
 
 const data: Data = {
   i18n: {
-    locale: new locale.Locales('en_US').toString(),
+    locale: 'en-US',
     translations: {
       now: 'now',
     },
