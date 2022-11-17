@@ -9,7 +9,6 @@ import Typography from '@/atoms/typography.astro';
 import VideoTile from '@/atoms/video-tile.astro';
 import type { Section } from '@/types/data';
 import type { Book, FavoritesSection, Media, Person, Video } from '@/types/favorites-section';
-import getObjectKeys from '@/utils/getObjectKeys';
 
 export interface Props extends FavoritesSection {}
 
@@ -21,77 +20,68 @@ const {
   videos,
 } = Astro.props;
 
-interface FavoritesSectionWithProps<T> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- required to avoid type casting
-  Component: (_props: { value: any }) => ComponentInstance;
+type Subsection = 'books' | 'medias' | 'people' | 'videos';
+type SubsectionData = Book | Media | Person | Video;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- required to avoid type casting
+type SubsectionComponent = (_props: { value: any }) => ComponentInstance;
+
+interface FavoritesSubsection<T extends SubsectionData> {
+  name: Subsection;
   data: T[];
   title: string;
+  columnsLayout: string;
+  Component: SubsectionComponent;
 }
 
-const booksWithComponent: FavoritesSectionWithProps<Book> = {
+const booksSubsection: FavoritesSubsection<Book> = {
+  name: 'books',
+  columnsLayout: 'grid-cols-4',
   Component: BookTile,
   ...books,
 };
 
-const mediasWithComponent: FavoritesSectionWithProps<Media> = {
+const mediasSubsection: FavoritesSubsection<Media> = {
+  name: 'medias',
+  columnsLayout: 'grid-cols-6',
   Component: MediaTile,
   ...medias,
 };
 
-const peopleWithComponent: FavoritesSectionWithProps<Person> = {
+const peopleSubsection: FavoritesSubsection<Person> = {
+  name: 'people',
+  columnsLayout: 'grid-cols-6',
   Component: PersonTile,
   ...people,
 };
 
-const videosWithComponent: FavoritesSectionWithProps<Video> = {
+const videosSubsection: FavoritesSubsection<Video> = {
+  name: 'videos',
+  columnsLayout: 'grid-cols-3',
   Component: VideoTile,
   ...videos,
 };
 
-type Subsection = 'books' | 'medias' | 'people' | 'videos';
-
-const subsections: Record<Subsection, FavoritesSectionWithProps<Book | Media | Person | Video>> = {
-  books: booksWithComponent,
-  people: peopleWithComponent,
-  videos: videosWithComponent,
-  medias: mediasWithComponent,
-} as const;
-
-const getGridColumns = (subsection: Subsection) => {
-  if (subsection === 'books') return 'grid-cols-4';
-
-  if (subsection === 'medias' || subsection === 'people') return 'grid-cols-6';
-
-  return 'grid-cols-3';
-};
+const subsections = [booksSubsection, peopleSubsection, videosSubsection, mediasSubsection];
 
 const section: Section = 'favorites';
 ---
 
-<SectionCard section={section}
-  ><Typography variant="section-title" id={`${section}-heading`}>{title}</Typography>
+<SectionCard section={section}>
+  <Typography variant="section-title" id={`${section}-heading`}>{title}</Typography>
   <div class:list={['flex', 'flex-col', 'gap-16']}>
     {
-      getObjectKeys(subsections).map((key) => {
-        const subsection = subsections[key];
-
-        if (!subsection) return null;
-
-        const { Component, data: componentData, title: subsectionTitle } = subsection;
-
-        return (
-          <div class:list={['flex', 'flex-col', 'gap-6']}>
-            <Typography variant="section-subtitle" id={`${section}-${key}-heading`}>
-              {subsectionTitle}
-            </Typography>
-            <div class:list={['grid', 'gap-8', getGridColumns(key)]}>
-              {componentData.map((value) => (
-                <Component value={value} />
-              ))}
-            </div>
+      subsections.map(({ Component, data, name, columnsLayout, title: subsectionTitle }) => (
+        <div class:list={['flex', 'flex-col', 'gap-6']}>
+          <Typography variant="section-subtitle" id={`${section}-${name}-heading`}>
+            {subsectionTitle}
+          </Typography>
+          <div class:list={['grid', 'gap-8', columnsLayout]}>
+            {data.map((value) => (
+              <Component value={value} />
+            ))}
           </div>
-        );
-      })
+        </div>
+      ))
     }
   </div>
 </SectionCard>
