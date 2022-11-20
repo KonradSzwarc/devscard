@@ -26,12 +26,21 @@ const { seo, ...dataWithoutSeo } = data;
   </head>
   <body class="flex justify-center bg-gray-50">
     <div class="flex relative transform-none gap-8 w-full max-w-5xl px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
-      <div class="absolute -right-2">
+      <div class="absolute z-40 -right-2">
         <Sidebar className="hidden xl:flex fixed">
           {
             getObjectKeys(dataWithoutSeo).map((key) => {
               const sectionData = dataWithoutSeo[key];
-              return sectionData && <SidebarItem client:only="react" icon={sectionData.config.icon} section={key} />;
+              return (
+                sectionData && (
+                  <SidebarItem
+                    client:only="react"
+                    title={sectionData.config.title}
+                    icon={sectionData.config.icon}
+                    section={key}
+                  />
+                )
+              );
             })
           }
         </Sidebar>
