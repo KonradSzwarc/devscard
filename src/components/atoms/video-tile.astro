@@ -23,8 +23,8 @@ const getVideoThumbnail = (url: string) => {
   <Image
     class:list={['rounded-lg', 'shadow-md', 'aspect-video', 'object-cover']}
     src={getVideoThumbnail(value.url)}
-    width="auto"
-    aspectRatio={16 / 9}
+    width={240}
+    height={180}
     alt={value.title}
     format="webp"
   />
