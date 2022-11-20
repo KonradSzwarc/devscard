@@ -28,7 +28,7 @@ const IconWrapper = url ? 'a' : 'div';
     {
       description && (
         <IconWithTooltip
-          client:load
+          client:only="react"
           name={'akar-icons:info-fill' as IconName}
           color="#D1D5DB"
           size={14}
