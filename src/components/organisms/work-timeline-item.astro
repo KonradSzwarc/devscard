@@ -4,7 +4,6 @@ import Tag from '@/atoms/tag.astro';
 import Timestamp from '@/atoms/timestamp.astro';
 import Typography from '@/atoms/typography.astro';
 import type { Job } from '@/types/experience-section';
-import type { IconName } from '@/types/icon';
 
 export interface Props extends astroHTML.JSX.HTMLAttributes {
   job: Job;
@@ -21,14 +20,26 @@ const WorkTimelineItem = 'div';
   <Timestamp startDate={job.startDate} endDate={job.endDate} />
   <ul class:list={['my-3']}>
     {
-      job.description.map((d) => (
+      Array.isArray(job.description) ? (
+        job.description.map((d) => (
+          <li>
+            <Typography variant="paragraph">&#x2022; {d}</Typography>
+          </li>
+        ))
+      ) : (
         <li>
-          <Typography variant="paragraph">&#x2022; {d}</Typography>
+          <Typography variant="paragraph">&#x2022; {job.description}</Typography>
         </li>
-      ))
+      )
     }
   </ul>
   <div class:list={['flex', 'gap-3', 'flex-wrap', 'sm:flex-nowrap', 'mt-3']}>
-    {job.tags.map((t) => <Tag icon={{ name: t.icon as IconName, color: t.iconColor as string }}>{t.name}</Tag>)}
+    {
+      job.tags.map((t) => (
+        <Tag name={t.icon} color={t.iconColor}>
+          {t.name}
+        </Tag>
+      ))
+    }
   </div>
 </WorkTimelineItem>
