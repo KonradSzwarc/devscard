@@ -1,6 +1,7 @@
 ---
 import WorkTimelineItem from '@/organisms/work-timeline-item.astro';
 import type { Job } from '@/types/experience-section';
+import type { I18n } from '@/types/i18n';
 
 const job: Job = {
   role: 'Senior front-end developer',
@@ -52,8 +53,15 @@ const job: Job = {
     { name: 'LinkedIn', icon: 'fa6-brands:linkedin-in', url: '#' },
   ],
 };
+
+const i18nData: I18n = {
+  locale: 'en-US',
+  translations: {
+    now: 'now',
+  },
+};
 ---
 
 <div class="p-5">
-  <WorkTimelineItem job={job} />
+  <WorkTimelineItem job={job} i18n={i18nData} />
 </div>

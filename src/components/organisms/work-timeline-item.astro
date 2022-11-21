@@ -4,11 +4,13 @@ import Tag from '@/atoms/tag.astro';
 import Timestamp from '@/atoms/timestamp.astro';
 import Typography from '@/atoms/typography.astro';
 import type { Job } from '@/types/experience-section';
+import type { I18n } from '@/types/i18n';
 
 export interface Props extends astroHTML.JSX.HTMLAttributes {
   job: Job;
+  i18n: I18n;
 }
-const { job, ...props } = Astro.props;
+const { job, i18n, ...props } = Astro.props;
 const WorkTimelineItem = 'div';
 ---
 
@@ -17,7 +19,12 @@ const WorkTimelineItem = 'div';
   <div class:list={['fixed', 'top-3', 'right-3', 'md:flex', 'sm:flex-wrap', 'gap-3', '[&>a]:my-2']}>
     {job.socials?.map(({ icon, url }) => <IconButton icon={icon} href={url} target="_blank" size="small" />)}
   </div>
-  <Timestamp startDate={job.startDate} endDate={job.endDate} />
+  <Timestamp
+    startDate={job.startDate}
+    endDate={job.endDate}
+    locale={i18n.locale}
+    translationForNow={i18n.translations.now}
+  />
   <ul class:list={['my-3']}>
     {
       Array.isArray(job.description) ? (
