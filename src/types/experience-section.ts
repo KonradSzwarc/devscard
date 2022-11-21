@@ -1,6 +1,6 @@
 import type { SectionConfig, Social, Tag } from './common';
 
-interface Job {
+export interface Job {
   role: string;
   company: string;
   startDate: Date;
