@@ -48,7 +48,11 @@ const { seo, i18n, ...dataWithoutSeoAndI18n } = data;
       <main class="w-full relative space-y-4 sm:space-y-6 lg:space-y-8">
         <MainSection {...data.main} />
         {data.skills && <SkillsSection {...data.skills} />}
-        {data.experience && <ExperienceSection {...data.experience} />}
+        {
+          data.experience && (
+            <ExperienceSection i18n={data.i18n} jobs={data.experience.jobs} config={data.experience.config} />
+          )
+        }
         {data.portfolio && <PortfolioSection {...data.portfolio} />}
         {data.testimonials && <TestimonialsSection {...data.testimonials} />}
         {data.favorites && <FavoritesSection {...data.favorites} />}
