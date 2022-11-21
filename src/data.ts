@@ -1,6 +1,12 @@
 import type { Data } from '@/types/data';
 
 const data: Data = {
+  i18n: {
+    locale: 'en-US',
+    translations: {
+      now: 'now',
+    },
+  },
   seo: {
     title: 'Mark Freeman - Senior React Developer',
     description:
