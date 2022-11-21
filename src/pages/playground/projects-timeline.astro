@@ -1,0 +1,67 @@
+---
+import ProjectTimelineItem from '@/organisms/project-timeline-item.astro';
+import type { I18n } from '@/types/i18n';
+import type { Project } from '@/types/portfolio-section';
+
+const project: Project = {
+  name: 'Golden Bulls',
+  image: import('@/assets/portfolio/project-1.jpeg'),
+  startDate: new Date('2020-03'),
+  endDate: null,
+  details: [
+    { label: 'Team size', value: '1 person' },
+    { label: 'Company', value: 'None' },
+    { label: 'My role', value: ['Front-end Developer', 'Designer'] },
+    { label: 'Category', value: ['Web app', 'Open source'] },
+  ],
+  description:
+    'In tristique vulputate augue vel egestas. Quisque ac imperdiet tortor, at lacinia ex. Duis vel ex hendrerit, commodo odio sed, aliquam enim. Ut arcu nulla, tincidunt eget arcu eget, molestie vulputate nisi. Nunc malesuada leo et est iaculis facilisis.',
+  tags: [
+    {
+      icon: 'simple-icons:nextdotjs',
+      iconColor: '#000000',
+      name: 'Next.js',
+      url: 'https://nextjs.org/',
+    },
+    {
+      icon: 'simple-icons:sass',
+      iconColor: '#CC6699',
+      name: 'SASS',
+      url: 'https://sass-lang.com/',
+    },
+    {
+      icon: 'simple-icons:pnpm',
+      iconColor: '#F69220',
+      name: 'pnpm',
+      url: 'https://pnpm.io/',
+    },
+    {
+      icon: 'simple-icons:eslint',
+      iconColor: '#4B32C3',
+      name: 'ESLint',
+      url: 'https://eslint.org/',
+    },
+    {
+      icon: 'simple-icons:prettier',
+      iconColor: '#F7B93E',
+      name: 'Prettier',
+      url: 'https://prettier.io/',
+    },
+  ],
+  socials: [
+    { name: 'Mockups', icon: 'fa6-solid:image', url: '#' },
+    { name: 'App demo', icon: 'fa6-solid:desktop', url: '#' },
+  ],
+};
+
+const i18nData: I18n = {
+  locale: 'en-US',
+  translations: {
+    now: 'now',
+  },
+};
+---
+
+<div class="p-5">
+  <ProjectTimelineItem value={project} i18n={i18nData} />
+</div>
