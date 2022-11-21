@@ -14,20 +14,18 @@ const PersonTile = 'a';
 
 <PersonTile
   href={value.url}
-  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', props.class]}
+  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', 'w-full', props.class]}
 >
   <Image
-    class:list={['rounded-lg', 'shadow-md', 'object-cover', 'transition', 'duration-300']}
+    class:list={['rounded-lg', 'shadow-md', 'transition', 'duration-300', 'aspect-square', 'object-cover']}
+    width="auto"
+    aspectRatio={1 / 1}
     src={value.image}
     alt={value.name}
-    aspectRatio="1/1"
     format="webp"
   />
   <div class:list={['tile-content', 'gap-1']}>
     <Typography class:list={['leading-5', 'hover:text-gray-900']} variant="tile-title">
-      {value.name}
-    </Typography>
-    <Typography variant="tile-subtitle">
       {value.name}
     </Typography>
   </div>

@@ -14,16 +14,17 @@ const BookTile = 'a';
 
 <BookTile
   href={value.url}
-  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', props.class]}
+  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', 'w-full', props.class]}
 >
   <Image
-    class:list={['rounded-lg', 'shadow-md', 'object-cover']}
+    class:list={['rounded-lg', 'shadow-md', 'aspect-[3/4]', 'object-cover']}
     src={value.cover}
-    aspectRatio="1.3"
+    aspectRatio={3 / 4}
+    width="auto"
     alt={value.title}
     format="webp"
   />
-  <div class:list={['tile-content', 'gap-1']}>
+  <div class:list={['tile-content', 'gap-1', 'w-full']}>
     <Typography class:list={['leading-5', 'hover:text-gray-900']} variant="tile-title">
       {value.title}
     </Typography>

@@ -1,8 +1,90 @@
 ---
+import { Image } from '@astrojs/image/components';
+
+import Button from '@/atoms/button.astro';
+import IconButton from '@/atoms/icon-button.astro';
 import SectionCard from '@/atoms/section-card.astro';
+import Tag from '@/atoms/tag.astro';
+import Typography from '@/atoms/typography.astro';
+import type { Section } from '@/types/data';
 import type { MainSection } from '@/types/main-section';
 
 export interface Props extends MainSection {}
+
+const {
+  image,
+  fullName,
+  role,
+  socials,
+  details,
+  description,
+  action: { label, url, downloadedFileName },
+  tags,
+} = Astro.props;
+
+const section: Section = 'main';
 ---
 
-<SectionCard>Main section</SectionCard>
+<SectionCard section={section}>
+  <div class:list={['flex', 'gap-6', 'flex-col', 'sm:flex-row', 'items-start']}>
+    <div class:list={['flex', 'sm:flex-col', 'gap-4', 'items-center']}>
+      <Image
+        src={image}
+        alt={fullName}
+        class:list={['w-24', 'h-24', 'sm:w-36', 'sm:h-36', 'md:w-52', 'md:h-52', 'rounded-lg', 'max-w-none']}
+      />
+      <Button href={url} download={downloadedFileName}>{label}</Button>
+    </div>
+    <div class:list={['w-full', 'flex', 'flex-col', 'gap-5']}>
+      <div class:list={['w-full', 'flex', 'flex-col', 'sm:flex-row', 'justify-between', 'gap-2']}>
+        <div class:list={['w-full']}>
+          <Typography variant="main-title" id={`${section}-heading`}>{fullName}</Typography>
+          <Typography variant="main-subtitle">{role}</Typography>
+        </div>
+        {
+          socials.length > 0 && (
+            <div class:list={['flex', 'gap-3', 'flex-wrap', 'sm:flex-nowrap']}>
+              {socials.map(({ icon, url: iconUrl }) => (
+                <IconButton href={iconUrl} icon={icon} size="small" target="_blank" />
+              ))}
+            </div>
+          )
+        }
+      </div>
+      <div class:list={['flex', 'flex-col', 'gap-6']}>
+        <div class:list={['inline-grid', 'xl:grid-cols-[auto_auto]']}>
+          {
+            details.map(({ label: detailLabel, value }) => (
+              <div class="w-fit">
+                <Typography variant="paragraph">
+                  <span class="text-gray-700">{detailLabel}: </span>
+                  <span class="break-all">{value}</span>
+                </Typography>
+              </div>
+            ))
+          }
+        </div>
+        <div class:list={['flex', 'flex-col', 'gap-4']}>
+          <Typography variant="paragraph">{description}</Typography>
+          <div class:list={['flex', 'flex-wrap', 'gap-3']}>
+            {
+              tags.map(({ icon, iconColor, name, url: tagUrl }) =>
+                tagUrl ? (
+                  <a href={tagUrl} target="_blank" rel="noopener noreferrer">
+                    <Tag name={icon} color={iconColor}>
+                      {name}
+                    </Tag>
+                  </a>
+                ) : (
+                  <Tag name={icon} color={iconColor}>
+                    {name}
+                  </Tag>
+                )
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</SectionCard>

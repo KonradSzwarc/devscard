@@ -1,5 +1,7 @@
 ---
-import SidebarItem from '@/atoms/sidebar-item.astro';
+import SidebarItem from '@/atoms/sidebar-item';
 ---
 
-<SidebarItem icon="fa6-brands:accusoft" />
+<div class="p-5">
+  <SidebarItem client:only="react" icon="fa6-solid:bars-progress" section="experience" />
+</div>

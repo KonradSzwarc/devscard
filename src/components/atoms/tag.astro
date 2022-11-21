@@ -4,18 +4,14 @@ import type { IconName } from '@/types/icon';
 import Icon from './icon';
 
 export interface Props {
-  icon?: {
-    name: IconName;
-    color: string;
-  };
+  name?: IconName;
+  color?: string;
 }
 
-const {
-  props: { icon },
-} = Astro;
+const { name, color } = Astro.props;
 ---
 
 <div class="flex items-center w-fit h-6 px-2.5 rounded text-sm font-medium text-gray-700 bg-gray-100 gap-x-1.5">
-  {icon && <Icon client:load name={icon.name} color={icon.color} size={16} />}
+  <Icon client:load name={name} color={color} size={16} />
   <slot />
 </div>

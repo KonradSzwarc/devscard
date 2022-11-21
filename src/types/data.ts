@@ -15,3 +15,5 @@ export interface Data {
   testimonials?: TestimonialsSection;
   favorites?: FavoritesSection;
 }
+
+export type Section = Exclude<keyof Data, 'seo'>;
