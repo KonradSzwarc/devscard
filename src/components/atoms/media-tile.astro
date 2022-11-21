@@ -14,13 +14,14 @@ const MediaTile = 'a';
 
 <MediaTile
   href={value.url}
-  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', props.class]}
+  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', 'w-full', props.class]}
 >
   <Image
-    class:list={['rounded-lg', 'shadow-md', 'object-cover']}
+    class:list={['rounded-lg', 'shadow-md', 'aspect-square', 'object-cover']}
     src={value.image}
+    width="auto"
+    aspectRatio={1 / 1}
     alt={value.title}
-    aspectRatio="1.1"
     format="webp"
   />
   <div class:list={['tile-content', 'gap-1']}>
