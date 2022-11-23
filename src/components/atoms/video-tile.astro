@@ -8,29 +8,31 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {
   value: Video;
 }
 
-const { value, ...props } = Astro.props;
-const VideoTile = 'a';
+const {
+  value: { title, url },
+  ...props
+} = Astro.props;
 
-const getVideoThumbnail = (url: string) => {
-  return `https://img.youtube.com/vi/${url.split('/').pop()}/0.jpg`;
-};
+const VideoTile = 'a';
+const id = url.split('/').pop();
+const thumbnail = `https://img.youtube.com/vi/${id}/0.jpg`;
 ---
 
 <VideoTile
-  href={value.url}
+  href={url}
   class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', 'w-full', props.class]}
 >
   <Image
     class:list={['rounded-lg', 'shadow-md', 'aspect-video', 'object-cover']}
-    src={getVideoThumbnail(value.url)}
+    format="webp"
     width={240}
     height={180}
-    alt={value.title}
-    format="webp"
+    src={thumbnail}
+    alt={title}
   />
   <div class:list={['tile-content', 'gap-1']}>
     <Typography class:list={['leading-5', 'hover:text-gray-900']} variant="tile-title">
-      {value.title}
+      {title}
     </Typography>
   </div>
 </VideoTile>

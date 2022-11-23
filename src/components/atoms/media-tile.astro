@@ -18,11 +18,12 @@ const MediaTile = 'a';
 >
   <Image
     class:list={['rounded-lg', 'shadow-md', 'aspect-square', 'object-cover']}
-    src={value.image}
-    width={116}
-    aspectRatio={1 / 1}
-    alt={value.title}
+    fit={'cover'}
     format="webp"
+    aspectRatio={1 / 1}
+    quality={100}
+    src={value.image}
+    alt={value.title}
   />
   <div class:list={['tile-content', 'gap-1']}>
     <Typography class:list={['leading-5', 'hover:text-gray-900']} variant="tile-title">
