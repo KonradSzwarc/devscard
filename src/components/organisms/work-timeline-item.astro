@@ -1,0 +1,52 @@
+---
+import IconButton from '@/atoms/icon-button.astro';
+import Tag from '@/atoms/tag.astro';
+import Timestamp from '@/atoms/timestamp.astro';
+import Typography from '@/atoms/typography.astro';
+import type { Job } from '@/types/experience-section';
+import type { I18n } from '@/types/i18n';
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  job: Job;
+  i18n: I18n;
+}
+const { job, i18n, ...props } = Astro.props;
+const WorkTimelineItem = 'div';
+---
+
+<WorkTimelineItem class:list={['flex', 'flex-col', 'gap-2', 'md:gap-0', 'mb-4', props.class]}>
+  <Typography variant="item-title">{job.role} <span class="font-medium"> &#8212;&nbsp;{job.company}</span></Typography>
+  <div class:list={['fixed', 'top-3', 'right-3', 'md:flex', 'sm:flex-wrap', 'gap-3', '[&>a]:my-2']}>
+    {job.socials?.map(({ icon, url }) => <IconButton icon={icon} href={url} target="_blank" size="small" />)}
+  </div>
+  <Timestamp
+    startDate={job.startDate}
+    endDate={job.endDate}
+    locale={i18n.locale}
+    translationForNow={i18n.translations.now}
+  />
+  <ul class:list={['my-3']}>
+    {
+      Array.isArray(job.description) ? (
+        job.description.map((d) => (
+          <li>
+            <Typography variant="paragraph">&#x2022; {d}</Typography>
+          </li>
+        ))
+      ) : (
+        <li>
+          <Typography variant="paragraph">&#x2022; {job.description}</Typography>
+        </li>
+      )
+    }
+  </ul>
+  <div class:list={['flex', 'gap-3', 'flex-wrap', 'sm:flex-nowrap', 'mt-3']}>
+    {
+      job.tags.map((t) => (
+        <Tag name={t.icon} color={t.iconColor}>
+          {t.name}
+        </Tag>
+      ))
+    }
+  </div>
+</WorkTimelineItem>

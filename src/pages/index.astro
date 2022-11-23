@@ -11,7 +11,7 @@ import getObjectKeys from '@/utils/getObjectKeys';
 
 import data from '../data';
 
-const { seo, ...dataWithoutSeo } = data;
+const { seo, i18n, ...dataWithoutSeoAndI18n } = data;
 ---
 
 <!DOCTYPE html>
@@ -29,8 +29,8 @@ const { seo, ...dataWithoutSeo } = data;
       <div class="absolute z-40 -right-2">
         <Sidebar className="hidden xl:flex fixed">
           {
-            getObjectKeys(dataWithoutSeo).map((key) => {
-              const sectionData = dataWithoutSeo[key];
+            getObjectKeys(dataWithoutSeoAndI18n).map((key) => {
+              const sectionData = dataWithoutSeoAndI18n[key];
               return (
                 sectionData && (
                   <SidebarItem
@@ -48,7 +48,11 @@ const { seo, ...dataWithoutSeo } = data;
       <main class="w-full relative space-y-4 sm:space-y-6 lg:space-y-8">
         <MainSection {...data.main} />
         {data.skills && <SkillsSection {...data.skills} />}
-        {data.experience && <ExperienceSection {...data.experience} />}
+        {
+          data.experience && (
+            <ExperienceSection i18n={data.i18n} jobs={data.experience.jobs} config={data.experience.config} />
+          )
+        }
         {data.portfolio && <PortfolioSection {...data.portfolio} />}
         {data.testimonials && <TestimonialsSection {...data.testimonials} />}
         {data.favorites && <FavoritesSection {...data.favorites} />}
