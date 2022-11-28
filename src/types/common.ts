@@ -25,3 +25,5 @@ export interface SectionConfig {
   title: string;
   icon: IconName;
 }
+
+export type ThemeIcon = 'dark' | 'light';
