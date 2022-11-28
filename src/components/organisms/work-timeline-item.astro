@@ -15,9 +15,15 @@ const WorkTimelineItem = 'div';
 ---
 
 <WorkTimelineItem class:list={['flex', 'flex-col', 'gap-2', 'md:gap-0', 'mb-4', props.class]}>
-  <Typography variant="item-title">{job.role} <span class="font-medium"> &#8212;&nbsp;{job.company}</span></Typography>
-  <div class:list={['fixed', 'top-3', 'right-3', 'md:flex', 'sm:flex-wrap', 'gap-3', '[&>a]:my-2']}>
-    {job.socials?.map(({ icon, url }) => <IconButton icon={icon} href={url} target="_blank" size="small" />)}
+  <div class:list={['flex', 'flex-row', 'justify-between', 'w-full']}>
+    <div>
+      <Typography variant="item-title"
+        >{job.role} <span class="font-medium"> &#8212;&nbsp;{job.company}</span>
+      </Typography>
+    </div>
+    <div class:list={['flex', 'flex-wrap', 'gap-2']}>
+      {job.socials?.map(({ icon, url }) => <IconButton icon={icon} href={url} target="_blank" size="small" />)}
+    </div>
   </div>
   <Timestamp
     startDate={job.startDate}
