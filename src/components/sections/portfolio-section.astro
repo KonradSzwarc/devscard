@@ -1,13 +1,24 @@
 ---
+import Divider from '@/atoms/divider.astro';
 import SectionCard from '@/atoms/section-card.astro';
 import Typography from '@/atoms/typography.astro';
+import ProjectTimelineItem from '@/organisms/project-timeline-item.astro';
 import type { Section } from '@/types/data';
+import type { I18n } from '@/types/i18n';
 import type { PortfolioSection } from '@/types/portfolio-section';
 
 export interface Props extends PortfolioSection {}
 
+const i18nData: I18n = {
+  locale: 'en-US',
+  translations: {
+    now: 'now',
+  },
+};
+
 const {
   config: { title },
+  projects,
 } = Astro.props;
 
 const section: Section = 'portfolio';
@@ -15,4 +26,12 @@ const section: Section = 'portfolio';
 
 <SectionCard section={section}
   ><Typography variant="section-title" id={`${section}-heading`}>{title}</Typography>
+  {
+    projects.map((project, index) => (
+      <>
+        <ProjectTimelineItem project={project} i18n={i18nData} />
+        {index !== projects.length - 1 && <Divider />}
+      </>
+    ))
+  }
 </SectionCard>

@@ -9,74 +9,82 @@ import Typography from '@/atoms/typography.astro';
 import type { I18n } from '@/types/i18n';
 import type { Project } from '@/types/portfolio-section';
 
-export interface Props extends astroHTML.JSX.HTMLAttributes {
-  value: Project;
+export interface Props {
+  project: Project;
   i18n: I18n;
 }
-const { value, i18n, ...props } = Astro.props;
-const ProjectTimelineItem = 'div';
+const { project, i18n } = Astro.props;
+const { description, details, endDate, name, socials, startDate, tags, image } = project;
 
-const setLabelValue = (val: string | string[]) =>
-  Array.isArray(val) ? val.map((v, id) => (id !== val.length - 1 ? v.concat(', ') : v)) : val;
+// Alt has to destructured separately, because otherwise eslint complains about
+// the missing alt attribute on the Image component.
+const { alt, ...sharedImageProps } = {
+  src: image,
+  aspectRatio: '1/1',
+  alt: `Thumbnail for ${name} project`,
+  format: 'webp',
+} as const;
 ---
 
-<ProjectTimelineItem class:list={[props.className]}>
-  <div class:list={['flex', 'flex-col', 'sm:grid', 'overflow-hidden', 'grid-cols-[120px_minmax(200px,_1fr)]', 'gap-2']}>
-    <Image
-      class:list={['rounded-lg', 'object-cover', 'max-w-[120px]', 'm-0', 'overflow-hidden', 'sm:block', 'hidden']}
-      src={value.image}
-      aspectRatio="1/1"
-      alt={''}
-      format="webp"
-    />
-    <div class:list={['col-start-2', 'col-span-2', 'sm:mx-6']}>
-      <div class:list={['flex', 'justify-between']}>
-        <Typography variant="item-title">{value.name}</Typography>
-        <div class:list={['fixed', 'top-3', 'right-3', 'md:flex', 'md:flex-wrap', 'gap-3', '[&>a]:my-2']}>
-          {value.socials?.map(({ icon, url }) => <IconButton icon={icon} href={url} target="_blank" size="small" />)}
-        </div>
-      </div>
-      <Timestamp
-        startDate={value.startDate}
-        endDate={value.endDate}
-        locale={i18n.locale}
-        translationForNow={i18n.translations.now}
-      />
+<div class:list={['flex', 'flex-col', 'gap-6', 'py-8', 'px-4']}>
+  <div class:list={['flex', 'flex-col', 'gap-4']}>
+    <div class:list={['flex', 'gap-6']}>
       <Image
-        class:list={['rounded-lg', 'object-cover', 'my-2', 'max-w-[120px]', 'sm:block', 'sm:hidden']}
-        src={value.image}
-        aspectRatio="1/1"
-        alt={''}
-        format="webp"
+        class:list={['rounded-lg', 'object-cover', 'max-w-[120px]', 'overflow-hidden', 'sm:block', 'hidden']}
+        {...sharedImageProps}
+        alt={alt}
       />
-      <div class:list={['flex', 'md:gap-3', 'md:flex-row', 'flex-col', 'my-4']}>
-        <div class:list={['md:w-2/6']}>
-          {
-            value.details
-              .slice(0, Math.round(value.details.length / 2))
-              .map((d) => <LabelledValue label={d.label} value={setLabelValue(d.value)} />)
-          }
+      <div class:list={['flex', 'flex-col', 'gap-4', 'w-full']}>
+        <div class:list={['flex', 'justify-between']}>
+          <div>
+            <Typography variant="item-title">{name}</Typography>
+            <Timestamp
+              startDate={startDate}
+              endDate={endDate}
+              locale={i18n.locale}
+              translationForNow={i18n.translations.now}
+            />
+          </div>
+          <div class:list={['flex', 'gap-2']}>
+            {socials?.map(({ icon, url }) => <IconButton icon={icon} href={url} target="_blank" size="small" />)}
+          </div>
         </div>
-        <div>
+        <Image
+          class:list={['rounded-lg', 'object-cover', 'max-w-[120px]', 'sm:block', 'sm:hidden']}
+          {...sharedImageProps}
+          alt={alt}
+        />
+        <div class:list={['inline-grid', 'xl:grid-cols-[auto_auto]', 'w-full']}>
           {
-            value.details
-              .slice(Math.round(value.details.length / 2))
-              .map((d) => <LabelledValue label={d.label} value={setLabelValue(d.value)} />)
+            details.map(({ label: detailLabel, value: detailValue }) => (
+              <LabelledValue
+                label={detailLabel}
+                value={typeof detailValue === 'object' ? detailValue.join(', ') : detailValue}
+              />
+            ))
           }
         </div>
       </div>
     </div>
     <div class:list={['col-start-1 col-span-3']}>
-      <Typography variant="paragraph">{value.description}</Typography>
-    </div>
-    <div class:list={['flex', 'gap-3', 'flex-wrap', 'sm:flex-nowrap', 'mt-6']}>
-      {
-        value.tags.map((t) => (
-          <Tag name={t.icon} color={t.iconColor}>
-            {t.name}
-          </Tag>
-        ))
-      }
+      <Typography variant="paragraph">{description}</Typography>
     </div>
   </div>
-</ProjectTimelineItem>
+  <div class:list={['flex', 'gap-3', 'flex-wrap']}>
+    {
+      tags.map(({ name: tagName, icon, iconColor, url }) => {
+        return url ? (
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            <Tag name={icon} color={iconColor}>
+              {tagName}
+            </Tag>
+          </a>
+        ) : (
+          <Tag name={icon} color={iconColor}>
+            {tagName}
+          </Tag>
+        );
+      })
+    }
+  </div>
+</div>
