@@ -53,7 +53,7 @@ const { seo, i18n, ...dataWithoutSeoAndI18n } = data;
             <ExperienceSection i18n={data.i18n} jobs={data.experience.jobs} config={data.experience.config} />
           )
         }
-        {data.portfolio && <PortfolioSection {...data.portfolio} />}
+        {data.portfolio && <PortfolioSection i18n={data.i18n} {...data.portfolio} />}
         {data.testimonials && <TestimonialsSection {...data.testimonials} />}
         {data.favorites && <FavoritesSection {...data.favorites} />}
       </main>
