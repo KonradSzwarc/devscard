@@ -1,0 +1,20 @@
+---
+import Testimonial from '@/organisms/testimonial.astro';
+import type { Testimonial as TestimonialData } from '@/types/testimonials-section';
+
+const testimonial: TestimonialData = {
+  author: 'Howard Stewart',
+  relation: 'We work together as front-end developers at Google',
+  content:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt aliquam, nunc nisl aliquet nisl, eget aliquet nunc nisl euismod nisl. Sed euismod, nisl vel tincidunt aliquam, nunc nisl aliquet nisl, eget aliquet nunc nisl euismod nisl.',
+  image: import('@/assets/testimonials/testimonial-1.jpeg'),
+  socials: [
+    { name: 'GitHub', icon: 'fa6-brands:github', url: '#' },
+    { name: 'LinkedIn', icon: 'fa6-brands:linkedin-in', url: '#' },
+  ],
+};
+---
+
+<div class:list={['flex', 'flex-col', 'gap-2', 'max-w-[896px]']}>
+  <Testimonial testimonial={testimonial} />
+</div>
