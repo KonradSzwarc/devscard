@@ -25,7 +25,7 @@ const { seo, i18n, ...dataWithoutSeoAndI18n } = data;
     <title>{seo.title}</title>
     <meta name="description" content={seo.description} />
   </head>
-  <body class="flex justify-center bg-gray-50 dark:bg-black">
+  <body class="flex justify-center bg-gray-50 dark:bg-gray-900">
     <ThemeToggle client:only="react" />
     <div class="flex relative transform-none gap-8 w-full max-w-5xl px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
       <div class="absolute z-40 -right-2">
@@ -55,7 +55,7 @@ const { seo, i18n, ...dataWithoutSeoAndI18n } = data;
             <ExperienceSection i18n={data.i18n} jobs={data.experience.jobs} config={data.experience.config} />
           )
         }
-        {data.portfolio && <PortfolioSection {...data.portfolio} />}
+        {data.portfolio && <PortfolioSection i18n={data.i18n} {...data.portfolio} />}
         {data.testimonials && <TestimonialsSection {...data.testimonials} />}
         {data.favorites && <FavoritesSection {...data.favorites} />}
       </main>

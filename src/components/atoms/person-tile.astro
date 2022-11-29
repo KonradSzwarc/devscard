@@ -18,11 +18,12 @@ const PersonTile = 'a';
 >
   <Image
     class:list={['rounded-lg', 'shadow-md', 'transition', 'duration-300', 'aspect-square', 'object-cover']}
-    width="auto"
+    format="webp"
+    fit={'cover'}
+    quality={100}
     aspectRatio={1 / 1}
     src={value.image}
     alt={value.name}
-    format="webp"
   />
   <div class:list={['tile-content', 'gap-1']}>
     <Typography class:list={['leading-5', 'hover:text-gray-900']} variant="tile-title">

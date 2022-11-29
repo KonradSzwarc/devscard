@@ -18,11 +18,12 @@ const BookTile = 'a';
 >
   <Image
     class:list={['rounded-lg', 'shadow-md', 'aspect-[3/4]', 'object-cover']}
-    src={value.cover}
-    aspectRatio={3 / 4}
-    width="auto"
-    alt={value.title}
     format="webp"
+    fit={'cover'}
+    aspectRatio={3 / 4}
+    quality={100}
+    src={value.cover}
+    alt={value.title}
   />
   <div class:list={['tile-content', 'gap-1', 'w-full']}>
     <Typography class:list={['leading-5', 'hover:text-gray-900']} variant="tile-title">

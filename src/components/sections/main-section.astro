@@ -57,8 +57,8 @@ const section: Section = 'main';
             details.map(({ label: detailLabel, value }) => (
               <div class="w-fit">
                 <Typography variant="paragraph">
-                  <span class="text-gray-700">{detailLabel}: </span>
-                  <span class="break-all">{value}</span>
+                  <span class:list={['text-gray-700', 'dark:text-gray-300']}>{detailLabel}: </span>
+                  <span class:list={['break-all', 'dark:text-gray-400']}>{value}</span>
                 </Typography>
               </div>
             ))
