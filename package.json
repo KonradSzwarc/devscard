@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@astrojs/image": "0.11.6",
-    "@iconify-icon/react": "1.0.1",
+    "@iconify-icon/react": "1.0.2",
     "@tippyjs/react": "4.2.6",
     "clsx": "1.2.1",
     "prettier-plugin-astro": "0.7.0",
@@ -50,7 +50,7 @@
     "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-simple-import-sort": "8.0.0",
-    "iconify-icon-names": "1.0.1",
+    "iconify-icon-names": "1.1.0",
     "locales-ts": "1.0.0",
     "postcss": "8.4.19",
     "prettier": "2.8.0",
