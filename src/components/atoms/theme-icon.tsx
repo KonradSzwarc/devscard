@@ -4,8 +4,8 @@ import type { ThemeIcon } from '../../types/common';
 import Icon from './icon';
 
 const getInitialTheme = (): ThemeIcon => {
-  if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('theme')) {
-    return sessionStorage.getItem('theme') === 'light' ? 'light' : 'dark';
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+    return localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
   }
   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     return 'dark';
@@ -27,7 +27,7 @@ const ThemeToggle = () => {
     if (theme === 'light') {
       document.documentElement.classList.remove('dark');
     }
-    sessionStorage.setItem('theme', theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   return (
