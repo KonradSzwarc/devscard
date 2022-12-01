@@ -19,7 +19,7 @@
     "lint:ts": "tsc --jsx preserve --skipLibCheck"
   },
   "dependencies": {
-    "@astrojs/image": "0.11.6",
+    "@astrojs/image": "0.12.0",
     "@iconify-icon/react": "1.0.2",
     "@tippyjs/react": "4.2.6",
     "clsx": "1.2.1",
@@ -35,7 +35,7 @@
     "@types/react-dom": "18.0.9",
     "@typescript-eslint/eslint-plugin": "5.45.0",
     "@typescript-eslint/parser": "5.45.0",
-    "astro": "1.6.11",
+    "astro": "1.6.12",
     "eslint": "8.28.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-typescript": "17.0.0",
