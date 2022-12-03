@@ -25,11 +25,3 @@ export interface SectionConfig {
   title: string;
   icon: IconName;
 }
-
-export enum ThemeType {
-  light = 'light',
-  dark = 'dark',
-}
-
-const theme = Object.values(ThemeType);
-export type ThemeVariant = typeof theme[number];
