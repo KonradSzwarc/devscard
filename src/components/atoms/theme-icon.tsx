@@ -1,33 +1,35 @@
 import { useEffect, useState } from 'react';
 
-import type { ThemeIcon } from '../../types/common';
+import { ThemeType, ThemeVariant } from '../../types/common';
 import Icon from './icon';
 
-const getInitialTheme = (): ThemeIcon => {
-  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-    return localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
+const themeConstant = 'theme' as const;
+
+const getInitialTheme = (): ThemeVariant => {
+  if (typeof localStorage !== 'undefined' && localStorage.getItem(themeConstant)) {
+    return localStorage.getItem(themeConstant) === ThemeType.light ? ThemeType.light : ThemeType.dark;
   }
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return 'dark';
+  if (window.matchMedia(`(prefers-color-scheme: ${ThemeType.dark})`).matches) {
+    return ThemeType.dark;
   }
-  return 'light';
+  return ThemeType.light;
 };
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState<ThemeIcon>(() => getInitialTheme());
+  const [theme, setTheme] = useState<ThemeVariant>(() => getInitialTheme());
 
   const handleClick = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+    setTheme((prev) => (prev === ThemeType.light ? ThemeType.dark : ThemeType.light));
   };
 
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
+    if (theme === ThemeType.dark) {
+      document.documentElement.classList.add(ThemeType.dark);
     }
-    if (theme === 'light') {
-      document.documentElement.classList.remove('dark');
+    if (theme === ThemeType.light) {
+      document.documentElement.classList.remove(ThemeType.dark);
     }
-    localStorage.setItem('theme', theme);
+    localStorage.setItem(themeConstant, theme);
   }, [theme]);
 
   return (
@@ -37,8 +39,8 @@ const ThemeToggle = () => {
       className="inline-flex justify-center items-center h-10 w-10 rounded-lg transition fixed top-2 left-2"
     >
       <Icon
-        name={theme === 'dark' ? 'fa6-solid:moon' : 'ri:sun-line'}
-        color={theme === 'dark' ? 'white' : 'black'}
+        name={theme === ThemeType.dark ? 'ri:moon-fill' : 'ri:sun-line'}
+        color={theme === ThemeType.dark ? 'white' : 'black'}
         size={24}
       />
     </button>
