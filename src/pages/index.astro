@@ -13,6 +13,7 @@ import getObjectKeys from '@/utils/getObjectKeys';
 import data from '../data';
 
 const { seo, i18n, ...dataWithoutSeoAndI18n } = data;
+const seoImage = seo.image ? seo.image : '/favicon.svg';
 ---
 
 <!DOCTYPE html>
@@ -20,10 +21,13 @@ const { seo, i18n, ...dataWithoutSeoAndI18n } = data;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{seo.title}</title>
     <meta name="description" content={seo.description} />
+    <link rel="icon" type={seo.image ? 'image/jpeg' : 'image/svg+xml'} href={seoImage} />
+    <meta property="og:title" content={seo.title} />
+    <meta property="og:description" content={seo.description} />
+    <meta property="og:image" content={seoImage} />
   </head>
   <body class="flex justify-center bg-gray-50 dark:bg-gray-900">
     <ThemeToggle client:only="react" />

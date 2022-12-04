@@ -46,13 +46,21 @@ const WorkTimelineItem = 'div';
       )
     }
   </ul>
-  <div class:list={['flex', 'gap-3', 'flex-wrap', 'sm:flex-nowrap', 'mt-3']}>
+  <div class:list={['flex', 'gap-3', 'flex-wrap', 'mt-3']}>
     {
-      job.tags.map((t) => (
-        <Tag name={t.icon} color={t.iconColor}>
-          {t.name}
-        </Tag>
-      ))
+      job.tags.map(({ icon, iconColor, name, url }) => {
+        return url ? (
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            <Tag name={icon} color={iconColor}>
+              {name}
+            </Tag>
+          </a>
+        ) : (
+          <Tag name={icon} color={iconColor}>
+            {name}
+          </Tag>
+        );
+      })
     }
   </div>
 </WorkTimelineItem>
