@@ -39,9 +39,9 @@ const ThemeToggle = () => {
     <button
       onClick={handleClick}
       type="button"
-      className="bg-primary-600 inline-flex justify-center items-center h-14 w-14 transition fixed bottom-3 left-3 shadow-xl rounded-full z-10"
+      className="text-gray-400 bg-gray-100 focus:ring-primary-500 dark:bg-gray-600 dark:text-gray-200 inline-flex justify-center items-center h-10 w-10 transition fixed bottom-3 left-3 shadow-xl rounded-lg z-10"
     >
-      <Icon name={theme === DARK_THEME_KEY ? 'ri:moon-fill' : 'ri:sun-line'} color="white" size={24} />
+      <Icon name={theme === DARK_THEME_KEY ? 'ri:moon-fill' : 'ri:sun-line'} size={20} />
     </button>
   );
 };
