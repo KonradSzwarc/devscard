@@ -27,6 +27,7 @@ const SidebarItem = ({ section, icon, title = '' }: SidebarItemProps) => {
         ${active ? 'bg-primary-600 text-white' : 'bg-white text-gray-400 hover:bg-primary-600 hover:text-white'}
         `}
         aria-current={active ? 'page' : undefined}
+        aria-label={`${section} section`}
       >
         <Icon name={icon} size={20} />
       </a>
