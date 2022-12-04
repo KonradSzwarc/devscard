@@ -9,6 +9,7 @@ export interface Props {
   target?: astroHTML.JSX.AnchorHTMLAttributes['target'];
   href: string;
   size: IconButtonSize;
+  'aria-label'?: astroHTML.JSX.AnchorHTMLAttributes['aria-label'];
 }
 
 const sizeMap: Record<IconButtonSize, string> = {
@@ -16,7 +17,7 @@ const sizeMap: Record<IconButtonSize, string> = {
   large: 'w-9 h-9',
 };
 
-const { icon, href, target, size } = Astro.props;
+const { icon, href, target, size, ...rest } = Astro.props;
 ---
 
 <a
@@ -38,6 +39,7 @@ const { icon, href, target, size } = Astro.props;
     'dark:text-gray-200',
     sizeMap[size],
   ]}
+  {...rest}
 >
   <Icon client:load name={icon} size={16} />
 </a>

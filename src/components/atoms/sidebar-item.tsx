@@ -31,6 +31,7 @@ const SidebarItem = ({ section, icon, title = '' }: SidebarItemProps) => {
         }
         `}
         aria-current={active ? 'page' : undefined}
+        aria-label={`${section} section`}
       >
         <Icon name={icon} size={20} />
       </a>
