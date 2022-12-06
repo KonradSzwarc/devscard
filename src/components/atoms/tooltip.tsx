@@ -11,7 +11,10 @@ const Tooltip = ({ children, content, placement = 'top' }: TooltipProps) => {
   return (
     <Tippy
       render={(attrs) => (
-        <div {...attrs} className="bg-gray-700 rounded-lg px-2 py-1.5 text-white max-w-[95%] sm:max-w-xs">
+        <div
+          {...attrs}
+          className="bg-gray-700  dark:bg-gray-100 dark:text-gray-800 rounded-lg px-2 py-1.5 text-white max-w-[95%] sm:max-w-xs"
+        >
           {content}
         </div>
       )}

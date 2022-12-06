@@ -1,5 +1,6 @@
 ---
 import SidebarItem from '@/atoms/sidebar-item';
+import ThemeToggle from '@/atoms/theme-icon';
 import Sidebar from '@/organisms/sidebar.astro';
 import ExperienceSection from '@/sections/experience-section.astro';
 import FavoritesSection from '@/sections/favorites-section.astro';
@@ -28,7 +29,8 @@ const seoImage = seo.image ? seo.image : '/favicon.svg';
     <meta property="og:description" content={seo.description} />
     <meta property="og:image" content={seoImage} />
   </head>
-  <body class="flex justify-center bg-gray-50">
+  <body class="flex justify-center bg-gray-50 dark:bg-gray-900">
+    <ThemeToggle client:only="react" />
     <div class="flex relative transform-none gap-8 w-full max-w-5xl px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
       <div class="absolute z-40 -right-2">
         <Sidebar className="hidden xl:flex fixed">

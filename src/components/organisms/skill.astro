@@ -22,7 +22,7 @@ const IconWrapper = url ? 'a' : 'div';
     >
       <Icon client:load name={icon} color={iconColor} size={20} />
       <Typography variant="tile-subtitle">
-        <span class="text-gray-700">{name}</span>
+        <span class:list={['text-gray-700', 'dark:text-gray-300']}>{name}</span>
       </Typography>
     </IconWrapper>
     {
