@@ -26,26 +26,26 @@ const section: Section = 'main';
 ---
 
 <SectionCard section={section}>
-  <div class:list={['flex', 'gap-6', 'flex-col', 'sm:flex-row', 'items-start']}>
-    <div class:list={['flex', 'sm:flex-col', 'gap-4', 'items-center']}>
+  <div class="flex flex-col items-start gap-6 sm:flex-row">
+    <div class="flex items-center gap-4 sm:flex-col">
       <Image
         src={image}
         alt={fullName}
-        class:list={['w-24', 'h-24', 'sm:w-36', 'sm:h-36', 'md:w-52', 'md:h-52', 'rounded-lg', 'max-w-none']}
+        class="w-24 h-24 sm:w-36 sm:h-36 md:w-52 md:h-52 rounded-lg max-w-none"
         format="webp"
-        aspectRatio="1/1"
+        aspectRatio={1}
       />
       <Button href={url} download={downloadedFileName}>{label}</Button>
     </div>
-    <div class:list={['w-full', 'flex', 'flex-col', 'gap-5']}>
-      <div class:list={['w-full', 'flex', 'flex-col', 'sm:flex-row', 'justify-between', 'gap-2']}>
-        <div class:list={['w-full']}>
+    <div class="flex w-full flex-col gap-5">
+      <div class="flex w-full flex-col justify-between gap-2 sm:flex-row">
+        <div class="w-full">
           <Typography variant="main-title" id={`${section}-heading`}>{fullName}</Typography>
           <Typography variant="main-subtitle">{role}</Typography>
         </div>
         {
           socials.length > 0 && (
-            <div class:list={['flex', 'gap-3', 'flex-wrap', 'sm:flex-nowrap']}>
+            <div class="flex flex-wrap gap-3 sm:flex-nowrap">
               {socials.map(({ icon, url: iconUrl, name }) => (
                 <IconButton href={iconUrl} icon={icon} size="small" target="_blank" aria-label={name} />
               ))}
@@ -53,22 +53,22 @@ const section: Section = 'main';
           )
         }
       </div>
-      <div class:list={['flex', 'flex-col', 'gap-6']}>
-        <div class:list={['inline-grid', 'xl:grid-cols-[auto_auto]']}>
+      <div class="flex flex-col gap-6">
+        <div class="inline-grid xl:grid-cols-[auto_auto]">
           {
             details.map(({ label: detailLabel, value }) => (
               <div class="w-fit">
                 <Typography variant="paragraph">
-                  <span class:list={['text-gray-700', 'dark:text-gray-300']}>{detailLabel}: </span>
-                  <span class:list={['break-all', 'dark:text-gray-400']}>{value}</span>
+                  <span class="text-gray-700 dark:text-gray-300">{detailLabel}: </span>
+                  <span class="break-all dark:text-gray-400">{value}</span>
                 </Typography>
               </div>
             ))
           }
         </div>
-        <div class:list={['flex', 'flex-col', 'gap-4']}>
+        <div class="flex flex-col gap-4">
           <Typography variant="paragraph">{description}</Typography>
-          <div class:list={['flex', 'flex-wrap', 'gap-3']}>
+          <div class="flex flex-wrap gap-3">
             {
               tags.map(({ icon, iconColor, name, url: tagUrl }) =>
                 tagUrl ? (

@@ -10,6 +10,6 @@ export interface Props {
 const { skills } = Astro.props;
 ---
 
-<div class:list={['flex', 'flex-wrap', 'gap-8']}>
+<div class="flex flex-wrap gap-8">
   {skills.map((skill) => <Skill {...skill} />)}
 </div>

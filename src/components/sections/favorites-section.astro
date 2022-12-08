@@ -67,14 +67,14 @@ const section: Section = 'favorites';
 ---
 
 <SectionCard section={section} title={title}>
-  <div class:list={['flex', 'flex-col', 'gap-16']}>
+  <div class="flex flex-col gap-16">
     {
       subsections.map(({ Component, data, name, columnsLayout, title: subsectionTitle }) => (
-        <div class:list={['flex', 'flex-col', 'gap-6']}>
+        <div class="flex flex-col gap-6">
           <Typography variant="section-subtitle" id={`${section}-${name}-heading`}>
             {subsectionTitle}
           </Typography>
-          <div class:list={['grid', 'gap-8', columnsLayout]}>
+          <div class={`grid gap-8 ${columnsLayout}`}>
             {data.map((value) => (
               <Component value={value} />
             ))}

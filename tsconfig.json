@@ -40,5 +40,6 @@
       "@/constants/*": ["src/constants/*"],
       "@/utils/*": ["src/utils/*"]
     }
-  }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.astro"]
 }

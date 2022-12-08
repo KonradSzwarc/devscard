@@ -1,27 +1,26 @@
 {
   "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "extraFileExtensions": [".astro"]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": { "project": "./tsconfig.eslint.json" }
+    }
+  },
   "overrides": [
     {
-      // Files containing TypeScript code.
       "files": ["*.ts", "*.tsx", "*.astro"],
       "extends": ["plugin:@typescript-eslint/recommended"],
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "project": "./tsconfig.eslint.json",
-        "extraFileExtensions": [".astro"]
-      },
-      "settings": {
-        "import/resolver": {
-          "typescript": { "project": "./tsconfig.eslint.json" }
-        }
-      },
       "rules": {
         // Create empty interface only when it extends other interface.
         "@typescript-eslint/no-empty-interface": [2, { "allowSingleExtends": true }]
       }
     },
     {
-      "files": ["*.tsx"],
+      "files": ["*.ts", "*.tsx"],
       "extends": [
         "airbnb",
         "airbnb-typescript",
@@ -44,19 +43,16 @@
       }
     },
     {
-      "files": ["*.ts"],
-      "extends": [
-        "airbnb/base",
-        "airbnb-typescript/base",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
-      ]
-    },
-    {
       "files": ["*.astro"],
       "globals": {
         "astroHTML": true
       },
-      "extends": ["airbnb/base", "airbnb-typescript/base", "plugin:astro/all", "plugin:astro/jsx-a11y-strict"],
+      "extends": [
+        "airbnb/base",
+        "airbnb-typescript/base",
+        "plugin:astro/recommended",
+        "plugin:astro/jsx-a11y-recommended"
+      ],
       "parser": "astro-eslint-parser",
       "parserOptions": {
         "parser": "@typescript-eslint/parser"
@@ -70,10 +66,9 @@
       "extends": ["airbnb/base"]
     },
     {
-      // All linted files.
       "files": ["*.ts", "*.tsx", "*.astro", "*.cjs"],
       "plugins": ["file-progress", "simple-import-sort"],
-      "extends": ["plugin:eslint-comments/recommended", "plugin:prettier/recommended"],
+      "extends": ["plugin:eslint-comments/recommended", "prettier"],
       "rules": {
         // Shows information about currently processing file in the console.
         "file-progress/activate": 1,
@@ -88,24 +83,8 @@
         "import/no-extraneous-dependencies": [2, { "devDependencies": ["astro.config.ts", "tailwind.config.cjs"] }],
 
         // Imports and exports order.
-        "simple-import-sort/imports": [
-          2,
-          {
-            "groups": [
-              ["^\\u0000"], // Side effects
-              ["^@?\\w"], // Packages
-              ["^"], // Absolute imports
-              ["^\\."] // Relative imports
-            ]
-          }
-        ],
+        "simple-import-sort/imports": 2,
         "simple-import-sort/exports": 2
-      }
-    },
-    {
-      "files": ["**/constants/*.ts"],
-      "rules": {
-        "import/prefer-default-export": 0
       }
     }
   ]

@@ -9,7 +9,7 @@ export interface Props {
 const { skills } = Astro.props;
 ---
 
-<div class:list={['flex', 'flex-wrap', 'gap-3', 'items-center']}>
+<div class="flex flex-wrap items-center gap-3">
   {
     skills.map(({ name, icon, iconColor, url }) =>
       url ? (

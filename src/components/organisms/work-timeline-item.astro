@@ -6,21 +6,21 @@ import Typography from '@/atoms/typography.astro';
 import type { Job } from '@/types/experience-section';
 import type { I18n } from '@/types/i18n';
 
-export interface Props extends astroHTML.JSX.HTMLAttributes {
+export interface Props {
   job: Job;
   i18n: I18n;
 }
-const { job, i18n, ...props } = Astro.props;
+const { job, i18n } = Astro.props;
 ---
 
-<div class:list={['flex', 'flex-col', 'gap-2', 'md:gap-0', props.class]}>
-  <div class:list={['flex', 'flex-row', 'justify-between', 'w-full']}>
+<div class="flex flex-col gap-2 md:gap-0">
+  <div class="flex w-full flex-row justify-between">
     <div>
       <Typography variant="item-title"
         >{job.role} <span class="font-medium"> &#8212;&nbsp;{job.company}</span>
       </Typography>
     </div>
-    <div class:list={['flex', 'flex-wrap', 'gap-2']}>
+    <div class="flex flex-wrap gap-2">
       {
         job.socials?.map(({ icon, url, name }) => (
           <IconButton icon={icon} href={url} target="_blank" size="small" aria-label={name} />
@@ -34,7 +34,7 @@ const { job, i18n, ...props } = Astro.props;
     locale={i18n.locale}
     translationForNow={i18n.translations.now}
   />
-  <ul class:list={['my-3']}>
+  <ul class="my-3">
     {
       Array.isArray(job.description) ? (
         job.description.map((d) => (
@@ -49,10 +49,10 @@ const { job, i18n, ...props } = Astro.props;
       )
     }
   </ul>
-  <div class:list={['flex', 'gap-3', 'flex-wrap', 'mt-3']}>
+  <div class="mt-3 flex flex-wrap gap-3">
     {
-      job.tags.map(({ icon, iconColor, name, url }) => {
-        return url ? (
+      job.tags.map(({ icon, iconColor, name, url }) =>
+        url ? (
           <a href={url} target="_blank" rel="noopener noreferrer">
             <Tag name={icon} color={iconColor}>
               {name}
@@ -62,8 +62,8 @@ const { job, i18n, ...props } = Astro.props;
           <Tag name={icon} color={iconColor}>
             {name}
           </Tag>
-        );
-      })
+        )
+      )
     }
   </div>
 </div>

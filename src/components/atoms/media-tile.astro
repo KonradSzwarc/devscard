@@ -4,33 +4,29 @@ import { Image } from '@astrojs/image/components';
 import Typography from '@/atoms/typography.astro';
 import type { Media } from '@/types/favorites-section';
 
-export interface Props extends astroHTML.JSX.HTMLAttributes {
+export interface Props {
   value: Media;
 }
 
-const { value, ...props } = Astro.props;
-const MediaTile = 'a';
+const { value } = Astro.props;
 ---
 
-<MediaTile
-  href={value.url}
-  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', 'w-full', props.class]}
->
+<a href={value.url} class="flex w-full flex-col gap-3 transition duration-300 hover:translate-y-2">
   <Image
-    class:list={['rounded-lg', 'shadow-md', 'aspect-square', 'object-cover']}
-    fit={'cover'}
+    class="rounded-lg shadow-md aspect-square object-cover"
+    fit="cover"
     format="webp"
-    aspectRatio={1 / 1}
+    aspectRatio={1}
     quality={100}
     src={value.image}
     alt={value.title}
   />
-  <div class:list={['tile-content', 'gap-1']}>
-    <Typography class:list={['leading-5', 'hover:text-gray-900']} variant="tile-title">
+  <div class="tile-content gap-1">
+    <Typography class="leading-5 hover:text-gray-900" variant="tile-title">
       {value.title}
     </Typography>
     <Typography variant="tile-subtitle">
       {value.type}
     </Typography>
   </div>
-</MediaTile>
+</a>

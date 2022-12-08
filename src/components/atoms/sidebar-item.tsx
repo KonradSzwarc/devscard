@@ -1,7 +1,6 @@
 import { useLocation } from 'react-use';
 
 import Icon from '@/atoms/icon';
-import { MAIN_SECTION } from '@/constants/section';
 import type { Section } from '@/types/data';
 import type { IconName } from '@/types/icon';
 
@@ -13,6 +12,8 @@ export interface SidebarItemProps {
   title?: string;
 }
 
+export const MAIN_SECTION: Section = 'main';
+
 const SidebarItem = ({ section, icon, title = '' }: SidebarItemProps) => {
   const { hash } = useLocation();
   const href = `#${section}`;
@@ -23,11 +24,11 @@ const SidebarItem = ({ section, icon, title = '' }: SidebarItemProps) => {
     <Tooltip content={`${title || section.charAt(0).toUpperCase() + section.slice(1)} section`} placement="left">
       <a
         href={href}
-        className={`inline-flex justify-center items-center h-10 w-10 rounded-lg transition
+        className={`inline-flex h-10 w-10 items-center justify-center rounded-lg transition
         ${
           active
             ? 'bg-primary-600 text-white'
-            : 'bg-white text-gray-400 dark:bg-gray-800 dark:text-gray-200 hover:bg-primary-600 hover:text-white'
+            : 'bg-white text-gray-400 hover:bg-primary-600 hover:text-white dark:bg-gray-800 dark:text-gray-200'
         }
         `}
         aria-current={active ? 'page' : undefined}

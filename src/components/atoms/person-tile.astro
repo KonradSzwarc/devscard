@@ -4,30 +4,26 @@ import { Image } from '@astrojs/image/components';
 import Typography from '@/atoms/typography.astro';
 import type { Person } from '@/types/favorites-section';
 
-export interface Props extends astroHTML.JSX.HTMLAttributes {
+export interface Props {
   value: Person;
 }
 
-const { value, ...props } = Astro.props;
-const PersonTile = 'a';
+const { value } = Astro.props;
 ---
 
-<PersonTile
-  href={value.url}
-  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', 'w-full', props.class]}
->
+<a href={value.url} class="flex w-full flex-col gap-3 transition duration-300 hover:translate-y-2">
   <Image
-    class:list={['rounded-lg', 'shadow-md', 'transition', 'duration-300', 'aspect-square', 'object-cover']}
+    class="rounded-lg shadow-md transition duration-300 aspect-square object-cover"
     format="webp"
-    fit={'cover'}
+    fit="cover"
     quality={100}
-    aspectRatio={1 / 1}
+    aspectRatio={1}
     src={value.image}
     alt={value.name}
   />
-  <div class:list={['tile-content', 'gap-1']}>
-    <Typography class:list={['leading-5', 'hover:text-gray-900']} variant="tile-title">
+  <div class="tile-content gap-1">
+    <Typography class="leading-5 hover:text-gray-900" variant="tile-title">
       {value.name}
     </Typography>
   </div>
-</PersonTile>
+</a>

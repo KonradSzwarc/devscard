@@ -20,22 +20,22 @@ const { description, details, endDate, name, socials, startDate, tags, image } =
 // the missing alt attribute on the Image component.
 const { alt, ...sharedImageProps } = {
   src: image,
-  aspectRatio: '1/1',
+  aspectRatio: 1,
   alt: `Thumbnail for ${name} project`,
   format: 'webp',
 } as const;
 ---
 
-<div class:list={['flex', 'flex-col', 'gap-6']}>
-  <div class:list={['flex', 'flex-col', 'gap-4']}>
-    <div class:list={['flex', 'gap-6']}>
+<div class="flex flex-col gap-6">
+  <div class="flex flex-col gap-4">
+    <div class="flex gap-6">
       <Image
-        class:list={['rounded-lg', 'object-cover', 'max-w-[120px]', 'overflow-hidden', 'sm:block', 'hidden']}
+        class="rounded-lg object-cover max-w-[120px] overflow-hidden sm:block hidden"
         {...sharedImageProps}
         alt={alt}
       />
-      <div class:list={['flex', 'flex-col', 'gap-4', 'w-full']}>
-        <div class:list={['flex', 'justify-between']}>
+      <div class="flex w-full flex-col gap-4">
+        <div class="flex justify-between">
           <div>
             <Typography variant="item-title">{name}</Typography>
             <Timestamp
@@ -45,7 +45,7 @@ const { alt, ...sharedImageProps } = {
               translationForNow={i18n.translations.now}
             />
           </div>
-          <div class:list={['flex', 'gap-2']}>
+          <div class="flex gap-2">
             {
               socials?.map(({ icon, url, name: socialName }) => (
                 <IconButton icon={icon} href={url} target="_blank" size="small" aria-label={socialName} />
@@ -53,12 +53,8 @@ const { alt, ...sharedImageProps } = {
             }
           </div>
         </div>
-        <Image
-          class:list={['rounded-lg', 'object-cover', 'max-w-[120px]', 'sm:block', 'sm:hidden']}
-          {...sharedImageProps}
-          alt={alt}
-        />
-        <div class:list={['inline-grid', 'xl:grid-cols-[auto_auto]', 'w-full']}>
+        <Image class="rounded-lg object-cover max-w-[120px] sm:hidden" {...sharedImageProps} alt={alt} />
+        <div class="inline-grid w-full xl:grid-cols-[auto_auto]">
           {
             details.map(({ label: detailLabel, value: detailValue }) => (
               <LabelledValue
@@ -70,14 +66,14 @@ const { alt, ...sharedImageProps } = {
         </div>
       </div>
     </div>
-    <div class:list={['col-start-1 col-span-3']}>
+    <div class="col-span-3 col-start-1">
       <Typography variant="paragraph">{description}</Typography>
     </div>
   </div>
-  <div class:list={['flex', 'gap-3', 'flex-wrap']}>
+  <div class="flex flex-wrap gap-3">
     {
-      tags.map(({ name: tagName, icon, iconColor, url }) => {
-        return url ? (
+      tags.map(({ name: tagName, icon, iconColor, url }) =>
+        url ? (
           <a href={url} target="_blank" rel="noopener noreferrer">
             <Tag name={icon} color={iconColor}>
               {tagName}
@@ -87,8 +83,8 @@ const { alt, ...sharedImageProps } = {
           <Tag name={icon} color={iconColor}>
             {tagName}
           </Tag>
-        );
-      })
+        )
+      )
     }
   </div>
 </div>

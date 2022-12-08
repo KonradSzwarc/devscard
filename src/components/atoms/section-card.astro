@@ -11,7 +11,7 @@ export interface Props {
 const { section, title } = Astro.props;
 ---
 
-<div id={section} class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-md flex flex-col gap-6">
+<div id={section} class="flex flex-col gap-6 rounded-2xl bg-white p-8 shadow-md dark:bg-gray-800">
   {
     title && (
       <Typography variant="section-title" id={`${section}-heading`}>
