@@ -8,22 +8,22 @@ export interface Props {
   value: Person;
 }
 
-const { value } = Astro.props;
+const {
+  value: { image, name, url },
+} = Astro.props;
 ---
 
-<a href={value.url} class="flex w-full flex-col gap-3 transition duration-300 hover:translate-y-2">
+<a href={url} class="flex w-full flex-col gap-3 transition duration-300 hover:translate-y-2">
   <Image
     class="rounded-lg shadow-md transition duration-300 aspect-square object-cover"
     format="webp"
     fit="cover"
     quality={100}
     aspectRatio={1}
-    src={value.image}
-    alt={value.name}
+    src={image}
+    alt={name}
   />
-  <div class="gap-1">
-    <Typography class="leading-5 hover:text-gray-900" variant="tile-title">
-      {value.name}
-    </Typography>
-  </div>
+  <Typography variant="tile-title">
+    {name}
+  </Typography>
 </a>
