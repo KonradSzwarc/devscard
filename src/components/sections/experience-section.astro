@@ -1,11 +1,12 @@
 ---
+import DividedList from '@/atoms/divided-list.astro';
 import Divider from '@/atoms/divider.astro';
 import SectionCard from '@/atoms/section-card.astro';
-import Typography from '@/atoms/typography.astro';
 import WorkTimelineItem from '@/organisms/work-timeline-item.astro';
 import type { Section } from '@/types/data';
 import type { ExperienceSection, Job } from '@/types/experience-section';
 import type { I18n } from '@/types/i18n';
+import removeLast from '@/utils/remove-last';
 
 export interface Props extends ExperienceSection {
   jobs: Job[];
@@ -21,14 +22,8 @@ const {
 const section: Section = 'experience';
 ---
 
-<SectionCard section={section}
-  ><Typography variant="section-title" id={`${section}-heading`}>{title}</Typography>
-  {
-    jobs.map((value, id) => (
-      <>
-        <WorkTimelineItem job={value} i18n={i18n} />
-        {id !== jobs.length - 1 && <Divider />}
-      </>
-    ))
-  }
+<SectionCard section={section} title={title}>
+  <DividedList>
+    {removeLast(jobs.flatMap((job) => [<WorkTimelineItem job={job} i18n={i18n} />, <Divider />]))}
+  </DividedList>
 </SectionCard>

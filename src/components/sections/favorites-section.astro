@@ -66,8 +66,7 @@ const subsections = [booksSubsection, peopleSubsection, videosSubsection, medias
 const section: Section = 'favorites';
 ---
 
-<SectionCard section={section}>
-  <Typography variant="section-title" id={`${section}-heading`}>{title}</Typography>
+<SectionCard section={section} title={title}>
   <div class:list={['flex', 'flex-col', 'gap-16']}>
     {
       subsections.map(({ Component, data, name, columnsLayout, title: subsectionTitle }) => (
