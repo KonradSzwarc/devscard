@@ -11,10 +11,9 @@ export interface Props extends astroHTML.JSX.HTMLAttributes {
   i18n: I18n;
 }
 const { job, i18n, ...props } = Astro.props;
-const WorkTimelineItem = 'div';
 ---
 
-<WorkTimelineItem class:list={['flex', 'flex-col', 'gap-2', 'md:gap-0', 'mb-4', props.class]}>
+<div class:list={['flex', 'flex-col', 'gap-2', 'md:gap-0', props.class]}>
   <div class:list={['flex', 'flex-row', 'justify-between', 'w-full']}>
     <div>
       <Typography variant="item-title"
@@ -67,4 +66,4 @@ const WorkTimelineItem = 'div';
       })
     }
   </div>
-</WorkTimelineItem>
+</div>
