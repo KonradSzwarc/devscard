@@ -1,10 +1,11 @@
 ---
 import IconButton from '@/atoms/icon-button.astro';
-import Tag from '@/atoms/tag.astro';
 import Timestamp from '@/atoms/timestamp.astro';
 import Typography from '@/atoms/typography.astro';
 import type { Job } from '@/types/experience-section';
 import type { I18n } from '@/types/i18n';
+
+import TagsList from '../molecules/tags-list.astro';
 
 export interface Props {
   job: Job;
@@ -34,7 +35,7 @@ const { job, i18n } = Astro.props;
     locale={i18n.locale}
     translationForNow={i18n.translations.now}
   />
-  <ul class="my-3">
+  <ul class="pt-3 pb-6">
     {
       Array.isArray(job.description) ? (
         job.description.map((d) => (
@@ -49,21 +50,5 @@ const { job, i18n } = Astro.props;
       )
     }
   </ul>
-  <div class="mt-3 flex flex-wrap gap-3">
-    {
-      job.tags.map(({ icon, iconColor, name, url }) =>
-        url ? (
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            <Tag name={icon} color={iconColor}>
-              {name}
-            </Tag>
-          </a>
-        ) : (
-          <Tag name={icon} color={iconColor}>
-            {name}
-          </Tag>
-        )
-      )
-    }
-  </div>
+  <TagsList tags={job.tags} />
 </div>

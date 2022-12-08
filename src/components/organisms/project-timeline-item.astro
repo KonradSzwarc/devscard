@@ -3,11 +3,12 @@ import { Image } from '@astrojs/image/components';
 
 import IconButton from '@/atoms/icon-button.astro';
 import LabelledValue from '@/atoms/labelled-value.astro';
-import Tag from '@/atoms/tag.astro';
 import Timestamp from '@/atoms/timestamp.astro';
 import Typography from '@/atoms/typography.astro';
 import type { I18n } from '@/types/i18n';
 import type { Project } from '@/types/portfolio-section';
+
+import TagsList from '../molecules/tags-list.astro';
 
 export interface Props {
   project: Project;
@@ -70,21 +71,5 @@ const { alt, ...sharedImageProps } = {
       <Typography variant="paragraph">{description}</Typography>
     </div>
   </div>
-  <div class="flex flex-wrap gap-3">
-    {
-      tags.map(({ name: tagName, icon, iconColor, url }) =>
-        url ? (
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            <Tag name={icon} color={iconColor}>
-              {tagName}
-            </Tag>
-          </a>
-        ) : (
-          <Tag name={icon} color={iconColor}>
-            {tagName}
-          </Tag>
-        )
-      )
-    }
-  </div>
+  <TagsList tags={tags} />
 </div>

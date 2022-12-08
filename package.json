@@ -17,7 +17,8 @@
     "eslint:write": "npm run eslint:check -- --fix",
     "prettier:check": "prettier --check --ignore-path .gitignore .",
     "prettier:write": "prettier --write --ignore-path .gitignore .",
-    "ts:check": "tsc --jsx preserve --skipLibCheck"
+    "ts:check": "tsc --jsx preserve --skipLibCheck",
+    "check": "concurrently npm:*:check"
   },
   "dependencies": {
     "@astrojs/image": "0.12.0",
@@ -36,6 +37,7 @@
     "@typescript-eslint/eslint-plugin": "5.46.0",
     "@typescript-eslint/parser": "5.46.0",
     "astro": "1.6.12",
+    "concurrently": "7.6.0",
     "eslint": "8.29.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-typescript": "17.0.0",

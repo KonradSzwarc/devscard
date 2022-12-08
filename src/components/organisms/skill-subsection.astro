@@ -3,8 +3,8 @@ import Typography from '@/atoms/typography.astro';
 import type { Tag } from '@/types/common';
 import type { LevelledSkill, SkillSet } from '@/types/skills-section';
 
+import TagsList from '../molecules/tags-list.astro';
 import LevelledSkillSubsection from './levelled-skill-subsection.astro';
-import TagSkillSubsection from './tag-skill-subsection.astro';
 
 export interface Props {
   skillSet: SkillSet<Tag> | SkillSet<LevelledSkill>;
@@ -24,11 +24,5 @@ const isLevelledSkillSection = (skillsSectionData: Tag[] | LevelledSkill[]): ski
 
 <div class="flex flex-col gap-3">
   <Typography variant="section-subtitle">{title}</Typography>
-  {
-    isLevelledSkillSection(skills) ? (
-      <LevelledSkillSubsection skills={skills} />
-    ) : (
-      <TagSkillSubsection skills={skills} />
-    )
-  }
+  {isLevelledSkillSection(skills) ? <LevelledSkillSubsection skills={skills} /> : <TagsList tags={skills} />}
 </div>
