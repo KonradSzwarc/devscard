@@ -2,4 +2,9 @@
 # See: https://prettier.io/docs/en/configuration.html#editorconfig
 
 singleQuote: true
-endOfLine: auto
+endOfLine: 'auto'
+
+pluginSearchDirs: false
+plugins:
+  - 'prettier-plugin-astro'
+  - 'prettier-plugin-tailwindcss'

@@ -15,7 +15,7 @@ const section: Section = 'skills';
 ---
 
 <SectionCard section={section} title={title}>
-  <div class:list={['flex', 'flex-col', 'gap-10']}>
+  <div class="flex flex-col gap-10">
     {skillSets.map((skillSet) => <SkillSubsection skillSet={skillSet} />)}
   </div>
 </SectionCard>

@@ -31,8 +31,8 @@ const seoImage = seo.image ? seo.image : '/favicon.svg';
   </head>
   <body class="flex justify-center bg-gray-50 dark:bg-gray-900">
     <ThemeToggle client:only="react" />
-    <div class="flex relative transform-none gap-8 w-full max-w-5xl px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
-      <div class="absolute z-40 -right-2">
+    <div class="relative flex w-full max-w-5xl transform-none gap-8 px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
+      <div class="absolute -right-2 z-40">
         <Sidebar className="hidden xl:flex fixed">
           {
             getObjectKeys(dataWithoutSeoAndI18n).map((key) => {
@@ -51,7 +51,7 @@ const seoImage = seo.image ? seo.image : '/favicon.svg';
           }
         </Sidebar>
       </div>
-      <main class="w-full relative space-y-4 sm:space-y-6 lg:space-y-8">
+      <main class="relative w-full space-y-4 sm:space-y-6 lg:space-y-8">
         <MainSection {...data.main} />
         {data.skills && <SkillsSection {...data.skills} />}
         {

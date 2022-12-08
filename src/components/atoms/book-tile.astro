@@ -4,20 +4,16 @@ import { Image } from '@astrojs/image/components';
 import Typography from '@/atoms/typography.astro';
 import type { Book } from '@/types/favorites-section';
 
-export interface Props extends astroHTML.JSX.HTMLAttributes {
+export interface Props {
   value: Book;
 }
 
-const { value, ...props } = Astro.props;
-const BookTile = 'a';
+const { value } = Astro.props;
 ---
 
-<BookTile
-  href={value.url}
-  class:list={['flex', 'flex-col', 'gap-3', 'transition', 'duration-300', 'hover:translate-y-2', 'w-full', props.class]}
->
+<a href={value.url} class="flex w-full flex-col gap-3 transition duration-300 hover:translate-y-2">
   <Image
-    class:list={['rounded-lg', 'shadow-md', 'aspect-[3/4]', 'object-cover']}
+    class="rounded-lg shadow-md aspect-[3/4] object-cover"
     format="webp"
     fit={'cover'}
     aspectRatio={3 / 4}
@@ -25,12 +21,12 @@ const BookTile = 'a';
     src={value.cover}
     alt={value.title}
   />
-  <div class:list={['tile-content', 'gap-1', 'w-full']}>
-    <Typography class:list={['leading-5', 'hover:text-gray-900']} variant="tile-title">
+  <div class="tile-content w-full gap-1">
+    <Typography class="leading-5, hover:text-gray-900" variant="tile-title">
       {value.title}
     </Typography>
     <Typography variant="tile-subtitle">
       {value.author}
     </Typography>
   </div>
-</BookTile>
+</a>

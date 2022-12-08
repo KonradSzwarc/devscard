@@ -7,17 +7,8 @@ export interface Props {
 const { skillLevel, tileLevel } = Astro.props;
 
 const isFilled = skillLevel >= tileLevel;
+const filledClass = isFilled ? 'bg-gray-500 dark:bg-gray-300' : 'bg-gray-200 dark:bg-gray-500';
 ---
 
-<div
-  class:list={[
-    'w-9',
-    'h-2',
-    'last:rounded-l-none',
-    'last:rounded-r-sm',
-    'first:rounded-l-sm',
-    'first:rounded-r-none',
-    { 'dark:bg-gray-300': isFilled, 'dark:bg-gray-500': !isFilled, 'bg-gray-200': !isFilled, 'bg-gray-500': isFilled },
-  ]}
->
+<div class={`w-9 h-2 last:rounded-l-none last:rounded-r-sm first:rounded-l-sm first:rounded-r-none ${filledClass}`}>
 </div>
