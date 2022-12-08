@@ -74,7 +74,7 @@ const section: Section = 'favorites';
           <Typography variant="section-subtitle" id={`${section}-${name}-heading`}>
             {subsectionTitle}
           </Typography>
-          <div class={`grid gap-8 ${columnsLayout}`}>
+          <div class:list={['grid gap-8', columnsLayout]}>
             {data.map((value) => (
               <Component value={value} />
             ))}

@@ -6,6 +6,7 @@
   "eslint.validate": ["javascript", "javascriptreact", "astro", "typescript", "typescriptreact"],
   "files.eol": "\n",
   "tailwindCSS.classAttributes": ["class", "className", "class:list"],
+  "tailwindCSS.experimental.classRegex": [["/\\* tw \\*/ ([^;]*);", "'([^']*)'"]],
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "[astro]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
