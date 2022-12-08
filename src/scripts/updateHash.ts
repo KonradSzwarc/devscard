@@ -18,6 +18,8 @@ const updateHash = (data: Data) => {
     })
     .filter((section) => section.bottom > 0);
 
+  if (distancesToHeadingBottom.length === 0) return;
+
   const currentSection = distancesToHeadingBottom.reduce((previous, current) =>
     previous.bottom < current.bottom ? previous : current
   );
