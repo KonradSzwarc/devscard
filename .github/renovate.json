@@ -6,7 +6,7 @@
     ":automergePr",
     ":automergeRequireAllStatusChecks",
     ":separateMultipleMajorReleases",
-    "schedule:daily"
+    "schedule:weekly"
   ],
   "packageRules": [
     {
