@@ -9,7 +9,7 @@ const portfolioData: PortfolioSection = {
   projects: [
     {
       name: 'Golden Bulls',
-      image: import('@/assets/portfolio/project-1.jpeg'),
+      image: '/assets/portfolio/project-1.jpeg',
       startDate: new Date('2020-03'),
       endDate: null,
       details: [
@@ -59,7 +59,7 @@ const portfolioData: PortfolioSection = {
     },
     {
       name: 'TruQuest',
-      image: import('@/assets/portfolio/project-2.jpeg'),
+      image: '/assets/portfolio/project-2.jpeg',
       startDate: new Date('2019-06'),
       endDate: new Date('2020-02'),
       details: [
@@ -103,7 +103,7 @@ const portfolioData: PortfolioSection = {
     },
     {
       name: 'Software Chasers',
-      image: import('@/assets/portfolio/project-3.jpeg'),
+      image: '/assets/portfolio/project-3.jpeg',
       startDate: new Date('2018-01'),
       endDate: new Date('2020-12'),
       details: [
@@ -153,7 +153,7 @@ const portfolioData: PortfolioSection = {
     },
     {
       name: 'Disco Ninjas',
-      image: import('@/assets/portfolio/project-4.jpeg'),
+      image: '/assets/portfolio/project-4.jpeg',
       startDate: new Date('2016-05'),
       endDate: new Date('2018-07'),
       details: [

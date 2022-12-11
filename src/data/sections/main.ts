@@ -5,7 +5,7 @@ const mainData: MainSection = {
     icon: 'fa6-solid:user',
     title: 'Profile',
   },
-  image: import('@/assets/my-image.jpeg'),
+  image: '/assets/my-image.jpeg',
   fullName: 'Mark Freeman',
   role: 'Senior React Developer',
   details: [

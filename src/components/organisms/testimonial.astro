@@ -1,6 +1,4 @@
 ---
-import { Image } from '@astrojs/image/components';
-
 import IconButton from '@/atoms/icon-button.astro';
 import Typography from '@/atoms/typography.astro';
 import type { Testimonial } from '@/types/testimonials-section';
@@ -17,7 +15,7 @@ const {
 <div class="flex w-full flex-col gap-4">
   <div class="flex justify-between">
     <div class="flex flex-col gap-4 sm:flex-row">
-      <Image src={image} alt={author} format="webp" class="w-14 h-14 rounded-lg" />
+      <img src={image} alt={author} class="h-14 w-14 rounded-lg" />
       <div>
         <Typography variant="item-title">{author}</Typography>
         <Typography variant="item-subtitle">{relation}</Typography>

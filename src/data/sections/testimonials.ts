@@ -7,7 +7,7 @@ const testimonialsData: TestimonialsSection = {
   },
   testimonials: [
     {
-      image: import('@/assets/testimonials/testimonial-1.jpeg'),
+      image: '/assets/testimonials/testimonial-1.jpeg',
       author: 'Howard Stewart',
       relation: 'We work together as front-end developers at Google',
       content:
@@ -18,7 +18,7 @@ const testimonialsData: TestimonialsSection = {
       ],
     },
     {
-      image: import('@/assets/testimonials/testimonial-2.jpeg'),
+      image: '/assets/testimonials/testimonial-2.jpeg',
       author: 'Jean Richards',
       relation: 'My project manager at GitLab',
       content:
@@ -26,7 +26,7 @@ const testimonialsData: TestimonialsSection = {
       socials: [{ name: 'LinkedIn', icon: 'fa6-brands:linkedin-in', url: '#' }],
     },
     {
-      image: import('@/assets/testimonials/testimonial-3.jpeg'),
+      image: '/assets/testimonials/testimonial-3.jpeg',
       author: 'Jason Fisher',
       relation: 'My customer for sidewing.com website',
       content:

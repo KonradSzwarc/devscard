@@ -1,6 +1,4 @@
 ---
-import { Image } from '@astrojs/image/components';
-
 import Typography from '@/atoms/typography.astro';
 import type { Video } from '@/types/favorites-section';
 
@@ -17,14 +15,7 @@ const thumbnail = `https://img.youtube.com/vi/${id}/0.jpg`;
 ---
 
 <a href={url} class="flex w-full flex-col gap-3 transition duration-300 hover:translate-y-2">
-  <Image
-    class="rounded-lg shadow-md aspect-video object-cover"
-    format="webp"
-    width={240}
-    height={180}
-    src={thumbnail}
-    alt={title}
-  />
+  <img class="aspect-video rounded-lg object-cover shadow-md" src={thumbnail} alt={title} />
   <Typography variant="tile-title">
     {title}
   </Typography>
