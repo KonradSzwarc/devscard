@@ -27,7 +27,7 @@ const SidebarItem = ({ section, icon, title = '' }: SidebarItemProps) => {
   const active = hash === '' ? section === MAIN_SECTION : hash === href;
 
   return (
-    <Tooltip content={`${title || section.charAt(0).toUpperCase() + section.slice(1)} section`} placement="left">
+    <Tooltip content={`${title || section.charAt(0).toUpperCase() + section.slice(1)}`} placement="left">
       <a
         href={href}
         className={`${classes.main} ${active ? classes.active : classes.inactive}`}
