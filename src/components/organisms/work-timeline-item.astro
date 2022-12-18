@@ -35,17 +35,17 @@ const { job, i18n } = Astro.props;
     locale={i18n.locale}
     translationForNow={i18n.translations.now}
   />
-  <ul class="pt-3 pb-6">
+  <ul class="ml-[18px] list-disc pt-3 pb-6 text-white">
     {
       Array.isArray(job.description) ? (
         job.description.map((d) => (
           <li>
-            <Typography variant="paragraph">&#x2022; {d}</Typography>
+            <Typography variant="paragraph">{d}</Typography>
           </li>
         ))
       ) : (
         <li>
-          <Typography variant="paragraph">&#x2022; {job.description}</Typography>
+          <Typography variant="paragraph">{job.description}</Typography>
         </li>
       )
     }
