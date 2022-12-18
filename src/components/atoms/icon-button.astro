@@ -1,6 +1,7 @@
 ---
-import Icon from '@/atoms/icon';
 import type { IconName } from '@/types/icon';
+
+import IconWithTooltip from './icon-with-tooltip';
 
 type IconButtonSize = 'small' | 'large';
 
@@ -10,6 +11,7 @@ export interface Props {
   href: string;
   size: IconButtonSize;
   'aria-label'?: astroHTML.JSX.AnchorHTMLAttributes['aria-label'];
+  name: string;
 }
 
 const sizeMap: Record<IconButtonSize, string> = {
@@ -17,7 +19,7 @@ const sizeMap: Record<IconButtonSize, string> = {
   large: 'w-9 h-9',
 };
 
-const { icon, href, target, size, ...rest } = Astro.props;
+const { name, icon, href, target, size, ...rest } = Astro.props;
 
 const classes = /* tw */ {
   main: 'flex items-center justify-center rounded text-gray-400 bg-gray-100 dark:bg-gray-600 dark:text-gray-200',
@@ -27,5 +29,5 @@ const classes = /* tw */ {
 ---
 
 <a href={href} target={target} class:list={[classes.main, classes.active, classes.focus, sizeMap[size]]} {...rest}>
-  <Icon client:load name={icon} size={16} />
+  <IconWithTooltip client:load name={icon} size={16} content={name} />
 </a>
