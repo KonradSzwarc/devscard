@@ -49,7 +49,14 @@ const { alt, ...sharedImageProps } = {
           <div class="flex gap-2">
             {
               socials?.map(({ icon, url, name: socialName }) => (
-                <IconButton icon={icon} href={url} target="_blank" size="small" aria-label={socialName} />
+                <IconButton
+                  icon={icon}
+                  href={url}
+                  target="_blank"
+                  size="small"
+                  aria-label={socialName}
+                  name={socialName}
+                />
               ))
             }
           </div>
