@@ -35,28 +35,28 @@ interface FavoritesSubsection<T extends SubsectionData> {
 
 const booksSubsection: FavoritesSubsection<Book> = {
   name: 'books',
-  columnsLayout: 'grid-cols-4',
+  columnsLayout: 'grid-cols-fluid200',
   Component: BookTile,
   ...books,
 };
 
 const mediasSubsection: FavoritesSubsection<Media> = {
   name: 'medias',
-  columnsLayout: 'grid-cols-6',
+  columnsLayout: 'grid-cols-fluid120',
   Component: MediaTile,
   ...medias,
 };
 
 const peopleSubsection: FavoritesSubsection<Person> = {
   name: 'people',
-  columnsLayout: 'grid-cols-6',
+  columnsLayout: 'grid-cols-fluid120',
   Component: PersonTile,
   ...people,
 };
 
 const videosSubsection: FavoritesSubsection<Video> = {
   name: 'videos',
-  columnsLayout: 'grid-cols-3',
+  columnsLayout: 'grid-cols-fluid240',
   Component: VideoTile,
   ...videos,
 };
