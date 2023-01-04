@@ -48,7 +48,7 @@ const section: Section = 'main';
           socials.length > 0 && (
             <div class="flex flex-wrap gap-3 sm:flex-nowrap">
               {socials.map(({ icon, url: iconUrl, name }) => (
-                <IconButton href={iconUrl} icon={icon} size="small" target="_blank" aria-label={name} />
+                <IconButton href={iconUrl} icon={icon} size="small" target="_blank" aria-label={name} name={name} />
               ))}
             </div>
           )
