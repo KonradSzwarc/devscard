@@ -1,5 +1,7 @@
 import type { MainSection } from '@/types/main-section';
 
+import getSocial from '../socials';
+
 const mainData: MainSection = {
   config: {
     icon: 'fa6-solid:user',
@@ -22,10 +24,10 @@ const mainData: MainSection = {
     url: '#',
   },
   socials: [
-    { name: 'Facebook', icon: 'fa6-brands:facebook-f', url: '#' },
-    { name: 'GitHub', icon: 'fa6-brands:github', url: '#' },
-    { name: 'LinkedIn', icon: 'fa6-brands:linkedin-in', url: '#' },
-    { name: 'Twitter', icon: 'fa6-brands:twitter', url: '#' },
+    getSocial('facebook', '#'),
+    getSocial('github', '#'),
+    getSocial('linkedin', '#'),
+    getSocial('twitter', '#'),
   ],
 };
 

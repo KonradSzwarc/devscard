@@ -1,5 +1,7 @@
 import type { PortfolioSection } from '@/types/portfolio-section';
 
+import getSocial from '../socials';
+
 const portfolioData: PortfolioSection = {
   config: {
     title: 'Projects',
@@ -52,10 +54,7 @@ const portfolioData: PortfolioSection = {
           url: 'https://prettier.io/',
         },
       ],
-      socials: [
-        { name: 'Mockups', icon: 'fa6-solid:image', url: '#' },
-        { name: 'App demo', icon: 'fa6-solid:desktop', url: '#' },
-      ],
+      socials: [getSocial('mockups', '#'), getSocial('demo', '#')],
     },
     {
       name: 'TruQuest',
@@ -96,10 +95,7 @@ const portfolioData: PortfolioSection = {
           url: 'https://www.postgresql.org/',
         },
       ],
-      socials: [
-        { name: 'Mockups', icon: 'fa6-solid:image', url: '#' },
-        { name: 'App demo', icon: 'fa6-solid:desktop', url: '#' },
-      ],
+      socials: [getSocial('mockups', '#'), getSocial('demo', '#')],
     },
     {
       name: 'Software Chasers',
@@ -146,10 +142,7 @@ const portfolioData: PortfolioSection = {
           url: 'https://pnpm.io/',
         },
       ],
-      socials: [
-        { name: 'Website', icon: 'fa6-solid:globe', url: '#' },
-        { name: 'GitHub', icon: 'fa6-brands:github', url: '#' },
-      ],
+      socials: [getSocial('website', '#'), getSocial('github', '#')],
     },
     {
       name: 'Disco Ninjas',
@@ -184,7 +177,7 @@ const portfolioData: PortfolioSection = {
           url: 'https://firebase.google.com/',
         },
       ],
-      socials: [{ name: 'Mockups', icon: 'fa6-solid:image', url: '#' }],
+      socials: [getSocial('mockups', '#')],
     },
   ],
 };
