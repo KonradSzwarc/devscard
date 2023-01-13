@@ -1,5 +1,7 @@
 import type { ExperienceSection } from '@/types/experience-section';
 
+import getSocial from '../socials';
+
 const experienceData: ExperienceSection = {
   config: {
     title: 'Work experience',
@@ -51,10 +53,7 @@ const experienceData: ExperienceSection = {
           url: 'https://firebase.google.com/',
         },
       ],
-      socials: [
-        { name: 'Facebook', icon: 'fa6-brands:facebook-f', url: '#' },
-        { name: 'LinkedIn', icon: 'fa6-brands:linkedin-in', url: '#' },
-      ],
+      socials: [getSocial('facebook', '#'), getSocial('linkedin', '#')],
     },
     {
       role: 'React.js developer',
@@ -93,10 +92,7 @@ const experienceData: ExperienceSection = {
           url: 'https://eslint.org/',
         },
       ],
-      socials: [
-        { name: 'Website', icon: 'fa6-solid:globe', url: '#' },
-        { name: 'Instagram', icon: 'fa6-brands:instagram', url: '#' },
-      ],
+      socials: [getSocial('website', '#'), getSocial('instagram', '#')],
     },
     {
       role: 'Junior front-end developer',
@@ -129,10 +125,7 @@ const experienceData: ExperienceSection = {
           url: 'https://pnpm.io/',
         },
       ],
-      socials: [
-        { name: 'Twitter', icon: 'fa6-brands:twitter', url: '#' },
-        { name: 'GitHub', icon: 'fa6-brands:github', url: '#' },
-      ],
+      socials: [getSocial('twitter', '#'), getSocial('github', '#')],
     },
   ],
 };
