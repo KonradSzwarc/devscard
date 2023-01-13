@@ -1,6 +1,6 @@
 import type { ExperienceSection } from '@/types/experience-section';
 
-import getSocial from '../socials';
+import { facebook, github, instagram, linkedin, twitter, website } from '../socials';
 
 const experienceData: ExperienceSection = {
   config: {
@@ -53,7 +53,7 @@ const experienceData: ExperienceSection = {
           url: 'https://firebase.google.com/',
         },
       ],
-      socials: [getSocial('facebook', '#'), getSocial('linkedin', '#')],
+      socials: [facebook('#'), linkedin('#')],
     },
     {
       role: 'React.js developer',
@@ -92,7 +92,7 @@ const experienceData: ExperienceSection = {
           url: 'https://eslint.org/',
         },
       ],
-      socials: [getSocial('website', '#'), getSocial('instagram', '#')],
+      socials: [website('#'), instagram('#')],
     },
     {
       role: 'Junior front-end developer',
@@ -125,7 +125,7 @@ const experienceData: ExperienceSection = {
           url: 'https://pnpm.io/',
         },
       ],
-      socials: [getSocial('twitter', '#'), getSocial('github', '#')],
+      socials: [twitter('#'), github('#')],
     },
   ],
 };

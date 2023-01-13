@@ -1,6 +1,6 @@
 import type { PortfolioSection } from '@/types/portfolio-section';
 
-import getSocial from '../socials';
+import { demo, github, mockups, website } from '../socials';
 
 const portfolioData: PortfolioSection = {
   config: {
@@ -54,7 +54,7 @@ const portfolioData: PortfolioSection = {
           url: 'https://prettier.io/',
         },
       ],
-      socials: [getSocial('mockups', '#'), getSocial('demo', '#')],
+      socials: [mockups('#'), demo('#')],
     },
     {
       name: 'TruQuest',
@@ -95,7 +95,7 @@ const portfolioData: PortfolioSection = {
           url: 'https://www.postgresql.org/',
         },
       ],
-      socials: [getSocial('mockups', '#'), getSocial('demo', '#')],
+      socials: [mockups('#'), demo('#')],
     },
     {
       name: 'Software Chasers',
@@ -142,7 +142,7 @@ const portfolioData: PortfolioSection = {
           url: 'https://pnpm.io/',
         },
       ],
-      socials: [getSocial('website', '#'), getSocial('github', '#')],
+      socials: [website('#'), github('#')],
     },
     {
       name: 'Disco Ninjas',
@@ -177,7 +177,7 @@ const portfolioData: PortfolioSection = {
           url: 'https://firebase.google.com/',
         },
       ],
-      socials: [getSocial('mockups', '#')],
+      socials: [mockups('#'), github('#')],
     },
   ],
 };

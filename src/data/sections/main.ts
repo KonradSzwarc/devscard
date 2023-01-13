@@ -1,6 +1,6 @@
 import type { MainSection } from '@/types/main-section';
 
-import getSocial from '../socials';
+import { facebook, github, linkedin, twitter } from '../socials';
 
 const mainData: MainSection = {
   config: {
@@ -23,12 +23,7 @@ const mainData: MainSection = {
     label: 'Download CV',
     url: '#',
   },
-  socials: [
-    getSocial('facebook', '#'),
-    getSocial('github', '#'),
-    getSocial('linkedin', '#'),
-    getSocial('twitter', '#'),
-  ],
+  socials: [facebook('#'), github('#'), linkedin('#'), twitter('#')],
 };
 
 export default mainData;
