@@ -17,8 +17,9 @@ const { job, i18n } = Astro.props;
 <div class="flex flex-col gap-2 md:gap-0">
   <div class="flex w-full flex-row justify-between">
     <div>
-      <Typography variant="item-title"
-        >{job.role} <span class="font-medium"> &#8212;&nbsp;{job.company}</span>
+      <Typography variant="item-title">
+        {job.role}
+        <span class="font-medium"> &#8212;&nbsp;{job.company}</span>
       </Typography>
     </div>
     <div class="flex flex-wrap gap-2">
