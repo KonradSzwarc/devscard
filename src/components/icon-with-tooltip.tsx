@@ -1,5 +1,4 @@
-import type { IconProps } from './icon';
-import Icon from './icon';
+import Icon, { IconProps } from './icon';
 import Tooltip, { TooltipProps } from './tooltip';
 
 type Props = IconProps & Omit<TooltipProps, 'children'>;

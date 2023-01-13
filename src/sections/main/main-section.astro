@@ -1,14 +1,13 @@
 ---
 import { Image } from '@astrojs/image/components';
 
-import Button from '@/atoms/button.astro';
-import IconButton from '@/atoms/icon-button.astro';
-import SectionCard from '@/atoms/section-card.astro';
-import Typography from '@/atoms/typography.astro';
+import Button from '@/components/button.astro';
+import IconButton from '@/components/icon-button.astro';
+import SectionCard from '@/components/section-card.astro';
+import TagsList from '@/components/tags-list.astro';
+import Typography from '@/components/typography.astro';
 import type { Section } from '@/types/data';
 import type { MainSection } from '@/types/main-section';
-
-import TagsList from '../molecules/tags-list.astro';
 
 export interface Props extends MainSection {}
 
