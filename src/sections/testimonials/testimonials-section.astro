@@ -1,11 +1,12 @@
 ---
-import DividedList from '@/atoms/divided-list.astro';
-import Divider from '@/atoms/divider.astro';
-import SectionCard from '@/atoms/section-card.astro';
-import Testimonial from '@/organisms/testimonial.astro';
+import DividedList from '@/components/divided-list.astro';
+import Divider from '@/components/divider.astro';
+import SectionCard from '@/components/section-card.astro';
 import type { Section } from '@/types/data';
 import type { TestimonialsSection } from '@/types/testimonials-section';
 import removeLast from '@/utils/remove-last';
+
+import Testimonial from './testimonial.astro';
 
 export interface Props extends TestimonialsSection {}
 

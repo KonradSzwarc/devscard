@@ -1,12 +1,13 @@
 ---
-import DividedList from '@/atoms/divided-list.astro';
-import Divider from '@/atoms/divider.astro';
-import SectionCard from '@/atoms/section-card.astro';
-import WorkTimelineItem from '@/organisms/work-timeline-item.astro';
+import DividedList from '@/components/divided-list.astro';
+import Divider from '@/components/divider.astro';
+import SectionCard from '@/components/section-card.astro';
 import type { Section } from '@/types/data';
 import type { ExperienceSection, Job } from '@/types/experience-section';
 import type { I18n } from '@/types/i18n';
 import removeLast from '@/utils/remove-last';
+
+import WorkTimelineItem from './work-timeline-item.astro';
 
 export interface Props extends ExperienceSection {
   jobs: Job[];

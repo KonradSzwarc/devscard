@@ -1,9 +1,9 @@
 import { useLocation } from 'react-use';
 
-import Icon from '@/atoms/icon';
 import type { Section } from '@/types/data';
 import type { IconName } from '@/types/icon';
 
+import Icon from './icon';
 import Tooltip from './tooltip';
 
 export interface SidebarItemProps {
