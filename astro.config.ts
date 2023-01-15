@@ -8,9 +8,6 @@ import { visualizer } from 'rollup-plugin-visualizer';
 export default defineConfig({
   integrations: [tailwind(), image(), svelte()],
   vite: {
-    ssr: {
-      external: ['svgo'],
-    },
     plugins: [visualizer()],
   },
 });
