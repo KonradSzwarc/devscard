@@ -45,6 +45,3 @@
 >
   {content}
 </div>
-
-<style>
-</style>

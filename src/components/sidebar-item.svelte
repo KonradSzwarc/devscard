@@ -15,13 +15,13 @@
 
   const href = `#${section}`;
 
+  $: active = hash === href;
+
   const classes = /* tw */ {
     main: 'inline-flex h-10 w-10 items-center justify-center rounded-lg transition',
     active: 'bg-primary-600 text-white',
-    inactive: 'bg-white text-gray-400 hover:bg-primary-600 hover:text-white dark:bg-gray-800 dark:text-gray-200',
+    inactive: 'text-gray-400 hover:bg-primary-600 hover:text-white dark:text-gray-200',
   };
-
-  $: active = hash === href;
 </script>
 
 <Tooltip content={`${title || section.charAt(0).toUpperCase() + section.slice(1)}`} placement="left">

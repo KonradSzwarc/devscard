@@ -5,8 +5,8 @@ import SidebarItem from '@/components/sidebar-item.svelte';
 
 <div class="relative p-5">
   <Sidebar>
-    <SidebarItem client:only="svelte" icon="fa6-solid:bars-progress" section="skills" />
-    <SidebarItem client:only="svelte" icon="fa6-solid:suitcase" section="experience" />
-    <SidebarItem client:only="svelte" icon="fa6-solid:rocket" section="portfolio" />
+    <SidebarItem client:load icon="fa6-solid:bars-progress" section="skills" />
+    <SidebarItem client:load icon="fa6-solid:suitcase" section="experience" />
+    <SidebarItem client:load icon="fa6-solid:rocket" section="portfolio" />
   </Sidebar>
 </div>

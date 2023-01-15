@@ -14,6 +14,6 @@ const { name, color } = Astro.props;
 <div
   class="flex h-6 w-fit items-center gap-x-1.5 rounded bg-gray-100 px-2.5 text-sm font-medium tracking-wide text-gray-700 dark:bg-gray-700 dark:text-gray-100"
 >
-  <Icon client:load name={name} color={color} size={16} />
+  {name && <Icon client:load name={name} color={color} size={16} />}
   <slot />
 </div>
