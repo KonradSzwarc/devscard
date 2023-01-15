@@ -1,10 +1,27 @@
 ---
+import type { Data } from '@/data';
+import isSectionKey from '@/utils/is-section-key';
+
+import SidebarItem from './sidebar-item.svelte';
+
 export interface Props {
   className?: string;
+  data: Data;
 }
-const { className } = Astro.props;
+
+const { className, data } = Astro.props;
+
+const sections = Object.keys(data).flatMap((key) => {
+  if (!isSectionKey(key)) return [];
+
+  const section = data[key];
+
+  if (!section) return [];
+
+  return [{ title: section.config.title, icon: section.config.icon, section: key }];
+});
 ---
 
 <nav class:list={['flex flex-col w-max h-fit p-2 rounded-lg gap-2 bg-white dark:bg-gray-800 shadow-md', className]}>
-  <slot />
+  {sections.map((section) => <SidebarItem client:load {...section} />)}
 </nav>

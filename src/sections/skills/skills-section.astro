@@ -1,6 +1,6 @@
 ---
 import SectionCard from '@/components/section-card.astro';
-import type { Section } from '@/types/data';
+import type { SectionKey } from '@/types/data';
 import type { SkillsSection } from '@/types/skills-section';
 
 import SkillSubsection from './skill-subsection.astro';
@@ -12,7 +12,7 @@ const {
   skillSets,
 } = Astro.props;
 
-const section: Section = 'skills';
+const section: SectionKey = 'skills';
 ---
 
 <SectionCard section={section} title={title}>

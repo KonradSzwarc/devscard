@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { Section } from '@/data';
+  import type { SectionKey } from '@/types/data';
   import type { IconName } from '@/types/icon';
   import hashState from '@/utils/hash-state';
   import Icon from './icon.svelte';
   import Tooltip from './tooltip.svelte';
 
-  export let section: Section;
+  export let section: SectionKey;
   export let icon: IconName;
   export let title: string = '';
 

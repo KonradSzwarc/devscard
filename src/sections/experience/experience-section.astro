@@ -2,7 +2,7 @@
 import DividedList from '@/components/divided-list.astro';
 import Divider from '@/components/divider.astro';
 import SectionCard from '@/components/section-card.astro';
-import type { Section } from '@/types/data';
+import type { SectionKey } from '@/types/data';
 import type { ExperienceSection, Job } from '@/types/experience-section';
 import type { I18n } from '@/types/i18n';
 import removeLast from '@/utils/remove-last';
@@ -20,7 +20,7 @@ const {
   jobs,
 } = Astro.props;
 
-const section: Section = 'experience';
+const section: SectionKey = 'experience';
 ---
 
 <SectionCard section={section} title={title}>
