@@ -1,23 +1,24 @@
 ---
 import { Image } from '@astrojs/image/components';
 
-import type { LocalImage } from '@/types/common';
+import type { Photo } from '@/types/common';
 
 export interface Props {
-  src: LocalImage;
+  src: Photo;
   alt: string;
+  class?: string;
 }
 
 const { src, alt } = Astro.props;
+const className = Astro.props.class ?? '';
 
-const styles = 'aspect-[3/4] rounded-lg object-cover shadow-md';
 const isRemoteImage = typeof src === 'string';
 ---
 
 {
   isRemoteImage ? (
-    <img class={styles} src={src} alt={alt} />
+    <img class={className} src={src} alt={alt} />
   ) : (
-    <Image class={styles} format="webp" fit={'cover'} aspectRatio={3 / 4} src={src} alt={alt} />
+    <Image class={className} format="webp" fit={'cover'} aspectRatio={3 / 4} src={src} alt={alt} />
   )
 }
