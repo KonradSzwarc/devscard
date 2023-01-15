@@ -1,10 +1,10 @@
 ---
-import IconWithTooltip from '@/components/icon-with-tooltip';
+import IconWithTooltip from '@/components/icon-with-tooltip.svelte';
 import Typography from '@/components/typography.astro';
 import type { IconName } from '@/types/icon';
 import type { LevelledSkill } from '@/types/skills-section';
 
-import Icon from '../../components/icon';
+import Icon from '../../components/icon.svelte';
 import SkillLevel from './skill-level.astro';
 
 export interface Props extends LevelledSkill {}
@@ -25,7 +25,7 @@ const IconWrapper = url ? 'a' : 'div';
     {
       description && (
         <IconWithTooltip
-          client:only="react"
+          client:load
           name={'akar-icons:info-fill' as IconName}
           color="#D1D5DB"
           size={14}

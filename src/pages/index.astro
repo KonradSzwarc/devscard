@@ -1,7 +1,7 @@
 ---
 import Sidebar from '@/components/sidebar.astro';
-import SidebarItem from '@/components/sidebar-item';
-import ThemeToggle from '@/components/theme-icon';
+import SidebarItem from '@/components/sidebar-item.svelte';
+import ThemeToggle from '@/components/theme-icon.svelte';
 import ExperienceSection from '@/sections/experience/experience-section.astro';
 import FavoritesSection from '@/sections/favorites/favorites-section.astro';
 import MainSection from '@/sections/main/main-section.astro';
@@ -30,7 +30,7 @@ const seoImage = seo.image ? seo.image : '/favicon.svg';
     <meta property="og:image" content={seoImage} />
   </head>
   <body class="flex justify-center bg-gray-50 dark:bg-gray-900">
-    <ThemeToggle client:only="react" />
+    <ThemeToggle client:only="svelte" />
     <div class="relative flex w-full max-w-5xl transform-none gap-8 px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
       <div class="absolute -right-2 z-40">
         <Sidebar className="hidden xl:flex fixed">
@@ -40,7 +40,7 @@ const seoImage = seo.image ? seo.image : '/favicon.svg';
               return (
                 sectionData && (
                   <SidebarItem
-                    client:only="react"
+                    client:load
                     title={sectionData.config.title}
                     icon={sectionData.config.icon}
                     section={key}
@@ -65,10 +65,4 @@ const seoImage = seo.image ? seo.image : '/favicon.svg';
       </main>
     </div>
   </body>
-  <script>
-    import updateHash from '../scripts/updateHash';
-    import data from '../data';
-
-    document.addEventListener('scroll', () => updateHash(data));
-  </script>
 </html>
