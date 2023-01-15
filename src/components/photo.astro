@@ -19,6 +19,6 @@ const isRemoteImage = typeof src === 'string';
   isRemoteImage ? (
     <img class={className} src={src} alt={alt} />
   ) : (
-    <Image class={className} format="webp" fit={'cover'} aspectRatio={3 / 4} src={src} alt={alt} />
+    <Image class={className} format="webp" fit={'cover'} src={src} alt={alt} />
   )
 }
