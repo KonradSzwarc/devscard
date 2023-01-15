@@ -38,7 +38,7 @@ const favoritesData: FavoritesSection = {
     title: 'People I learn from',
     data: [
       {
-        image: import('@/assets/favorites/people/person-1.jpg'),
+        image: 'https://m.media-amazon.com/images/I/61aFldsgAmL._SY344_BO1,204,203,200_QL70_ML2_.jpg',
         name: 'Kent C. Dodds',
         url: 'https://kentcdodds.com/',
       },
@@ -73,7 +73,7 @@ const favoritesData: FavoritesSection = {
     title: 'Videos I watched',
     data: [
       {
-        thumbnail: import('@/assets/favorites/videos/video-1.jpeg'),
+        thumbnail: 'https://m.media-amazon.com/images/I/61aFldsgAmL._SY344_BO1,204,203,200_QL70_ML2_.jpg',
         title: 'Building Resilient Frontend Architecture • Monica Lent • GOTO 2019',
         url: 'https://youtu.be/TqfbAXCCVwE',
       },
@@ -93,7 +93,7 @@ const favoritesData: FavoritesSection = {
     title: 'Media I follow',
     data: [
       {
-        image: import('@/assets/favorites/media/media-1.jpeg'),
+        image: 'https://m.media-amazon.com/images/I/61aFldsgAmL._SY344_BO1,204,203,200_QL70_ML2_.jpg',
         title: 'Fireship.io',
         type: 'YouTube channel',
         url: 'https://www.youtube.com/c/Fireship',

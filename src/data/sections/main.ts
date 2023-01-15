@@ -7,7 +7,7 @@ const mainData: MainSection = {
     icon: 'fa6-solid:user',
     title: 'Profile',
   },
-  image: import('@/assets/my-image.jpeg'),
+  image: 'https://m.media-amazon.com/images/I/61aFldsgAmL._SY344_BO1,204,203,200_QL70_ML2_.jpg',
   fullName: 'Mark Freeman',
   role: 'Senior React Developer',
   details: [
