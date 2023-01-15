@@ -6,12 +6,12 @@
   export let name: IconName;
   export let size: number;
   export let color: string | undefined = undefined;
+
+  const dimensions = `width: ${size}px; height: ${size}px`;
 </script>
 
 {#if isServer}
-  <div style="width: {size}px; height: {size}px" />
+  <div style={dimensions} />
 {:else}
-  <iconify-icon icon={name} width={size} height={size} style="color: {color}; width: {size}px; height: {size}px">
-    ></iconify-icon
-  >
+  <iconify-icon icon={name} width={size} height={size} style="color: {color}; {dimensions}"> ></iconify-icon>
 {/if}

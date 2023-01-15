@@ -1,12 +1,12 @@
 <script lang="ts">
-  import SvelteIcon from './icon.svelte';
-  import SvelteTooltip from './tooltip.svelte';
   import type { Placement, offset, Padding } from '@floating-ui/dom';
   import type { IconName } from '@/types/icon';
+  import Icon from './icon.svelte';
+  import Tooltip from './tooltip.svelte';
 
-  export let name: IconName | undefined = undefined;
-  export let color: string | undefined = undefined;
+  export let name: IconName;
   export let size: number;
+  export let color: string | undefined = undefined;
 
   export let content: string;
   export let placement: Placement | undefined = undefined;
@@ -14,6 +14,6 @@
   export let spacing: Parameters<typeof offset>[0] = 8;
 </script>
 
-<SvelteTooltip {content} {placement} {padding} {spacing}>
-  <SvelteIcon {name} {color} {size} />
-</SvelteTooltip>
+<Tooltip {content} {placement} {padding} {spacing}>
+  <Icon {name} {color} {size} />
+</Tooltip>
