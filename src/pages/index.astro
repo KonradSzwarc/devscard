@@ -1,7 +1,7 @@
 ---
 import Sidebar from '@/components/sidebar.astro';
 import SidebarItem from '@/components/sidebar-item.svelte';
-import ThemeToggle from '@/components/theme-icon.svelte';
+import ThemeToggle from '@/components/theme-toggle.svelte';
 import ExperienceSection from '@/sections/experience/experience-section.astro';
 import FavoritesSection from '@/sections/favorites/favorites-section.astro';
 import MainSection from '@/sections/main/main-section.astro';
@@ -28,9 +28,25 @@ const seoImage = seo.image ? seo.image : '/favicon.svg';
     <meta property="og:title" content={seo.title} />
     <meta property="og:description" content={seo.description} />
     <meta property="og:image" content={seoImage} />
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      })();
+
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+
+      window.localStorage.setItem('theme', theme);
+    </script>
   </head>
   <body class="flex justify-center bg-gray-50 dark:bg-gray-900">
-    <ThemeToggle client:only="svelte" />
+    <ThemeToggle client:load />
     <div class="relative flex w-full max-w-5xl transform-none gap-8 px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
       <div class="absolute -right-2 z-40">
         <Sidebar className="hidden xl:flex fixed">

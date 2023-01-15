@@ -1,12 +1,11 @@
 <script lang="ts">
   import 'iconify-icon';
   import type { IconName } from '@/types/icon';
+  import { isServer } from '@/utils/env';
 
   export let name: IconName | undefined = undefined;
   export let color: string | undefined = undefined;
   export let size: number;
-
-  const isServer = typeof window === 'undefined';
 </script>
 
 {#if name && !isServer}

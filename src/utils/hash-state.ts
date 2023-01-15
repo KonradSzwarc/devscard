@@ -1,5 +1,7 @@
+import { isServer } from './env';
+
 const getInitialHash = () => {
-  if (typeof window === 'undefined') return '';
+  if (isServer) return '';
 
   return window.location.hash || '#main';
 };
