@@ -27,7 +27,7 @@ const portfolioData: PortfolioSection = {
   projects: [
     {
       name: 'Golden Bulls',
-      image: 'https://m.media-amazon.com/images/I/61aFldsgAmL._SY344_BO1,204,203,200_QL70_ML2_.jpg',
+      image: import('@/assets/portfolio/project-1.jpeg'),
       startDate: new Date('2020-03'),
       endDate: null,
       details: [

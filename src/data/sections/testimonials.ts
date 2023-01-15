@@ -9,7 +9,7 @@ const testimonialsData: TestimonialsSection = {
   },
   testimonials: [
     {
-      image: 'https://m.media-amazon.com/images/I/61aFldsgAmL._SY344_BO1,204,203,200_QL70_ML2_.jpg',
+      image: import('@/assets/testimonials/testimonial-1.jpeg'),
       author: 'Howard Stewart',
       relation: 'We work together as front-end developers at Google',
       content:
