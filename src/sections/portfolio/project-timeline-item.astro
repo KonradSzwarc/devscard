@@ -1,14 +1,13 @@
 ---
 import { Image } from '@astrojs/image/components';
 
-import IconButton from '@/atoms/icon-button.astro';
-import LabelledValue from '@/atoms/labelled-value.astro';
-import Timestamp from '@/atoms/timestamp.astro';
-import Typography from '@/atoms/typography.astro';
+import IconButton from '@/components/icon-button';
+import LabelledValue from '@/components/labelled-value.astro';
+import TagsList from '@/components/tags-list.astro';
+import Timestamp from '@/components/timestamp.astro';
+import Typography from '@/components/typography.astro';
 import type { I18n } from '@/types/i18n';
 import type { Project } from '@/types/portfolio-section';
-
-import TagsList from '../molecules/tags-list.astro';
 
 export interface Props {
   project: Project;
@@ -50,6 +49,7 @@ const { alt, ...sharedImageProps } = {
             {
               socials?.map(({ icon, url, name: socialName }) => (
                 <IconButton
+                  client:only="react"
                   icon={icon}
                   href={url}
                   target="_blank"

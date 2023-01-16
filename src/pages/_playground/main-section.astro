@@ -1,8 +1,12 @@
 ---
-import MainSection from '@/sections/main-section.astro';
+import MainSection from '@/sections/main/main-section.astro';
 import type { MainSection as MainSectionData } from '@/types/main-section';
 
 const mainSectionData: MainSectionData = {
+  config: {
+    icon: 'fa6-solid:user',
+    title: 'About me',
+  },
   image: import('@/assets/my-image.jpeg'),
   fullName: 'Mark Freeman',
   role: 'Senior React Developer',

@@ -1,5 +1,23 @@
 import type { PortfolioSection } from '@/types/portfolio-section';
 
+import {
+  chakraUi,
+  eslint,
+  firebase,
+  jest,
+  nestJs,
+  nextJs,
+  nx,
+  pnpm,
+  postgreSql,
+  prettier,
+  react,
+  sass,
+  tailwindCss,
+  typescript,
+} from '../skills';
+import { demo, github, mockups, website } from '../socials';
+
 const portfolioData: PortfolioSection = {
   config: {
     title: 'Projects',
@@ -20,42 +38,8 @@ const portfolioData: PortfolioSection = {
       ],
       description:
         'In tristique vulputate augue vel egestas. Quisque ac imperdiet tortor, at lacinia ex. Duis vel ex hendrerit, commodo odio sed, aliquam enim. Ut arcu nulla, tincidunt eget arcu eget, molestie vulputate nisi. Nunc malesuada leo et est iaculis facilisis.',
-      tags: [
-        {
-          icon: 'simple-icons:nextdotjs',
-          iconColor: '#000000',
-          name: 'Next.js',
-          url: 'https://nextjs.org/',
-        },
-        {
-          icon: 'simple-icons:sass',
-          iconColor: '#CC6699',
-          name: 'SASS',
-          url: 'https://sass-lang.com/',
-        },
-        {
-          icon: 'simple-icons:pnpm',
-          iconColor: '#F69220',
-          name: 'pnpm',
-          url: 'https://pnpm.io/',
-        },
-        {
-          icon: 'simple-icons:eslint',
-          iconColor: '#4B32C3',
-          name: 'ESLint',
-          url: 'https://eslint.org/',
-        },
-        {
-          icon: 'simple-icons:prettier',
-          iconColor: '#F7B93E',
-          name: 'Prettier',
-          url: 'https://prettier.io/',
-        },
-      ],
-      socials: [
-        { name: 'Mockups', icon: 'fa6-solid:image', url: '#' },
-        { name: 'App demo', icon: 'fa6-solid:desktop', url: '#' },
-      ],
+      tags: [nextJs(), sass(), pnpm(), eslint(), prettier()],
+      socials: [mockups('#'), demo('#')],
     },
     {
       name: 'TruQuest',
@@ -70,36 +54,8 @@ const portfolioData: PortfolioSection = {
       ],
       description:
         'Ut ultricies tortor at sodales aliquam. Vivamus metus ante, fringilla nec ligula in, suscipit rhoncus mauris. Praesent hendrerit velit odio, at accumsan urna faucibus convallis. Nunc at massa eget ligula volutpat dictum a sit amet libero. Vestibulum iaculis molestie maximus. In hac habitasse platea dictumst.',
-      tags: [
-        {
-          icon: 'simple-icons:react',
-          iconColor: '#61DAFB',
-          name: 'React.js',
-          url: 'https://reactjs.org/',
-        },
-        {
-          icon: 'simple-icons:tailwindcss',
-          iconColor: '#06B6D4',
-          name: 'Tailwind CSS',
-          url: 'https://tailwindcss.com/',
-        },
-        {
-          icon: 'simple-icons:nestjs',
-          iconColor: '#E0234E',
-          name: 'NestJS',
-          url: 'https://nestjs.com/',
-        },
-        {
-          icon: 'simple-icons:postgresql',
-          iconColor: '#4169E1',
-          name: 'PostgreSQL',
-          url: 'https://www.postgresql.org/',
-        },
-      ],
-      socials: [
-        { name: 'Mockups', icon: 'fa6-solid:image', url: '#' },
-        { name: 'App demo', icon: 'fa6-solid:desktop', url: '#' },
-      ],
+      tags: [react(), tailwindCss(), nestJs(), postgreSql()],
+      socials: [mockups('#'), demo('#')],
     },
     {
       name: 'Software Chasers',
@@ -114,42 +70,8 @@ const portfolioData: PortfolioSection = {
       ],
       description:
         'Quisque id consectetur eros. In hac habitasse platea dictumst. Sed eu pulvinar orci. Mauris consequat, est in dignissim varius, neque nisl commodo mauris, id blandit risus justo eu nulla.',
-      tags: [
-        {
-          icon: 'simple-icons:react',
-          iconColor: '#61DAFB',
-          name: 'React.js',
-          url: 'https://reactjs.org/',
-        },
-        {
-          icon: 'simple-icons:chakraui',
-          iconColor: '#319795',
-          name: 'Chakra UI',
-          url: 'https://chakra-ui.com/',
-        },
-        {
-          icon: 'simple-icons:typescript',
-          iconColor: '#3178C6',
-          name: 'TypeScript',
-          url: 'https://www.typescriptlang.org/',
-        },
-        {
-          icon: 'simple-icons:nx',
-          iconColor: '#143055',
-          name: 'Nx',
-          url: 'https://nx.dev/',
-        },
-        {
-          icon: 'simple-icons:pnpm',
-          iconColor: '#F69220',
-          name: 'pnpm',
-          url: 'https://pnpm.io/',
-        },
-      ],
-      socials: [
-        { name: 'Website', icon: 'fa6-solid:globe', url: '#' },
-        { name: 'GitHub', icon: 'fa6-brands:github', url: '#' },
-      ],
+      tags: [react(), chakraUi(), typescript(), nx(), pnpm()],
+      socials: [website('#'), github('#')],
     },
     {
       name: 'Disco Ninjas',
@@ -164,27 +86,8 @@ const portfolioData: PortfolioSection = {
       ],
       description:
         'Praesent eu neque tortor. Vestibulum ac magna nisl. Vivamus massa sem, feugiat in pharetra non, convallis egestas purus. Ut consequat ullamcorper sem, in euismod nibh posuere ut. ',
-      tags: [
-        {
-          icon: 'simple-icons:typescript',
-          iconColor: '#3178C6',
-          name: 'TypeScript',
-          url: 'https://www.typescriptlang.org/',
-        },
-        {
-          icon: 'simple-icons:jest',
-          iconColor: '#C21325',
-          name: 'Jest',
-          url: 'https://jestjs.io/',
-        },
-        {
-          icon: 'simple-icons:firebase',
-          iconColor: '#FFCA28',
-          name: 'Firebase',
-          url: 'https://firebase.google.com/',
-        },
-      ],
-      socials: [{ name: 'Mockups', icon: 'fa6-solid:image', url: '#' }],
+      tags: [typescript(), jest(), firebase()],
+      socials: [mockups('#'), github('#')],
     },
   ],
 };

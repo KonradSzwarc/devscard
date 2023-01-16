@@ -1,7 +1,7 @@
 ---
 import { Image } from '@astrojs/image/components';
 
-import Typography from '@/atoms/typography.astro';
+import Typography from '@/components/typography.astro';
 import type { Video } from '@/types/favorites-section';
 
 export interface Props {
@@ -16,7 +16,7 @@ const id = url.split('/').pop();
 const thumbnail = `https://img.youtube.com/vi/${id}/0.jpg`;
 ---
 
-<a href={url} class="flex w-full flex-col gap-3 transition duration-300 hover:translate-y-2">
+<a href={url} class="flex w-full max-w-[240px] flex-col gap-3 transition duration-300 hover:translate-y-2">
   <Image
     class="rounded-lg shadow-md aspect-video object-cover"
     format="webp"

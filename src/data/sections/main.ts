@@ -1,5 +1,7 @@
 import type { MainSection } from '@/types/main-section';
 
+import { facebook, github, linkedin, twitter } from '../socials';
+
 const mainData: MainSection = {
   config: {
     icon: 'fa6-solid:user',
@@ -21,12 +23,7 @@ const mainData: MainSection = {
     label: 'Download CV',
     url: '#',
   },
-  socials: [
-    { name: 'Facebook', icon: 'fa6-brands:facebook-f', url: '#' },
-    { name: 'GitHub', icon: 'fa6-brands:github', url: '#' },
-    { name: 'LinkedIn', icon: 'fa6-brands:linkedin-in', url: '#' },
-    { name: 'Twitter', icon: 'fa6-brands:twitter', url: '#' },
-  ],
+  socials: [facebook('#'), github('#'), linkedin('#'), twitter('#')],
 };
 
 export default mainData;

@@ -1,5 +1,20 @@
 import type { ExperienceSection } from '@/types/experience-section';
 
+import {
+  chakraUi,
+  eslint,
+  firebase,
+  nextJs,
+  nx,
+  pnpm,
+  react,
+  reactQuery,
+  tailwindCss,
+  typescript,
+  vue,
+} from '../skills';
+import { facebook, github, instagram, linkedin, twitter, website } from '../socials';
+
 const experienceData: ExperienceSection = {
   config: {
     title: 'Work experience',
@@ -19,42 +34,8 @@ const experienceData: ExperienceSection = {
         'Nunc malesuada leo et est iaculis facilisis.',
         'Fusce eu urna ut magna malesuada fringilla.',
       ],
-      tags: [
-        {
-          icon: 'simple-icons:react',
-          iconColor: '#61DAFB',
-          name: 'React.js',
-          url: 'https://reactjs.org/',
-        },
-        {
-          icon: 'simple-icons:nextdotjs',
-          iconColor: '#000000',
-          name: 'Next.js',
-          url: 'https://nextjs.org/',
-        },
-        {
-          icon: 'simple-icons:typescript',
-          iconColor: '#3178C6',
-          name: 'TypeScript',
-          url: 'https://www.typescriptlang.org/',
-        },
-        {
-          icon: 'simple-icons:nx',
-          iconColor: '#143055',
-          name: 'Nx',
-          url: 'https://nx.dev/',
-        },
-        {
-          icon: 'simple-icons:firebase',
-          iconColor: '#FFCA28',
-          name: 'Firebase',
-          url: 'https://firebase.google.com/',
-        },
-      ],
-      socials: [
-        { name: 'Facebook', icon: 'fa6-brands:facebook-f', url: '#' },
-        { name: 'LinkedIn', icon: 'fa6-brands:linkedin-in', url: '#' },
-      ],
+      tags: [react(), nextJs(), typescript(), nx(), firebase()],
+      socials: [facebook('#'), linkedin('#')],
     },
     {
       role: 'React.js developer',
@@ -67,36 +48,8 @@ const experienceData: ExperienceSection = {
         'Sed sed sollicitudin eros, id ultricies mi. Aliquam sodales elit vel ante tempor, non vehicula nibh facilisis.',
         'Cras feugiat ultricies maximus. Aliquam tristique ex odio, ac semper urna accumsan a.',
       ],
-      tags: [
-        {
-          icon: 'simple-icons:react',
-          iconColor: '#61DAFB',
-          name: 'React.js',
-          url: 'https://reactjs.org/',
-        },
-        {
-          icon: 'simple-icons:reactquery',
-          iconColor: '#FF4154',
-          name: 'TanStack Query',
-          url: 'https://tanstack.com/query',
-        },
-        {
-          icon: 'simple-icons:chakraui',
-          iconColor: '#319795',
-          name: 'Chakra UI',
-          url: 'https://chakra-ui.com/',
-        },
-        {
-          icon: 'simple-icons:eslint',
-          iconColor: '#4B32C3',
-          name: 'ESLint',
-          url: 'https://eslint.org/',
-        },
-      ],
-      socials: [
-        { name: 'Website', icon: 'fa6-solid:globe', url: '#' },
-        { name: 'Instagram', icon: 'fa6-brands:instagram', url: '#' },
-      ],
+      tags: [react(), reactQuery(), chakraUi(), eslint()],
+      socials: [website('#'), instagram('#')],
     },
     {
       role: 'Junior front-end developer',
@@ -109,30 +62,8 @@ const experienceData: ExperienceSection = {
         'Maecenas ut elit sit amet nibh maximus condimentum in nec lorem. Pellentesque tincidunt odio vel leo suscipit, in interdum mi gravida.',
         'Donec non vulputate augue.',
       ],
-      tags: [
-        {
-          icon: 'simple-icons:vuedotjs',
-          iconColor: '#4FC08D',
-          name: 'Vue.js',
-          url: 'https://vuejs.org/',
-        },
-        {
-          icon: 'simple-icons:tailwindcss',
-          iconColor: '#06B6D4',
-          name: 'Tailwind CSS',
-          url: 'https://tailwindcss.com/',
-        },
-        {
-          icon: 'simple-icons:pnpm',
-          iconColor: '#F69220',
-          name: 'pnpm',
-          url: 'https://pnpm.io/',
-        },
-      ],
-      socials: [
-        { name: 'Twitter', icon: 'fa6-brands:twitter', url: '#' },
-        { name: 'GitHub', icon: 'fa6-brands:github', url: '#' },
-      ],
+      tags: [vue(), tailwindCss(), pnpm()],
+      socials: [twitter('#'), github('#')],
     },
   ],
 };

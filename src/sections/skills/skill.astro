@@ -1,10 +1,10 @@
 ---
-import Icon from '@/atoms/icon';
-import IconWithTooltip from '@/atoms/icon-with-tooltip';
-import Typography from '@/atoms/typography.astro';
+import IconWithTooltip from '@/components/icon-with-tooltip';
+import Typography from '@/components/typography.astro';
 import type { IconName } from '@/types/icon';
 import type { LevelledSkill } from '@/types/skills-section';
 
+import Icon from '../../components/icon';
 import SkillLevel from './skill-level.astro';
 
 export interface Props extends LevelledSkill {}

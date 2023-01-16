@@ -1,14 +1,15 @@
 ---
 import type { ComponentInstance } from 'astro';
 
-import BookTile from '@/atoms/book-tile.astro';
-import MediaTile from '@/atoms/media-tile.astro';
-import PersonTile from '@/atoms/person-tile.astro';
-import SectionCard from '@/atoms/section-card.astro';
-import Typography from '@/atoms/typography.astro';
-import VideoTile from '@/atoms/video-tile.astro';
+import SectionCard from '@/components/section-card.astro';
+import Typography from '@/components/typography.astro';
 import type { Section } from '@/types/data';
 import type { Book, FavoritesSection, Media, Person, Video } from '@/types/favorites-section';
+
+import BookTile from './book-tile.astro';
+import MediaTile from './media-tile.astro';
+import PersonTile from './person-tile.astro';
+import VideoTile from './video-tile.astro';
 
 export interface Props extends FavoritesSection {}
 
@@ -35,28 +36,28 @@ interface FavoritesSubsection<T extends SubsectionData> {
 
 const booksSubsection: FavoritesSubsection<Book> = {
   name: 'books',
-  columnsLayout: 'grid-cols-4',
+  columnsLayout: 'grid-cols-fluid200',
   Component: BookTile,
   ...books,
 };
 
 const mediasSubsection: FavoritesSubsection<Media> = {
   name: 'medias',
-  columnsLayout: 'grid-cols-6',
+  columnsLayout: 'grid-cols-fluid120',
   Component: MediaTile,
   ...medias,
 };
 
 const peopleSubsection: FavoritesSubsection<Person> = {
   name: 'people',
-  columnsLayout: 'grid-cols-6',
+  columnsLayout: 'grid-cols-fluid120',
   Component: PersonTile,
   ...people,
 };
 
 const videosSubsection: FavoritesSubsection<Video> = {
   name: 'videos',
-  columnsLayout: 'grid-cols-3',
+  columnsLayout: 'grid-cols-fluid240',
   Component: VideoTile,
   ...videos,
 };

@@ -84,7 +84,8 @@
 
         // Imports and exports order.
         "simple-import-sort/imports": 2,
-        "simple-import-sort/exports": 2
+        "simple-import-sort/exports": 2,
+        "import/order": 0
       }
     }
   ]
