@@ -1,10 +1,10 @@
 ---
-import IconWithTooltip from '@/components/icon-with-tooltip';
+import IconWithTooltip from '@/components/icon-with-tooltip.svelte';
 import Typography from '@/components/typography.astro';
 import type { IconName } from '@/types/icon';
 import type { LevelledSkill } from '@/types/skills-section';
 
-import Icon from '../../components/icon';
+import Icon from '../../components/icon.svelte';
 import SkillLevel from './skill-level.astro';
 
 export interface Props extends LevelledSkill {}
@@ -17,7 +17,7 @@ const IconWrapper = url ? 'a' : 'div';
 <div class="flex flex-col gap-2">
   <div class="flex h-5 items-center justify-between">
     <IconWrapper class="flex gap-2 h-5" {...(url && { href: url, target: '_blank', rel: 'noopener noreferrer' })}>
-      <Icon client:load name={icon} color={iconColor} size={20} />
+      {icon && <Icon client:load name={icon} color={iconColor} size={20} />}
       <Typography variant="tile-subtitle">
         <span class="text-gray-700 dark:text-gray-300">{name}</span>
       </Typography>
@@ -25,7 +25,7 @@ const IconWrapper = url ? 'a' : 'div';
     {
       description && (
         <IconWithTooltip
-          client:only="react"
+          client:load
           name={'akar-icons:info-fill' as IconName}
           color="#D1D5DB"
           size={14}

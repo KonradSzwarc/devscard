@@ -18,4 +18,4 @@ export interface Data {
   favorites?: FavoritesSection;
 }
 
-export type Section = Exclude<keyof Data, 'seo'>;
+export type SectionKey = Exclude<keyof Data, 'seo' | 'i18n'>;

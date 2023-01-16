@@ -1,18 +1,16 @@
 ---
 import Sidebar from '@/components/sidebar.astro';
-import SidebarItem from '@/components/sidebar-item';
-import ThemeToggle from '@/components/theme-icon';
+import ThemeToggle from '@/components/theme-toggle.svelte';
 import ExperienceSection from '@/sections/experience/experience-section.astro';
 import FavoritesSection from '@/sections/favorites/favorites-section.astro';
 import MainSection from '@/sections/main/main-section.astro';
 import PortfolioSection from '@/sections/portfolio/portfolio-section.astro';
 import SkillsSection from '@/sections/skills/skills-section.astro';
 import TestimonialsSection from '@/sections/testimonials/testimonials-section.astro';
-import getObjectKeys from '@/utils/getObjectKeys';
 
 import data from '../data';
 
-const { seo, i18n, ...dataWithoutSeoAndI18n } = data;
+const { seo, i18n } = data;
 const seoImage = seo.image ? seo.image : '/favicon.svg';
 ---
 
@@ -28,47 +26,33 @@ const seoImage = seo.image ? seo.image : '/favicon.svg';
     <meta property="og:title" content={seo.title} />
     <meta property="og:description" content={seo.description} />
     <meta property="og:image" content={seoImage} />
-  </head>
-  <body class="flex justify-center bg-gray-50 dark:bg-gray-900">
-    <ThemeToggle client:only="react" />
-    <div class="relative flex w-full max-w-5xl transform-none gap-8 px-2 py-3 sm:px-8 sm:py-12 lg:py-20">
-      <div class="absolute -right-2 z-40">
-        <Sidebar className="hidden xl:flex fixed">
-          {
-            getObjectKeys(dataWithoutSeoAndI18n).map((key) => {
-              const sectionData = dataWithoutSeoAndI18n[key];
-              return (
-                sectionData && (
-                  <SidebarItem
-                    client:only="react"
-                    title={sectionData.config.title}
-                    icon={sectionData.config.icon}
-                    section={key}
-                  />
-                )
-              );
-            })
-          }
-        </Sidebar>
-      </div>
-      <main class="relative w-full space-y-4 sm:space-y-6 lg:space-y-8">
-        <MainSection {...data.main} />
-        {data.skills && <SkillsSection {...data.skills} />}
-        {
-          data.experience && (
-            <ExperienceSection i18n={data.i18n} jobs={data.experience.jobs} config={data.experience.config} />
-          )
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
         }
-        {data.portfolio && <PortfolioSection i18n={data.i18n} {...data.portfolio} />}
-        {data.testimonials && <TestimonialsSection {...data.testimonials} />}
-        {data.favorites && <FavoritesSection {...data.favorites} />}
-      </main>
-    </div>
-  </body>
-  <script>
-    import updateHash from '../scripts/updateHash';
-    import data from '../data';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      })();
 
-    document.addEventListener('scroll', () => updateHash(data));
-  </script>
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+
+      window.localStorage.setItem('theme', theme);
+    </script>
+  </head>
+  <body class="flex justify-center overflow-x-hidden bg-gray-50 dark:bg-gray-900 xl:relative xl:left-7">
+    <ThemeToggle client:load />
+    <main class="w-full max-w-5xl space-y-4 px-2 py-3 sm:space-y-6 sm:px-8 sm:py-12 lg:space-y-8 lg:py-20">
+      <MainSection {...data.main} />
+      {data.skills && <SkillsSection {...data.skills} />}
+      {data.experience && <ExperienceSection i18n={i18n} {...data.experience} />}
+      {data.portfolio && <PortfolioSection i18n={i18n} {...data.portfolio} />}
+      {data.testimonials && <TestimonialsSection {...data.testimonials} />}
+      {data.favorites && <FavoritesSection {...data.favorites} />}
+    </main>
+    <Sidebar data={data} className="sticky top-8 mt-20" />
+  </body>
 </html>

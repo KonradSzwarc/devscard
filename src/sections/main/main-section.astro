@@ -6,7 +6,7 @@ import IconButton from '@/components/icon-button.astro';
 import SectionCard from '@/components/section-card.astro';
 import TagsList from '@/components/tags-list.astro';
 import Typography from '@/components/typography.astro';
-import type { Section } from '@/types/data';
+import type { SectionKey } from '@/types/data';
 import type { MainSection } from '@/types/main-section';
 
 export interface Props extends MainSection {}
@@ -22,7 +22,7 @@ const {
   tags,
 } = Astro.props;
 
-const section: Section = 'main';
+const section: SectionKey = 'main';
 ---
 
 <SectionCard section={section}>
