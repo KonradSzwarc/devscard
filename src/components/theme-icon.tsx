@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import Icon from './icon';
+import Tooltip from './tooltip';
 
 const STORAGE_THEME_KEY = 'theme';
 const DARK_THEME_KEY = 'dark';
@@ -36,13 +37,15 @@ const ThemeToggle = () => {
   }, [theme]);
 
   return (
-    <button
-      onClick={handleClick}
-      type="button"
-      className="fixed bottom-3 left-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 text-gray-400 shadow-xl transition focus:ring-primary-500 dark:bg-gray-600 dark:text-gray-200"
-    >
-      <Icon name={theme === DARK_THEME_KEY ? 'ri:moon-fill' : 'ri:sun-line'} size={20} />
-    </button>
+    <Tooltip content={theme === DARK_THEME_KEY ? 'Dark Theme' : 'Light Theme'} placement="right">
+      <button
+        onClick={handleClick}
+        type="button"
+        className="fixed bottom-3 left-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 text-gray-400 shadow-xl transition focus:ring-primary-500 dark:bg-gray-600 dark:text-gray-200"
+      >
+        <Icon name={theme === DARK_THEME_KEY ? 'ri:moon-fill' : 'ri:sun-line'} size={20} />
+      </button>
+    </Tooltip>
   );
 };
 
