@@ -1,28 +1,28 @@
-import type { LocalImage, SectionConfig } from './common';
+import type { Photo, SectionConfig } from './common';
 
 export interface Book {
   title: string;
-  cover: LocalImage;
+  cover: Photo;
   author: string;
   url?: string;
 }
 
 export interface Person {
   name: string;
-  image: LocalImage;
+  image: Photo;
   url?: string;
 }
 
 export interface Video {
   title: string;
-  thumbnail: LocalImage;
+  thumbnail: Photo;
   url: string;
 }
 
 export interface Media {
   title: string;
   type: string;
-  image: LocalImage;
+  image: Photo;
   url: string;
 }
 

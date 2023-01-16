@@ -1,8 +1,7 @@
 ---
-import { Image } from '@astrojs/image/components';
-
 import IconButton from '@/components/icon-button.astro';
 import LabelledValue from '@/components/labelled-value.astro';
+import Photo from '@/components/photo.astro';
 import TagsList from '@/components/tags-list.astro';
 import Timestamp from '@/components/timestamp.astro';
 import Typography from '@/components/typography.astro';
@@ -16,24 +15,13 @@ export interface Props {
 const { project, i18n } = Astro.props;
 const { description, details, endDate, name, socials, startDate, tags, image } = project;
 
-// Alt has to destructured separately, because otherwise eslint complains about
-// the missing alt attribute on the Image component.
-const { alt, ...sharedImageProps } = {
-  src: image,
-  aspectRatio: 1,
-  alt: `Thumbnail for ${name} project`,
-  format: 'webp',
-} as const;
+const alt = `Thumbnail for ${name} project`;
 ---
 
 <div class="flex flex-col gap-6">
   <div class="flex flex-col gap-4">
     <div class="flex gap-6">
-      <Image
-        class="rounded-lg object-cover max-w-[120px] overflow-hidden sm:block hidden"
-        {...sharedImageProps}
-        alt={alt}
-      />
+      <Photo class="rounded-lg object-cover max-w-[120px] overflow-hidden sm:block hidden" src={image} alt={alt} />
       <div class="flex w-full flex-col gap-4">
         <div class="flex justify-between">
           <div>
@@ -53,7 +41,7 @@ const { alt, ...sharedImageProps } = {
             }
           </div>
         </div>
-        <Image class="rounded-lg object-cover max-w-[120px] sm:hidden" {...sharedImageProps} alt={alt} />
+        <Photo class="rounded-lg object-cover max-w-[120px] sm:hidden" src={image} alt={alt} />
         <div class="inline-grid w-full xl:grid-cols-[auto_auto]">
           {
             details.map(({ label: detailLabel, value: detailValue }) => (

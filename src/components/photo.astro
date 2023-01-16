@@ -1,0 +1,24 @@
+---
+import { Image } from '@astrojs/image/components';
+
+import type { Photo } from '@/types/common';
+
+export interface Props {
+  src: Photo;
+  alt: string;
+  class?: string;
+}
+
+const { src, alt } = Astro.props;
+const className = Astro.props.class ?? '';
+
+const isRemoteImage = typeof src === 'string';
+---
+
+{
+  isRemoteImage ? (
+    <img class={className} src={src} alt={alt} />
+  ) : (
+    <Image class={className} format="webp" fit={'cover'} src={src} alt={alt} />
+  )
+}
