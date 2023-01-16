@@ -1,0 +1,42 @@
+---
+import IconButton from '@/components/icon-button.astro';
+import Timestamp from '@/components/timestamp.astro';
+import Typography from '@/components/typography.astro';
+import type { EducationItem } from '@/types/education-section';
+import type { I18n } from '@/types/i18n';
+
+export interface Props {
+  educationItem: EducationItem;
+  i18n: I18n;
+}
+
+const {
+  educationItem: { title, institution, startDate, endDate, description, socials },
+  i18n,
+} = Astro.props;
+---
+
+<div class="flex flex-col gap-3">
+  <div class="flex w-full justify-between gap-2">
+    <div class="flex flex-col">
+      <Typography variant="item-title">{title}</Typography>
+      <Typography variant="main-subtitle">{institution}</Typography>
+      <Timestamp
+        startDate={startDate}
+        endDate={endDate}
+        locale={i18n.locale}
+        translationForNow={i18n.translations.now}
+      />
+    </div>
+    {
+      socials.length > 0 && (
+        <div class="flex flex-wrap gap-3 sm:flex-nowrap">
+          {socials.map(({ icon, url: iconUrl, name }) => (
+            <IconButton href={iconUrl} icon={icon} size="small" target="_blank" aria-label={name} />
+          ))}
+        </div>
+      )
+    }
+  </div>
+  <Typography variant="paragraph">{description}</Typography>
+</div>

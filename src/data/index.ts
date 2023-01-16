@@ -1,3 +1,4 @@
+import type { EducationSection } from '@/types/education-section';
 import type { ExperienceSection } from '@/types/experience-section';
 import type { FavoritesSection } from '@/types/favorites-section';
 import type { I18n } from '@/types/i18n';
@@ -7,6 +8,7 @@ import type { Seo } from '@/types/seo';
 import type { SkillsSection } from '@/types/skills-section';
 import type { TestimonialsSection } from '@/types/testimonials-section';
 
+import educationData from './sections/education';
 import experienceData from './sections/experience';
 import favoritesData from './sections/favorites';
 import mainData from './sections/main';
@@ -21,6 +23,7 @@ export interface Data {
   skills?: SkillsSection;
   experience?: ExperienceSection;
   portfolio?: PortfolioSection;
+  education?: EducationSection;
   testimonials?: TestimonialsSection;
   favorites?: FavoritesSection;
 }
@@ -43,6 +46,7 @@ const data: Data = {
   skills: skillsData,
   experience: experienceData,
   portfolio: portfolioData,
+  education: educationData,
   testimonials: testimonialsData,
   favorites: favoritesData,
 };
