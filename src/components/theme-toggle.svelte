@@ -1,6 +1,7 @@
 <script lang="ts">
   import { isClient } from '@/utils/env';
   import Icon from './icon.svelte';
+  import Tooltip from './tooltip.svelte';
 
   let theme = localStorage.getItem('theme') ?? 'light';
 
@@ -18,9 +19,13 @@
   $: theme, handleThemeChange();
 </script>
 
-<button
-  on:click={toggleTheme}
-  class="fixed bottom-3 left-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 text-gray-400 shadow-xl transition focus:ring-primary-500 dark:bg-gray-600 dark:text-gray-200"
->
-  <Icon name={theme === 'light' ? 'ri:moon-fill' : 'ri:sun-line'} size={20} />
-</button>
+<div class="fixed bottom-3 left-3 z-10">
+  <Tooltip content={theme === 'dark' ? 'Dark Theme' : 'Light Theme'} placement={'right'}>
+    <button
+      on:click={toggleTheme}
+      class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 text-gray-400 shadow-xl transition focus:ring-primary-500 dark:bg-gray-600 dark:text-gray-200"
+    >
+      <Icon name={theme === 'light' ? 'ri:moon-fill' : 'ri:sun-line'} size={20} />
+    </button>
+  </Tooltip>
+</div>

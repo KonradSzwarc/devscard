@@ -22,6 +22,11 @@ const sections = Object.keys(data).flatMap((key) => {
 });
 ---
 
-<nav class:list={['flex flex-col w-max h-fit p-2 rounded-lg gap-2 bg-white dark:bg-gray-800 shadow-md', className]}>
+<nav
+  class:list={[
+    'hidden xl:flex flex-col w-max h-fit p-2 rounded-lg gap-2 bg-white dark:bg-gray-800 shadow-md',
+    className,
+  ]}
+>
   {sections.map((section) => <SidebarItem client:load {...section} />)}
 </nav>

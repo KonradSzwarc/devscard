@@ -1,7 +1,7 @@
 ---
 import { Image } from '@astrojs/image/components';
 
-import IconButton from '@/components/icon-button.astro';
+import IconButton from '@/components/icon-button.svelte';
 import LabelledValue from '@/components/labelled-value.astro';
 import TagsList from '@/components/tags-list.astro';
 import Timestamp from '@/components/timestamp.astro';
@@ -48,7 +48,15 @@ const { alt, ...sharedImageProps } = {
           <div class="flex gap-2">
             {
               socials?.map(({ icon, url, name: socialName }) => (
-                <IconButton icon={icon} href={url} target="_blank" size="small" aria-label={socialName} />
+                <IconButton
+                  client:load
+                  icon={icon}
+                  href={url}
+                  target="_blank"
+                  size="small"
+                  aria-label={socialName}
+                  name={socialName}
+                />
               ))
             }
           </div>

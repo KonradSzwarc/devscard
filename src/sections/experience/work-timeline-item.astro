@@ -1,5 +1,5 @@
 ---
-import IconButton from '@/components/icon-button.astro';
+import IconButton from '@/components/icon-button.svelte';
 import TagsList from '@/components/tags-list.astro';
 import Timestamp from '@/components/timestamp.astro';
 import Typography from '@/components/typography.astro';
@@ -24,7 +24,15 @@ const { job, i18n } = Astro.props;
     <div class="flex flex-wrap gap-2">
       {
         job.socials?.map(({ icon, url, name }) => (
-          <IconButton icon={icon} href={url} target="_blank" size="small" aria-label={name} />
+          <IconButton
+            client:load
+            icon={icon}
+            href={url}
+            target="_blank"
+            size="small"
+            name={name}
+            placement={'bottom'}
+          />
         ))
       }
     </div>
