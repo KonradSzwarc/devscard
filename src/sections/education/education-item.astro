@@ -32,7 +32,7 @@ const {
       socials.length > 0 && (
         <div class="flex flex-wrap gap-3 sm:flex-nowrap">
           {socials.map(({ icon, url: iconUrl, name }) => (
-            <IconButton href={iconUrl} icon={icon} size="small" target="_blank" name={name} />
+            <IconButton client:only="react" href={iconUrl} icon={icon} size="small" target="_blank" name={name} />
           ))}
         </div>
       )
