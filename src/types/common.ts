@@ -1,6 +1,6 @@
 import type { IconName } from './icon';
 
-export type LocalImage = Promise<{ default: ImageMetadata }>;
+export type Photo = Promise<{ default: ImageMetadata }> | string;
 
 export interface Detail {
   label: string;

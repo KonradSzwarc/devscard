@@ -1,0 +1,32 @@
+---
+import type { IconName } from '@/types/icon';
+
+import Icon from './icon.svelte';
+
+type IconButtonSize = 'small' | 'large';
+
+export interface Props {
+  icon: IconName;
+  target?: astroHTML.JSX.AnchorHTMLAttributes['target'];
+  href: string;
+  size: IconButtonSize;
+  'aria-label'?: astroHTML.JSX.AnchorHTMLAttributes['aria-label'];
+}
+
+const sizeMap: Record<IconButtonSize, string> = {
+  small: 'w-7 h-7',
+  large: 'w-9 h-9',
+};
+
+const { icon, href, target, size, ...rest } = Astro.props;
+
+const classes = /* tw */ {
+  main: 'flex items-center justify-center rounded text-gray-400 bg-gray-100 dark:bg-gray-600 dark:text-gray-200',
+  active: 'active:translate-y-px',
+  focus: 'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500',
+};
+---
+
+<a href={href} target={target} class:list={[classes.main, classes.active, classes.focus, sizeMap[size]]} {...rest}>
+  <Icon client:load name={icon} size={16} />
+</a>

@@ -1,6 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
-
+import Photo from '@/components/photo.astro';
 import Typography from '@/components/typography.astro';
 import type { Person } from '@/types/favorites-section';
 
@@ -14,15 +13,7 @@ const {
 ---
 
 <a href={url} class="flex w-full max-w-[120px] flex-col gap-3 transition duration-300 hover:translate-y-2">
-  <Image
-    class="rounded-lg shadow-md transition duration-300 aspect-square object-cover"
-    format="webp"
-    fit="cover"
-    quality={100}
-    aspectRatio={1}
-    src={image}
-    alt={name}
-  />
+  <Photo class="rounded-lg shadow-md transition duration-300 aspect-square object-cover" src={image} alt={name} />
   <Typography variant="tile-title">
     {name}
   </Typography>

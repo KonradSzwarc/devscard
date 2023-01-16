@@ -15,7 +15,7 @@ const favoritesData: FavoritesSection = {
         url: 'https://www.goodreads.com/book/show/4099.The_Pragmatic_Programmer',
       },
       {
-        cover: import('@/assets/favorites/books/book-2.jpeg'),
+        cover: 'https://m.media-amazon.com/images/I/61aFldsgAmL._SY344_BO1,204,203,200_QL70_ML2_.jpg',
         title: 'Domain-Driven Design: Tackling Complexity in the Heart of Software',
         author: 'Eric Evans',
         url: 'https://www.goodreads.com/book/show/179133.Domain_Driven_Design',

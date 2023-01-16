@@ -1,7 +1,7 @@
-import type { Detail, LocalImage, SectionConfig, Social, Tag } from './common';
+import type { Detail, Photo, SectionConfig, Social, Tag } from './common';
 
 export interface MainSection {
-  image: LocalImage;
+  image: Photo;
   fullName: string;
   role: string;
   details: Detail[];

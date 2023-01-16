@@ -22,11 +22,11 @@
   },
   "dependencies": {
     "@astrojs/image": "0.12.1",
-    "@iconify-icon/react": "1.0.2",
-    "@tippyjs/react": "4.2.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-use": "17.4.0"
+    "@astrojs/svelte": "1.0.2",
+    "@floating-ui/dom": "1.1.0",
+    "iconify-icon": "1.0.2",
+    "rollup-plugin-visualizer": "5.9.0",
+    "svelte": "3.55.1"
   },
   "devDependencies": {
     "@astrojs/react": "1.2.2",

@@ -28,8 +28,6 @@ export interface Data {
   favorites?: FavoritesSection;
 }
 
-export type Section = Exclude<keyof Data, 'seo'>;
-
 const data: Data = {
   i18n: {
     locale: 'en-US',

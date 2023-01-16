@@ -1,12 +1,11 @@
 ---
-import { Image } from '@astrojs/image/components';
-
 import Button from '@/components/button.astro';
-import IconButton from '@/components/icon-button';
+import IconButton from '@/components/icon-button.astro';
+import Photo from '@/components/photo.astro';
 import SectionCard from '@/components/section-card.astro';
 import TagsList from '@/components/tags-list.astro';
 import Typography from '@/components/typography.astro';
-import type { Section } from '@/types/data';
+import type { SectionKey } from '@/types/data';
 import type { MainSection } from '@/types/main-section';
 
 export interface Props extends MainSection {}
@@ -22,19 +21,13 @@ const {
   tags,
 } = Astro.props;
 
-const section: Section = 'main';
+const section: SectionKey = 'main';
 ---
 
 <SectionCard section={section}>
   <div class="flex flex-col items-start gap-6 sm:flex-row">
     <div class="flex items-center gap-4 sm:flex-col">
-      <Image
-        src={image}
-        alt={fullName}
-        class="w-24 h-24 sm:w-36 sm:h-36 md:w-52 md:h-52 rounded-lg max-w-none"
-        format="webp"
-        aspectRatio={1}
-      />
+      <Photo src={image} alt={fullName} class="w-24 h-24 sm:w-36 sm:h-36 md:w-52 md:h-52 rounded-lg max-w-none" />
       <Button href={url} download={downloadedFileName}>{label}</Button>
     </div>
     <div class="flex w-full flex-col gap-5">
@@ -47,7 +40,7 @@ const section: Section = 'main';
           socials.length > 0 && (
             <div class="flex flex-wrap gap-3 sm:flex-nowrap">
               {socials.map(({ name, icon, url: iconUrl }) => (
-                <IconButton client:only="react" href={iconUrl} icon={icon} size="small" target="_blank" name={name} />
+                <IconButton href={iconUrl} icon={icon} size="small" target="_blank" aria-label={name} />
               ))}
             </div>
           )

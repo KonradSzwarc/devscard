@@ -1,7 +1,7 @@
-import type { LocalImage, SectionConfig, Social } from './common';
+import type { Photo, SectionConfig, Social } from './common';
 
 export interface Testimonial {
-  image: LocalImage;
+  image: Photo;
   author: string;
   relation: string;
   content: string;

@@ -1,7 +1,6 @@
 ---
-import { Image } from '@astrojs/image/components';
-
-import IconButton from '@/components/icon-button';
+import IconButton from '@/components/icon-button.astro';
+import Photo from '@/components/photo.astro';
 import Typography from '@/components/typography.astro';
 import type { Testimonial } from '@/types/testimonials-section';
 
@@ -17,7 +16,7 @@ const {
 <div class="flex w-full flex-col gap-4">
   <div class="flex justify-between">
     <div class="flex flex-col gap-4 sm:flex-row">
-      <Image src={image} alt={author} format="webp" class="w-14 h-14 rounded-lg" />
+      <Photo src={image} alt={author} class="w-14 h-14 rounded-lg" />
       <div>
         <Typography variant="item-title">{author}</Typography>
         <Typography variant="item-subtitle">{relation}</Typography>
@@ -27,15 +26,7 @@ const {
       socials && (
         <div class="flex gap-3">
           {socials.map(({ icon, url, name }) => (
-            <IconButton
-              client:only="react"
-              icon={icon}
-              href={url}
-              target="_blank"
-              size="small"
-              aria-label={name}
-              name={name}
-            />
+            <IconButton icon={icon} href={url} target="_blank" size="small" aria-label={name} />
           ))}
         </div>
       )

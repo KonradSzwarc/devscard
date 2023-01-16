@@ -3,7 +3,7 @@ import type { ComponentInstance } from 'astro';
 
 import SectionCard from '@/components/section-card.astro';
 import Typography from '@/components/typography.astro';
-import type { Section } from '@/types/data';
+import type { SectionKey } from '@/types/data';
 import type { Book, FavoritesSection, Media, Person, Video } from '@/types/favorites-section';
 
 import BookTile from './book-tile.astro';
@@ -64,7 +64,7 @@ const videosSubsection: FavoritesSubsection<Video> = {
 
 const subsections = [booksSubsection, peopleSubsection, videosSubsection, mediasSubsection];
 
-const section: Section = 'favorites';
+const section: SectionKey = 'favorites';
 ---
 
 <SectionCard section={section} title={title}>
