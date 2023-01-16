@@ -2,7 +2,7 @@
 import { Image } from '@astrojs/image/components';
 
 import Button from '@/components/button.astro';
-import IconButton from '@/components/icon-button.astro';
+import IconButton from '@/components/icon-button';
 import SectionCard from '@/components/section-card.astro';
 import TagsList from '@/components/tags-list.astro';
 import Typography from '@/components/typography.astro';
@@ -46,8 +46,8 @@ const section: Section = 'main';
         {
           socials.length > 0 && (
             <div class="flex flex-wrap gap-3 sm:flex-nowrap">
-              {socials.map(({ icon, url: iconUrl, name }) => (
-                <IconButton href={iconUrl} icon={icon} size="small" target="_blank" aria-label={name} />
+              {socials.map(({ name, icon, url: iconUrl }) => (
+                <IconButton client:only="react" href={iconUrl} icon={icon} size="small" target="_blank" name={name} />
               ))}
             </div>
           )

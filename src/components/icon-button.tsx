@@ -1,16 +1,16 @@
----
 import type { IconName } from '@/types/icon';
 
 import Icon from './icon';
+import Tooltip from './tooltip';
 
 type IconButtonSize = 'small' | 'large';
 
-export interface Props {
+export interface IconButtonProps {
   icon: IconName;
-  target?: astroHTML.JSX.AnchorHTMLAttributes['target'];
+  name: string;
+  target?: string;
   href: string;
   size: IconButtonSize;
-  'aria-label'?: astroHTML.JSX.AnchorHTMLAttributes['aria-label'];
 }
 
 const sizeMap: Record<IconButtonSize, string> = {
@@ -18,15 +18,25 @@ const sizeMap: Record<IconButtonSize, string> = {
   large: 'w-9 h-9',
 };
 
-const { icon, href, target, size, ...rest } = Astro.props;
-
 const classes = /* tw */ {
   main: 'flex items-center justify-center rounded text-gray-400 bg-gray-100 dark:bg-gray-600 dark:text-gray-200',
   active: 'active:translate-y-px',
   focus: 'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500',
 };
----
 
-<a href={href} target={target} class:list={[classes.main, classes.active, classes.focus, sizeMap[size]]} {...rest}>
-  <Icon client:load name={icon} size={16} />
-</a>
+type Props = IconButtonProps;
+
+const IconButton = ({ name, icon, target = '_blank', href, size }: Props) => (
+  <Tooltip content={name} placement="bottom">
+    <a
+      href={href}
+      target={target ?? '_blank'}
+      className={`${classes.main} ${classes.active} ${classes.focus} ${sizeMap[size]}`}
+      aria-label={name}
+    >
+      <Icon name={icon} size={16} />
+    </a>
+  </Tooltip>
+);
+
+export default IconButton;
