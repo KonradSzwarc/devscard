@@ -1,3 +1,4 @@
+import type { EducationSection } from './education-section';
 import type { ExperienceSection } from './experience-section';
 import type { FavoritesSection } from './favorites-section';
 import type { I18n } from './i18n';
@@ -14,6 +15,7 @@ export interface Data {
   skills?: SkillsSection;
   experience?: ExperienceSection;
   portfolio?: PortfolioSection;
+  education?: EducationSection;
   testimonials?: TestimonialsSection;
   favorites?: FavoritesSection;
 }

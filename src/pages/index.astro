@@ -1,6 +1,7 @@
 ---
 import Sidebar from '@/components/sidebar.astro';
 import ThemeToggle from '@/components/theme-toggle.astro';
+import EducationSection from '@/sections/education/education-section.astro';
 import ExperienceSection from '@/sections/experience/experience-section.astro';
 import FavoritesSection from '@/sections/favorites/favorites-section.astro';
 import MainSection from '@/sections/main/main-section.astro';
@@ -50,6 +51,7 @@ const seoImage = seo.image ? seo.image : '/favicon.svg';
       {data.skills && <SkillsSection {...data.skills} />}
       {data.experience && <ExperienceSection i18n={i18n} {...data.experience} />}
       {data.portfolio && <PortfolioSection i18n={i18n} {...data.portfolio} />}
+      {data.education && <EducationSection i18n={i18n} {...data.education} />}
       {data.testimonials && <TestimonialsSection {...data.testimonials} />}
       {data.favorites && <FavoritesSection {...data.favorites} />}
     </main>

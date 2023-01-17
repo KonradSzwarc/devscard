@@ -39,7 +39,7 @@ const section: SectionKey = 'main';
         {
           socials.length > 0 && (
             <div class="flex flex-wrap gap-3 sm:flex-nowrap">
-              {socials.map(({ icon, url: iconUrl, name }) => (
+              {socials.map(({ name, icon, url: iconUrl }) => (
                 <IconButton href={iconUrl} icon={icon} size="small" target="_blank" aria-label={name} />
               ))}
             </div>
