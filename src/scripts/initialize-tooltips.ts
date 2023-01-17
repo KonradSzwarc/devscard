@@ -7,10 +7,6 @@ interface UpdateTooltipOptions {
   placement: Placement;
 }
 
-const tooltipElements = [...document.querySelectorAll('[data-tooltip]')] as HTMLElement[];
-const tooltipClass =
-  /* tw */ 'absolute top-0 left-0 hidden max-w-sm animate-show rounded-lg bg-gray-700 px-3 py-1 text-white dark:bg-gray-100 dark:text-gray-800 sm:max-w-xs';
-
 const updateTooltip =
   ({ element, tooltip, placement }: UpdateTooltipOptions) =>
   () => {
@@ -24,6 +20,9 @@ const updateTooltip =
     );
   };
 
+const tooltipClass =
+  /* tw */ 'absolute top-0 left-0 hidden max-w-sm animate-show rounded-lg bg-gray-700 px-3 py-1 text-white dark:bg-gray-100 dark:text-gray-800 sm:max-w-xs';
+
 const createTooltip = (content: string) => {
   const tooltip = document.createElement('div');
 
@@ -31,8 +30,6 @@ const createTooltip = (content: string) => {
   tooltip.setAttribute('id', `tooltip-${nanoid(8)}`);
   tooltip.setAttribute('class', tooltipClass);
   tooltip.setAttribute('role', 'tooltip');
-
-  document.body.appendChild(tooltip);
 
   return tooltip;
 };
@@ -48,10 +45,25 @@ const addListeners = (element: HTMLElement, tooltip: HTMLElement, updateFn: () =
   });
 };
 
-tooltipElements.forEach((element) => {
-  const content = element.dataset.tooltip ?? '';
+const creteTooltipsForElements = (elements: HTMLElement[]) => {
+  const tooltipsContainer = document.createElement('div');
+
+  const tooltips = elements.map((element) => {
+    const tooltip = createTooltip(element.dataset.tooltip ?? '');
+    tooltipsContainer.appendChild(tooltip);
+    return { tooltip, element };
+  });
+
+  document.body.appendChild(tooltipsContainer);
+
+  return tooltips;
+};
+
+const elements = [...document.querySelectorAll('[data-tooltip]')] as HTMLElement[];
+const elementsWithTooltips = creteTooltipsForElements(elements);
+
+elementsWithTooltips.forEach(({ element, tooltip }) => {
   const placement = (element.dataset.tooltipPlacement ?? 'top') as Placement;
-  const tooltip = createTooltip(content);
   const updateFn = updateTooltip({ element, tooltip, placement });
 
   element.setAttribute('aria-describedby', tooltip.id);

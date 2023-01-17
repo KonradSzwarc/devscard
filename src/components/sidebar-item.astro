@@ -1,7 +1,7 @@
 ---
 import type { SectionKey } from '@/types/data';
 import type { IconName } from '@/types/icon';
-import Icon from './icon.svelte';
+import Icon from './icon.astro';
 
 export interface Props {
   section: SectionKey;
@@ -20,7 +20,7 @@ const { section, icon, title = '', ...props } = Astro.props;
   data-tooltip-placement="left"
   {...props}
 >
-  <Icon client:load name={icon} size={20} />
+  <Icon name={icon} size={20} />
 </a>
 
 <style>

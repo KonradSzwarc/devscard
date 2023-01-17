@@ -1,6 +1,6 @@
 ---
 import Sidebar from '@/components/sidebar.astro';
-import ThemeToggle from '@/components/theme-toggle.svelte';
+import ThemeToggle from '@/components/theme-toggle.astro';
 import ExperienceSection from '@/sections/experience/experience-section.astro';
 import FavoritesSection from '@/sections/favorites/favorites-section.astro';
 import MainSection from '@/sections/main/main-section.astro';
@@ -44,7 +44,7 @@ const seoImage = seo.image ? seo.image : '/favicon.svg';
     </script>
   </head>
   <body class="flex justify-center overflow-x-hidden bg-gray-50 dark:bg-gray-900 xl:relative xl:left-7">
-    <ThemeToggle client:load />
+    <ThemeToggle />
     <main class="w-full max-w-5xl space-y-4 px-2 py-3 sm:space-y-6 sm:px-8 sm:py-12 lg:space-y-8 lg:py-20">
       <MainSection {...data.main} />
       {data.skills && <SkillsSection {...data.skills} />}
