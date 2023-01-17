@@ -2,7 +2,7 @@
 import type { Data } from '@/data';
 import isSectionKey from '@/utils/is-section-key';
 
-import SidebarItem from './sidebar-item.svelte';
+import SidebarItem from './sidebar-item.astro';
 
 export interface Props {
   className?: string;
@@ -23,10 +23,31 @@ const sections = Object.keys(data).flatMap((key) => {
 ---
 
 <nav
+  id="sidebar"
   class:list={[
     'hidden xl:flex flex-col w-max h-fit p-2 rounded-lg gap-2 bg-white dark:bg-gray-800 shadow-md',
     className,
   ]}
 >
-  {sections.map((section) => <SidebarItem client:load {...section} />)}
+  {sections.map((section) => <SidebarItem {...section} />)}
 </nav>
+
+<script>
+  import hashState from '@/utils/hash-state';
+
+  const sidebarItems = [...document.getElementById('sidebar')!.children] as HTMLAnchorElement[];
+
+  const setActiveItem = (hash: string) => {
+    sidebarItems.forEach((item) => {
+      if (item.href.endsWith(hash)) {
+        item.setAttribute('aria-current', 'page');
+      } else {
+        item.removeAttribute('aria-current');
+      }
+    });
+  };
+
+  setActiveItem(hashState.getHash());
+
+  hashState.subscribe(setActiveItem);
+</script>

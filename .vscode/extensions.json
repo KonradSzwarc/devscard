@@ -4,7 +4,6 @@
     "mgmcdermott.vscode-language-babel",
     "EditorConfig.EditorConfig",
     "esbenp.prettier-vscode",
-    "svelte.svelte-vscode",
     "bradlc.vscode-tailwindcss",
     "redhat.vscode-yaml"
   ]
