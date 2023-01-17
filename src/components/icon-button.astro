@@ -1,7 +1,7 @@
 ---
 import type { IconName } from '@/types/icon';
 
-import Icon from './icon.svelte';
+import Icon from './icon.astro';
 
 type IconButtonSize = 'small' | 'large';
 
@@ -28,5 +28,5 @@ const classes = /* tw */ {
 ---
 
 <a href={href} target={target} class:list={[classes.main, classes.active, classes.focus, sizeMap[size]]} {...rest}>
-  <Icon client:load name={icon} size={16} />
+  <Icon name={icon} size={16} />
 </a>

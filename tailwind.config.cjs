@@ -21,6 +21,15 @@ module.exports = {
         fluid200: 'repeat(auto-fit, minmax(200px, 1fr))',
         fluid240: 'repeat(auto-fit, minmax(240px, 1fr))',
       },
+      keyframes: {
+        show: {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
+      },
+      animation: {
+        show: 'show 225ms ease-in-out',
+      },
     },
   },
   plugins: [],

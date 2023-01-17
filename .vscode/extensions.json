@@ -3,7 +3,8 @@
     "astro-build.astro-vscode",
     "mgmcdermott.vscode-language-babel",
     "EditorConfig.EditorConfig",
-    "dbaeumer.vscode-eslint",
-    "bradlc.vscode-tailwindcss"
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "redhat.vscode-yaml"
   ]
 }
