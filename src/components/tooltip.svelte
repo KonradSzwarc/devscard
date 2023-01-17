@@ -31,7 +31,7 @@
 </script>
 
 <div
-  class="w-fit h-fit flex justify-center items-center"
+  class="flex h-fit w-fit items-center justify-center"
   bind:this={button}
   on:mouseenter={showTooltip}
   on:mouseleave={hideTooltip}
@@ -41,7 +41,7 @@
 <div
   bind:this={tooltip}
   role="tooltip"
-  class="hidden max-w-sm absolute top-0 left-0 rounded-lg bg-gray-700 px-3 py-1 text-white dark:bg-gray-100 dark:text-gray-800 sm:max-w-xs"
+  class="absolute top-0 left-0 hidden max-w-sm rounded-lg bg-gray-700 px-3 py-1 text-white dark:bg-gray-100 dark:text-gray-800 sm:max-w-xs"
 >
   {content}
 </div>

@@ -1,9 +1,8 @@
 {
-  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.rulers": [120],
   "emmet.includeLanguages": { "javascript": "javascriptreact", "astro": "javascriptreact" },
-  "eslint.validate": ["javascript", "javascriptreact", "astro", "typescript", "typescriptreact"],
   "files.eol": "\n",
   "prettier.documentSelectors": ["**/*.astro"],
   "svelte.enable-ts-plugin": true,
@@ -15,12 +14,5 @@
     "svelte": "javascriptreact"
   },
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "[astro]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[ignore]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
-  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[svelte]": { "editor.defaultFormatter": "svelte.svelte-vscode" },
-  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
