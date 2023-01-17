@@ -1,7 +1,5 @@
 ---
-import IconWithTooltip from '@/components/icon-with-tooltip.svelte';
 import Typography from '@/components/typography.astro';
-import type { IconName } from '@/types/icon';
 import type { LevelledSkill } from '@/types/skills-section';
 
 import Icon from '../../components/icon.svelte';
@@ -24,14 +22,9 @@ const IconWrapper = url ? 'a' : 'div';
     </IconWrapper>
     {
       description && (
-        <IconWithTooltip
-          client:load
-          name={'akar-icons:info-fill' as IconName}
-          color="#D1D5DB"
-          size={14}
-          content={description}
-          placement="top"
-        />
+        <div class="flex h-3.5 w-3.5" data-tooltip={description} data-tooltip-placement="top">
+          <Icon client:load name="fa6-solid:circle-info" color="#D1D5DB" size={14} />
+        </div>
       )
     }
   </div>

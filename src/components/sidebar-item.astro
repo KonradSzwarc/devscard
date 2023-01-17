@@ -1,0 +1,34 @@
+---
+import type { SectionKey } from '@/types/data';
+import type { IconName } from '@/types/icon';
+import Icon from './icon.svelte';
+
+export interface Props {
+  section: SectionKey;
+  icon: IconName;
+  title?: string;
+}
+
+const { section, icon, title = '', ...props } = Astro.props;
+---
+
+<a
+  href={`#${section}`}
+  class="inline-flex h-10 w-10 items-center justify-center rounded-lg transition"
+  aria-label={`${section} section`}
+  data-tooltip={`${title || section.charAt(0).toUpperCase() + section.slice(1)}`}
+  data-tooltip-placement="left"
+  {...props}
+>
+  <Icon client:load name={icon} size={20} />
+</a>
+
+<style>
+  [aria-current='page'] {
+    @apply bg-primary-600 text-white;
+  }
+
+  :not([aria-current='page']) {
+    @apply text-gray-400 hover:bg-primary-600 hover:text-white dark:text-gray-200;
+  }
+</style>

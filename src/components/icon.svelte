@@ -13,5 +13,5 @@
 {#if isServer}
   <div style={dimensions} />
 {:else}
-  <iconify-icon icon={name} width={size} height={size} style="color: {color}; {dimensions}"> ></iconify-icon>
+  <iconify-icon icon={name} width={size} height={size} style="color: {color}; {dimensions}" />
 {/if}
