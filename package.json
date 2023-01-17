@@ -28,6 +28,7 @@
     "@astrojs/react": "1.2.2",
     "@astrojs/tailwind": "2.1.3",
     "astro": "1.9.2",
+    "astro-compress": "1.1.27",
     "concurrently": "7.6.0",
     "iconify-icon-names": "1.1.0",
     "locales-ts": "1.0.0",
