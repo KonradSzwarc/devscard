@@ -7,6 +7,13 @@ export interface Detail {
   value: string | string[];
 }
 
+export interface PdfDetail {
+  label: string;
+  value: string | string[];
+  url?: string;
+  fullRow?: boolean;
+}
+
 export interface Social {
   name: string;
   icon: IconName;

@@ -22,7 +22,6 @@ const portfolioData: PortfolioSection = {
   config: {
     title: 'Projects',
     icon: 'fa6-solid:rocket',
-    filter: null,
   },
   projects: [
     {
@@ -35,6 +34,10 @@ const portfolioData: PortfolioSection = {
         { label: 'My role', value: ['Front-end Developer', 'Designer'] },
         { label: 'Company', value: 'None' },
         { label: 'Category', value: ['Web app', 'Open source'] },
+      ],
+      pdfDetails: [
+        { label: 'Demo', value: 'https://golden-bulls-d73jd7.netlify.app', url: '#' },
+        { label: 'Repository', value: 'https://github.com/mark-freeman/golden-bulls', url: '#' },
       ],
       description:
         'In tristique vulputate augue vel egestas. Quisque ac imperdiet tortor, at lacinia ex. Duis vel ex hendrerit, commodo odio sed, aliquam enim. Ut arcu nulla, tincidunt eget arcu eget, molestie vulputate nisi. Nunc malesuada leo et est iaculis facilisis.',
@@ -52,6 +55,10 @@ const portfolioData: PortfolioSection = {
         { label: 'Company', value: 'Facebook' },
         { label: 'Category', value: ['Web app', 'Mobile app'] },
       ],
+      pdfDetails: [
+        { label: 'Demo', value: 'https://tru-quest-ck7ea3.netlify.app', url: '#' },
+        { label: 'Repository', value: 'https://github.com/mark-freeman/tru-quest', url: '#' },
+      ],
       description:
         'Ut ultricies tortor at sodales aliquam. Vivamus metus ante, fringilla nec ligula in, suscipit rhoncus mauris. Praesent hendrerit velit odio, at accumsan urna faucibus convallis. Nunc at massa eget ligula volutpat dictum a sit amet libero. Vestibulum iaculis molestie maximus. In hac habitasse platea dictumst.',
       tags: [react(), tailwindCss(), nestJs(), postgreSql()],
@@ -68,6 +75,10 @@ const portfolioData: PortfolioSection = {
         { label: 'Company', value: 'None' },
         { label: 'Category', value: ['Web app', 'Open source'] },
       ],
+      pdfDetails: [
+        { label: 'Demo', value: 'https://software-chasers-e82l8e.netlify.app', url: '#' },
+        { label: 'Repository', value: 'https://github.com/mark-freeman/software-chasers', url: '#' },
+      ],
       description:
         'Quisque id consectetur eros. In hac habitasse platea dictumst. Sed eu pulvinar orci. Mauris consequat, est in dignissim varius, neque nisl commodo mauris, id blandit risus justo eu nulla.',
       tags: [react(), chakraUi(), typescript(), nx(), pnpm()],
@@ -83,6 +94,10 @@ const portfolioData: PortfolioSection = {
         { label: 'My role', value: 'Front-end Developer' },
         { label: 'Company', value: 'Google' },
         { label: 'Category', value: ['Mobile app', 'Open source'] },
+      ],
+      pdfDetails: [
+        { label: 'Demo', value: 'https://disco-ninjas-g321ol.netlify.app', url: '#' },
+        { label: 'Repository', value: 'https://github.com/mark-freeman/disco-ninjas', url: '#' },
       ],
       description:
         'Praesent eu neque tortor. Vestibulum ac magna nisl. Vivamus massa sem, feugiat in pharetra non, convallis egestas purus. Ut consequat ullamcorper sem, in euismod nibh posuere ut. ',

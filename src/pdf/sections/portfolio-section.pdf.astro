@@ -1,0 +1,70 @@
+---
+import type { I18n } from '@/types/i18n';
+import type { PortfolioSection } from '@/types/portfolio-section';
+import getDateFormatter from '@/utils/date-formatter';
+import DashedDivider from '../components/dashed-divider.astro';
+import SectionHeading from '../components/section-heading.astro';
+
+export interface Props extends PortfolioSection {
+  i18n: I18n;
+}
+
+const {
+  config: { title },
+  projects,
+  i18n,
+} = Astro.props;
+
+const getFormattedDate = getDateFormatter(i18n.locale);
+---
+
+<div>
+  <SectionHeading>{title}</SectionHeading>
+  <div class="flex flex-col">
+    {
+      projects.map((project) => () => (
+        <>
+          <div class="flex flex-col gap-1.5">
+            <div class="flex items-center justify-between">
+              <div class="text-xl font-extrabold text-gray-900">{project.name}</div>
+              <div class="flex h-6 w-fit items-center rounded bg-gray-800 px-2.5 text-sm font-medium text-white">
+                {getFormattedDate(project.startDate)} -{' '}
+                {project.endDate ? getFormattedDate(project.endDate) : i18n.translations.now}
+              </div>
+            </div>
+            <div class="text-base font-normal text-gray-500">
+              {Array.isArray(project.description) ? (
+                <ul class="list-disc pl-4">
+                  {project.description.map((line) => (
+                    <li>{line}</li>
+                  ))}
+                </ul>
+              ) : (
+                <div class="text-justify">{project.description}</div>
+              )}
+            </div>
+            <div>
+              {(project.pdfDetails ?? []).map((detail) => (
+                <div class="flex gap-1">
+                  <div class="text-base font-medium text-gray-700">{detail.label}:</div>
+                  {detail.url ? (
+                    <a href={detail.url} class="text-base font-normal text-gray-500 underline">
+                      {detail.value}
+                    </a>
+                  ) : (
+                    <div class="text-base font-normal text-gray-500">{detail.value}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div class="text-base">
+              <span class="font-medium text-gray-700">Technologies:</span>
+              <span class="font-normal text-gray-500">{project.tags.map((t) => t.name).join(', ')}</span>
+            </div>
+          </div>
+          <DashedDivider />
+        </>
+      ))
+    }
+  </div>
+</div>

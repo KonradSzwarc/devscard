@@ -1,0 +1,27 @@
+---
+import EducationSection from '@/pdf/sections/education-section.pdf.astro';
+import ExperienceSection from '@/pdf/sections/experience-section.pdf.astro';
+import MainSection from '@/pdf/sections/main-section.pdf.astro';
+import PortfolioSection from '@/pdf/sections/portfolio-section.pdf.astro';
+import SkillsSection from '@/pdf/sections/skills-section.pdf.astro';
+
+import data from '../data';
+
+const { i18n } = data;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>PDF preview</title>
+  </head>
+  <body class="flex flex-col bg-white p-10 print:p-0">
+    <MainSection {...data.main} />
+    {data.skills && <SkillsSection {...data.skills} />}
+    {data.experience && <ExperienceSection i18n={i18n} {...data.experience} />}
+    {data.portfolio && <PortfolioSection i18n={i18n} {...data.portfolio} />}
+    {data.education && <EducationSection i18n={i18n} {...data.education} />}
+  </body>
+</html>

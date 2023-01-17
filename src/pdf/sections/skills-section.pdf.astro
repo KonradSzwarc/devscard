@@ -1,0 +1,41 @@
+---
+import type { SkillsSection } from '@/types/skills-section';
+import SectionHeading from '../components/section-heading.astro';
+
+export interface Props extends SkillsSection {}
+
+const {
+  config: { title },
+  skillSets,
+} = Astro.props;
+---
+
+<div>
+  <SectionHeading>{title}</SectionHeading>
+  <div class="flex flex-col gap-5">
+    {
+      skillSets.map((skillSet) => (
+        <div>
+          <div class="text-lg font-extrabold text-gray-900">{skillSet.title}</div>
+          <div class="mt-1.5 flex flex-wrap gap-3.5 text-sm text-gray-700">
+            {skillSet.skills.map((skill) =>
+              'level' in skill ? (
+                <div class="flex h-6 w-fit overflow-hidden rounded">
+                  <div class="flex items-center bg-gray-100 pl-2.5 pr-2 font-medium">{skill.name}</div>
+                  <div class="flex items-center bg-gray-200 pr-2.5 pl-2 font-normal">{skill.level}/5</div>
+                </div>
+              ) : skill.name.includes(' - ') ? (
+                <div class="flex h-6 w-fit overflow-hidden rounded">
+                  <div class="flex items-center bg-gray-100 pl-2.5 pr-2 font-medium">{skill.name.split(' - ')[0]}</div>
+                  <div class="flex items-center bg-gray-200 pr-2.5 pl-2 font-normal">{skill.name.split(' - ')[1]}</div>
+                </div>
+              ) : (
+                <div class="flex h-6 w-fit items-center rounded bg-gray-100 px-2.5 font-medium">{skill.name}</div>
+              )
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
