@@ -68,6 +68,7 @@ const skillsData: SkillsSection = {
     },
     {
       title: 'I speak',
+      pdfTitle: 'Languages',
       skills: [
         { icon: 'circle-flags:pl', name: 'Polish - native' },
         { icon: 'circle-flags:us', name: 'English - C1' },
