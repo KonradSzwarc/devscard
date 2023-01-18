@@ -1,10 +1,11 @@
 {
   "recommendations": [
-    "astro-build.astro-vscode",
-    "mgmcdermott.vscode-language-babel",
     "EditorConfig.EditorConfig",
-    "esbenp.prettier-vscode",
+    "astro-build.astro-vscode",
     "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "foxundermoon.shell-format",
+    "mgmcdermott.vscode-language-babel",
     "redhat.vscode-yaml"
   ]
 }
