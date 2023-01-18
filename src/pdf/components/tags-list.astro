@@ -1,0 +1,15 @@
+---
+import type { Tag } from '@/types/common';
+
+export interface Props {
+  tags: Tag[];
+  label: string;
+}
+
+const { tags, label } = Astro.props;
+---
+
+<div class="text-base">
+  <span class="font-medium text-gray-700">{label}:</span>
+  <span class="font-normal text-gray-500">{tags.map((t) => t.name).join(', ')}</span>
+</div>

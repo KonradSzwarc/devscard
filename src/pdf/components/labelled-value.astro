@@ -1,0 +1,22 @@
+---
+import type { PdfDetail } from '@/types/common';
+
+export interface Props extends PdfDetail {
+  class?: string;
+}
+
+const { label, value, url, ...props } = Astro.props;
+---
+
+<div class:list={['flex gap-1 text-base font-normal text-gray-500', props.class]}>
+  <div class="text-base font-medium text-gray-700">{label}:</div>
+  {
+    url ? (
+      <a href={url} class="underline">
+        {value}
+      </a>
+    ) : (
+      <div>{value}</div>
+    )
+  }
+</div>

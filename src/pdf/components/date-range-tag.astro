@@ -1,0 +1,25 @@
+---
+import type { I18n } from '@/types/i18n';
+import getDateFormatter from '@/utils/date-formatter';
+
+export interface Props {
+  i18n: I18n;
+  startDate: Date;
+  endDate: Date | null;
+  class?: string;
+}
+
+const { startDate, endDate, i18n, ...props } = Astro.props;
+
+const getFormattedDate = getDateFormatter(i18n.locale);
+---
+
+<div
+  class:list={[
+    'flex h-6 w-fit items-center whitespace-nowrap rounded bg-gray-800 px-2.5 text-sm font-medium text-white',
+    props.class,
+  ]}
+>
+  {getFormattedDate(startDate)} -{' '}
+  {endDate ? getFormattedDate(endDate) : i18n.translations.now}
+</div>

@@ -1,0 +1,21 @@
+---
+export interface Props {
+  content: string | string[];
+}
+
+const { content } = Astro.props;
+---
+
+<div class="text-base font-normal text-gray-500">
+  {
+    Array.isArray(content) ? (
+      <ul class="list-disc pl-5">
+        {content.map((line) => (
+          <li>{line}</li>
+        ))}
+      </ul>
+    ) : (
+      <div class="text-justify">{content}</div>
+    )
+  }
+</div>

@@ -1,4 +1,5 @@
 ---
+import getDateFormatter from '@/utils/date-formatter';
 import Typography from './typography.astro';
 
 export interface Props {
@@ -8,8 +9,7 @@ export interface Props {
   translationForNow: string;
 }
 const { startDate, endDate, locale, translationForNow } = Astro.props;
-const getFormattedDate = (date: Date): string =>
-  new Intl.DateTimeFormat(locale, { month: 'long' }).format(date).concat(' ', date.getFullYear().toString());
+const getFormattedDate = getDateFormatter(locale);
 ---
 
 <Typography variant="item-subtitle">

@@ -1,0 +1,35 @@
+---
+import type { EducationSection } from '@/types/education-section';
+import type { I18n } from '@/types/i18n';
+import DashedDivider from '../components/dashed-divider.astro';
+import Description from '../components/description.astro';
+import ListItemHeading from '../components/list-item-heading.astro';
+import SectionHeading from '../components/section-heading.astro';
+
+export interface Props extends EducationSection {
+  i18n: I18n;
+}
+
+const {
+  config: { title },
+  educationItems,
+  i18n,
+} = Astro.props;
+---
+
+<div>
+  <SectionHeading>{title}</SectionHeading>
+  <div class="flex flex-col">
+    {
+      educationItems.map(({ title, description, institution, startDate, endDate }) => () => (
+        <>
+          <div class="flex flex-col gap-2">
+            <ListItemHeading title={title} subtitle={institution} startDate={startDate} endDate={endDate} i18n={i18n} />
+            <Description content={description} />
+          </div>
+          <DashedDivider />
+        </>
+      ))
+    }
+  </div>
+</div>
