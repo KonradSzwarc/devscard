@@ -7,6 +7,8 @@ export interface LevelledSkill extends Tag {
 export interface SkillSet<SkillType> {
   title: string;
   skills: SkillType[];
+  pdfTitle?: string;
+  excludeFromPdf?: boolean;
 }
 
 export interface SkillsSection {

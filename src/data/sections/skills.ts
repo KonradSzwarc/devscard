@@ -27,6 +27,7 @@ const skillsData: SkillsSection = {
   skillSets: [
     {
       title: 'I already know',
+      pdfTitle: 'Technologies',
       skills: [
         react({
           level: 5,
@@ -62,6 +63,7 @@ const skillsData: SkillsSection = {
     },
     {
       title: 'I want to learn',
+      excludeFromPdf: true,
       skills: [apolloGraphql(), astro(), supabase(), cypress()],
     },
     {
