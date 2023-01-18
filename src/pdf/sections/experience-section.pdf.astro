@@ -25,7 +25,7 @@ const {
     {
       jobs.map(({ company, role, description, tags, startDate, endDate }) => () => (
         <>
-          <div class="flex flex-col gap-1.5">
+          <div class="flex flex-col gap-2">
             <ListItemHeading title={role} subtitle={company} startDate={startDate} endDate={endDate} i18n={i18n} />
             <Description content={description} />
             <TagsList label="Technologies" tags={tags} />

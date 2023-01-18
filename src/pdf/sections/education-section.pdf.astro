@@ -23,7 +23,7 @@ const {
     {
       educationItems.map(({ title, description, institution, startDate, endDate }) => () => (
         <>
-          <div class="flex flex-col gap-1.5">
+          <div class="flex flex-col gap-2">
             <ListItemHeading title={title} subtitle={institution} startDate={startDate} endDate={endDate} i18n={i18n} />
             <Description content={description} />
           </div>
