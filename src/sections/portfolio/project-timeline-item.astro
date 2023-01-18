@@ -21,7 +21,13 @@ const alt = `Thumbnail for ${name} project`;
 <div class="flex flex-col gap-6">
   <div class="flex flex-col gap-4">
     <div class="flex gap-6">
-      <Photo class="rounded-lg object-cover max-w-[120px] overflow-hidden sm:block hidden" src={image} alt={alt} />
+      <Photo
+        src={image}
+        alt={alt}
+        width={200}
+        height={200}
+        class="rounded-lg object-cover max-w-[120px] overflow-hidden sm:block hidden"
+      />
       <div class="flex w-full flex-col gap-4">
         <div class="flex justify-between">
           <div>

@@ -27,7 +27,13 @@ const section: SectionKey = 'main';
 <SectionCard section={section}>
   <div class="flex flex-col items-start gap-6 sm:flex-row">
     <div class="flex items-center gap-4 sm:flex-col">
-      <Photo src={image} alt={fullName} class="w-24 h-24 sm:w-36 sm:h-36 md:w-52 md:h-52 rounded-lg max-w-none" />
+      <Photo
+        src={image}
+        alt={fullName}
+        width={320}
+        height={320}
+        class="w-24 h-24 sm:w-36 sm:h-36 md:w-52 md:h-52 rounded-lg max-w-none"
+      />
       <Button href={url} download={downloadedFileName}>{label}</Button>
     </div>
     <div class="flex w-full flex-col gap-5">

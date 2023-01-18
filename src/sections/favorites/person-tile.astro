@@ -13,7 +13,13 @@ const {
 ---
 
 <a href={url} class="flex w-full max-w-[120px] flex-col gap-3 transition duration-300 hover:translate-y-2">
-  <Photo class="rounded-lg shadow-md transition duration-300 aspect-square object-cover" src={image} alt={name} />
+  <Photo
+    class="rounded-lg shadow-md transition duration-300 aspect-square object-cover"
+    src={image}
+    alt={name}
+    width={200}
+    height={200}
+  />
   <Typography variant="tile-title">
     {name}
   </Typography>
