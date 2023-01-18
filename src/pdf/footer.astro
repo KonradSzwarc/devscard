@@ -1,6 +1,16 @@
-<div id="footer" class="mt-4 w-full rounded border border-gray-100 bg-gray-50 px-2 py-1 text-center text-[11px]">
-  I hereby give consent for my personal data included in my application to be processed for the purposes of the
-  recruitment process.
+---
+import type { Footer } from '@/types/footer';
+
+export interface Props extends Footer {}
+
+const { consent } = Astro.props;
+---
+
+<div
+  id="footer"
+  class="mt-4 flex w-full justify-center rounded border border-gray-100 bg-gray-50 px-2 py-1 text-justify text-[11px]"
+>
+  {consent}
 </div>
 <script>
   const footer = document.getElementById('footer')!;
