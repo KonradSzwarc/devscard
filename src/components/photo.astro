@@ -8,9 +8,12 @@ export interface Props {
   alt: string;
   class?: string;
   loading?: 'eager' | 'lazy';
+  width?: number;
+  height?: number;
 }
 
-const { src, alt, loading } = Astro.props;
+const { src, loading, ...props } = Astro.props;
+
 const className = Astro.props.class ?? '';
 
 const isRemoteImage = typeof src === 'string';
@@ -18,8 +21,8 @@ const isRemoteImage = typeof src === 'string';
 
 {
   isRemoteImage ? (
-    <img class={className} src={src} alt={alt} />
+    <img class={className} src={src} {...props} />
   ) : (
-    <Image class={className} format="webp" fit={'cover'} src={src} alt={alt} loading={loading} />
+    <Image format="webp" fit="cover" class={className} src={src} loading={loading} {...props} />
   )
 }
