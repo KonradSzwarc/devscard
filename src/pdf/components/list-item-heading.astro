@@ -16,7 +16,7 @@ const { title, subtitle, i18n, startDate, endDate } = Astro.props;
 <div>
   <div class="flex items-start justify-between">
     <div class="text-xl font-extrabold text-gray-900">{title}</div>
-    <DateRangeTag class="mt-1" i18n={i18n} startDate={startDate} endDate={endDate} />
+    <DateRangeTag class="mt-0.5" i18n={i18n} startDate={startDate} endDate={endDate} />
   </div>
   {subtitle && <div class="text-lg font-medium text-gray-700">{subtitle}</div>}
 </div>
