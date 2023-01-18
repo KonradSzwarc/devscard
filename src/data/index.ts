@@ -1,7 +1,7 @@
 import type { EducationSection } from '@/types/education-section';
 import type { ExperienceSection } from '@/types/experience-section';
 import type { FavoritesSection } from '@/types/favorites-section';
-import type { Footer } from '@/types/footer';
+import type { Pdf } from '@/types/pdf';
 import type { I18n } from '@/types/i18n';
 import type { MainSection } from '@/types/main-section';
 import type { PortfolioSection } from '@/types/portfolio-section';
@@ -20,7 +20,7 @@ import testimonialsData from './sections/testimonials';
 export interface Data {
   i18n: I18n;
   seo: Seo;
-  footer: Footer;
+  pdf: Pdf;
   main: MainSection;
   skills?: SkillsSection;
   experience?: ExperienceSection;
@@ -42,8 +42,8 @@ const data: Data = {
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales ac dui at vestibulum. In condimentum metus id dui tincidunt, in blandit mi vehicula.',
   },
-  footer: {
-    consent:
+  pdf: {
+    footer:
       'I hereby give consent for my personal data included in my application to be processed for the purposes of the recruitment process.',
   },
   main: mainData,

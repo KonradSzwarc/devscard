@@ -24,6 +24,6 @@ const { i18n } = data;
     {data.experience && <ExperienceSection i18n={i18n} {...data.experience} />}
     {data.portfolio && <PortfolioSection i18n={i18n} {...data.portfolio} />}
     {data.education && <EducationSection i18n={i18n} {...data.education} />}
-    <Footer {...data.footer} />
+    <Footer footer={data.pdf.footer} />
   </body>
 </html>
