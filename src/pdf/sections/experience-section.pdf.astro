@@ -1,9 +1,11 @@
 ---
 import type { ExperienceSection, Job } from '@/types/experience-section';
 import type { I18n } from '@/types/i18n';
-import getDateFormatter from '@/utils/date-formatter';
 import DashedDivider from '../components/dashed-divider.astro';
+import Description from '../components/description.astro';
+import ListItemHeading from '../components/list-item-heading.astro';
 import SectionHeading from '../components/section-heading.astro';
+import TagsList from '../components/tags-list.astro';
 
 export interface Props extends ExperienceSection {
   jobs: Job[];
@@ -15,43 +17,18 @@ const {
   i18n,
   jobs,
 } = Astro.props;
-
-const getFormattedDate = getDateFormatter(i18n.locale);
 ---
 
 <div>
   <SectionHeading>{title}</SectionHeading>
   <div class="flex flex-col">
     {
-      jobs.map((job) => () => (
+      jobs.map(({ company, role, description, tags, startDate, endDate }) => () => (
         <>
           <div class="flex flex-col gap-1.5">
-            <div class="flex items-center justify-between">
-              <div class="flex gap-1 text-xl text-gray-700">
-                <div class="font-extrabold text-gray-900">{job.role}</div>
-                <div>&#8212;</div>
-                <div class="font-medium ">{job.company}</div>
-              </div>
-              <div class="flex h-6 w-fit items-center rounded bg-gray-800 px-2.5 text-sm font-medium text-white">
-                {getFormattedDate(job.startDate)} -{' '}
-                {job.endDate ? getFormattedDate(job.endDate) : i18n.translations.now}
-              </div>
-            </div>
-            <div class="text-base font-normal text-gray-500">
-              {Array.isArray(job.description) ? (
-                <ul class="list-disc pl-4">
-                  {job.description.map((line) => (
-                    <li>{line}</li>
-                  ))}
-                </ul>
-              ) : (
-                <div class="text-justify">{job.description}</div>
-              )}
-            </div>
-            <div class="text-base">
-              <span class="font-medium text-gray-700">Technologies:</span>
-              <span class="font-normal text-gray-500">{job.tags.map((t) => t.name).join(', ')}</span>
-            </div>
+            <ListItemHeading title={role} subtitle={company} startDate={startDate} endDate={endDate} i18n={i18n} />
+            <Description content={description} />
+            <TagsList label="Technologies" tags={tags} />
           </div>
           <DashedDivider />
         </>

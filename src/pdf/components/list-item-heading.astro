@@ -1,0 +1,22 @@
+---
+import type { I18n } from '@/types/i18n';
+import DateRangeTag from './date-range-tag.astro';
+
+export interface Props {
+  title: string;
+  subtitle?: string;
+  startDate: Date;
+  endDate: Date | null;
+  i18n: I18n;
+}
+
+const { title, subtitle, i18n, startDate, endDate } = Astro.props;
+---
+
+<div>
+  <div class="flex items-start justify-between">
+    <div class="text-xl font-extrabold text-gray-900">{title}</div>
+    <DateRangeTag class="mt-1" i18n={i18n} startDate={startDate} endDate={endDate} />
+  </div>
+  {subtitle && <div class="text-lg font-medium text-gray-700">{subtitle}</div>}
+</div>

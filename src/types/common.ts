@@ -7,9 +7,7 @@ export interface Detail {
   value: string | string[];
 }
 
-export interface PdfDetail {
-  label: string;
-  value: string | string[];
+export interface PdfDetail extends Detail {
   url?: string;
   fullRow?: boolean;
 }
