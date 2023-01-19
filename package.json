@@ -31,6 +31,7 @@
     "astro": "1.9.2",
     "astro-compress": "1.1.27",
     "concurrently": "7.6.0",
+    "date-fns": "2.29.3",
     "iconify-icon-names": "1.1.0",
     "locales-ts": "1.0.0",
     "postcss": "8.4.21",

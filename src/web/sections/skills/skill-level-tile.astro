@@ -1,0 +1,24 @@
+---
+import type { SkillLevel } from '@/types/sections/skills-section.types';
+
+export interface Props {
+  skillLevel: SkillLevel;
+  tileLevel: SkillLevel;
+}
+
+const { skillLevel, tileLevel } = Astro.props;
+
+const isFilled = skillLevel >= tileLevel;
+const classes = /* tw */ {
+  filled: 'bg-gray-500 dark:bg-gray-300',
+  empty: 'bg-gray-200 dark:bg-gray-500',
+};
+---
+
+<div
+  class:list={[
+    'w-9 h-2 last:rounded-l-none last:rounded-r-sm first:rounded-l-sm first:rounded-r-none',
+    isFilled ? classes.filled : classes.empty,
+  ]}
+>
+</div>

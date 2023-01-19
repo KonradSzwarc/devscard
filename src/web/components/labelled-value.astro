@@ -1,0 +1,20 @@
+---
+import type { LabelledValue } from '@/types/shared';
+
+export interface Props extends LabelledValue {}
+
+const { label, value, url } = Astro.props;
+---
+
+<div class="text-base">
+  <span class="font-medium text-gray-700 dark:text-gray-300">{label}:</span>
+  {
+    url ? (
+      <a href={url} target="_blank" class="font-normal text-gray-500 underline dark:text-gray-400">
+        {value}
+      </a>
+    ) : (
+      <span class="font-normal text-gray-500 dark:text-gray-400">{value}</span>
+    )
+  }
+</div>

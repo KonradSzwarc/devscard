@@ -1,0 +1,17 @@
+---
+import type { PortfolioSection } from '@/types/sections/portfolio-section.types';
+import DividedList from '@/web/components/divided-list.astro';
+import Divider from '@/web/components/divider.astro';
+import SectionCard from '@/web/components/section-card.astro';
+import Project from './project.astro';
+
+export interface Props extends PortfolioSection {}
+
+const { config, projects } = Astro.props;
+---
+
+<SectionCard {...config}>
+  <DividedList>
+    {projects.flatMap((project) => [<Project {...project} />, <Divider />])}
+  </DividedList>
+</SectionCard>

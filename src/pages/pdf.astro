@@ -1,14 +1,15 @@
 ---
-import Footer from '@/pdf/footer.astro';
+import Footer from '@/pdf/components/footer.astro';
 import EducationSection from '@/pdf/sections/education-section.pdf.astro';
 import ExperienceSection from '@/pdf/sections/experience-section.pdf.astro';
 import MainSection from '@/pdf/sections/main-section.pdf.astro';
 import PortfolioSection from '@/pdf/sections/portfolio-section.pdf.astro';
 import SkillsSection from '@/pdf/sections/skills-section.pdf.astro';
+import type { Data } from '@/types/data';
 
 import data from '../data';
 
-const { i18n } = data;
+const sections = data.sections as Data['sections'];
 ---
 
 <!DOCTYPE html>
@@ -19,11 +20,11 @@ const { i18n } = data;
     <title>PDF preview</title>
   </head>
   <body class="flex flex-col bg-white p-[10mm] print:p-0">
-    <MainSection {...data.main} />
-    {data.skills && <SkillsSection {...data.skills} />}
-    {data.experience && <ExperienceSection i18n={i18n} {...data.experience} />}
-    {data.portfolio && <PortfolioSection i18n={i18n} {...data.portfolio} />}
-    {data.education && <EducationSection i18n={i18n} {...data.education} />}
-    <Footer footer={data.pdf.footer} />
+    <MainSection {...sections.main} />
+    {sections.skills && <SkillsSection {...sections.skills} />}
+    {sections.experience && <ExperienceSection {...sections.experience} />}
+    {sections.portfolio && <PortfolioSection {...sections.portfolio} />}
+    {sections.education && <EducationSection {...sections.education} />}
+    {data.config.pdf.footer && <Footer>{data.config.pdf.footer}</Footer>}
   </body>
 </html>

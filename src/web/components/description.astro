@@ -1,0 +1,29 @@
+---
+import type { Description } from '@/types/shared';
+import Typography from './typography.astro';
+
+export interface Props {
+  content: Description;
+  class?: string;
+}
+
+const { content, ...props } = Astro.props;
+---
+
+<div class:list={['text-base font-normal text-gray-500', props.class]}>
+  {
+    Array.isArray(content) ? (
+      <ul class="list-disc pl-5">
+        {content.map((line) => (
+          <Typography component="li" variant="paragraph">
+            {line}
+          </Typography>
+        ))}
+      </ul>
+    ) : (
+      <Typography class="text-justify" variant="paragraph">
+        {content}
+      </Typography>
+    )
+  }
+</div>
