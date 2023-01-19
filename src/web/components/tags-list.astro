@@ -1,10 +1,8 @@
 ---
-import type { Tag } from '@/types/shared';
+import type { TagsList } from '@/types/shared';
 import TagComponent from './tag.astro';
 
-export interface Props {
-  tags: Tag[];
-}
+export interface Props extends TagsList {}
 
 const { tags } = Astro.props;
 ---

@@ -1,200 +1,146 @@
-import type { LinkButton } from '@/types/shared';
-
-type SocialWithoutUrl = Omit<LinkButton, 'url'>;
-
 // GENERAL
 
-export const facebook = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+import createLinkFactory from '@/utils/create-link-factory';
+
+export const facebook = createLinkFactory({
   name: 'Facebook',
   icon: 'fa6-brands:facebook-f',
-  url,
-  ...override,
 });
 
-export const linkedin = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const linkedin = createLinkFactory({
   name: 'LinkedIn',
   icon: 'fa6-brands:linkedin-in',
-  url,
-  ...override,
 });
 
-export const twitter = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const twitter = createLinkFactory({
   name: 'Twitter',
   icon: 'fa6-brands:twitter',
-  url,
-  ...override,
 });
 
-export const pinterest = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const pinterest = createLinkFactory({
   name: 'Pinterest',
   icon: 'fa6-brands:pinterest',
-  url,
-  ...override,
 });
 
 // CODE
 
-export const github = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const github = createLinkFactory({
   name: 'GitHub',
   icon: 'fa6-brands:github',
-  url,
-  ...override,
 });
 
-export const codepen = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const codepen = createLinkFactory({
   name: 'CodePen',
   icon: 'fa6-brands:codepen',
-  url,
-  ...override,
 });
 
-export const stackblitz = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const stackblitz = createLinkFactory({
   name: 'StackBlitz',
   icon: 'simple-icons:stackblitz',
-  url,
-  ...override,
 });
 
-export const codesandbox = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const codesandbox = createLinkFactory({
   name: 'CodeSandbox',
   icon: 'simple-icons:codesandbox',
-  url,
-  ...override,
 });
 
 // BLOG
 
-export const dev = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const dev = createLinkFactory({
   name: 'Dev',
   icon: 'fa6-brands:dev',
-  url,
-  ...override,
 });
 
-export const medium = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const medium = createLinkFactory({
   name: 'Medium',
   icon: 'fa6-brands:medium',
-  url,
-  ...override,
 });
 
 // FORUM / CHAT
 
-export const reddit = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const reddit = createLinkFactory({
   name: 'Reddit',
   icon: 'fa6-brands:reddit',
-  url,
-  ...override,
 });
 
-export const quora = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const quora = createLinkFactory({
   name: 'Quora',
   icon: 'fa6-brands:quora',
-  url,
-  ...override,
 });
 
-export const stackoverflow = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const stackoverflow = createLinkFactory({
   name: 'Stack Overflow',
   icon: 'fa6-brands:stack-overflow',
-  url,
-  ...override,
 });
 
 // DESIGN
 
-export const instagram = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const instagram = createLinkFactory({
   name: 'Instagram',
   icon: 'fa6-brands:instagram',
-  url,
-  ...override,
 });
-export const behance = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const behance = createLinkFactory({
   name: 'Behance',
   icon: 'fa6-brands:behance',
-  url,
-  ...override,
 });
 
-export const dribbble = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const dribbble = createLinkFactory({
   name: 'Dribbble',
   icon: 'fa6-brands:dribbble',
-  url,
-  ...override,
 });
 
-export const figma = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const figma = createLinkFactory({
   name: 'Figma',
   icon: 'fa6-brands:figma',
-  url,
-  ...override,
 });
 
 // MUSIC
 
-export const spotify = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const spotify = createLinkFactory({
   name: 'Spotify',
   icon: 'fa6-brands:spotify',
-  url,
-  ...override,
 });
 
-export const soundcloud = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const soundcloud = createLinkFactory({
   name: 'SoundCloud',
   icon: 'fa6-brands:soundcloud',
-  url,
-  ...override,
 });
 
 // VIDEO
 
-export const youtube = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const youtube = createLinkFactory({
   name: 'YouTube',
   icon: 'fa6-brands:youtube',
-  url,
-  ...override,
 });
 
-export const twitch = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const twitch = createLinkFactory({
   name: 'Twitch',
   icon: 'fa6-brands:twitch',
-  url,
-  ...override,
 });
 
-export const vimeo = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const vimeo = createLinkFactory({
   name: 'Vimeo',
   icon: 'fa6-brands:vimeo',
-  url,
-  ...override,
 });
 
 // PROJECT TYPE
 
-export const website = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const website = createLinkFactory({
   name: 'Website',
   icon: 'fa6-solid:globe',
-  url,
-  ...override,
 });
 
-export const demo = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const demo = createLinkFactory({
   name: 'App demo',
   icon: 'fa6-solid:desktop',
-  url,
-  ...override,
 });
 
-export const mockups = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const mockups = createLinkFactory({
   name: 'Mockups',
   icon: 'fa6-solid:image',
-  url,
-  ...override,
 });
 
-export const repository = (url: string, override?: Partial<SocialWithoutUrl>): LinkButton => ({
+export const repository = createLinkFactory({
   name: 'Repository',
   icon: 'fa6-solid:code-branch',
-  url,
-  ...override,
 });

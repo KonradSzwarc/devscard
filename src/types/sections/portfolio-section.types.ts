@@ -5,6 +5,7 @@ export type Project = Readonly<{
   image: Photo;
   dates: DateRange;
   details: Readonly<LabelledValue[]>;
+  pdfDetails?: Readonly<LabelledValue[]>;
   description: Description;
   tagsList: TagsList;
   links: Readonly<LinkButton[]>;

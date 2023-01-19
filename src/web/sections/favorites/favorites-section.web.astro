@@ -21,10 +21,10 @@ const { config, books, medias, people, videos } = Astro.props;
     <FavoritesSubSection class="grid-cols-fluid120" subSection={people}>
       {people?.data.map((person) => <PersonTile {...person} />)}
     </FavoritesSubSection>
-    <FavoritesSubSection class="grid-cols-fluid120" subSection={videos}>
+    <FavoritesSubSection class="grid-cols-fluid240" subSection={videos}>
       {videos?.data.map((video) => <VideoTile {...video} />)}
     </FavoritesSubSection>
-    <FavoritesSubSection class="grid-cols-fluid240" subSection={medias}>
+    <FavoritesSubSection class="grid-cols-fluid120" subSection={medias}>
       {medias?.data.map((media) => <MediaTile {...media} />)}
     </FavoritesSubSection>
   </div>

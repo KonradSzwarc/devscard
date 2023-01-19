@@ -41,7 +41,7 @@ const portfolioSectionData = {
         title: 'Technologies',
         tags: [nextJs(), sass(), pnpm(), eslint(), prettier()],
       },
-      links: [mockups('#'), demo('#')],
+      links: [mockups({ url: '#' }), demo({ url: '#' })],
     },
     {
       name: 'TruQuest',
@@ -59,7 +59,7 @@ const portfolioSectionData = {
         title: 'Technologies',
         tags: [react(), tailwindCss(), nestJs(), postgreSql()],
       },
-      links: [mockups('#'), demo('#')],
+      links: [mockups({ url: '#' }), demo({ url: '#' })],
     },
     {
       name: 'Software Chasers',
@@ -77,7 +77,7 @@ const portfolioSectionData = {
         title: 'Technologies',
         tags: [react(), chakraUi(), typescript(), nx(), pnpm()],
       },
-      links: [website('#'), github('#')],
+      links: [website({ url: '#' }), github({ url: '#' })],
     },
     {
       name: 'Disco Ninjas',
@@ -95,7 +95,7 @@ const portfolioSectionData = {
         title: 'Technologies',
         tags: [typescript(), jest(), firebase()],
       },
-      links: [mockups('#'), github('#')],
+      links: [mockups({ url: '#' }), github({ url: '#' })],
     },
   ],
 } as const satisfies PortfolioSection;

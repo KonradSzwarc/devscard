@@ -23,8 +23,9 @@ const mainSectionData = {
   action: {
     label: 'Download CV',
     url: '/cv.pdf',
+    downloadedFileName: 'CV-Mark_Freeman.pdf',
   },
-  links: [facebook('#'), github('#'), linkedin('#'), twitter('#')],
+  links: [facebook({ url: '#' }), github({ url: '#' }), linkedin({ url: '#' }), twitter({ url: '#' })],
 } as const satisfies MainSection;
 
 export default mainSectionData;

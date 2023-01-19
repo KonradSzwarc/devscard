@@ -9,19 +9,23 @@ import type { PortfolioSection } from './sections/portfolio-section.types';
 import type { SkillsSection } from './sections/skills-section.types';
 import type { TestimonialsSection } from './sections/testimonials-section.types';
 
+export type Config = Readonly<{
+  seo: SeoConfig;
+  i18n: I18nConfig;
+  pdf?: PdfConfig;
+}>;
+
+export type Sections = Readonly<{
+  main: MainSection;
+  skills: SkillsSection;
+  experience: ExperienceSection;
+  portfolio: PortfolioSection;
+  education: EducationSection;
+  testimonials: TestimonialsSection;
+  favorites: FavoritesSection;
+}>;
+
 export type Data = Readonly<{
-  config: Readonly<{
-    seo: SeoConfig;
-    i18n: I18nConfig;
-    pdf?: PdfConfig;
-  }>;
-  sections: Readonly<{
-    main: MainSection;
-    skills: SkillsSection;
-    experience: ExperienceSection;
-    portfolio: PortfolioSection;
-    education: EducationSection;
-    testimonials: TestimonialsSection;
-    favorites: FavoritesSection;
-  }>;
+  config: Config;
+  sections: Sections;
 }>;

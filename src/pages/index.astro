@@ -9,16 +9,16 @@ import PortfolioSection from '@/web/sections/portfolio/portfolio-section.web.ast
 import EducationSection from '@/web/sections/education/education-section.web.astro';
 import TestimonialsSection from '@/web/sections/testimonials/testimonials-section.web.astro';
 import FavoritesSection from '@/web/sections/favorites/favorites-section.web.astro';
-import data from '../data';
-import type { Data } from '@/types/data';
+import { cv } from '@/data/cv';
+import { hideSection } from '@/data/transformers';
 
-const sections = data.sections as Data['sections'];
+const { config, sections } = cv(hideSection('skills'));
 ---
 
-<Layout {...data.config}>
+<Layout {...config}>
   <ThemeToggle />
   <main class="w-full max-w-5xl space-y-4 px-2 py-3 sm:space-y-6 sm:px-8 sm:py-12 lg:space-y-8 lg:py-20">
-    <MainSection {...data.sections.main} />
+    <MainSection {...sections.main} />
     {sections.skills.config.visible && <SkillsSection {...sections.skills} />}
     {sections.experience.config.visible && <ExperienceSection {...sections.experience} />}
     {sections.portfolio.config.visible && <PortfolioSection {...sections.portfolio} />}
@@ -26,6 +26,6 @@ const sections = data.sections as Data['sections'];
     {sections.testimonials.config.visible && <TestimonialsSection {...sections.testimonials} />}
     {sections.favorites.config.visible && <FavoritesSection {...sections.favorites} />}
   </main>
-  <Sidebar sections={data.sections} className="sticky top-8 mt-20" />
+  <Sidebar sections={sections} className="sticky top-8 mt-20" />
   <script src="../web/scripts/initialize-tooltips.ts"></script>
 </Layout>

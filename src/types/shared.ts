@@ -47,6 +47,7 @@ export type LinkButton = Readonly<{
   name: string;
   icon: IconName;
   url: string;
+  pdfFullRow?: boolean;
 }>;
 
 export type Description = Readonly<string | string[]>;

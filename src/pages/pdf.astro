@@ -5,15 +5,19 @@ import ExperienceSection from '@/pdf/sections/experience-section.pdf.astro';
 import MainSection from '@/pdf/sections/main-section.pdf.astro';
 import PortfolioSection from '@/pdf/sections/portfolio-section.pdf.astro';
 import SkillsSection from '@/pdf/sections/skills-section.pdf.astro';
-import type { Data } from '@/types/data';
 
-import data from '../data';
+import { cv } from '@/data/cv';
+import { hideProject, hideSkillSet, renameSkillSet } from '@/data/transformers';
 
-const sections = data.sections as Data['sections'];
+const { config, sections } = cv(
+  hideSkillSet('I want to learn'),
+  renameSkillSet('I speak', 'Languages'),
+  hideProject('Disco Ninjas')
+);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={config.i18n.locale.code}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -25,6 +29,6 @@ const sections = data.sections as Data['sections'];
     {sections.experience && <ExperienceSection {...sections.experience} />}
     {sections.portfolio && <PortfolioSection {...sections.portfolio} />}
     {sections.education && <EducationSection {...sections.education} />}
-    {data.config.pdf.footer && <Footer>{data.config.pdf.footer}</Footer>}
+    {config.pdf?.footer && <Footer>{config.pdf.footer}</Footer>}
   </body>
 </html>

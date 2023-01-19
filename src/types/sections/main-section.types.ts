@@ -5,6 +5,7 @@ export interface MainSection extends Section {
   readonly fullName: string;
   readonly role: string;
   readonly details: Readonly<LabelledValue[]>;
+  readonly pdfDetails?: Readonly<LabelledValue[]>;
   readonly description: string;
   readonly tags: Readonly<Tag[]>;
   readonly action: DownloadButton;

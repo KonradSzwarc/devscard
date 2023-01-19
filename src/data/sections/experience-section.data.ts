@@ -38,7 +38,7 @@ const experienceSectionData = {
         title: 'Technologies',
         tags: [react(), nextJs(), typescript(), nx(), firebase()],
       },
-      links: [facebook('#'), linkedin('#')],
+      links: [facebook({ url: '#' }), linkedin({ url: '#' })],
     },
     {
       role: 'React.js developer',
@@ -54,7 +54,7 @@ const experienceSectionData = {
         title: 'Technologies',
         tags: [react(), reactQuery(), chakraUi(), eslint()],
       },
-      links: [website('#'), instagram('#')],
+      links: [website({ url: '#' }), instagram({ url: '#' })],
     },
     {
       role: 'Junior front-end developer',
@@ -70,7 +70,7 @@ const experienceSectionData = {
         title: 'Technologies',
         tags: [vue(), tailwindCss(), pnpm()],
       },
-      links: [twitter('#'), github('#')],
+      links: [twitter({ url: '#' }), github({ url: '#' })],
     },
   ],
 } as const satisfies ExperienceSection;

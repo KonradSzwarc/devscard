@@ -4,6 +4,8 @@ import type { LabelledValue } from '@/types/shared';
 export interface Props extends LabelledValue {}
 
 const { label, value, url } = Astro.props;
+
+const parsedValue = Array.isArray(value) ? value.join(', ') : value;
 ---
 
 <div class="text-base">
@@ -11,10 +13,10 @@ const { label, value, url } = Astro.props;
   {
     url ? (
       <a href={url} target="_blank" class="font-normal text-gray-500 underline dark:text-gray-400">
-        {value}
+        {parsedValue}
       </a>
     ) : (
-      <span class="font-normal text-gray-500 dark:text-gray-400">{value}</span>
+      <span class="font-normal text-gray-500 dark:text-gray-400">{parsedValue}</span>
     )
   }
 </div>

@@ -6,7 +6,7 @@ import LabelledValue from '@/pdf/components/labelled-value.astro';
 
 export interface Props extends MainSection {}
 
-const { image, fullName, role, details, description } = Astro.props;
+const { image, fullName, role, details, pdfDetails, description } = Astro.props;
 ---
 
 <div class="flex flex-col gap-4">
@@ -16,7 +16,11 @@ const { image, fullName, role, details, description } = Astro.props;
       <div class="text-3xl font-extrabold text-gray-900">{fullName}</div>
       <div class="text-lg font-medium text-gray-700">{role}</div>
       <div class="grid grid-cols-[auto_auto] gap-x-4 gap-y-1 pt-4">
-        {details.map((detail) => <LabelledValue {...detail} class={detail.fullRow ? 'col-span-2' : undefined} />)}
+        {
+          (pdfDetails ?? details).map((detail) => (
+            <LabelledValue {...detail} class={detail.fullRow ? 'col-span-2' : undefined} />
+          ))
+        }
       </div>
     </div>
   </div>

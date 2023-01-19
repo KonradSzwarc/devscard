@@ -37,14 +37,7 @@ const alt = `${name} project thumbnail`;
         </div>
         <Photo class="rounded-lg object-cover max-w-[120px] sm:hidden" src={image} alt={alt} />
         <div class="inline-grid w-full xl:grid-cols-[auto_auto]">
-          {
-            details.map(({ label: detailLabel, value: detailValue }) => (
-              <LabelledValue
-                label={detailLabel}
-                value={typeof detailValue === 'object' ? detailValue.join(', ') : detailValue}
-              />
-            ))
-          }
+          {details.map((detail) => <LabelledValue {...detail} />)}
         </div>
       </div>
     </div>
