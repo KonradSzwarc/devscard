@@ -1,5 +1,5 @@
 import type { Config } from '@/types/data';
-import { enUS } from 'date-fns/locale';
+import enUS from 'date-fns/locale/en-US/index.js';
 import type { ReadonlyDeep } from 'type-fest';
 
 const config = {
