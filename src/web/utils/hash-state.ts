@@ -4,7 +4,7 @@ import { isServer } from './env';
 const getInitialHash = () => {
   if (isServer) return '';
 
-  return window.location.hash || `#${sections.main.config.slug}}`;
+  return window.location.hash || `#${sections.main.config.slug}`;
 };
 
 const createHashState = () => {
