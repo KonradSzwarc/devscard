@@ -1,4 +1,5 @@
 import type { ExperienceSection } from '@/types/sections/experience-section.types';
+import type { ReadonlyDeep } from 'type-fest';
 import { facebook, github, instagram, linkedin, twitter, website } from '../helpers/links';
 import {
   chakraUi,
@@ -73,6 +74,6 @@ const experienceSectionData = {
       links: [twitter({ url: '#' }), github({ url: '#' })],
     },
   ],
-} as const satisfies ExperienceSection;
+} as const satisfies ReadonlyDeep<ExperienceSection>;
 
 export default experienceSectionData;

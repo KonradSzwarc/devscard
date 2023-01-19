@@ -1,9 +1,9 @@
 import type { Locale } from 'date-fns';
 
-export type I18nConfig = Readonly<{
+export interface I18nConfig {
   locale: Locale;
   dateFormat: string;
-  translations: Readonly<{
+  translations: {
     now: string;
-  }>;
-}>;
+  };
+}

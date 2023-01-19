@@ -1,16 +1,16 @@
 import type { DateRange, Photo, LabelledValue, LinkButton, Section, TagsList, Description } from '../shared';
 
-export type Project = Readonly<{
+export interface Project {
   name: string;
   image: Photo;
   dates: DateRange;
-  details: Readonly<LabelledValue[]>;
-  pdfDetails?: Readonly<LabelledValue[]>;
+  details: LabelledValue[];
+  pdfDetails?: LabelledValue[];
   description: Description;
   tagsList: TagsList;
-  links: Readonly<LinkButton[]>;
-}>;
+  links: LinkButton[];
+}
 
 export interface PortfolioSection extends Section {
-  readonly projects: Readonly<Project[]>;
+  projects: Project[];
 }

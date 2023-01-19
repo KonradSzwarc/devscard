@@ -1,9 +1,10 @@
+import sections from '@/data/sections';
 import { isServer } from './env';
 
 const getInitialHash = () => {
   if (isServer) return '';
 
-  return window.location.hash || '#main';
+  return window.location.hash || `#${sections.main.config.slug}}`;
 };
 
 const createHashState = () => {

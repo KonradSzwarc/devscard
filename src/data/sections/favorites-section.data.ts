@@ -1,4 +1,5 @@
 import type { FavoritesSection } from '@/types/sections/favorites-section.types';
+import type { ReadonlyDeep } from 'type-fest';
 
 const favoritesSectionData = {
   config: {
@@ -132,6 +133,6 @@ const favoritesSectionData = {
       },
     ],
   },
-} as const satisfies FavoritesSection;
+} as const satisfies ReadonlyDeep<FavoritesSection>;
 
 export default favoritesSectionData;

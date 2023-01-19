@@ -1,4 +1,5 @@
 import type { Sections } from '@/types/data';
+import type { ReadonlyDeep } from 'type-fest';
 import educationData from './education-section.data';
 import experienceData from './experience-section.data';
 import favoritesData from './favorites-section.data';
@@ -15,6 +16,6 @@ export const sections = {
   education: educationData,
   testimonials: testimonialsData,
   favorites: favoritesData,
-} as const satisfies Sections;
+} as const satisfies ReadonlyDeep<Sections>;
 
 export default sections;

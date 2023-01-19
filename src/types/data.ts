@@ -9,13 +9,13 @@ import type { PortfolioSection } from './sections/portfolio-section.types';
 import type { SkillsSection } from './sections/skills-section.types';
 import type { TestimonialsSection } from './sections/testimonials-section.types';
 
-export type Config = Readonly<{
+export interface Config {
   seo: SeoConfig;
   i18n: I18nConfig;
   pdf?: PdfConfig;
-}>;
+}
 
-export type Sections = Readonly<{
+export interface Sections {
   main: MainSection;
   skills: SkillsSection;
   experience: ExperienceSection;
@@ -23,9 +23,9 @@ export type Sections = Readonly<{
   education: EducationSection;
   testimonials: TestimonialsSection;
   favorites: FavoritesSection;
-}>;
+}
 
-export type Data = Readonly<{
+export interface Data {
   config: Config;
   sections: Sections;
-}>;
+}

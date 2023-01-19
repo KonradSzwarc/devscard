@@ -1,4 +1,5 @@
 import type { PortfolioSection } from '@/types/sections/portfolio-section.types';
+import type { ReadonlyDeep } from 'type-fest';
 import { demo, github, mockups, website } from '../helpers/links';
 import {
   chakraUi,
@@ -98,6 +99,6 @@ const portfolioSectionData = {
       links: [mockups({ url: '#' }), github({ url: '#' })],
     },
   ],
-} as const satisfies PortfolioSection;
+} as const satisfies ReadonlyDeep<PortfolioSection>;
 
 export default portfolioSectionData;

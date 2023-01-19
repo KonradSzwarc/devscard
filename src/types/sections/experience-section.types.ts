@@ -1,14 +1,14 @@
 import type { DateRange, Description, LinkButton, Section, TagsList } from '../shared';
 
-export type Job = Readonly<{
+export interface Job {
   role: string;
   company: string;
   dates: DateRange;
   description: Description;
   tagsList: TagsList;
-  links: Readonly<LinkButton[]>;
-}>;
+  links: LinkButton[];
+}
 
 export interface ExperienceSection extends Section {
-  readonly jobs: Readonly<Job[]>;
+  jobs: Job[];
 }

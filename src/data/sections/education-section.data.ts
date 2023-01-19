@@ -1,4 +1,5 @@
 import type { EducationSection } from '@/types/sections/education-section.types';
+import type { ReadonlyDeep } from 'type-fest';
 import { website } from '../helpers/links';
 
 const educationSectionData = {
@@ -24,6 +25,6 @@ const educationSectionData = {
       links: [website({ url: '#' })],
     },
   ],
-} as const satisfies EducationSection;
+} as const satisfies ReadonlyDeep<EducationSection>;
 
 export default educationSectionData;

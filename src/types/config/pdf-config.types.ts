@@ -1,3 +1,3 @@
-export type PdfConfig = Readonly<{
+export interface PdfConfig {
   footer?: string;
-}>;
+}

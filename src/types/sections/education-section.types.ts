@@ -1,13 +1,13 @@
 import type { DateRange, Description, LinkButton, Section } from '../shared';
 
-export type Diploma = Readonly<{
+export interface Diploma {
   title: string;
   institution: string;
   dates: DateRange;
   description: Description;
-  links: Readonly<LinkButton[]>;
-}>;
+  links: LinkButton[];
+}
 
 export interface EducationSection extends Section {
-  readonly diplomas: Readonly<Diploma[]>;
+  diplomas: Diploma[];
 }

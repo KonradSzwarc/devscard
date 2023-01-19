@@ -1,40 +1,39 @@
 import type { Photo, Section } from '../shared';
 
-export type Book = Readonly<{
+export interface Book {
   title: string;
   image: Photo;
   author: string;
   url: string;
-}>;
+}
 
-export type Person = Readonly<{
+export interface Person {
   name: string;
   image: Photo;
   url?: string;
-}>;
+}
 
-export type Video = Readonly<{
+export interface Video {
   title: string;
   image: Photo;
   url: string;
-}>;
+}
 
-export type Media = Readonly<{
+export interface Media {
   title: string;
   type: string;
   image: Photo;
   url: string;
-}>;
+}
 
-export type SubSection<Data = unknown> = Readonly<{
+export interface SubSection<Data = unknown> {
   title: string;
-  data: Readonly<Data[]>;
-}>;
+  data: Data[];
+}
 
-export type FavoritesSection = Section &
-  Readonly<{
-    books?: SubSection<Book>;
-    people?: SubSection<Person>;
-    videos?: SubSection<Video>;
-    medias?: SubSection<Media>;
-  }>;
+export interface FavoritesSection extends Section {
+  books?: SubSection<Book>;
+  people?: SubSection<Person>;
+  videos?: SubSection<Video>;
+  medias?: SubSection<Media>;
+}

@@ -1,4 +1,5 @@
 import type { MainSection } from '@/types/sections/main-section.types';
+import type { ReadonlyDeep } from 'type-fest';
 import { facebook, github, linkedin, twitter } from '../helpers/links';
 
 const mainSectionData = {
@@ -26,6 +27,6 @@ const mainSectionData = {
     downloadedFileName: 'CV-Mark_Freeman.pdf',
   },
   links: [facebook({ url: '#' }), github({ url: '#' }), linkedin({ url: '#' }), twitter({ url: '#' })],
-} as const satisfies MainSection;
+} as const satisfies ReadonlyDeep<MainSection>;
 
 export default mainSectionData;

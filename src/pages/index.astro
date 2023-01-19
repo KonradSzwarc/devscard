@@ -10,9 +10,8 @@ import EducationSection from '@/web/sections/education/education-section.web.ast
 import TestimonialsSection from '@/web/sections/testimonials/testimonials-section.web.astro';
 import FavoritesSection from '@/web/sections/favorites/favorites-section.web.astro';
 import { cv } from '@/data/cv';
-import { hideSection } from '@/data/transformers';
 
-const { config, sections } = cv(hideSection('skills'));
+const { config, sections } = cv();
 ---
 
 <Layout {...config}>

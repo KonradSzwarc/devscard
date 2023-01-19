@@ -4,50 +4,50 @@ export type IconName = Fa6Brands | Fa6Solid | SimpleIcons | CircleFlags | Ri;
 
 export type Photo = Promise<{ default: ImageMetadata }> | string;
 
-export type SectionConfig = Readonly<{
+export type DateRange = [from: Date, to: Date | null];
+
+export type Description = string | string[];
+
+export interface SectionConfig {
   title: string;
   slug: string;
   icon: IconName;
   visible: boolean;
-}>;
+}
 
-export type Section = Readonly<{
+export interface Section {
   config: SectionConfig;
-}>;
+}
 
-export type LabelledValue = Readonly<{
+export interface LabelledValue {
   label: string;
-  value: Readonly<string | string[]>;
+  value: string | string[];
   url?: string;
   fullRow?: boolean;
-}>;
+}
 
-export type Tag = Readonly<{
+export interface Tag {
   name: string;
   icon?: IconName;
   iconColor?: string;
   url?: string;
   description?: string;
-}>;
+}
 
-export type TagsList = Readonly<{
+export interface TagsList {
   title: string;
-  tags: Readonly<Tag[]>;
-}>;
+  tags: Tag[];
+}
 
-export type DateRange = Readonly<[from: Date, to: Date | null]>;
-
-export type DownloadButton = Readonly<{
+export interface DownloadButton {
   label: string;
   url: string;
   downloadedFileName?: string;
-}>;
+}
 
-export type LinkButton = Readonly<{
+export interface LinkButton {
   name: string;
   icon: IconName;
   url: string;
   pdfFullRow?: boolean;
-}>;
-
-export type Description = Readonly<string | string[]>;
+}

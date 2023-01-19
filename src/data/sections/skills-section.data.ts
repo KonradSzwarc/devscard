@@ -1,4 +1,5 @@
 import type { SkillsSection } from '@/types/sections/skills-section.types';
+import type { ReadonlyDeep } from 'type-fest';
 import {
   apolloGraphql,
   astro,
@@ -74,6 +75,6 @@ const skillsSectionData = {
       ],
     },
   ],
-} as const satisfies SkillsSection;
+} as const satisfies ReadonlyDeep<SkillsSection>;
 
 export default skillsSectionData;

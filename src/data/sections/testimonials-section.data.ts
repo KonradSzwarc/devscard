@@ -1,4 +1,5 @@
 import type { TestimonialsSection } from '@/types/sections/testimonials-section.types';
+import type { ReadonlyDeep } from 'type-fest';
 import { github, linkedin, website } from '../helpers/links';
 
 const testimonialsSectionData = {
@@ -34,6 +35,6 @@ const testimonialsSectionData = {
       links: [github({ url: '#' }), website({ url: '#' })],
     },
   ],
-} as const satisfies TestimonialsSection;
+} as const satisfies ReadonlyDeep<TestimonialsSection>;
 
 export default testimonialsSectionData;
