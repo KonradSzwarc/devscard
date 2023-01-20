@@ -1,23 +1,27 @@
 ---
-import type { Section } from '@/types/shared';
+import type { SectionConfig } from '@/types/shared';
 import Typography from './typography.astro';
 
-export interface Props extends Pick<Section['config'], 'title' | 'slug'> {
+export interface Props extends SectionConfig {
   className?: string;
   hideTitle?: boolean;
 }
 
-const { title, slug, hideTitle, className } = Astro.props;
+const { title, slug, hideTitle, className, visible } = Astro.props;
 ---
 
-<div
-  id={slug}
-  data-type="section"
-  class:list={['flex flex-col gap-6 rounded-2xl bg-white p-8 shadow-md dark:bg-gray-800', className]}
->
-  {!hideTitle && <Typography variant="section-title">{title}</Typography>}
-  <slot />
-</div>
+{
+  visible && (
+    <div
+      id={slug}
+      data-type="section"
+      class:list={['flex flex-col gap-6 rounded-2xl bg-white p-8 shadow-md dark:bg-gray-800', className]}
+    >
+      {!hideTitle && <Typography variant="section-title">{title}</Typography>}
+      <slot />
+    </div>
+  )
+}
 
 <script>
   import hashState from '@/web/utils/hash-state';

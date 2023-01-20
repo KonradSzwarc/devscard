@@ -49,5 +49,4 @@ export interface LinkButton {
   name: string;
   icon: IconName;
   url: string;
-  pdfFullRow?: boolean;
 }

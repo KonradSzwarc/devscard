@@ -16,6 +16,7 @@
     "generate-cv": "node scripts/generate-cv.cjs",
     "prettier:check": "prettier --check --ignore-path .gitignore .",
     "prettier:write": "prettier --write --ignore-path .gitignore .",
+    "astro:check": "astro check",
     "ts:check": "tsc --jsx preserve --skipLibCheck",
     "check": "concurrently npm:*:check"
   },

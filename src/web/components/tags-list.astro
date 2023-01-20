@@ -1,26 +1,12 @@
 ---
 import type { TagsList } from '@/types/shared';
-import TagComponent from './tag.astro';
+import Tag from './tag.astro';
 
-export interface Props extends TagsList {}
+export interface Props extends Omit<TagsList, 'title'> {}
 
 const { tags } = Astro.props;
 ---
 
 <div class="flex flex-wrap gap-3">
-  {
-    tags.map(({ name: tagName, icon, iconColor, url }) =>
-      url ? (
-        <a href={url} target="_blank" rel="noopener noreferrer">
-          <TagComponent name={icon} color={iconColor}>
-            {tagName}
-          </TagComponent>
-        </a>
-      ) : (
-        <TagComponent name={icon} color={iconColor}>
-          {tagName}
-        </TagComponent>
-      )
-    )
-  }
+  {tags.map((tag) => <Tag {...tag} />)}
 </div>

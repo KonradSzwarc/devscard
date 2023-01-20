@@ -18,12 +18,12 @@ const { config, sections } = cv();
   <ThemeToggle />
   <main class="w-full max-w-5xl space-y-4 px-2 py-3 sm:space-y-6 sm:px-8 sm:py-12 lg:space-y-8 lg:py-20">
     <MainSection {...sections.main} />
-    {sections.skills.config.visible && <SkillsSection {...sections.skills} />}
-    {sections.experience.config.visible && <ExperienceSection {...sections.experience} />}
-    {sections.portfolio.config.visible && <PortfolioSection {...sections.portfolio} />}
-    {sections.education.config.visible && <EducationSection {...sections.education} />}
-    {sections.testimonials.config.visible && <TestimonialsSection {...sections.testimonials} />}
-    {sections.favorites.config.visible && <FavoritesSection {...sections.favorites} />}
+    <SkillsSection {...sections.skills} />
+    <ExperienceSection {...sections.experience} />
+    <PortfolioSection {...sections.portfolio} />
+    <EducationSection {...sections.education} />
+    <TestimonialsSection {...sections.testimonials} />
+    <FavoritesSection {...sections.favorites} />
   </main>
   <Sidebar sections={sections} className="sticky top-8 mt-20" />
   <script src="../web/scripts/initialize-tooltips.ts"></script>
