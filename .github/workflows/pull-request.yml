@@ -1,0 +1,117 @@
+name: Pull Request
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  prettier:
+    name: Run Prettier check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Prettier
+        run: npm run prettier:check
+
+  typescript:
+    name: Run TypeScript check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run TypeScript types check
+        run: npm run ts:check
+
+  astro:
+    name: Run Astro check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Astro check
+        run: npm run astro:check
+
+  percy:
+    name: Run Percy check
+    if: github.repository == 'KonradSzwarc/devscard'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Astro build command
+        env:
+          PUBLIC_APP_ENV: snapshot
+        run: npm run build
+      - name: Percy check
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+        run: npx percy snapshot dist/
+
+  preview:
+    name: Create deploy preview
+    needs: [prettier, typescript, astro]
+    if: github.repository == 'KonradSzwarc/devscard'
+    runs-on: ubuntu-latest
+    outputs:
+      deploy-url: ${{ steps.netlify.outputs.deploy-url }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Astro build command
+        run: npm run build
+      - name: Deploy to Netlify
+        id: netlify
+        uses: nwtgck/actions-netlify@v2
+        with:
+          publish-dir: dist
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          alias: deploy-preview-${{ github.event.number }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
+
+  lighthouse:
+    name: Run Lighthouse check
+    if: github.repository == 'KonradSzwarc/devscard'
+    needs: preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Lighthouse check
+        uses: foo-software/lighthouse-check-action@master
+        with:
+          urls: ${{ needs.preview.outputs.deploy-url }}
+          gitAuthor: ${{ github.actor }}
+          gitBranch: ${{ github.ref }}
+          gitHubAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          device: all
+          prCommentEnabled: true
+          prCommentSaveOld: false
