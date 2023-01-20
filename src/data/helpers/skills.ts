@@ -1,4 +1,4 @@
-import createSkillFactory from '@/utils/create-skill-factory';
+import createSkillFactory from '@/data/_internals/create-skill-factory';
 
 export const apolloGraphql = createSkillFactory({
   name: 'Apollo GraphQL',

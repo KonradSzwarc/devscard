@@ -1,6 +1,6 @@
 import type { Data } from '@/types/data';
 import type { Draft } from 'immer';
-import type { PreciseData } from '../cv';
+import type { PreciseData } from './get-cv-data';
 
 export type DraftData = Draft<Data>;
 

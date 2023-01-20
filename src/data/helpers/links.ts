@@ -1,6 +1,6 @@
-// GENERAL
+import createLinkFactory from '@/data/_internals/create-link-factory';
 
-import createLinkFactory from '@/utils/create-link-factory';
+// GENERAL
 
 export const facebook = createLinkFactory({
   name: 'Facebook',
