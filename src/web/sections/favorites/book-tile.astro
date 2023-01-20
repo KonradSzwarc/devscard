@@ -1,0 +1,21 @@
+---
+import type { Book } from '@/types/sections/favorites-section.types';
+import Photo from '@/web/components/photo.astro';
+import Typography from '@/web/components/typography.astro';
+
+export interface Props extends Book {}
+
+const { author, image, title, url } = Astro.props;
+---
+
+<a href={url} class="flex w-full max-w-[200px] flex-col gap-3 transition duration-300 hover:translate-y-2">
+  <Photo src={image} alt={title} class="aspect-[3/4] rounded-lg object-cover shadow-md" width={300} height={400} />
+  <div class="w-full gap-1">
+    <Typography variant="tile-title">
+      {title}
+    </Typography>
+    <Typography variant="tile-subtitle">
+      {author}
+    </Typography>
+  </div>
+</a>

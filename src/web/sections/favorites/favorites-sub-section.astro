@@ -1,0 +1,22 @@
+---
+import type { SubSection } from '@/types/sections/favorites-section.types';
+import Typography from '@/web/components/typography.astro';
+
+export interface Props {
+  subSection?: SubSection;
+  class: string;
+}
+
+const { subSection, ...props } = Astro.props;
+---
+
+{
+  subSection && (
+    <div class="flex flex-col gap-6">
+      <Typography variant="section-subtitle">{subSection.title}</Typography>
+      <div class:list={['gap-8 grid', props.class]}>
+        <slot />
+      </div>
+    </div>
+  )
+}

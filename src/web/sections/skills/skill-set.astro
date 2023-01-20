@@ -1,0 +1,32 @@
+---
+import type { LevelledSkill as LevelledSkillType, SkillSet } from '@/types/sections/skills-section.types';
+import TagsList from '@/web/components/tags-list.astro';
+import Typography from '@/web/components/typography.astro';
+import LevelledSkill from './levelled-skill.astro';
+
+export interface Props extends SkillSet {}
+
+const { skills, title } = Astro.props;
+
+const isLevelledSkillSection = (skills: Props['skills']): skills is LevelledSkillType[] => {
+  const firstSkill = skills[0];
+  if (!firstSkill) return false;
+
+  return 'level' in firstSkill && firstSkill.level !== undefined;
+};
+---
+
+<div class="flex flex-col gap-3">
+  <Typography variant="section-subtitle">{title}</Typography>
+  {
+    isLevelledSkillSection(skills) ? (
+      <div class="flex flex-wrap gap-8">
+        {skills.map((skill) => (
+          <LevelledSkill {...skill} />
+        ))}
+      </div>
+    ) : (
+      <TagsList tags={skills} />
+    )
+  }
+</div>

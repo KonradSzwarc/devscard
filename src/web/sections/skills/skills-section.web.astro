@@ -1,0 +1,15 @@
+---
+import type { SkillsSection } from '@/types/sections/skills-section.types';
+import SectionCard from '@/web/components/section-card.astro';
+import SkillSet from './skill-set.astro';
+
+export interface Props extends SkillsSection {}
+
+const { config, skillSets } = Astro.props;
+---
+
+<SectionCard {...config}>
+  <div class="flex flex-col gap-10">
+    {skillSets.map((skillSet) => <SkillSet {...skillSet} />)}
+  </div>
+</SectionCard>

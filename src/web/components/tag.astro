@@ -1,0 +1,25 @@
+---
+import type { Tag } from '@/types/shared';
+import Icon from './icon.astro';
+
+export interface Props extends Tag {}
+
+const { name, description, icon, iconColor, url } = Astro.props;
+
+const className =
+  /* tw */ 'flex h-6 w-fit items-center gap-x-1.5 rounded bg-gray-100 px-2.5 text-sm font-medium tracking-wide text-gray-700 dark:bg-gray-700 dark:text-gray-100';
+---
+
+{
+  url ? (
+    <a class={className} data-tooltip={description} href={url} target="_blank" rel="noopener noreferrer">
+      {icon && <Icon name={icon} color={iconColor} size={16} />}
+      {name}
+    </a>
+  ) : (
+    <div class={className} data-tooltip={description}>
+      {icon && <Icon name={icon} color={iconColor} size={16} />}
+      {name}
+    </div>
+  )
+}

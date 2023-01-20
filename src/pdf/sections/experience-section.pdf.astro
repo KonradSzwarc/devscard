@@ -1,34 +1,26 @@
 ---
-import type { ExperienceSection, Job } from '@/types/experience-section';
-import type { I18n } from '@/types/i18n';
+import type { ExperienceSection } from '@/types/sections/experience-section.types';
 import DashedDivider from '../components/dashed-divider.astro';
 import Description from '../components/description.astro';
 import ListItemHeading from '../components/list-item-heading.astro';
 import SectionHeading from '../components/section-heading.astro';
 import TagsList from '../components/tags-list.astro';
 
-export interface Props extends ExperienceSection {
-  jobs: Job[];
-  i18n: I18n;
-}
+export interface Props extends ExperienceSection {}
 
-const {
-  config: { title },
-  i18n,
-  jobs,
-} = Astro.props;
+const { config, jobs } = Astro.props;
 ---
 
 <div>
-  <SectionHeading>{title}</SectionHeading>
+  <SectionHeading>{config.title}</SectionHeading>
   <div class="flex flex-col">
     {
-      jobs.map(({ company, role, description, tags, startDate, endDate }) => () => (
+      jobs.map(({ company, role, description, tagsList, dates }) => () => (
         <>
           <div class="flex flex-col gap-2">
-            <ListItemHeading title={role} subtitle={company} startDate={startDate} endDate={endDate} i18n={i18n} />
+            <ListItemHeading title={role} subtitle={company} dates={dates} />
             <Description content={description} />
-            <TagsList label="Technologies" tags={tags} />
+            <TagsList {...tagsList} />
           </div>
           <DashedDivider />
         </>

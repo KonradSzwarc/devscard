@@ -13,9 +13,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "generate-cv": "node scripts/generate-cv.cjs --with-clause",
+    "generate-cv": "node scripts/generate-cv.cjs",
     "prettier:check": "prettier --check --ignore-path .gitignore .",
     "prettier:write": "prettier --write --ignore-path .gitignore .",
+    "astro:check": "astro check",
     "ts:check": "tsc --jsx preserve --skipLibCheck",
     "check": "concurrently npm:*:check"
   },
@@ -31,7 +32,9 @@
     "astro": "1.9.2",
     "astro-compress": "1.1.27",
     "concurrently": "7.6.0",
+    "date-fns": "2.29.3",
     "iconify-icon-names": "1.1.0",
+    "immer": "9.0.18",
     "locales-ts": "1.0.0",
     "postcss": "8.4.21",
     "prettier": "2.8.2",
@@ -41,6 +44,7 @@
     "puppeteer-report": "3.1.0",
     "rollup-plugin-visualizer": "5.9.0",
     "tailwindcss": "3.2.4",
+    "type-fest": "3.5.2",
     "typescript": "4.9.4"
   }
 }

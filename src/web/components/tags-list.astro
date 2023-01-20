@@ -1,0 +1,12 @@
+---
+import type { TagsList } from '@/types/shared';
+import Tag from './tag.astro';
+
+export interface Props extends Omit<TagsList, 'title'> {}
+
+const { tags } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-3">
+  {tags.map((tag) => <Tag {...tag} />)}
+</div>

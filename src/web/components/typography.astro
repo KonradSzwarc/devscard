@@ -1,0 +1,49 @@
+---
+type TypographyVariant =
+  | 'main-title'
+  | 'main-subtitle'
+  | 'section-title'
+  | 'section-subtitle'
+  | 'item-title'
+  | 'item-title-suffix'
+  | 'item-subtitle'
+  | 'tile-title'
+  | 'tile-subtitle'
+  | 'paragraph';
+
+const variantToElement = {
+  'main-title': 'h1',
+  'main-subtitle': 'h2',
+  'section-title': 'h2',
+  'section-subtitle': 'h3',
+  'item-title': 'h3',
+  'item-title-suffix': 'span',
+  'item-subtitle': 'p',
+  'tile-title': 'h4',
+  'tile-subtitle': 'p',
+  paragraph: 'p',
+} as const;
+
+const variantToClassName /* tw */ = {
+  'main-title': 'text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-gray-100',
+  'main-subtitle': 'text-md sm:text-lg font-medium text-gray-700 dark:text-gray-100',
+  'section-title': 'text-3xl font-extrabold text-gray-900 dark:text-gray-100',
+  'section-subtitle': 'text-lg font-extrabold text-gray-900 dark:text-gray-100',
+  'item-title': 'text-xl font-extrabold text-gray-900 dark:text-gray-100',
+  'item-title-suffix': 'text-xl font-medium text-gray-700 dark:text-gray-100',
+  'item-subtitle': 'text-md font-medium text-gray-700 dark:text-gray-100',
+  'tile-title': 'text-sm font-medium text-gray-700 dark:text-gray-200',
+  'tile-subtitle': 'text-sm font-normal text-gray-500 dark:text-gray-300',
+  paragraph: 'text-sm leading-relaxed font-normal text-gray-500 sm:text-base sm:leading-relaxed dark:text-gray-300',
+};
+
+export interface Props extends Omit<astroHTML.JSX.HTMLAttributes, 'slot'> {
+  variant?: TypographyVariant;
+  component?: keyof JSX.IntrinsicElements;
+}
+
+const { variant = 'paragraph', component, ...props } = Astro.props;
+const Element = component ?? variantToElement[variant];
+---
+
+<Element {...props} class:list={[variantToClassName[variant], props.class]}><slot /></Element>

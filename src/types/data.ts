@@ -1,23 +1,31 @@
-import type { EducationSection } from './education-section';
-import type { ExperienceSection } from './experience-section';
-import type { FavoritesSection } from './favorites-section';
-import type { I18n } from './i18n';
-import type { MainSection } from './main-section';
-import type { PortfolioSection } from './portfolio-section';
-import type { Seo } from './seo';
-import type { SkillsSection } from './skills-section';
-import type { TestimonialsSection } from './testimonials-section';
+import type { I18nConfig } from './config/i18n-config.types';
+import type { PdfConfig } from './config/pdf-config.types';
+import type { SeoConfig } from './config/seo-config.types';
+import type { EducationSection } from './sections/education-section.types';
+import type { ExperienceSection } from './sections/experience-section.types';
+import type { FavoritesSection } from './sections/favorites-section.types';
+import type { MainSection } from './sections/main-section.types';
+import type { PortfolioSection } from './sections/portfolio-section.types';
+import type { SkillsSection } from './sections/skills-section.types';
+import type { TestimonialsSection } from './sections/testimonials-section.types';
 
-export interface Data {
-  i18n: I18n;
-  seo: Seo;
-  main: MainSection;
-  skills?: SkillsSection;
-  experience?: ExperienceSection;
-  portfolio?: PortfolioSection;
-  education?: EducationSection;
-  testimonials?: TestimonialsSection;
-  favorites?: FavoritesSection;
+export interface Config {
+  seo: SeoConfig;
+  i18n: I18nConfig;
+  pdf?: PdfConfig;
 }
 
-export type SectionKey = Exclude<keyof Data, 'seo' | 'i18n'>;
+export interface Sections {
+  main: MainSection;
+  skills: SkillsSection;
+  experience: ExperienceSection;
+  portfolio: PortfolioSection;
+  education: EducationSection;
+  testimonials: TestimonialsSection;
+  favorites: FavoritesSection;
+}
+
+export interface Data {
+  config: Config;
+  sections: Sections;
+}

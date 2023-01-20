@@ -1,7 +1,5 @@
 ---
-import type { PdfDetail } from '@/types/common';
-import type { I18n } from '@/types/i18n';
-import type { PortfolioSection } from '@/types/portfolio-section';
+import type { PortfolioSection } from '@/types/sections/portfolio-section.types';
 import DashedDivider from '../components/dashed-divider.astro';
 import Description from '../components/description.astro';
 import LabelledValue from '../components/labelled-value.astro';
@@ -9,32 +7,26 @@ import ListItemHeading from '../components/list-item-heading.astro';
 import SectionHeading from '../components/section-heading.astro';
 import TagsList from '../components/tags-list.astro';
 
-export interface Props extends PortfolioSection {
-  i18n: I18n;
-}
+export interface Props extends PortfolioSection {}
 
-const {
-  config: { title },
-  projects,
-  i18n,
-} = Astro.props;
+const { config, projects } = Astro.props;
 ---
 
 <div>
-  <SectionHeading>{title}</SectionHeading>
+  <SectionHeading>{config.title}</SectionHeading>
   <div class="flex flex-col">
     {
-      projects.map(({ name, description, pdfDetails, details, tags, startDate, endDate }) => () => (
+      projects.map(({ name, description, details, pdfDetails, tagsList, dates }) => () => (
         <>
           <div class="flex flex-col gap-2">
-            <ListItemHeading title={name} startDate={startDate} endDate={endDate} i18n={i18n} />
+            <ListItemHeading title={name} dates={dates} />
             <Description content={description} />
-            <div>
-              {(pdfDetails || details).map((detail: PdfDetail) => (
+            <div class="grid grid-cols-[auto_auto] gap-x-4 gap-y-1">
+              {(pdfDetails ?? details).map((detail) => (
                 <LabelledValue {...detail} />
               ))}
             </div>
-            <TagsList label="Technologies" tags={tags} />
+            <TagsList {...tagsList} />
           </div>
           <DashedDivider />
         </>

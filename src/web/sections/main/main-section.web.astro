@@ -1,0 +1,63 @@
+---
+import type { MainSection } from '@/types/sections/main-section.types';
+import DownloadButton from '@/web/components/download-button.astro';
+import LinkButton from '@/web/components/link-button.astro';
+import Photo from '@/web/components/photo.astro';
+import SectionCard from '@/web/components/section-card.astro';
+import TagsList from '@/web/components/tags-list.astro';
+import Typography from '@/web/components/typography.astro';
+
+export interface Props extends MainSection {}
+
+const { action, config, description, details, fullName, image, links, role, tags } = Astro.props;
+---
+
+<SectionCard {...config} hideTitle>
+  <div class="flex flex-col items-start gap-6 sm:flex-row">
+    <div class="flex items-center gap-4 sm:flex-col">
+      <Photo
+        src={image}
+        alt={fullName}
+        width={320}
+        height={320}
+        class="w-24 h-24 sm:w-36 sm:h-36 md:w-52 md:h-52 rounded-lg max-w-none"
+      />
+      <DownloadButton {...action} />
+    </div>
+    <div class="flex w-full flex-col gap-5">
+      <div class="flex w-full flex-col justify-between gap-2 sm:flex-row">
+        <div class="w-full">
+          <Typography variant="main-title">{fullName}</Typography>
+          <Typography variant="main-subtitle">{role}</Typography>
+        </div>
+        {
+          links.length > 0 && (
+            <div class="flex flex-wrap gap-3 sm:flex-nowrap">
+              {links.map((link) => (
+                <LinkButton {...link} />
+              ))}
+            </div>
+          )
+        }
+      </div>
+      <div class="flex flex-col gap-6">
+        <div class="inline-grid xl:grid-cols-[auto_auto]">
+          {
+            details.map(({ label: detailLabel, value }) => (
+              <div class="w-fit">
+                <Typography variant="paragraph">
+                  <span class="text-gray-700 dark:text-gray-300">{detailLabel}: </span>
+                  <span class="break-all dark:text-gray-400">{value}</span>
+                </Typography>
+              </div>
+            ))
+          }
+        </div>
+        <div class="flex flex-col gap-4">
+          <Typography variant="paragraph">{description}</Typography>
+          <TagsList tags={tags} />
+        </div>
+      </div>
+    </div>
+  </div>
+</SectionCard>

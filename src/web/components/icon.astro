@@ -1,0 +1,22 @@
+---
+import type { IconName } from '@/types/shared';
+
+export interface Props {
+  name: IconName;
+  size: number;
+  color?: string;
+  class?: string;
+}
+
+const { name, size, color = 'currentColor', ...props } = Astro.props;
+---
+
+<iconify-icon
+  icon={name}
+  width={size}
+  height={size}
+  style={{ color, width: `${size}px`, height: `${size}px` }}
+  {...props}></iconify-icon>
+<script>
+  import 'iconify-icon';
+</script>

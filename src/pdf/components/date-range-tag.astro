@@ -1,17 +1,13 @@
 ---
-import type { I18n } from '@/types/i18n';
-import getDateFormatter from '@/utils/date-formatter';
+import type { DateRange } from '@/types/shared';
+import formatDateRange from '@/utils/format-date-range';
 
 export interface Props {
-  i18n: I18n;
-  startDate: Date;
-  endDate: Date | null;
   class?: string;
+  dates: DateRange;
 }
 
-const { startDate, endDate, i18n, ...props } = Astro.props;
-
-const getFormattedDate = getDateFormatter(i18n.locale);
+const { dates, ...props } = Astro.props;
 ---
 
 <div
@@ -20,6 +16,5 @@ const getFormattedDate = getDateFormatter(i18n.locale);
     props.class,
   ]}
 >
-  {getFormattedDate(startDate)} -{' '}
-  {endDate ? getFormattedDate(endDate) : i18n.translations.now}
+  {formatDateRange(dates)}
 </div>

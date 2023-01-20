@@ -1,61 +1,30 @@
 ---
-import Sidebar from '@/components/sidebar.astro';
-import ThemeToggle from '@/components/theme-toggle.astro';
-import EducationSection from '@/sections/education/education-section.astro';
-import ExperienceSection from '@/sections/experience/experience-section.astro';
-import FavoritesSection from '@/sections/favorites/favorites-section.astro';
-import MainSection from '@/sections/main/main-section.astro';
-import PortfolioSection from '@/sections/portfolio/portfolio-section.astro';
-import SkillsSection from '@/sections/skills/skills-section.astro';
-import TestimonialsSection from '@/sections/testimonials/testimonials-section.astro';
+import Layout from '@/web/components/layout.astro';
+import Sidebar from '@/web/components/sidebar.astro';
+import ThemeToggle from '@/web/components/theme-toggle.astro';
+import MainSection from '@/web/sections/main/main-section.web.astro';
+import SkillsSection from '@/web/sections/skills/skills-section.web.astro';
+import ExperienceSection from '@/web/sections/experience/experience-section.web.astro';
+import PortfolioSection from '@/web/sections/portfolio/portfolio-section.web.astro';
+import EducationSection from '@/web/sections/education/education-section.web.astro';
+import TestimonialsSection from '@/web/sections/testimonials/testimonials-section.web.astro';
+import FavoritesSection from '@/web/sections/favorites/favorites-section.web.astro';
+import { cv } from '@/data/cv';
 
-import data from '../data';
-
-const { seo, i18n } = data;
-const seoImage = seo.image ? seo.image : '/favicon.svg';
+const { config, sections } = cv();
 ---
 
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{seo.title}</title>
-    <meta name="description" content={seo.description} />
-    <link rel="icon" type={seo.image ? 'image/jpeg' : 'image/svg+xml'} href={seoImage} />
-    <meta property="og:title" content={seo.title} />
-    <meta property="og:description" content={seo.description} />
-    <meta property="og:image" content={seoImage} />
-    <script is:inline>
-      const theme = (() => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
-        }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      })();
-
-      if (theme === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
-        document.documentElement.classList.add('dark');
-      }
-
-      window.localStorage.setItem('theme', theme);
-    </script>
-  </head>
-  <body class="flex justify-center overflow-x-hidden bg-gray-50 dark:bg-gray-900 xl:relative xl:left-7">
-    <ThemeToggle />
-    <main class="w-full max-w-5xl space-y-4 px-2 py-3 sm:space-y-6 sm:px-8 sm:py-12 lg:space-y-8 lg:py-20">
-      <MainSection {...data.main} />
-      {data.skills && <SkillsSection {...data.skills} />}
-      {data.experience && <ExperienceSection i18n={i18n} {...data.experience} />}
-      {data.portfolio && <PortfolioSection i18n={i18n} {...data.portfolio} />}
-      {data.education && <EducationSection i18n={i18n} {...data.education} />}
-      {data.testimonials && <TestimonialsSection {...data.testimonials} />}
-      {data.favorites && <FavoritesSection {...data.favorites} />}
-    </main>
-    <Sidebar data={data} className="sticky top-8 mt-20" />
-    <script src="../scripts/initialize-tooltips.ts"></script>
-  </body>
-</html>
+<Layout {...config}>
+  <ThemeToggle />
+  <main class="w-full max-w-5xl space-y-4 px-2 py-3 sm:space-y-6 sm:px-8 sm:py-12 lg:space-y-8 lg:py-20">
+    <MainSection {...sections.main} />
+    <SkillsSection {...sections.skills} />
+    <ExperienceSection {...sections.experience} />
+    <PortfolioSection {...sections.portfolio} />
+    <EducationSection {...sections.education} />
+    <TestimonialsSection {...sections.testimonials} />
+    <FavoritesSection {...sections.favorites} />
+  </main>
+  <Sidebar sections={sections} className="sticky top-8 mt-20" />
+  <script src="../web/scripts/initialize-tooltips.ts"></script>
+</Layout>

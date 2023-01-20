@@ -1,6 +1,8 @@
 ---
+import type { Description } from '@/types/shared';
+
 export interface Props {
-  content: string | string[];
+  content: Description;
 }
 
 const { content } = Astro.props;

@@ -1,0 +1,14 @@
+---
+import type { DateRange } from '@/types/shared';
+import formatDateRange from '@/utils/format-date-range';
+import Typography from './typography.astro';
+
+export interface Props {
+  dates: DateRange;
+}
+const { dates } = Astro.props;
+---
+
+<Typography variant="item-subtitle">
+  {formatDateRange(dates)}
+</Typography>

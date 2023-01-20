@@ -1,0 +1,22 @@
+---
+import type { Person } from '@/types/sections/favorites-section.types';
+import Photo from '@/web/components/photo.astro';
+import Typography from '@/web/components/typography.astro';
+
+export interface Props extends Person {}
+
+const { image, name, url } = Astro.props;
+---
+
+<a href={url} class="flex w-full max-w-[120px] flex-col gap-3 transition duration-300 hover:translate-y-2">
+  <Photo
+    class="rounded-lg shadow-md transition duration-300 aspect-square object-cover"
+    src={image}
+    alt={name}
+    width={200}
+    height={200}
+  />
+  <Typography variant="tile-title">
+    {name}
+  </Typography>
+</a>

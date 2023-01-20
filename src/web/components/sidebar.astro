@@ -1,0 +1,43 @@
+---
+import type { Data } from '@/types/data';
+
+import SidebarItem from './sidebar-item.astro';
+
+export interface Props {
+  className?: string;
+  sections: Data['sections'];
+}
+
+const { className, sections } = Astro.props;
+const sectionConfigs = Object.values(sections).map((section) => section.config);
+---
+
+<nav
+  id="sidebar"
+  class:list={[
+    'hidden xl:flex flex-col w-max h-fit p-2 rounded-lg gap-2 bg-white dark:bg-gray-800 shadow-md',
+    className,
+  ]}
+>
+  {sectionConfigs.filter((config) => config.visible).map((config) => <SidebarItem {...config} />)}
+</nav>
+
+<script>
+  import hashState from '@/web/utils/hash-state';
+
+  const sidebarItems = [...document.getElementById('sidebar')!.children] as HTMLAnchorElement[];
+
+  const setActiveItem = (hash: string) => {
+    sidebarItems.forEach((item) => {
+      if (item.href.endsWith(hash)) {
+        item.setAttribute('aria-current', 'page');
+      } else {
+        item.removeAttribute('aria-current');
+      }
+    });
+  };
+
+  setActiveItem(hashState.getHash());
+
+  hashState.subscribe(setActiveItem);
+</script>

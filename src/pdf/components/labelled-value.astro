@@ -1,11 +1,13 @@
 ---
-import type { PdfDetail } from '@/types/common';
+import type { LabelledValue } from '@/types/shared';
 
-export interface Props extends PdfDetail {
+export interface Props extends LabelledValue {
   class?: string;
 }
 
 const { label, value, url, ...props } = Astro.props;
+
+const parsedValue = Array.isArray(value) ? value.join(', ') : value;
 ---
 
 <div class:list={['flex gap-1 text-base font-normal text-gray-500', props.class]}>
@@ -13,10 +15,10 @@ const { label, value, url, ...props } = Astro.props;
   {
     url ? (
       <a href={url} class="underline">
-        {value}
+        {parsedValue}
       </a>
     ) : (
-      <div>{value}</div>
+      <div>{parsedValue}</div>
     )
   }
 </div>

@@ -1,15 +1,12 @@
 ---
-import type { Tag } from '@/types/common';
+import type { TagsList } from '@/types/shared';
 
-export interface Props {
-  tags: Tag[];
-  label: string;
-}
+export interface Props extends TagsList {}
 
-const { tags, label } = Astro.props;
+const { tags, title } = Astro.props;
 ---
 
 <div class="text-base">
-  <span class="font-medium text-gray-700">{label}:</span>
+  <span class="font-medium text-gray-700">{title}:</span>
   <span class="font-normal text-gray-500">{tags.map((t) => t.name).join(', ')}</span>
 </div>
