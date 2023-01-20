@@ -7,6 +7,7 @@ on:
 jobs:
   preview:
     name: Create deploy preview
+    if: github.repository == 'KonradSzwarc/devscard'
     runs-on: ubuntu-latest
     outputs:
       deploy-url: ${{ steps.netlify.outputs.deploy-url }}
@@ -35,6 +36,7 @@ jobs:
 
   lighthouse:
     name: Run Lighthouse tests
+    if: github.repository == 'KonradSzwarc/devscard'
     needs: preview
     runs-on: ubuntu-latest
     steps:
