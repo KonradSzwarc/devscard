@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "snapshot": {
+    "widths": [375, 1280],
+    "minHeight": 1024,
+    "enable-javascript": true
+  },
+  "static": {
+    "include": ["/index.html"]
+  },
+  "discovery": {
+    "allowedHostnames": ["api.iconify.design"],
+    "networkIdleTimeout": 750
+  },
+  "upload": {
+    "files": "**/*.{png,jpg,jpeg,svg,webp}"
+  }
+}
