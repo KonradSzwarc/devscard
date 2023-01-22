@@ -13,14 +13,6 @@ module.exports = {
       gray: colors.gray,
     },
     extend: {
-      spacing: {
-        22: '5.5rem',
-      },
-      gridTemplateColumns: {
-        fluid120: 'repeat(auto-fit, minmax(120px, 1fr))',
-        fluid200: 'repeat(auto-fit, minmax(200px, 1fr))',
-        fluid240: 'repeat(auto-fit, minmax(240px, 1fr))',
-      },
       keyframes: {
         show: {
           from: { opacity: '0' },
