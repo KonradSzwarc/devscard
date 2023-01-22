@@ -60,9 +60,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run Astro build command
+        run: npm run build
         env:
           PUBLIC_APP_ENV: snapshot
-        run: npm run build
       - name: Percy check
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

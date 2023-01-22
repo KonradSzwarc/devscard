@@ -1,0 +1,10 @@
+---
+import Clarity from './clarity.astro';
+import GoogleAnalytics from './google-analytics.astro';
+
+const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+const CLARITY_PROJECT_ID = import.meta.env.PUBLIC_CLARITY_PROJECT_ID;
+---
+
+{GA_MEASUREMENT_ID && <GoogleAnalytics id={GA_MEASUREMENT_ID} />}
+{CLARITY_PROJECT_ID && <Clarity id={CLARITY_PROJECT_ID} />}
