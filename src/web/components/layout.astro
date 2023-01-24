@@ -35,9 +35,9 @@ const { meta, i18n } = Astro.props;
 
       window.localStorage.setItem('theme', theme);
     </script>
-    <Analytics />
   </head>
   <body class="flex justify-center overflow-x-hidden bg-gray-50 dark:bg-gray-900 xl:relative xl:left-7">
+    <Analytics />
     <slot />
   </body>
 </html>
