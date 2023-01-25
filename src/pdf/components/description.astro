@@ -1,23 +1,12 @@
 ---
-import type { Description } from '@/types/shared';
+import Description from '@/components/description.astro';
 
 export interface Props {
-  content: Description;
+  content: string;
 }
 
 const { content } = Astro.props;
+const baseClass = /* tw */ 'text-base font-normal text-gray-500';
 ---
 
-<div class="text-base font-normal text-gray-500">
-  {
-    Array.isArray(content) ? (
-      <ul class="list-disc pl-5">
-        {content.map((line) => (
-          <li>{line}</li>
-        ))}
-      </ul>
-    ) : (
-      <div class="text-justify">{content}</div>
-    )
-  }
-</div>
+<Description content={content} classList={[baseClass]} />

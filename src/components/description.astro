@@ -1,0 +1,40 @@
+---
+import { marked } from 'marked';
+
+export interface Props {
+  content: string;
+  classList: (string | undefined)[];
+}
+
+const minIndent = (str: string) => {
+  const match = str.match(/^[\t ]*(?=\S)/gm);
+
+  if (!match) return 0;
+
+  return match.reduce((r, a) => Math.min(r, a.length), Number.POSITIVE_INFINITY);
+};
+
+const stripIndent = (str: string) => {
+  const indent = minIndent(str);
+
+  if (indent === 0) return str;
+
+  const regex = new RegExp(`^[ \\t]{${indent}}`, 'gm');
+
+  return str.replace(regex, '');
+};
+
+const { content, classList } = Astro.props;
+---
+
+<div set:html={marked.parse(stripIndent(content), { breaks: true })} class:list={['description', ...classList]} />
+
+<style is:global>
+  .description ul {
+    @apply list-disc pl-5;
+  }
+
+  .description a {
+    @apply underline opacity-90;
+  }
+</style>

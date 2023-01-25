@@ -1,4 +1,4 @@
-import type { DateRange, Photo, LabelledValue, LinkButton, Section, TagsList, Description } from '../shared';
+import type { DateRange, Photo, LabelledValue, LinkButton, Section, TagsList } from '../shared';
 
 export interface Project {
   /**
@@ -35,9 +35,9 @@ export interface Project {
   pdfDetails?: LabelledValue[];
 
   /**
-   * A short overview of the project. You can write it as a paragraph (string) or as a list of bullet points (string[]).
+   * A short overview of the project. You can use markdown syntax.
    */
-  description: Description;
+  description: string;
 
   /**
    * Any information that you want to highlight.

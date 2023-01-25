@@ -1,4 +1,4 @@
-import type { DateRange, Description, LinkButton, Section, TagsList } from '../shared';
+import type { DateRange, LinkButton, Section, TagsList } from '../shared';
 
 export interface Job {
   /**
@@ -17,9 +17,9 @@ export interface Job {
   dates: DateRange;
 
   /**
-   * A short overview of your job. You can write it as a paragraph (string) or as a list of bullet points (string[]).
+   * A short overview of your job. You can use markdown syntax.
    */
-  description: Description;
+  description: string;
 
   /**
    * Any information that you want to highlight.

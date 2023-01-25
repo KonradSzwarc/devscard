@@ -1,8 +1,9 @@
 ---
 import type { MainSection } from '@/types/sections/main-section.types';
+import Description from '@/web/components/description.astro';
 import DownloadButton from '@/web/components/download-button.astro';
 import LinkButton from '@/web/components/link-button.astro';
-import Photo from '@/web/components/photo.astro';
+import Photo from '@/components/photo.astro';
 import SectionCard from '@/web/components/section-card.astro';
 import TagsList from '@/web/components/tags-list.astro';
 import Typography from '@/web/components/typography.astro';
@@ -54,7 +55,7 @@ const { action, config, description, details, fullName, image, links, role, tags
           }
         </div>
         <div class="flex flex-col gap-4">
-          <Typography variant="paragraph">{description}</Typography>
+          <Description content={description} />
           <TagsList tags={tags} />
         </div>
       </div>

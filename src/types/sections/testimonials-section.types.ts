@@ -21,7 +21,7 @@ export interface Testimonial {
   relation: string;
 
   /**
-   * [WEB] Content of the testimonial.
+   * [WEB] Content of the testimonial. You can use markdown syntax.
    */
   content: string;
 
