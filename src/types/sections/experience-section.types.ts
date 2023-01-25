@@ -12,7 +12,7 @@ export interface Job {
   company: string;
 
   /**
-   * Date range when you ware working in the company.
+   * Date range when you were working in the company.
    */
   dates: DateRange;
 
