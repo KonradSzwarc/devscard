@@ -1,8 +1,9 @@
 ---
 import type { Testimonial } from '@/types/sections/testimonials-section.types';
 import LinkButton from '@/web/components/link-button.astro';
-import Photo from '@/web/components/photo.astro';
+import Photo from '@/components/photo.astro';
 import Typography from '@/web/components/typography.astro';
+import Description from '@/web/components/description.astro';
 
 export interface Props extends Testimonial {}
 
@@ -28,5 +29,5 @@ const { author, content, image, links, relation } = Astro.props;
       )
     }
   </div>
-  <Typography variant="paragraph">{content}</Typography>
+  <Description content={content} />
 </div>

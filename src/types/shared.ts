@@ -22,12 +22,6 @@ export type Photo = Promise<{ default: ImageMetadata }> | string;
  */
 export type DateRange = [from: Date, to: Date | null];
 
-/**
- * If a string is provided, it will be displayed as a single justified paragraph.
- * If an array of strings is provided it will be displayed as a list.
- */
-export type Description = string | string[];
-
 export interface SectionConfig {
   /**
    * Name displayed as a section header (except for the main section).

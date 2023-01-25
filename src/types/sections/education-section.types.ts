@@ -1,4 +1,4 @@
-import type { DateRange, Description, LinkButton, Section } from '../shared';
+import type { DateRange, LinkButton, Section } from '../shared';
 
 export interface Diploma {
   /**
@@ -17,9 +17,9 @@ export interface Diploma {
   dates: DateRange;
 
   /**
-   * A short overview of your studies. You can write it as a paragraph (string) or as a list of bullet points (string[]).
+   * A short overview of your studies. You can use markdown syntax.
    */
-  description: Description;
+  description: string;
 
   /**
    * [WEB] Links related to your studies (e.g. course/university website, link to realized project).
