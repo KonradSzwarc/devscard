@@ -2,9 +2,9 @@
 import type { Data } from '@/types/data';
 import Analytics from '@/web/analytics/analytics.astro';
 
-export interface Props extends Pick<Data['config'], 'seo' | 'i18n'> {}
+export interface Props extends Pick<Data['config'], 'meta' | 'i18n'> {}
 
-const { seo, i18n } = Astro.props;
+const { meta, i18n } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -13,12 +13,12 @@ const { seo, i18n } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{seo.title}</title>
-    <meta name="description" content={seo.description} />
-    <link rel="icon" type="image/svg+xml" href={seo.favicon} />
-    <meta property="og:title" content={seo.ogTitle ?? seo.title} />
-    <meta property="og:description" content={seo.ogDescription ?? seo.description} />
-    {seo.ogImage && <meta property="og:image" content={seo.ogImage} />}
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <link rel="icon" type="image/svg+xml" href={meta.favicon} />
+    <meta property="og:title" content={meta.ogTitle ?? meta.title} />
+    <meta property="og:description" content={meta.ogDescription ?? meta.description} />
+    {meta.ogImage && <meta property="og:image" content={meta.ogImage} />}
     <script is:inline>
       const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
