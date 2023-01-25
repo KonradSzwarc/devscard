@@ -11,7 +11,7 @@ export interface Book {
    *
    * **Ratio**: 3:4
    *
-   * **Display size**: 200x267px
+   * **Display size**: 300x400px
    */
   image: Photo;
 
@@ -37,7 +37,7 @@ export interface Person {
    *
    * **Ratio**: 1:1
    *
-   * **Display size**: 120x120px
+   * **Display size**: 200x200px
    */
   image: Photo;
 
@@ -58,7 +58,7 @@ export interface Video {
    *
    * **Ratio**: 16:9
    *
-   * **Display size**: 240x135px
+   * **Display size**: 448x252px
    */
   image: Photo;
 
@@ -84,7 +84,7 @@ export interface Media {
    *
    * **Ratio**: 1:1
    *
-   * **Display size**: 120x120px
+   * **Display size**: 200x200px
    */
   image: Photo;
 
