@@ -16,7 +16,7 @@ export interface Project {
   image: Photo;
 
   /**
-   * Date range when you ware working on the project.
+   * Date range when you were working on the project.
    */
   dates: DateRange;
 
