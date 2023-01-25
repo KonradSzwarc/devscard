@@ -15,16 +15,16 @@ const { config, books, medias, people, videos } = Astro.props;
 
 <SectionCard {...config}>
   <div class="flex flex-col gap-16">
-    <FavoritesSubSection class="grid-cols-fluid200" subSection={books}>
+    <FavoritesSubSection minTileWidth={160} subSection={books}>
       {books?.data.map((book) => <BookTile {...book} />)}
     </FavoritesSubSection>
-    <FavoritesSubSection class="grid-cols-fluid120" subSection={people}>
+    <FavoritesSubSection minTileWidth={120} subSection={people}>
       {people?.data.map((person) => <PersonTile {...person} />)}
     </FavoritesSubSection>
-    <FavoritesSubSection class="grid-cols-fluid240" subSection={videos}>
+    <FavoritesSubSection minTileWidth={204} subSection={videos}>
       {videos?.data.map((video) => <VideoTile {...video} />)}
     </FavoritesSubSection>
-    <FavoritesSubSection class="grid-cols-fluid120" subSection={medias}>
+    <FavoritesSubSection minTileWidth={120} subSection={medias}>
       {medias?.data.map((media) => <MediaTile {...media} />)}
     </FavoritesSubSection>
   </div>

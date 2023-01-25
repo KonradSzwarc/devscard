@@ -4,19 +4,25 @@ import Typography from '@/web/components/typography.astro';
 
 export interface Props {
   subSection?: SubSection;
-  class: string;
+  minTileWidth: number;
 }
 
-const { subSection, ...props } = Astro.props;
+const { subSection, minTileWidth } = Astro.props;
 ---
 
 {
   subSection && (
     <div class="flex flex-col gap-6">
       <Typography variant="section-subtitle">{subSection.title}</Typography>
-      <div class:list={['gap-8 grid', props.class]}>
+      <div class="tile grid gap-8" style={{ '--min-tile-width': `${minTileWidth}px` }}>
         <slot />
       </div>
     </div>
   )
 }
+
+<style>
+  .tile {
+    grid-template-columns: repeat(auto-fill, minmax(var(--min-tile-width), 1fr));
+  }
+</style>
