@@ -1,0 +1,19 @@
+---
+import Favicons from '@/web/head/favicons.astro';
+import InitialTheme from '@/web/head/initial-theme.astro';
+import Meta from '@/web/head/meta.astro';
+
+import type { MetaConfig } from '@/types/config/meta-config.types';
+
+interface Props {
+  meta: MetaConfig;
+}
+
+const { meta } = Astro.props;
+---
+
+<head>
+  <Meta meta={meta} />
+  <Favicons />
+  <InitialTheme />
+</head>

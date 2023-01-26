@@ -23,10 +23,8 @@
   },
   "dependencies": {
     "@floating-ui/dom": "1.1.0",
-    "favicons": "7.0.2",
     "iconify-icon": "1.0.2",
-    "nanoid": "4.0.0",
-    "ts-node": "10.9.1"
+    "nanoid": "4.0.0"
   },
   "devDependencies": {
     "@astrojs/image": "0.12.1",
@@ -39,6 +37,7 @@
     "astro-compress": "1.1.28",
     "concurrently": "7.6.0",
     "date-fns": "2.29.3",
+    "favicons": "7.0.2",
     "iconify-icon-names": "1.1.0",
     "immer": "9.0.18",
     "locales-ts": "1.0.0",
@@ -51,6 +50,7 @@
     "puppeteer-report": "3.1.0",
     "rollup-plugin-visualizer": "5.9.0",
     "tailwindcss": "3.2.4",
+    "ts-node": "10.9.1",
     "type-fest": "3.5.3",
     "typescript": "4.9.4"
   }
