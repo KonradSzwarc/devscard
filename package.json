@@ -13,7 +13,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "generate-cv": "node scripts/generate-cv.cjs",
+    "generate-cv": "ts-node --transpileOnly --project tsconfig.node.json scripts/generate-cv.ts",
     "generate-favicons": "ts-node --transpileOnly --project tsconfig.node.json scripts/generate-favicons.ts",
     "prettier:check": "prettier --check --ignore-path .gitignore .",
     "prettier:write": "prettier --write --ignore-path .gitignore .",
