@@ -1,6 +1,7 @@
 ---
 import type { Data } from '@/types/data';
 import Analytics from '@/web/analytics/analytics.astro';
+import Head from './head.astro';
 
 export interface Props extends Pick<Data['config'], 'meta' | 'i18n'> {}
 
@@ -9,33 +10,7 @@ const { meta, i18n } = Astro.props;
 
 <!DOCTYPE html>
 <html lang={i18n.locale.code} class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{meta.title}</title>
-    <meta name="description" content={meta.description} />
-    <link rel="icon" type="image/svg+xml" href={meta.favicon} />
-    <meta property="og:title" content={meta.ogTitle ?? meta.title} />
-    <meta property="og:description" content={meta.ogDescription ?? meta.description} />
-    {meta.ogImage && <meta property="og:image" content={meta.ogImage} />}
-    <script is:inline>
-      const theme = (() => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
-        }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      })();
-
-      if (theme === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
-        document.documentElement.classList.add('dark');
-      }
-
-      window.localStorage.setItem('theme', theme);
-    </script>
-  </head>
+  <Head meta={meta} />
   <body class="flex justify-center overflow-x-hidden bg-gray-50 dark:bg-gray-900 xl:relative xl:left-7">
     <Analytics />
     <slot />

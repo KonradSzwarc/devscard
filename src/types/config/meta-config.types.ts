@@ -20,11 +20,11 @@ export interface MetaConfig {
   description: string;
 
   /**
-   * [WEB] URL or path to the page's favicon.
+   * [WEB] Absolute path to the image used for favicons generation.
    *
    * Specified icon will be displayed next to the page title in browser tab.
    */
-  favicon: string;
+  faviconPath: string;
 
   /**
    * [WEB] Title used in open graph links.

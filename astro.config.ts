@@ -15,5 +15,10 @@ export default defineConfig({
   ],
   vite: {
     plugins: [visualizer()],
+    resolve: {
+      alias: {
+        'date-fns/locale': 'date-fns/locale/index.js',
+      },
+    },
   },
 });
