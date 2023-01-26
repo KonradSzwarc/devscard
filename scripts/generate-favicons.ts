@@ -1,21 +1,21 @@
 import { favicons, config as faviconsConfig } from 'favicons';
 import config from '../src/data/config';
-import * as fs from 'fs';
-import * as path from 'path';
+import { unlink, readdir, mkdir, writeFile } from 'fs/promises';
+import { existsSync } from 'fs';
+import { join } from 'path';
 
-const fsPromises = fs.promises;
 const faviconsDirectory = './public/favicons';
 
 const deleteFile = async (file: string) => {
-  await fsPromises.unlink(file);
+  await unlink(file);
   console.log(`${file} has been deleted successfully`);
 };
 
 const removeFaviconFiles = async (folderPath: string) => {
-  const files = await fsPromises.readdir(folderPath);
+  const files = await readdir(folderPath);
 
   for (const file of files) {
-    await deleteFile(path.join(folderPath, file));
+    await deleteFile(join(folderPath, file));
   }
 };
 
@@ -40,14 +40,14 @@ const removeFaviconFiles = async (folderPath: string) => {
     },
   });
 
-  if (!fs.existsSync(faviconsDirectory)) {
-    await fs.promises.mkdir(faviconsDirectory);
+  if (!existsSync(faviconsDirectory)) {
+    await mkdir(faviconsDirectory);
   }
 
   await removeFaviconFiles(faviconsDirectory);
 
   for (const file of [...response.images, ...response.files]) {
-    await fsPromises.writeFile(`${faviconsDirectory}/${file.name}`, file.contents);
+    await writeFile(`${faviconsDirectory}/${file.name}`, file.contents);
     console.log(`${file.name} has been created successfully`);
   }
 
@@ -60,6 +60,6 @@ const removeFaviconFiles = async (folderPath: string) => {
 
   const pathToFaviconsFile = './src/web/head/favicons.auto-generated.astro';
 
-  await fsPromises.writeFile(pathToFaviconsFile, [...comments, formattedHtml]);
+  await writeFile(pathToFaviconsFile, [...comments, formattedHtml]);
   console.log(`${pathToFaviconsFile} has been updated successfully`);
 })();
