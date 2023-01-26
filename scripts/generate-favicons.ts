@@ -38,34 +38,30 @@ const createWebmanifestFile = async () => {
 };
 
 (async () => {
-  try {
-    const { faviconPath } = config.meta;
+  const { faviconPath } = config.meta;
 
-    const response = await favicons(`.${faviconPath}`, {
-      ...faviconsConfig.defaults,
-      icons: {
-        android: ['android-chrome-192x192.png', 'android-chrome-512x512.png'],
-        windows: false,
-        yandex: false,
-        appleStartup: false,
-        appleIcon: ['apple-touch-icon.png'],
-        favicons: ['favicon-16x16.png', 'favicon-32x32.png', 'favicon.ico'],
-      },
-    });
+  const response = await favicons(`.${faviconPath}`, {
+    ...faviconsConfig.defaults,
+    icons: {
+      android: ['android-chrome-192x192.png', 'android-chrome-512x512.png'],
+      windows: false,
+      yandex: false,
+      appleStartup: false,
+      appleIcon: ['apple-touch-icon.png'],
+      favicons: ['favicon-16x16.png', 'favicon-32x32.png', 'favicon.ico'],
+    },
+  });
 
-    if (!fs.existsSync(faviconsDirectory)) {
-      await fs.promises.mkdir(faviconsDirectory);
-    }
-
-    await removeFaviconFiles(faviconsDirectory);
-
-    for (const image of response.images) {
-      await fsPromises.writeFile(`${faviconsDirectory}/${image.name}`, image.contents);
-      console.log(`${image.name} has been created successfully`);
-    }
-
-    await createWebmanifestFile();
-  } catch (error) {
-    console.log(error);
+  if (!fs.existsSync(faviconsDirectory)) {
+    await fs.promises.mkdir(faviconsDirectory);
   }
+
+  await removeFaviconFiles(faviconsDirectory);
+
+  for (const image of response.images) {
+    await fsPromises.writeFile(`${faviconsDirectory}/${image.name}`, image.contents);
+    console.log(`${image.name} has been created successfully`);
+  }
+
+  await createWebmanifestFile();
 })();
