@@ -48,6 +48,6 @@ const saveFile = async (file: FaviconFile | FaviconImage) => {
 
   const pathToFaviconsFile = './src/web/head/favicons.auto-generated.astro';
 
-  await writeFile(pathToFaviconsFile, [...comments, formattedHtml]);
+  await writeFile(pathToFaviconsFile, [...comments, formattedHtml, '\n']);
   console.log(`${pathToFaviconsFile} has been updated successfully`);
 })();
