@@ -34,7 +34,7 @@ const removeFaviconFiles = async (folderPath: string) => {
 };
 
 const createWebmanifestFile = async () => {
-  await fsPromises.writeFile('./public/site.webmanifest', JSON.stringify(webmanifest, null, 2));
+  await fsPromises.writeFile('./public/site.webmanifest', JSON.stringify(webmanifest, null, 2) + '\n');
 };
 
 (async () => {
