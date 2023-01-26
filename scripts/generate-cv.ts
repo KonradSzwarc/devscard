@@ -5,15 +5,19 @@ import { pdfPage } from 'puppeteer-report';
 
 const waitFor = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-type PuppeteerGoToReturn = Promise<puppeteer.HTTPResponse | null>;
+const goTo = async (page: puppeteer.Page, url: string) => {
+  await page.goto(url, { waitUntil: 'networkidle0' });
+};
+
+type GoToReturn = ReturnType<typeof goTo>;
 
 interface RetryOptions {
-  promise: () => PuppeteerGoToReturn;
+  promise: () => GoToReturn;
   retries: number;
   retryTime: number;
 }
 
-const retry = async ({ promise, retries, retryTime }: RetryOptions): PuppeteerGoToReturn => {
+const retry = async ({ promise, retries, retryTime }: RetryOptions): GoToReturn => {
   try {
     return await promise();
   } catch (error) {
@@ -35,7 +39,7 @@ const main = async () => {
   await page.setViewport({ width: 794, height: 1122, deviceScaleFactor: 2 });
 
   await retry({
-    promise: () => page.goto('http://localhost:3000/pdf', { waitUntil: 'networkidle0' }),
+    promise: () => goTo(page, 'http://localhost:3000/pdf'),
     retries: 5,
     retryTime: 1000,
   });
