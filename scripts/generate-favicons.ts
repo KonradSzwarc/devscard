@@ -1,9 +1,14 @@
-import { favicons, config as faviconsConfig } from 'favicons';
+import { favicons, config as faviconsConfig, FaviconFile, FaviconImage } from 'favicons';
 import config from '../src/data/config';
 import { mkdir, writeFile, rm } from 'fs/promises';
 import { existsSync } from 'fs';
 
 const faviconsDirectory = './public/favicons';
+
+const saveFile = async (file: FaviconFile | FaviconImage) => {
+  await writeFile(`${faviconsDirectory}/${file.name}`, file.contents);
+  console.log(`${file.name} has been created successfully`);
+};
 
 (async () => {
   const { faviconPath } = config.meta;
@@ -32,10 +37,7 @@ const faviconsDirectory = './public/favicons';
 
   await mkdir(faviconsDirectory);
 
-  for (const file of [...response.images, ...response.files]) {
-    await writeFile(`${faviconsDirectory}/${file.name}`, file.contents);
-    console.log(`${file.name} has been created successfully`);
-  }
+  await Promise.all([...response.images, ...response.files].map(saveFile));
 
   const comments = [
     '<!-- This file is auto-generated. Do not edit it manually. -->\n',
