@@ -6,18 +6,6 @@ import * as path from 'path';
 const fsPromises = fs.promises;
 const faviconsDirectory = './public/favicons';
 
-const webmanifest = {
-  name: config.meta.title,
-  short_name: '',
-  icons: [
-    { src: '/favicons/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
-    { src: '/favicons/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
-  ],
-  theme_color: '#ffffff',
-  background_color: '#ffffff',
-  display: 'standalone',
-};
-
 const deleteFile = async (file: string) => {
   await fsPromises.unlink(file);
   console.log(`${file} has been deleted successfully`);
@@ -29,12 +17,6 @@ const removeFaviconFiles = async (folderPath: string) => {
   for (const file of files) {
     await deleteFile(path.join(folderPath, file));
   }
-
-  await deleteFile('public/site.webmanifest');
-};
-
-const createWebmanifestFile = async () => {
-  await fsPromises.writeFile('./public/site.webmanifest', JSON.stringify(webmanifest, null, 2) + '\n');
 };
 
 (async () => {
@@ -42,6 +24,12 @@ const createWebmanifestFile = async () => {
 
   const response = await favicons(`.${faviconPath}`, {
     ...faviconsConfig.defaults,
+    path: '/favicons',
+    appName: config.meta.title,
+    appDescription: config.meta.description,
+    appShortName: config.meta.title,
+    lang: config.i18n.locale.code,
+    start_url: '.',
     icons: {
       android: ['android-chrome-192x192.png', 'android-chrome-512x512.png'],
       windows: false,
@@ -58,10 +46,20 @@ const createWebmanifestFile = async () => {
 
   await removeFaviconFiles(faviconsDirectory);
 
-  for (const image of response.images) {
-    await fsPromises.writeFile(`${faviconsDirectory}/${image.name}`, image.contents);
-    console.log(`${image.name} has been created successfully`);
+  for (const file of [...response.images, ...response.files]) {
+    await fsPromises.writeFile(`${faviconsDirectory}/${file.name}`, file.contents);
+    console.log(`${file.name} has been created successfully`);
   }
 
-  await createWebmanifestFile();
+  const comments = [
+    '<!-- This file is auto-generated. Do not edit it manually. -->\n',
+    '<!-- In order to apply changes to it, adjust configuration object in generate-favicons.ts script and run it -->\n',
+  ];
+
+  const formattedHtml = response.html.map((line) => line.replace('>', '/>')).join('\n');
+
+  const pathToFaviconsFile = './src/web/head/favicons.auto-generated.astro';
+
+  await fsPromises.writeFile(pathToFaviconsFile, [...comments, formattedHtml]);
+  console.log(`${pathToFaviconsFile} has been updated successfully`);
 })();
