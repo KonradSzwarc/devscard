@@ -1,14 +1,13 @@
 ---
 import type { SkillsSection } from '@/types/sections/skills-section.types';
 import SectionHeading from '../components/section-heading.astro';
-import SectionWrapper from '../components/section-wrapper.astro';
 
 export interface Props extends SkillsSection {}
 
 const { config, skillSets } = Astro.props;
 ---
 
-<SectionWrapper visible={config.visible}>
+<div>
   <SectionHeading>{config.title}</SectionHeading>
   <div class="flex flex-col gap-5">
     {
@@ -46,4 +45,4 @@ const { config, skillSets } = Astro.props;
       ))
     }
   </div>
-</SectionWrapper>
+</div>

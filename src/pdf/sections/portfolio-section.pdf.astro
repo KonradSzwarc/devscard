@@ -5,7 +5,6 @@ import Description from '../components/description.astro';
 import LabelledValue from '../components/labelled-value.astro';
 import ListItemHeading from '../components/list-item-heading.astro';
 import SectionHeading from '../components/section-heading.astro';
-import SectionWrapper from '../components/section-wrapper.astro';
 import TagsList from '../components/tags-list.astro';
 
 export interface Props extends PortfolioSection {}
@@ -13,7 +12,7 @@ export interface Props extends PortfolioSection {}
 const { config, projects } = Astro.props;
 ---
 
-<SectionWrapper visible={config.visible}>
+<div>
   <SectionHeading>{config.title}</SectionHeading>
   <div class="flex flex-col">
     {
@@ -34,4 +33,4 @@ const { config, projects } = Astro.props;
       ))
     }
   </div>
-</SectionWrapper>
+</div>
