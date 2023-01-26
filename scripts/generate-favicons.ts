@@ -39,9 +39,9 @@ const createWebmanifestFile = async () => {
 
 (async () => {
   try {
-    const { favicon } = config.meta;
+    const { faviconPath } = config.meta;
 
-    const response = await favicons(`.${favicon}`, {
+    const response = await favicons(`.${faviconPath}`, {
       ...faviconsConfig.defaults,
       icons: {
         android: ['android-chrome-192x192.png', 'android-chrome-512x512.png'],

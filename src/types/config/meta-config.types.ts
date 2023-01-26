@@ -24,7 +24,7 @@ export interface MetaConfig {
    *
    * Specified icon will be displayed next to the page title in browser tab.
    */
-  favicon: string;
+  faviconPath: string;
 
   /**
    * [WEB] Title used in open graph links.
