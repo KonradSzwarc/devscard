@@ -1,23 +1,9 @@
 import { favicons, config as faviconsConfig } from 'favicons';
 import config from '../src/data/config';
-import { unlink, readdir, mkdir, writeFile } from 'fs/promises';
+import { mkdir, writeFile, rm } from 'fs/promises';
 import { existsSync } from 'fs';
-import { join } from 'path';
 
 const faviconsDirectory = './public/favicons';
-
-const deleteFile = async (file: string) => {
-  await unlink(file);
-  console.log(`${file} has been deleted successfully`);
-};
-
-const removeFaviconFiles = async (folderPath: string) => {
-  const files = await readdir(folderPath);
-
-  for (const file of files) {
-    await deleteFile(join(folderPath, file));
-  }
-};
 
 (async () => {
   const { faviconPath } = config.meta;
@@ -40,11 +26,11 @@ const removeFaviconFiles = async (folderPath: string) => {
     },
   });
 
-  if (!existsSync(faviconsDirectory)) {
-    await mkdir(faviconsDirectory);
+  if (existsSync(faviconsDirectory)) {
+    await rm(faviconsDirectory, { recursive: true });
   }
 
-  await removeFaviconFiles(faviconsDirectory);
+  await mkdir(faviconsDirectory);
 
   for (const file of [...response.images, ...response.files]) {
     await writeFile(`${faviconsDirectory}/${file.name}`, file.contents);
