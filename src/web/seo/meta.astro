@@ -1,0 +1,18 @@
+---
+import type { MetaConfig } from '@/types/config/meta-config.types';
+
+interface Props {
+  meta: MetaConfig;
+}
+
+const { meta } = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<title>{meta.title}</title>
+<meta name="description" content={meta.description} />
+<meta property="og:title" content={meta.ogTitle ?? meta.title} />
+<meta property="og:description" content={meta.ogDescription ?? meta.description} />
+{meta.ogImage && <meta property="og:image" content={meta.ogImage} />}

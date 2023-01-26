@@ -2,6 +2,7 @@
 import type { Data } from '@/types/data';
 import Analytics from '@/web/analytics/analytics.astro';
 import Favicons from '@/web/seo/favicons.astro';
+import Meta from '../seo/meta.astro';
 
 export interface Props extends Pick<Data['config'], 'meta' | 'i18n'> {}
 
@@ -11,15 +12,8 @@ const { meta, i18n } = Astro.props;
 <!DOCTYPE html>
 <html lang={i18n.locale.code} class="scroll-smooth">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{meta.title}</title>
-    <meta name="description" content={meta.description} />
+    <Meta meta={meta} />
     <Favicons />
-    <meta property="og:title" content={meta.ogTitle ?? meta.title} />
-    <meta property="og:description" content={meta.ogDescription ?? meta.description} />
-    {meta.ogImage && <meta property="og:image" content={meta.ogImage} />}
     <script is:inline>
       const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
