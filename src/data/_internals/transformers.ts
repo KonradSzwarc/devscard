@@ -34,7 +34,7 @@ type SkillsBySkillSet<SkillSet extends SkillSetTitle> = Filter<
 >[number]['skills'][number]['name'];
 
 export const hideSection =
-  (section: SectionKey): DataTransformer =>
+  (section: Exclude<SectionKey, 'main'>): DataTransformer =>
   (draft) => {
     draft.sections[section].config.visible = false;
   };

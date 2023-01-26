@@ -1,0 +1,15 @@
+---
+interface Props {
+  visible: boolean;
+}
+
+const { visible } = Astro.props;
+---
+
+{
+  visible && (
+    <div>
+      <slot />
+    </div>
+  )
+}
