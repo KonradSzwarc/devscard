@@ -1,24 +1,30 @@
-# Dev's Card
+# DevsCard
 
-Template for creating a comprehensive virtual CV for developers.
+A fully customizable template you can use to create your online (and paper) resume without the need to write a single line of code.
 
-## 🚀 How to use
+## Features
 
-Just click this button 👇
+- **✍️ Intellisense** — provide your data in TypeScript files, getting autocompletion and description of each property right in your IDE.
+- **📱 Responsiveness** — the resume is created and automatically tested to look good both on mobile and desktop devices.
+- **🌠 Assets optimization** — all images in your CV are minimized and resized automatically at build time.
+- **⚡️ Performance** — get 100 for all Lighthouse metrics, ensuring great experience for visitors and a high score for search engines.
+- **📄 PDF generation** — generate an accompanying PDF version of your CV with one command.
+- **🔶 Built-in icon sets** — choose from over 100 000 [Iconify](https://iconify.design/) icons to represent your skills.
+- **🌍 I18n** — customize your resume's locale, date formatting, and used translations.
+- **🔎 SEO friendly** — the entire website is designed with SEO in mind. All SEO-related config properties are required and well-described.
+- **📊 Analytics** — built-in support for [Google Analytics](https://analytics.google.com/) and [Clarity](https://clarity.microsoft.com/). The only you need to do is provide their IDs.
+- **🏭 Favicons generation** — invoke one command to generate all favicons and full app manifest for your website.
+- **🛠 Data helpers** — use built-in helpers to define your skills/socials once and reuse them across the configuration.
+- **🔀 Data transformers** — utilize type-safe data transformers to create multiple variants of your resume without duplicating your data.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/KonradSzwarc/devscard#NODE_VERSION=16)
+## Documentation
 
-This will create your own copy of this repository and trigger the deployment. All you need to do now is to go to your repository, populate `src/data.ts` with your own resume and push the changes 🔼
+To learn how to set up your resume, go to:
 
-## 🧞 Commands
+[https://devscard.gitbook.io/docs](https://devscard.gitbook.io/docs/)
 
-All commands are run from the root of the project, from a terminal:
+## Example
 
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
+To see an example CV, visit the link below:
+
+[https://devscard.netlify.app](https://devscard.netlify.app/)
