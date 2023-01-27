@@ -1,4 +1,5 @@
 ---
+import Fonts from '@/components/fonts.astro';
 import Footer from '@/pdf/components/footer.astro';
 import EducationSection from '@/pdf/sections/education-section.pdf.astro';
 import ExperienceSection from '@/pdf/sections/experience-section.pdf.astro';
@@ -23,6 +24,7 @@ const shouldRenderSection = (section: keyof typeof sections) => sections[section
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>PDF preview</title>
+    <Fonts />
   </head>
   <body class="flex flex-col bg-white p-[10mm] print:p-0">
     {shouldRenderSection('main') && <MainSection {...sections.main} />}

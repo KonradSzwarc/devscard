@@ -1,8 +1,8 @@
 ---
+import Fonts from '@/components/fonts.astro';
 import Favicons from '@/web/head/favicons.auto-generated.astro';
 import InitialTheme from '@/web/head/initial-theme.astro';
 import Meta from '@/web/head/meta.astro';
-
 import type { MetaConfig } from '@/types/config/meta-config.types';
 
 interface Props {
@@ -16,4 +16,5 @@ const { meta } = Astro.props;
   <Meta meta={meta} />
   <Favicons />
   <InitialTheme />
+  <Fonts />
 </head>
