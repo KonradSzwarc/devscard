@@ -13,7 +13,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "generate-cv": "ts-node scripts/generate-cv.ts",
+    "generate-pdf": "ts-node scripts/generate-pdf.ts",
     "generate-favicons": "ts-node scripts/generate-favicons.ts",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
