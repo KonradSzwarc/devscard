@@ -12,7 +12,6 @@ A fully customizable template you can use to create your online (and paper) resu
 - **🔶 Built-in icon sets** — choose from over 100 000 [Iconify](https://iconify.design/) icons to represent your skills.
 - **🌍 I18n** — customize your resume's locale, date formatting, and used translations.
 - **🔎 SEO friendly** — the entire website is designed with SEO in mind. All SEO-related config properties are required and well-described.
-- **📊 Analytics** — built-in support for [Google Analytics](https://analytics.google.com/) and [Clarity](https://clarity.microsoft.com/). The only you need to do is provide their IDs.
 - **🏭 Favicons generation** — invoke one command to generate all favicons and full app manifest for your website.
 - **🛠 Data helpers** — use built-in helpers to define your skills/socials once and reuse them across the configuration.
 - **🔀 Data transformers** — utilize type-safe data transformers to create multiple variants of your resume without duplicating your data.

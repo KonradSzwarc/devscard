@@ -1,7 +1,6 @@
 ---
 import type { Data } from '@/types/data';
-import Analytics from '@/web/analytics/analytics.astro';
-import Head from './head.astro';
+import Head from '@/web/head/head.astro';
 
 export interface Props extends Pick<Data['config'], 'meta' | 'i18n'> {}
 
@@ -12,7 +11,6 @@ const { meta, i18n } = Astro.props;
 <html lang={i18n.locale.code} class="scroll-smooth">
   <Head meta={meta} />
   <body class="flex justify-center overflow-x-hidden bg-gray-50 dark:bg-gray-900 xl:relative xl:left-7">
-    <Analytics />
     <slot />
   </body>
 </html>
