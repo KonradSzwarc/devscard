@@ -1,13 +1,13 @@
 # DevsCard
 
-A fully customizable template you can use to create your online (and paper) resume without the need to write a single line of code.
+A fully customizable template to create your online (and paper) resume without writing a single line of code.
 
 ## Features
 
 - **✍️ Intellisense** — provide your data in TypeScript files, getting autocompletion and description of each property right in your IDE.
 - **📱 Responsiveness** — the resume is created and automatically tested to look good both on mobile and desktop devices.
 - **🌠 Assets optimization** — all images in your CV are minimized and resized automatically at build time.
-- **⚡️ Performance** — get 100 for all Lighthouse metrics, ensuring great experience for visitors and a high score for search engines.
+- **⚡️ Performance** — get 100 for all Lighthouse metrics, ensuring a great experience for visitors and a high score for search engines.
 - **📄 PDF generation** — generate an accompanying PDF version of your CV with one command.
 - **🔶 Built-in icon sets** — choose from over 100 000 [Iconify](https://iconify.design/) icons to represent your skills.
 - **🌍 I18n** — customize your resume's locale, date formatting, and used translations.
