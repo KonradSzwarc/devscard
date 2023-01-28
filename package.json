@@ -10,13 +10,14 @@
     "pnpm": "please-use-npm"
   },
   "scripts": {
+    "postinstall": "npm run generate-favicons",
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run generate-favicons && astro build",
     "preview": "astro preview",
     "generate-pdf": "ts-node scripts/generate-pdf.ts",
     "generate-favicons": "ts-node scripts/generate-favicons.ts",
-    "prettier:check": "prettier --check .",
-    "prettier:write": "prettier --write .",
+    "prettier:check": "prettier --check . --ignore-path .gitignore",
+    "prettier:write": "prettier --write . --ignore-path .gitignore",
     "astro:check": "astro check",
     "ts:check": "tsc --jsx preserve --skipLibCheck",
     "check": "concurrently npm:*:check"

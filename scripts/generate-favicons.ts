@@ -3,17 +3,11 @@ import config from '../src/data/config';
 import { mkdir, writeFile, rm } from 'fs/promises';
 import { existsSync } from 'fs';
 
-const faviconsDirectory = './public/favicons';
+const FAVICONS_DIR = './public/favicons';
+const ASTRO_FILE_PATH = './src/web/head/favicons.generated.astro';
 
-const saveFile = async (file: FaviconFile | FaviconImage) => {
-  await writeFile(`${faviconsDirectory}/${file.name}`, file.contents);
-  console.log(`${file.name} has been created successfully`);
-};
-
-(async () => {
-  const { faviconPath } = config.meta;
-
-  const response = await favicons(`.${faviconPath}`, {
+const generateFavicons = () =>
+  favicons(`.${config.meta.faviconPath}`, {
     ...faviconsConfig.defaults,
     path: '/favicons',
     appName: config.meta.title,
@@ -31,23 +25,41 @@ const saveFile = async (file: FaviconFile | FaviconImage) => {
     },
   });
 
-  if (existsSync(faviconsDirectory)) {
-    await rm(faviconsDirectory, { recursive: true });
+const clearFaviconsDir = async () => {
+  if (existsSync(FAVICONS_DIR)) {
+    await rm(FAVICONS_DIR, { recursive: true });
   }
 
-  await mkdir(faviconsDirectory);
+  await mkdir(FAVICONS_DIR);
+};
 
-  await Promise.all([...response.images, ...response.files].map(saveFile));
+const saveFaviconAsset = async (file: FaviconFile | FaviconImage) => {
+  await writeFile(`${FAVICONS_DIR}/${file.name}`, file.contents);
 
+  console.log(`${file.name} has been created successfully`);
+};
+
+const generateAstroFile = async (html: string[]) => {
   const comments = [
     '<!-- This file is auto-generated. Do not edit it manually. -->\n',
     '<!-- In order to apply changes to it, adjust configuration object in generate-favicons.ts script and run it -->\n',
   ];
 
-  const formattedHtml = response.html.map((line) => line.replace('>', '/>')).join('\n');
+  const formattedHtml = html.map((line) => line.replace('>', '/>')).join('\n');
 
-  const pathToFaviconsFile = './src/web/head/favicons.auto-generated.astro';
+  await writeFile(ASTRO_FILE_PATH, [...comments, formattedHtml, '\n']);
 
-  await writeFile(pathToFaviconsFile, [...comments, formattedHtml, '\n']);
-  console.log(`${pathToFaviconsFile} has been updated successfully`);
-})();
+  console.log(`${ASTRO_FILE_PATH} has been updated successfully`);
+};
+
+const main = async () => {
+  const { images, files, html } = await generateFavicons();
+
+  await clearFaviconsDir();
+
+  await Promise.all([...images, ...files].map(saveFaviconAsset));
+
+  await generateAstroFile(html);
+};
+
+main();
