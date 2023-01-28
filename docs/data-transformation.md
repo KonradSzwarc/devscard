@@ -6,7 +6,7 @@ When visiting `index.astro` (web resume source) or `pdf.astro` (pdf resume sourc
 
 For example:
 
-```js
+```javascript
 import cv, { hideProject, hideSkillSet, renameSkillSet } from '@/data';
 
 cv(
