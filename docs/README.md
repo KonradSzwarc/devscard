@@ -1,7 +1,5 @@
 # Introduction
 
-## What is DevsCard?
-
 DevsCard is a fully customizable template to create your online resume without writing a single line of code. After forking the repository, you only need to update the initial data with your own and deploy the project.
 
 Apart from the website template, DevsCard offers you plenty of additional features that will make it easier to take care of your online and offline presence, including:

@@ -1,7 +1,7 @@
 # Table of contents
 
 - [Introduction](README.md)
-- [Setup guide](quick-setup-guide.md)
+- [Setup guide](setup-guide.md)
 - [PDF generation](pdf-generation.md)
 - [Data transformation](data-transformation.md)
 

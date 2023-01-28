@@ -35,7 +35,7 @@ To fill the CV with your data, go to the `src/data` directory. There you should 
 
 ## 3. Generate PDF (optional)
 
-Within the main section, you will find an `action` property. It allows you to provide a pdf resume to download. If you don't have one, feel free to use our CV generator by invoking `npm run generate-pdf`. Generated resume will be placed in `public/cv.pdf` and use the same data as the web one. You can learn more about PDF generation [here](quick-setup-guide.md).
+Within the main section, you will find an `action` property. It allows you to provide a pdf resume to download. If you don't have one, feel free to use our CV generator by invoking `npm run generate-pdf`. Generated resume will be placed in `public/cv.pdf` and use the same data as the web one. You can learn more about PDF generation [here](./pdf-generation.md).
 
 ## 4. Deploy to Netlify
 

@@ -20,7 +20,7 @@ A fully customizable template to create your online (and paper) resume without w
 
 To learn how to set up your resume, go to:
 
-[https://devscard.gitbook.io/docs](https://devscard.gitbook.io/docs/)
+[https://devscard.gitbook.io/docs](https://devscard.gitbook.io/docs/setup-guide)
 
 ## Example
 
