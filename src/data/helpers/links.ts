@@ -1,5 +1,23 @@
 import createLinkFactory from '@/data/_internals/create-link-factory';
 
+/*
+
+Use this file to define all websites you use as the "links" property.
+This way, you can ensure one website has the same name and icon, among all resume sections.
+
+Where links are used:
+- education-section.data.ts
+- experience-section.data.ts
+- main-section.data.ts
+- portfolio-section.data.ts
+- skills-section.data.ts
+- testimonials-section.data.ts
+
+Usage examples:
+link({ url: '...' }) — returns base link object with provided url.
+link({ name: '...', url: '...' }) — returns link object with a custom name.
+*/
+
 // GENERAL
 
 export const facebook = createLinkFactory({

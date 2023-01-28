@@ -1,5 +1,23 @@
 import createSkillFactory from '@/data/_internals/create-skill-factory';
 
+/*
+
+Place where you can define all your skills.
+This way, you can ensure one skill has the same name, icon, and URL among all resume sections.
+
+Where skills are used:
+- experience-section.data.ts
+- portfolio-section.data.ts
+- skills-section.data.ts
+
+Usage examples:
+skill() — returns skill object without any customizations.
+skill({ level: 3 }) — returns a levelled-skill. It can be used only in skills-section.data.ts.
+skill({ name: '...' }) — returns skill object with a custom name.
+skill({ description: '...' }) — returns skill with a description displayed when user hovers over it.
+
+*/
+
 export const apolloGraphql = createSkillFactory({
   name: 'Apollo GraphQL',
   icon: 'simple-icons:apollographql',
