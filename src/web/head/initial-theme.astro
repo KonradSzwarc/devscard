@@ -6,6 +6,12 @@
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   })();
 
+  const themeMeta = document.getElementsByName('theme-color');
+
+  if (themeMeta[0]) {
+    themeMeta[0].content = theme === 'dark' ? '#1a202c' : '#ffffff';
+  }
+
   if (theme === 'light') {
     document.documentElement.classList.remove('dark');
   } else {
