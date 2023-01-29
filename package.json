@@ -12,8 +12,12 @@
   "scripts": {
     "postinstall": "npm run generate-favicons",
     "dev": "astro dev",
-    "build": "npm run generate-favicons && astro build",
+    "build-setup": "npm run exclude-pdf-page && npm run generate-favicons",
+    "post-build": "npm run include-pdf-page",
+    "build": "npm run build-setup && astro build && npm run post-build",
     "preview": "astro preview",
+    "include-pdf-page": "ts-node scripts/change-pdf-page-visibility.ts --include",
+    "exclude-pdf-page": "ts-node scripts/change-pdf-page-visibility.ts --exclude",
     "generate-pdf": "ts-node scripts/generate-pdf.ts",
     "generate-favicons": "ts-node scripts/generate-favicons.ts",
     "prettier:check": "prettier --check . --ignore-path .gitignore",
