@@ -6,8 +6,10 @@
     ":automergePr",
     ":automergeRequireAllStatusChecks",
     ":separateMultipleMajorReleases",
+    ":semanticCommits",
     "schedule:weekly"
   ],
+  "labels": ["dependencies"],
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
