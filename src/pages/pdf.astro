@@ -1,4 +1,5 @@
 ---
+import Fonts from '@/components/fonts.astro';
 import Footer from '@/pdf/components/footer.astro';
 import EducationSection from '@/pdf/sections/education-section.pdf.astro';
 import ExperienceSection from '@/pdf/sections/experience-section.pdf.astro';
@@ -6,13 +7,11 @@ import MainSection from '@/pdf/sections/main-section.pdf.astro';
 import PortfolioSection from '@/pdf/sections/portfolio-section.pdf.astro';
 import SkillsSection from '@/pdf/sections/skills-section.pdf.astro';
 
-import cv, { hideProject, hideSkillSet, renameSkillSet } from '@/data';
+import cv from '@/data';
 
-const { config, sections } = cv(
-  hideSkillSet('I want to learn'),
-  renameSkillSet('I speak', 'Languages'),
-  hideProject('Disco Ninjas')
-);
+const { config, sections } = cv();
+
+const shouldRenderSection = (section: keyof typeof sections) => sections[section] && sections[section].config.visible;
 ---
 
 <!DOCTYPE html>
@@ -21,13 +20,14 @@ const { config, sections } = cv(
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>PDF preview</title>
+    <Fonts />
   </head>
   <body class="flex flex-col bg-white p-[10mm] print:p-0">
-    <MainSection {...sections.main} />
-    {sections.skills && <SkillsSection {...sections.skills} />}
-    {sections.experience && <ExperienceSection {...sections.experience} />}
-    {sections.portfolio && <PortfolioSection {...sections.portfolio} />}
-    {sections.education && <EducationSection {...sections.education} />}
+    {shouldRenderSection('main') && <MainSection {...sections.main} />}
+    {shouldRenderSection('skills') && <SkillsSection {...sections.skills} />}
+    {shouldRenderSection('experience') && <ExperienceSection {...sections.experience} />}
+    {shouldRenderSection('portfolio') && <PortfolioSection {...sections.portfolio} />}
+    {shouldRenderSection('education') && <EducationSection {...sections.education} />}
     {config.pdf?.footer && <Footer>{config.pdf.footer}</Footer>}
   </body>
 </html>

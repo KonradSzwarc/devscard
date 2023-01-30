@@ -17,6 +17,11 @@ import Icon from './icon.astro';
   const toggleTheme = () => {
     const theme = localStorage.getItem('theme') ?? 'light';
     const newTheme = theme === 'light' ? 'dark' : 'light';
+    const themeMeta = document.getElementsByName('theme-color') as NodeListOf<HTMLMetaElement>;
+
+    if (themeMeta[0]) {
+      themeMeta[0].content = newTheme === 'dark' ? '#1a202c' : '#ffffff';
+    }
 
     document.documentElement.classList[newTheme === 'dark' ? 'add' : 'remove']('dark');
     localStorage.setItem('theme', newTheme);

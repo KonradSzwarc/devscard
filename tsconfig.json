@@ -35,5 +35,11 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.astro"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.astro"],
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
 }

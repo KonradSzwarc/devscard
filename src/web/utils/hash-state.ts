@@ -4,7 +4,11 @@ import { isServer } from './env';
 const getInitialHash = () => {
   if (isServer) return '';
 
-  return window.location.hash || `#${sections.main.config.slug}`;
+  const firstVisibleSection = Object.values(sections).find((section) => section.config.visible);
+
+  if (!firstVisibleSection) return '';
+
+  return window.location.hash || `#${firstVisibleSection.config.slug}`;
 };
 
 const createHashState = () => {

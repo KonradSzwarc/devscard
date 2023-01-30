@@ -1,5 +1,5 @@
 import type { Config } from '@/types/data';
-import enUS from 'date-fns/locale/en-US/index.js';
+import { enUS } from 'date-fns/locale';
 import type { ReadonlyDeep } from 'type-fest';
 
 const config = {
@@ -10,11 +10,11 @@ const config = {
       now: 'now',
     },
   },
-  seo: {
+  meta: {
     title: 'Mark Freeman - Senior React Developer',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales ac dui at vestibulum. In condimentum metus id dui tincidunt, in blandit mi vehicula.',
-    favicon: '/favicon.svg',
+    faviconPath: '/src/assets/my-image.jpeg',
   },
   pdf: {
     footer:
