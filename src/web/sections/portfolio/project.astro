@@ -21,9 +21,9 @@ const alt = `${name} project thumbnail`;
       <Photo
         src={image}
         alt={alt}
-        width={200}
-        height={200}
-        class="rounded-lg object-cover max-w-[120px] overflow-hidden sm:block hidden"
+        width={120}
+        height={120}
+        class="rounded-lg object-cover xl:h-[120px] xl:w-[120px] sm:h-[170px] sm:w-[170px] sm:block hidden"
       />
       <div class="flex w-full flex-col gap-4">
         <div class="flex justify-between">
@@ -35,7 +35,13 @@ const alt = `${name} project thumbnail`;
             {links.map((link) => <LinkButton {...link} />)}
           </div>
         </div>
-        <Photo class="rounded-lg object-cover max-w-[120px] sm:hidden" src={image} alt={alt} />
+        <Photo
+          width={120}
+          height={120}
+          class="rounded-lg object-cover sm:hidden h-[120px] w-[120px]"
+          src={image}
+          alt={alt}
+        />
         <div class="inline-grid w-full xl:grid-cols-[auto_auto]">
           {details.map((detail) => <LabelledValue {...detail} />)}
         </div>
