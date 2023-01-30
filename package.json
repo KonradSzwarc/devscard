@@ -12,7 +12,9 @@
   "scripts": {
     "postinstall": "npm run generate-favicons",
     "dev": "astro dev",
-    "build": "npm run generate-favicons && astro build",
+    "prebuild": "move-file ./src/pages/pdf.astro ./src/pages/_pdf.astro && npm run generate-favicons",
+    "build": "astro build",
+    "postbuild": "move-file ./src/pages/_pdf.astro ./src/pages/pdf.astro",
     "preview": "astro preview",
     "generate-pdf": "ts-node scripts/generate-pdf.ts",
     "generate-favicons": "ts-node scripts/generate-favicons.ts",
@@ -42,6 +44,7 @@
     "immer": "9.0.19",
     "locales-ts": "1.0.0",
     "marked": "4.2.12",
+    "move-file-cli": "3.0.0",
     "postcss": "8.4.21",
     "prettier": "2.8.3",
     "prettier-plugin-astro": "0.8.0",
