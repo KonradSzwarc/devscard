@@ -27,8 +27,7 @@
   "dependencies": {
     "@floating-ui/dom": "1.1.1",
     "iconify-icon": "1.0.3",
-    "nanoid": "4.0.0",
-    "photoswipe": "5.3.4"
+    "nanoid": "4.0.0"
   },
   "devDependencies": {
     "@astrojs/image": "0.13.0",
@@ -36,7 +35,6 @@
     "@astrojs/tailwind": "3.0.0",
     "@percy/cli": "1.17.0",
     "@types/marked": "4.0.8",
-    "@types/photoswipe": "4.1.2",
     "astro": "2.0.2",
     "astro-compress": "1.1.28",
     "concurrently": "7.6.0",
@@ -47,6 +45,7 @@
     "locales-ts": "1.0.0",
     "marked": "4.2.12",
     "move-file-cli": "3.0.0",
+    "photoswipe": "5.3.4",
     "postcss": "8.4.21",
     "prettier": "2.8.3",
     "prettier-plugin-astro": "0.8.0",

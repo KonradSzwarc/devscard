@@ -1,5 +1,6 @@
 ---
-import type { Project } from '@/types/sections/portfolio-section.types';
+import { nanoid } from 'nanoid';
+import type { PortfolioSection, Project } from '@/types/sections/portfolio-section.types';
 import Description from '@/web/components/description.astro';
 import LabelledValue from '@/web/components/labelled-value.astro';
 import LinkButton from '@/web/components/link-button.astro';
@@ -9,12 +10,17 @@ import Timestamp from '@/web/components/timestamp.astro';
 import Typography from '@/web/components/typography.astro';
 
 export interface Props extends Project {
-  id: number;
+  screenshotsConfig?: PortfolioSection['config']['screenshots'];
 }
 
-const { dates, description, details, image, links, name, tagsList, id, screenshots } = Astro.props;
+const { dates, description, details, image, links, name, tagsList, screenshots, screenshotsConfig } = Astro.props;
 
 const alt = `${name} project thumbnail`;
+
+const galleryId = nanoid(8);
+const hasScreenshots = screenshots?.length && screenshots.length > 0;
+const screenshotsIcon = screenshotsConfig?.icon || 'fa6-solid:image';
+const screenshotsTooltip = screenshotsConfig?.title || 'Screenshots';
 ---
 
 <div class="flex flex-col gap-6">
@@ -39,8 +45,12 @@ const alt = `${name} project thumbnail`;
               <Timestamp dates={dates} />
             </div>
             <div class="flex gap-2">
-              {screenshots && <LinkButton icon="fa6-solid:image" name="Screenshots" as="button" data-gallery={id} />}
               {links.map((link) => <LinkButton {...link} />)}
+              {
+                hasScreenshots && (
+                  <LinkButton icon={screenshotsIcon} name={screenshotsTooltip} as="button" data-gallery={galleryId} />
+                )
+              }
             </div>
           </div>
         </div>
@@ -52,4 +62,39 @@ const alt = `${name} project thumbnail`;
     <Description content={description} class="col-span-3 col-start-1" />
   </div>
   <TagsList {...tagsList} />
+  <div class="hidden" id={galleryId}>
+    {screenshots?.map((screenshot) => <Photo {...screenshot} />)}
+  </div>
 </div>
+
+<script>
+  import type { PhotoSwipeOptions, DataSource } from 'photoswipe';
+
+  const buttons = [...document.querySelectorAll('[data-gallery]')] as HTMLButtonElement[];
+
+  if (buttons.length > 0) {
+    import('photoswipe/style.css');
+
+    const getOptionsForButton = (button: HTMLButtonElement): PhotoSwipeOptions => {
+      const galleryId = String(button.dataset.gallery);
+      const galleryWrapper = document.getElementById(galleryId) as HTMLElement;
+      const screenshots = [...galleryWrapper.children] as HTMLImageElement[];
+      const dataSource: DataSource = screenshots.map((img) => ({
+        src: img.src,
+        width: img.width,
+        height: img.height,
+        alt: img.alt,
+      }));
+
+      return { dataSource, showHideAnimationType: 'none', index: 0 };
+    };
+
+    import('photoswipe').then(({ default: PhotoSwipe }) => {
+      buttons.forEach((button) =>
+        button.addEventListener('click', () => {
+          new PhotoSwipe(getOptionsForButton(button)).init();
+        })
+      );
+    });
+  }
+</script>
