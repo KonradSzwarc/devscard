@@ -2,23 +2,29 @@
 import type { LinkButton } from '@/types/shared';
 import Icon from './icon.astro';
 
-export interface Props extends LinkButton {}
+export interface Props extends Omit<LinkButton, 'url'>, Omit<astroHTML.JSX.HTMLAttributes, 'slot'> {
+  url?: LinkButton['url'];
+  as?: 'a' | 'button';
+}
 
-const { name, icon, url } = Astro.props;
+const { name, icon, url, as, ...props } = Astro.props;
 
 const classes = /* tw */ {
   main: 'flex items-center justify-center w-7 h-7 rounded text-gray-400 bg-gray-100 dark:bg-gray-600 dark:text-gray-200',
   active: 'active:translate-y-px',
   focus: 'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500',
 };
+
+const Element = as || 'a';
 ---
 
-<a
+<Element
   aria-label={name}
   href={url}
   target="_blank"
   data-tooltip={name}
   class:list={[classes.main, classes.active, classes.focus]}
+  {...props}
 >
   <Icon name={icon} size={16} />
-</a>
+</Element>

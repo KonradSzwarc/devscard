@@ -12,6 +12,6 @@ const { config, projects } = Astro.props;
 
 <SectionCard {...config}>
   <DividedList>
-    {projects.flatMap((project) => [<Project {...project} />, <Divider />])}
+    {projects.flatMap((project) => [<Project {...project} screenshotsConfig={config.screenshots} />, <Divider />])}
   </DividedList>
 </SectionCard>
