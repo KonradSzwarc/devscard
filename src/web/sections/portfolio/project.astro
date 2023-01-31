@@ -18,30 +18,28 @@ const alt = `${name} project thumbnail`;
 <div class="flex flex-col gap-6">
   <div class="flex flex-col gap-4">
     <div class="flex gap-6">
-      <Photo
-        src={image}
-        alt={alt}
-        width={120}
-        height={120}
-        class="rounded-lg object-cover xl:h-[120px] xl:w-[120px] sm:h-[170px] sm:w-[170px] sm:block hidden"
-      />
       <div class="flex w-full flex-col gap-4">
-        <div class="flex justify-between">
-          <div>
-            <Typography variant="item-title">{name}</Typography>
-            <Timestamp dates={dates} />
+        <div class="flex gap-4">
+          <div class="hidden flex-1 sm:block">
+            <Photo
+              src={image}
+              alt={alt}
+              width={52}
+              height={52}
+              aspectRatio={1 / 1}
+              class="flex-1 rounded-lg object-cover max-w-[52px] overflow-hidden"
+            />
           </div>
-          <div class="flex gap-2">
-            {links.map((link) => <LinkButton {...link} />)}
+          <div class="flex w-full justify-between">
+            <div>
+              <Typography variant="item-title">{name}</Typography>
+              <Timestamp dates={dates} />
+            </div>
+            <div class="flex gap-2">
+              {links.map((link) => <LinkButton {...link} />)}
+            </div>
           </div>
         </div>
-        <Photo
-          width={120}
-          height={120}
-          class="rounded-lg object-cover sm:hidden h-[120px] w-[120px]"
-          src={image}
-          alt={alt}
-        />
         <div class="inline-grid w-full xl:grid-cols-[auto_auto]">
           {details.map((detail) => <LabelledValue {...detail} />)}
         </div>

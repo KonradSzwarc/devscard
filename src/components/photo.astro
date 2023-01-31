@@ -1,6 +1,6 @@
 ---
 import type { Photo } from '@/types/shared';
-import { Image } from '@astrojs/image/components';
+import { Image, ImageComponentLocalImageProps } from '@astrojs/image/components';
 
 export interface Props {
   src: Photo;
@@ -8,6 +8,7 @@ export interface Props {
   class?: string;
   width?: number;
   height?: number;
+  aspectRatio?: ImageComponentLocalImageProps['aspectRatio'];
 }
 
 const { src, ...props } = Astro.props;
