@@ -2,7 +2,7 @@ import type { DateRange, Photo, LabelledValue, LinkButton, Section, TagsList } f
 
 interface Screenshot {
   /**
-   * Absolute path to the screenshot.
+   * Absolute path to the screenshot in public folder.
    */
   src: string;
 
