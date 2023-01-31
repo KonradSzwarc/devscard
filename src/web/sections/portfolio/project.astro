@@ -8,9 +8,11 @@ import TagsList from '@/web/components/tags-list.astro';
 import Timestamp from '@/web/components/timestamp.astro';
 import Typography from '@/web/components/typography.astro';
 
-export interface Props extends Project {}
+export interface Props extends Project {
+  id: number;
+}
 
-const { dates, description, details, image, links, name, tagsList } = Astro.props;
+const { dates, description, details, image, links, name, tagsList, id, screenshots } = Astro.props;
 
 const alt = `${name} project thumbnail`;
 ---
@@ -37,6 +39,7 @@ const alt = `${name} project thumbnail`;
               <Timestamp dates={dates} />
             </div>
             <div class="flex gap-2">
+              {screenshots && <LinkButton icon="fa6-solid:image" name="Screenshots" as="button" data-gallery={id} />}
               {links.map((link) => <LinkButton {...link} />)}
             </div>
           </div>

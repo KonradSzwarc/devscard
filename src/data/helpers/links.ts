@@ -155,7 +155,7 @@ export const demo = createLinkFactory({
 
 export const mockups = createLinkFactory({
   name: 'Mockups',
-  icon: 'fa6-solid:image',
+  icon: 'fa6-solid:paintbrush',
 });
 
 export const repository = createLinkFactory({

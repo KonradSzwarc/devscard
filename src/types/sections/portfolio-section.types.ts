@@ -1,5 +1,17 @@
 import type { DateRange, Photo, LabelledValue, LinkButton, Section, TagsList } from '../shared';
 
+interface Screenshot {
+  /**
+   * Absolute path to the screenshot.
+   */
+  src: string;
+
+  /**
+   * Alt text for the screenshot.
+   */
+  alt: string;
+}
+
 export interface Project {
   /**
    * Name of the project.
@@ -38,6 +50,11 @@ export interface Project {
    * A short overview of the project. You can use markdown syntax.
    */
   description: string;
+
+  /**
+   * [WEB] Screenshots of the project.
+   */
+  screenshots?: Screenshot[];
 
   /**
    * Any information that you want to highlight.
