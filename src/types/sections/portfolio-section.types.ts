@@ -11,9 +11,9 @@ export interface Project {
    *
    * **Ratio**: 1:1
    *
-   * **Display size**: 120x120px
+   * **Display size**: 52x52px
    */
-  image: Photo;
+  image?: Photo;
 
   /**
    * Date range when you were working on the project.

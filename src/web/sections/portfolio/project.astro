@@ -20,16 +20,20 @@ const alt = `${name} project thumbnail`;
     <div class="flex gap-6">
       <div class="flex w-full flex-col gap-4">
         <div class="flex gap-4">
-          <div class="hidden flex-1 sm:block">
-            <Photo
-              src={image}
-              alt={alt}
-              width={52}
-              height={52}
-              aspectRatio={1 / 1}
-              class="flex-1 rounded-lg object-cover max-w-[52px] overflow-hidden"
-            />
-          </div>
+          {
+            image && (
+              <div class="hidden flex-1 sm:block">
+                <Photo
+                  src={image}
+                  alt={alt}
+                  width={52}
+                  height={52}
+                  aspectRatio={1 / 1}
+                  class="max-w-[52px] flex-1 overflow-hidden rounded-lg object-cover"
+                />
+              </div>
+            )
+          }
           <div class="flex w-full justify-between">
             <div>
               <Typography variant="item-title">{name}</Typography>
