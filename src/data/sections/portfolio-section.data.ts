@@ -41,8 +41,8 @@ const portfolioSectionData = {
         { label: 'Repository', value: 'https://github.com/mark-freeman/golden-bulls', url: '#' },
       ],
       screenshots: [
-        { src: '/src/assets/portfolio/screenshots/project-1/1.png', alt: 'First screenshot' },
-        { src: '/src/assets/portfolio/screenshots/project-1/2.png', alt: 'Second screenshot' },
+        { src: '/screenshots/project-1/1.png', alt: 'First screenshot' },
+        { src: '/screenshots/project-1/2.png', alt: 'Second screenshot' },
       ],
       description:
         'In tristique vulputate augue vel egestas. Quisque ac imperdiet tortor, at lacinia ex. Duis vel ex hendrerit, commodo odio sed, aliquam enim. Ut arcu nulla, tincidunt eget arcu eget, molestie vulputate nisi. Nunc malesuada leo et est iaculis facilisis.',
@@ -57,9 +57,9 @@ const portfolioSectionData = {
       image: import('@/assets/portfolio/project-2.jpeg'),
       dates: [new Date('2019-06'), new Date('2020-02')],
       screenshots: [
-        { src: '/src/assets/portfolio/screenshots/project-2/1.png', alt: 'First screenshot' },
-        { src: '/src/assets/portfolio/screenshots/project-2/2.png', alt: 'Second screenshot' },
-        { src: '/src/assets/portfolio/screenshots/project-2/3.png', alt: 'Third screenshot' },
+        { src: '/screenshots/project-2/1.png', alt: 'First screenshot' },
+        { src: '/screenshots/project-2/2.png', alt: 'Second screenshot' },
+        { src: '/screenshots/project-2/3.png', alt: 'Third screenshot' },
       ],
       details: [
         { label: 'Team size', value: '7 people' },
