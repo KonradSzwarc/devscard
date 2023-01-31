@@ -22,16 +22,13 @@ const alt = `${name} project thumbnail`;
         <div class="flex gap-4">
           {
             image && (
-              <div class="hidden flex-1 sm:block">
-                <Photo
-                  src={image}
-                  alt={alt}
-                  width={80}
-                  height={80}
-                  aspectRatio={1 / 1}
-                  class="max-h-[52px] max-w-[52px] flex-1 overflow-hidden rounded-lg object-cover"
-                />
-              </div>
+              <Photo
+                src={image}
+                alt={alt}
+                width={80}
+                height={80}
+                class="hidden h-[52px] w-[52px] flex-shrink-0 rounded-lg object-cover sm:block"
+              />
             )
           }
           <div class="flex w-full justify-between">
