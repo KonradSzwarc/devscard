@@ -11,7 +11,7 @@ export interface Project {
    *
    * **Ratio**: 1:1
    *
-   * **Display size**: 52x52px
+   * **Display size**: 56x56px
    */
   image?: Photo;
 
