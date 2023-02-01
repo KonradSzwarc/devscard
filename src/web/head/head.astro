@@ -1,20 +1,24 @@
 ---
 import Fonts from '@/components/fonts.astro';
 import type { MetaConfig } from '@/types/config/meta-config.types';
+import type { Sections } from '@/types/data';
 import Favicons from './favicons.generated.astro';
+import InitialHash from './initial-hash.astro';
 import InitialTheme from './initial-theme.astro';
 import Meta from './meta.astro';
 
 interface Props {
   meta: MetaConfig;
+  sections: Sections;
 }
 
-const { meta } = Astro.props;
+const { meta, sections } = Astro.props;
 ---
 
 <head>
   <Meta meta={meta} />
   <Favicons />
+  <InitialHash sections={sections} />
   <InitialTheme />
   <Fonts />
 </head>

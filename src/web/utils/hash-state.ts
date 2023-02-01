@@ -1,14 +1,14 @@
-import sections from '@/data/sections';
 import { isServer } from './env';
+
+// Set in src/web/head/initial-hash.astro
+declare let window: Window & { firstVisibleSectionSlug?: string };
 
 const getInitialHash = () => {
   if (isServer) return '';
 
-  const firstVisibleSection = Object.values(sections).find((section) => section.config.visible);
+  if (window.location.hash) return window.location.hash;
 
-  if (!firstVisibleSection) return '';
-
-  return window.location.hash || `#${firstVisibleSection.config.slug}`;
+  return window.firstVisibleSectionSlug ? `#${window.firstVisibleSectionSlug}` : '';
 };
 
 const createHashState = () => {

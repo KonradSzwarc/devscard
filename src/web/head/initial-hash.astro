@@ -1,0 +1,17 @@
+---
+import type { Sections } from '@/types/data';
+
+interface Props {
+  sections: Sections;
+}
+
+const { sections } = Astro.props;
+
+const firstVisibleSection = Object.values(sections).find((section) => section.config.visible);
+const firstVisibleSectionSlug = firstVisibleSection?.config.slug;
+---
+
+{/* Used in src/web/utils/hash-state.ts */}
+<script is:inline define:vars={{ firstVisibleSectionSlug }}>
+  window.firstVisibleSectionSlug = firstVisibleSectionSlug;
+</script>

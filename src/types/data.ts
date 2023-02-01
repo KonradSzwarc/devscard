@@ -9,7 +9,7 @@ import type { PortfolioSection } from './sections/portfolio-section.types';
 import type { SkillsSection } from './sections/skills-section.types';
 import type { TestimonialsSection } from './sections/testimonials-section.types';
 
-export interface Config {
+export type Config = {
   /**
    * [WEB] Page metadata used for SEO and social media sharing.
    */
@@ -24,9 +24,9 @@ export interface Config {
    * [PDF] Configuration of the pdf generation.
    */
   pdf?: PdfConfig;
-}
+};
 
-export interface Sections {
+export type Sections = {
   /**
    * Basic information about you.
    */
@@ -61,7 +61,7 @@ export interface Sections {
    * [WEB] List of sources you use to gain knowledge and inspiration.
    */
   favorites: FavoritesSection;
-}
+};
 
 /**
  * All data used to generate the cv.

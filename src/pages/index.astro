@@ -14,7 +14,7 @@ import cv from '@/data';
 const { config, sections } = cv();
 ---
 
-<Layout {...config}>
+<Layout {...config} sections={sections}>
   <ThemeToggle />
   <main class="w-full max-w-5xl space-y-4 px-2 py-3 sm:space-y-6 sm:px-8 sm:py-12 lg:space-y-8 lg:py-20">
     <MainSection {...sections.main} />
