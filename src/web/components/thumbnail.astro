@@ -1,0 +1,13 @@
+---
+import Photo from '@/components/photo.astro';
+import type { Photo as PhotoType } from '@/types/shared';
+
+interface Props {
+  src?: PhotoType;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+{src && <Photo src={src} alt={alt} class="hidden h-[52px] w-[52px] rounded-lg sm:block" width={104} height={104} />}

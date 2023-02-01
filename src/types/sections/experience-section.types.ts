@@ -1,4 +1,4 @@
-import type { DateRange, LinkButton, Section, TagsList } from '../shared';
+import type { DateRange, LinkButton, Photo, Section, TagsList } from '../shared';
 
 export interface Job {
   /**
@@ -10,6 +10,15 @@ export interface Job {
    * Name of the company.
    */
   company: string;
+
+  /**
+   * [WEB] Logo of the company.
+   *
+   * **Ratio**: 1:1
+   *
+   * **Display size**: 56x56px
+   */
+  image?: Photo;
 
   /**
    * Date range when you were working in the company.

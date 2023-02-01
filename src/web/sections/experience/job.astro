@@ -3,27 +3,31 @@ import type { Job } from '@/types/sections/experience-section.types';
 import Description from '@/web/components/description.astro';
 import LinkButton from '@/web/components/link-button.astro';
 import TagsList from '@/web/components/tags-list.astro';
+import Thumbnail from '@/web/components/thumbnail.astro';
 import Timestamp from '@/web/components/timestamp.astro';
 import Typography from '@/web/components/typography.astro';
 
 export interface Props extends Job {}
 
-const { role, company, dates, description, links, tagsList } = Astro.props;
+const { role, company, dates, description, links, tagsList, image } = Astro.props;
 ---
 
 <div class="flex flex-col gap-2 md:gap-0">
-  <div class="flex w-full flex-row justify-between">
-    <div>
-      <Typography variant="item-title">
-        {role}
-        <span class="font-medium"> &#8212;&nbsp;{company}</span>
-      </Typography>
-    </div>
-    <div class="flex flex-wrap gap-2">
-      {links.map((link) => <LinkButton {...link} />)}
+  <div class="flex gap-4">
+    <Thumbnail src={image} alt={`${company} logo`} />
+    <div class="flex w-full flex-row justify-between">
+      <div>
+        <Typography variant="item-title">
+          {role}
+          <span class="font-medium"> &#8212;&nbsp;{company}</span>
+        </Typography>
+        <Timestamp dates={dates} />
+      </div>
+      <div class="flex flex-wrap gap-2">
+        {links.map((link) => <LinkButton {...link} />)}
+      </div>
     </div>
   </div>
-  <Timestamp dates={dates} />
   <Description content={description} class="pt-3 mb-6" />
   <TagsList {...tagsList} />
 </div>

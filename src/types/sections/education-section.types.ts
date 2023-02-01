@@ -1,4 +1,4 @@
-import type { DateRange, LinkButton, Section } from '../shared';
+import type { DateRange, LinkButton, Photo, Section } from '../shared';
 
 export interface Diploma {
   /**
@@ -10,6 +10,15 @@ export interface Diploma {
    * Name of the institution that issued the certificate or degree.
    */
   institution: string;
+
+  /**
+   * [WEB] Logo of the institution.
+   *
+   * **Ratio**: 1:1
+   *
+   * **Display size**: 56x56px
+   */
+  image?: Photo;
 
   /**
    * Date range when you were studying in the institution.
