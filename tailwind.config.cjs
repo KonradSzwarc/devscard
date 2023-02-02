@@ -14,6 +14,9 @@ module.exports = {
       gray: colors.gray,
     },
     extend: {
+      spacing: {
+        18: '4.5rem',
+      },
       keyframes: {
         show: {
           from: { opacity: '0' },

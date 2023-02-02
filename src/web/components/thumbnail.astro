@@ -5,9 +5,25 @@ import type { Photo as PhotoType } from '@/types/shared';
 interface Props {
   src?: PhotoType;
   alt: string;
+  size: 'large' | 'small';
 }
 
-const { src, alt } = Astro.props;
+const { src, alt, size } = Astro.props;
+
+const sizeToClass = /* tw */ {
+  large: 'h-18 w-18',
+  small: 'h-12 w-12',
+};
 ---
 
-{src && <Photo src={src} alt={alt} class="hidden h-[52px] w-[52px] rounded-lg sm:block" width={104} height={104} />}
+{
+  src && (
+    <Photo
+      src={src}
+      alt={alt}
+      class:list={['hidden rounded-md sm:block', sizeToClass[size]]}
+      width={104}
+      height={104}
+    />
+  )
+}

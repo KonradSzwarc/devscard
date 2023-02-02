@@ -13,7 +13,7 @@ const { author, content, image, links, relation } = Astro.props;
 <div class="flex w-full flex-col gap-4">
   <div class="flex justify-between">
     <div class="flex flex-col gap-4 sm:flex-row">
-      <Thumbnail src={image} alt={author} />
+      <Thumbnail src={image} alt={author} size="small" />
       <div>
         <Typography variant="item-title">{author}</Typography>
         <Typography variant="item-subtitle">{relation}</Typography>
