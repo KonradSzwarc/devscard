@@ -7,6 +7,7 @@ import Photo from '@/components/photo.astro';
 import SectionCard from '@/web/components/section-card.astro';
 import TagsList from '@/web/components/tags-list.astro';
 import Typography from '@/web/components/typography.astro';
+import LabelledValue from '@/web/components/labelled-value.astro';
 
 export interface Props extends MainSection {}
 
@@ -43,16 +44,7 @@ const { action, config, description, details, fullName, image, links, role, tags
       </div>
       <div class="flex flex-col gap-6">
         <div class="inline-grid xl:grid-cols-[auto_auto]">
-          {
-            details.map(({ label: detailLabel, value }) => (
-              <div class="w-fit">
-                <Typography variant="paragraph">
-                  <span class="text-gray-700 dark:text-gray-300">{detailLabel}: </span>
-                  <span class="break-all dark:text-gray-400">{value}</span>
-                </Typography>
-              </div>
-            ))
-          }
+          {details.map((detail) => <LabelledValue {...detail} />)}
         </div>
         <div class="flex flex-col gap-4">
           <Description content={description} />

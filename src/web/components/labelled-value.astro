@@ -1,5 +1,6 @@
 ---
 import type { LabelledValue } from '@/types/shared';
+import Typography from './typography.astro';
 
 export interface Props extends LabelledValue {}
 
@@ -8,15 +9,15 @@ const { label, value, url } = Astro.props;
 const parsedValue = Array.isArray(value) ? value.join(', ') : value;
 ---
 
-<div class="text-base">
-  <span class="font-medium text-gray-700 dark:text-gray-300">{label}:</span>
+<div>
+  <Typography variant="label">{label}:</Typography>
   {
     url ? (
-      <a href={url} target="_blank" class="font-normal text-gray-500 underline dark:text-gray-400">
+      <Typography as="a" href={url} target="_blank" class="underline">
         {parsedValue}
-      </a>
+      </Typography>
     ) : (
-      <span class="font-normal text-gray-500 dark:text-gray-400">{parsedValue}</span>
+      <Typography variant="value">{parsedValue}</Typography>
     )
   }
 </div>

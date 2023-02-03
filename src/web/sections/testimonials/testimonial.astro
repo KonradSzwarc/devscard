@@ -16,7 +16,7 @@ const { author, content, image, links, relation } = Astro.props;
       <Thumbnail src={image} alt={author} size="small" />
       <div>
         <Typography variant="item-title">{author}</Typography>
-        <Typography variant="item-subtitle">{relation}</Typography>
+        <Typography variant="item-subtitle-secondary">{relation}</Typography>
       </div>
     </div>
     {
