@@ -8,7 +8,7 @@ export interface Props extends Book {}
 const { author, image, title, url } = Astro.props;
 ---
 
-<a href={url} class="flex w-full flex-col gap-3 transition duration-300 hover:translate-y-2">
+<a href={url} target="_blank" class="flex w-full flex-col gap-3 transition duration-300 hover:translate-y-2">
   <Photo src={image} alt={title} class="aspect-[3/4] rounded-lg object-cover shadow-md" width={300} height={400} />
   <div class="w-full gap-1">
     <Typography variant="tile-title">
