@@ -12,7 +12,13 @@ const className =
 
 {
   url ? (
-    <a class={className} data-tooltip={description} href={url} target="_blank" rel="noopener noreferrer">
+    <a
+      class:list={[className, 'hover:bg-gray-200 dark:hover:bg-gray-600']}
+      data-tooltip={description}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {icon && <Icon name={icon} color={iconColor} size={16} />}
       {name}
     </a>
