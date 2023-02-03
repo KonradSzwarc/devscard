@@ -14,10 +14,10 @@ const { title, institution, dates, description, links, image } = Astro.props;
 <div class="flex flex-col gap-3">
   <div class="flex w-full justify-between gap-2">
     <div class="flex gap-4">
-      <Thumbnail src={image} alt={`${institution} logo`} />
+      <Thumbnail src={image} alt={`${institution} logo`} size="large" />
       <div class="flex flex-col">
         <Typography variant="item-title">{title}</Typography>
-        <Typography variant="main-subtitle">{institution}</Typography>
+        <div class="mb-0.5 text-base font-semibold leading-snug text-gray-900 dark:text-gray-100">{institution}</div>
         <Timestamp dates={dates} />
       </div>
     </div>

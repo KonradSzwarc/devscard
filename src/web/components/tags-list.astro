@@ -2,11 +2,28 @@
 import type { TagsList } from '@/types/shared';
 import Tag from './tag.astro';
 
-export interface Props extends Omit<TagsList, 'title'> {}
+export interface Props extends Omit<TagsList, 'title'> {
+  title?: TagsList['title'];
+}
 
-const { tags } = Astro.props;
+const { tags, title } = Astro.props;
 ---
 
-<div class="flex flex-wrap gap-3">
-  {tags.map((tag) => <Tag {...tag} />)}
-</div>
+{
+  title ? (
+    <div class="flex flex-col gap-1.5">
+      <div class="font-medium text-gray-700 dark:text-gray-300">{title}:</div>
+      <div class="flex flex-wrap gap-3">
+        {tags.map((tag) => (
+          <Tag {...tag} />
+        ))}
+      </div>
+    </div>
+  ) : (
+    <div class="flex flex-wrap gap-3">
+      {tags.map((tag) => (
+        <Tag {...tag} />
+      ))}
+    </div>
+  )
+}

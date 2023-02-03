@@ -12,22 +12,26 @@ export interface Props extends Job {}
 const { role, company, dates, description, links, tagsList, image } = Astro.props;
 ---
 
-<div class="flex flex-col gap-2 md:gap-0">
-  <div class="flex gap-4">
-    <Thumbnail src={image} alt={`${company} logo`} />
-    <div class="flex w-full flex-row justify-between">
-      <div>
-        <Typography variant="item-title">
-          {role}
-          <span class="font-medium"> &#8212;&nbsp;{company}</span>
-        </Typography>
+<div class="flex flex-col gap-3">
+  <div class="flex w-full justify-between gap-2">
+    <div class="flex gap-4">
+      <Thumbnail src={image} alt={`${company} logo`} size="large" />
+      <div class="flex flex-col">
+        <Typography variant="item-title">{role}</Typography>
+        <div class="mb-0.5 text-base font-semibold leading-snug text-gray-900 dark:text-gray-100">{company}</div>
         <Timestamp dates={dates} />
       </div>
-      <div class="flex flex-wrap gap-2">
-        {links.map((link) => <LinkButton {...link} />)}
-      </div>
     </div>
+    {
+      links.length > 0 && (
+        <div class="flex flex-wrap gap-3 sm:flex-nowrap">
+          {links.map((link) => (
+            <LinkButton {...link} />
+          ))}
+        </div>
+      )
+    }
   </div>
-  <Description content={description} class="pt-3 mb-6" />
+  <Description content={description} class="mb-3" />
   <TagsList {...tagsList} />
 </div>
