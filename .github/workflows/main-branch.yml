@@ -80,7 +80,6 @@ jobs:
   percy:
     name: Run Percy check
     if: github.repository == 'KonradSzwarc/devscard'
-    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -111,3 +110,27 @@ jobs:
         with:
           urls: ${{ needs.deploy.outputs.deploy-url }}
           device: all
+
+  release:
+    name: Create release
+    if: github.repository == 'KonradSzwarc/devscard'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get project information
+        id: projectinfo
+        uses: gregoranders/nodejs-project-info@v0.0.19
+      - name: Get changelog entries
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v2
+        with:
+          version: ${{ steps.projectinfo.outputs.version }}
+      - name: Create a new tag and release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.changelog_reader.outputs.version }}
+          name: Release ${{ steps.changelog_reader.outputs.version }}
+          body: ${{ steps.changelog_reader.outputs.changes }}
+          allowUpdates: true
