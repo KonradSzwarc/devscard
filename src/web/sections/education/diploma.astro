@@ -17,7 +17,7 @@ const { title, institution, dates, description, links, image } = Astro.props;
       <Thumbnail src={image} alt={`${institution} logo`} size="large" />
       <div class="flex flex-col">
         <Typography variant="item-title">{title}</Typography>
-        <div class="mb-0.5 text-base font-semibold leading-snug text-gray-900 dark:text-gray-100">{institution}</div>
+        <Typography variant="item-subtitle-primary" class="mb-0.5">{institution}</Typography>
         <Timestamp dates={dates} />
       </div>
     </div>

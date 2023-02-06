@@ -18,7 +18,7 @@ const { role, company, dates, description, links, tagsList, image } = Astro.prop
       <Thumbnail src={image} alt={`${company} logo`} size="large" />
       <div class="flex flex-col">
         <Typography variant="item-title">{role}</Typography>
-        <div class="mb-0.5 text-base font-semibold leading-snug text-gray-900 dark:text-gray-100">{company}</div>
+        <Typography variant="item-subtitle-primary" class="mb-0.5">{company}</Typography>
         <Timestamp dates={dates} />
       </div>
     </div>

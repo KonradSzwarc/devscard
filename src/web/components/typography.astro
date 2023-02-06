@@ -1,15 +1,5 @@
 ---
-type TypographyVariant =
-  | 'main-title'
-  | 'main-subtitle'
-  | 'section-title'
-  | 'section-subtitle'
-  | 'item-title'
-  | 'item-title-suffix'
-  | 'item-subtitle'
-  | 'tile-title'
-  | 'tile-subtitle'
-  | 'paragraph';
+type TypographyVariant = keyof typeof variantToElement;
 
 const variantToElement = {
   'main-title': 'h1',
@@ -17,33 +7,50 @@ const variantToElement = {
   'section-title': 'h2',
   'section-subtitle': 'h3',
   'item-title': 'h3',
-  'item-title-suffix': 'span',
-  'item-subtitle': 'p',
+  'item-subtitle-primary': 'p',
+  'item-subtitle-secondary': 'p',
   'tile-title': 'h4',
   'tile-subtitle': 'p',
   paragraph: 'p',
+  label: 'span',
+  value: 'span',
+  skill: 'span',
+  tag: 'div',
+  button: 'div',
 } as const;
 
-const variantToClassName /* tw */ = {
+export const variantToClassName: Record<TypographyVariant, string> /* tw */ = {
   'main-title': 'text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-gray-100',
   'main-subtitle': 'text-base sm:text-lg font-medium text-gray-700 dark:text-gray-100',
   'section-title': 'text-3xl font-extrabold text-gray-900 dark:text-gray-100',
   'section-subtitle': 'text-lg font-extrabold text-gray-900 dark:text-gray-100',
   'item-title': 'text-xl font-extrabold text-gray-900 dark:text-gray-100',
-  'item-title-suffix': 'text-xl font-medium text-gray-700 dark:text-gray-100',
-  'item-subtitle': 'text-sm font-medium text-gray-700 dark:text-gray-100',
+  'item-subtitle-primary': 'text-base font-semibold leading-snug text-gray-900 dark:text-gray-100',
+  'item-subtitle-secondary': 'text-sm font-medium text-gray-700 dark:text-gray-100',
   'tile-title': 'text-sm font-medium text-gray-700 dark:text-gray-200',
   'tile-subtitle': 'text-sm font-normal text-gray-500 dark:text-gray-300',
   paragraph: 'text-sm leading-relaxed font-normal text-gray-500 sm:text-base sm:leading-relaxed dark:text-gray-300',
+  label: 'text-base font-medium text-gray-700 dark:text-gray-300',
+  value: 'text-base font-normal text-gray-500 dark:text-gray-400',
+  skill: 'text-sm font-medium text-gray-700 dark:text-gray-300',
+  tag: 'text-sm font-medium tracking-wide text-gray-700 dark:text-gray-100',
+  button: 'text-base font-medium text-white',
 };
 
-export interface Props extends Omit<astroHTML.JSX.HTMLAttributes, 'slot'> {
-  variant?: TypographyVariant;
-  component?: keyof JSX.IntrinsicElements;
+interface LinkProps {
+  href?: string;
+  target?: string;
+  rel?: string;
+  download?: string;
 }
 
-const { variant = 'paragraph', component, ...props } = Astro.props;
-const Element = component ?? variantToElement[variant];
+export interface Props extends Omit<astroHTML.JSX.HTMLAttributes, 'slot'>, LinkProps {
+  as?: keyof JSX.IntrinsicElements;
+  variant?: TypographyVariant;
+}
+
+const { variant = 'paragraph', as, class: className, ...props } = Astro.props;
+const Element = as ?? variantToElement[variant];
 ---
 
-<Element {...props} class:list={[variantToClassName[variant], props.class]}><slot /></Element>
+<Element {...props} class:list={[variantToClassName[variant], className]}><slot /></Element>

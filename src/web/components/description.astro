@@ -1,5 +1,6 @@
 ---
 import Description from '@/components/description.astro';
+import { variantToClassName } from './typography.astro';
 
 export interface Props {
   content: string;
@@ -7,9 +8,6 @@ export interface Props {
 }
 
 const { content, class: className } = Astro.props;
-
-const baseClass =
-  /* tw */ 'text-sm leading-relaxed font-normal text-gray-500 sm:text-base sm:leading-relaxed dark:text-gray-300';
 ---
 
-<Description content={content} classList={[baseClass, className]} />
+<Description content={content} classList={[variantToClassName.paragraph, className]} />
