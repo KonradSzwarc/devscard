@@ -5,6 +5,10 @@
 - [PDF generation](pdf-generation.md)
 - [Data transformation](data-transformation.md)
 
+## Project development
+
+- [Contributing](contributing.md)
+
 ## External links
 
 - [Example resume](https://devscard.netlify.app)

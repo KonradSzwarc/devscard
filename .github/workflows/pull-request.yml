@@ -3,8 +3,78 @@ name: Pull Request
 on:
   pull_request:
     branches: [main]
+    types: [opened, edited, synchronize]
 
 jobs:
+  lint-title:
+    name: Validate PR title
+    if: github.repository == 'KonradSzwarc/devscard'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          requireScope: false
+
+  version:
+    name: Check package.json version
+    if: github.repository == 'KonradSzwarc/devscard'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Get project information
+        id: projectinfo-current
+        uses: gregoranders/nodejs-project-info@v0.0.19
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+      - name: Get project information
+        id: projectinfo-main
+        uses: gregoranders/nodejs-project-info@v0.0.19
+      - name: Get next possible versions
+        id: semvers
+        uses: WyriHaximus/github-action-next-semvers@v1
+        with:
+          version: ${{ steps.projectinfo-main.outputs.version }}
+      - name: Assert correct version bump
+        uses: nick-fields/assert-action@v1
+        with:
+          expected: ${{ steps.projectinfo-current.outputs.version }}
+          actual: 'Possible version bumps: ${{ steps.semvers.outputs.patch }}, ${{ steps.semvers.outputs.minor }}, ${{ steps.semvers.outputs.major }}'
+          comparison: contains
+
+  changelog:
+    name: Check changelog
+    if: github.repository == 'KonradSzwarc/devscard'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - name: Get project information
+        id: projectinfo
+        uses: gregoranders/nodejs-project-info@v0.0.19
+      - name: Enforce changelog update
+        uses: dangoslen/changelog-enforcer@v3
+        with:
+          expectedLatestVersion: ${{ steps.projectinfo.outputs.version }}
+      - name: Get changelog entries
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v2
+        with:
+          version: ${{ steps.projectinfo.outputs.version }}
+      - name: Assert correct changelog version
+        uses: nick-fields/assert-action@v1
+        with:
+          expected: ${{ steps.projectinfo.outputs.version }}
+          actual: ${{ steps.changelog_reader.outputs.version }}
+
   prettier:
     name: Run Prettier check
     runs-on: ubuntu-latest
@@ -50,6 +120,7 @@ jobs:
   percy:
     name: Run Percy check
     if: github.repository == 'KonradSzwarc/devscard'
+    needs: [prettier, typescript, astro, lint-title, version, changelog]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -70,7 +141,7 @@ jobs:
 
   preview:
     name: Create deploy preview
-    needs: [prettier, typescript, astro]
+    needs: [prettier, typescript, astro, lint-title, version, changelog]
     if: github.repository == 'KonradSzwarc/devscard'
     runs-on: ubuntu-latest
     outputs:
