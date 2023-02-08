@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.0.1] - 2023-02-07
+## [0.0.1] - 2023-02-08
 
 ### Workflow
 
@@ -12,4 +12,4 @@ All notable changes to this project will be documented in this file.
 ### Docs
 
 - docs: create changelog file.
-- docs: add [contributing page](https://devscard.gitbook.io/docs/contributing).
+- docs: add [contributing page](https://devscard.gitbook.io/docs/project-development/contributing).
