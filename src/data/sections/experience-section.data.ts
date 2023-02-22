@@ -22,7 +22,7 @@ const experienceSectionData = {
     {
       role: 'Programming Manager',
       company: 'SUCRE ARIAS & REYES',
-      image: import('@/assets/logos/SarLogo.jpg'),
+      image: import('@/assets/logos/SarLogo.png'),
       dates: [new Date('2022-08'), null],
       description: `
         - Serve in a project lead role on selected multiple projects..
@@ -40,7 +40,7 @@ const experienceSectionData = {
     {
       role: 'Senior Full Stack Developer',
       company: 'SUCRE ARIAS & REYES',
-      image: import('@/assets/logos/SarLogo.jpg'),
+      image: import('@/assets/logos/SarLogo.png'),
       dates: [new Date('2018-03'), new Date('2022-08')],
       description: `
       - Web applications development.
