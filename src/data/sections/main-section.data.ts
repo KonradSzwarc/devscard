@@ -9,31 +9,32 @@ const mainSectionData = {
     slug: 'profile',
     visible: true,
   },
-  image: import('@/assets/my-image.jpeg'),
-  fullName: 'Mark Freeman',
-  role: 'Senior React Developer',
+  image: import('@/assets/my-image.jpg'),
+  fullName: 'Edwin Peñalba',
+  role: 'Senior .NET Developer',
   details: [
-    { label: 'Phone', value: '+48 604 343 212' },
-    { label: 'Email', value: 'mark.freeman.dev@gmail.com' },
-    { label: 'From', value: 'Warsaw, Poland' },
-    { label: 'Salary range', value: '18 000 - 25 000 PLN' },
+    { label: 'Phone', value: '+507 61090560' },
+    { label: 'Email', value: 'epenalbadev@hotmail.com' },
+    { label: 'From', value: 'Panamá, Panamá' },
+    { label: 'Salary range', value: '40 000 - 50 000 $' },
   ],
   pdfDetails: [
-    { label: 'Phone', value: '+48 604 343 212' },
-    { label: 'Email', value: 'mark.freeman.dev@gmail.com' },
-    { label: 'LinkedIn', value: '/in/mark-freeman', url: 'https://linkedin.com' },
-    { label: 'GitHub', value: '/mark-freeman', url: 'https://github.com' },
-    { label: 'Website', value: 'mark-freeman-personal-website.com', url: '/', fullRow: true },
+    { label: 'Phone', value: '+507 61090560' },
+    { label: 'Email', value: 'epenalbadev@hotmail.com' },
+    { label: 'LinkedIn', value: '/in/Edwin_Penalba', url: 'https://linkedin.com/in/edwinpenalba' },
+    { label: 'GitHub', value: '/Edwin_Penalba', url: 'https://github.com/EpenalbaDev' },
+    { label: 'Website', value: 'Edwin_Penalba-personal-website.com', url: '/', fullRow: true },
   ],
   description:
-    'Lorem ipsum dolor sit amet, consectetur **adipiscing elit**. In sodales ac dui at *vestibulum*. In condimentum metus id dui tincidunt, in blandit mi [vehicula](/). Nulla lacinia, erat sit amet elementum vulputate, lectus mauris volutpat mi, vitae accumsan metus elit ut nunc. Vestibulum lacinia enim eget eros fermentum scelerisque. Proin augue leo, posuere ut imperdiet vitae, fermentum eu ipsum. Sed sed neque sagittis, posuere urna nec, commodo leo. Pellentesque posuere justo vitae massa volutpat maximus.',
-  tags: [{ name: 'Open for freelance' }, { name: 'Available for mentoring' }, { name: 'Working on side project' }],
+    'I am a full stack developer with experience creating end-to-end web applications, from planning and design to implementation and maintenance. I am passionate about creating technological solutions to solve complex problems and improve the user experience. As a full stack developer, I have worked with a variety of technologies, including programming languages like **JavaScript**, **C#**, **ajax**, **.NET** and popular frameworks such as EntityFramework and Boostrap. Additionally, I have experience with both relational and non-relational databases, as well as implementing APIs and web services.',
+     
+  tags: [{ name: 'Open for freelance' }, { name: 'Available for Project' }, { name: 'Working on side project' }],
   action: {
     label: 'Download CV',
     url: '/cv.pdf',
-    downloadedFileName: 'CV-Mark_Freeman.pdf',
+    downloadedFileName: 'CV-Edwin_Penalba.pdf',
   },
-  links: [facebook({ url: '#' }), github({ url: '#' }), linkedin({ url: '#' }), twitter({ url: '#' })],
+  links: [facebook({ url: '#' }), github({ url: 'https://github.com/EpenalbaDev' }), linkedin({ url: 'https://linkedin.com/in/edwinpenalba' }), twitter({ url: '#' })],
 } as const satisfies ReadonlyDeep<MainSection>;
 
 export default mainSectionData;

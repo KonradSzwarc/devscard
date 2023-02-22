@@ -2,18 +2,20 @@ import type { PortfolioSection } from '@/types/sections/portfolio-section.types'
 import type { ReadonlyDeep } from 'type-fest';
 import { demo, github, mockups, website } from '../helpers/links';
 import {
+  Api,
   chakraUi,
   eslint,
   firebase,
+  JavaScript,
   jest,
   nestJs,
-  nextJs,
+  Net,
   nx,
   pnpm,
   postgreSql,
   prettier,
   react,
-  sass,
+  SQL,
   tailwindCss,
   typescript,
 } from '../helpers/skills';
@@ -31,33 +33,33 @@ const portfolioSectionData = {
   },
   projects: [
     {
-      name: 'Golden Bulls',
-      image: import('@/assets/portfolio/project-1.jpeg'),
+      name: 'SAR Documents',
+      image: import('@/assets/portfolio/sarlogo.png'),
       dates: [new Date('2020-03'), null],
       details: [
         { label: 'Team size', value: '1 person' },
-        { label: 'My role', value: ['Front-end Developer', 'Designer'] },
-        { label: 'Company', value: 'None' },
-        { label: 'Category', value: ['Web app', 'Open source'] },
+        { label: 'My role', value: ['Full Stack Developer', ' '] },
+        { label: 'Company', value: 'Sucre Arias & Reyes' },
+        { label: 'Category', value: ['Web app'] },
       ],
       pdfDetails: [
-        { label: 'Demo', value: 'https://golden-bulls-d73jd7.netlify.app', url: '#' },
-        { label: 'Repository', value: 'https://github.com/mark-freeman/golden-bulls', url: '#' },
+        { label: 'Demo', value: 'https://www.sardocuments.com/', url: 'https://www.sardocuments.com/' },
+        { label: 'Repository', value: 'None', url: '#' },
       ],
       screenshots: [
-        { src: import('@/assets/portfolio/project-1-screenshot-1.jpg'), alt: 'First screenshot' },
-        { src: import('@/assets/portfolio/project-1-screenshot-2.jpg'), alt: 'Second screenshot' },
-        { src: import('@/assets/portfolio/project-1-screenshot-3.jpg'), alt: 'Third screenshot' },
+        { src: import('@/assets/portfolio/sarscreen-1.png'), alt: 'First screenshot' },
+        { src: import('@/assets/portfolio/sarscreen-2.png'), alt: 'Second screenshot' },
+        { src: import('@/assets/portfolio/sarcreen-3.png'), alt: 'Third screenshot' },
       ],
       description:
-        'In tristique vulputate augue vel egestas. Quisque ac imperdiet tortor, at lacinia ex. Duis vel ex hendrerit, commodo odio sed, aliquam enim. Ut arcu nulla, tincidunt eget arcu eget, molestie vulputate nisi. Nunc malesuada leo et est iaculis facilisis.',
+        'It is a platform to automate your mortgage contracts, leasing, trusts, real estate contracts, sureties, among others.',
       tagsList: {
         title: 'Technologies',
-        tags: [nextJs(), sass(), pnpm(), eslint(), prettier()],
+        tags: [Net(), JavaScript(), SQL(), Api(), typescript()],
       },
       links: [mockups({ url: '#' }), demo({ url: '#' })],
     },
-    {
+    /*{
       name: 'TruQuest',
       image: import('@/assets/portfolio/project-2.jpeg'),
       dates: [new Date('2019-06'), new Date('2020-02')],
@@ -123,7 +125,8 @@ const portfolioSectionData = {
       },
       links: [mockups({ url: '#' }), github({ url: '#' })],
     },
-  ],
+   */
+  ], 
 } as const satisfies ReadonlyDeep<PortfolioSection>;
 
 export default portfolioSectionData;

@@ -51,9 +51,11 @@ export type Sections = {
    * Your education degrees and certifications.
    */
   education: EducationSection;
-
+  
   /**
    * [WEB] Recommendations from your previous employers and people you worked with.
+   * import type { TestimonialsSection } from './sections/testimonials-section.types';
+   *   testimonials: TestimonialsSection;
    */
   testimonials: TestimonialsSection;
 

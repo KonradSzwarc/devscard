@@ -123,6 +123,35 @@ export const react = createSkillFactory({
   url: 'https://reactjs.org/',
 });
 
+export const Net = createSkillFactory({
+  name: 'C#',
+  icon: 'simple-icons:csharp',
+  iconColor: '#61DAFB',
+  url: 'https://learn.microsoft.com/es-es/dotnet/core/tutorials/',
+});
+
+export const JavaScript = createSkillFactory({
+  name: 'JavaScript',
+  icon: 'simple-icons:javascript',
+  iconColor: '#FFCA28',
+  url: 'https://es.javascript.info/',
+});
+
+export const Api = createSkillFactory({
+  name: 'API REST',
+  icon: 'simple-icons:csharp',
+  iconColor: '#319795',
+  url: 'https://dotnet.microsoft.com/en-us/apps/aspnet/apis',
+});
+
+export const SQL = createSkillFactory({
+  name: 'SQL Server',
+  icon: 'simple-icons:microsoftsqlserver',
+  iconColor: '#E0234E',
+  url: 'https://www.microsoft.com/es-es/sql-server/sql-server-downloads',
+});
+
+
 export const reactQuery = createSkillFactory({
   name: 'React Query',
   icon: 'simple-icons:reactquery',
@@ -159,8 +188,49 @@ export const typescript = createSkillFactory({
 });
 
 export const vue = createSkillFactory({
-  name: 'Vue.js',
-  icon: 'simple-icons:vuedotjs',
+  name: 'vue',
+  icon: 'simple-icons:css3',
   iconColor: '#4FC08D',
   url: 'https://vuejs.org/',
+});
+
+export const Css = createSkillFactory({
+  name: 'Css',
+  icon: 'simple-icons:css3',
+  iconColor: '#61DAFB',
+  url: 'https://www.tutorialrepublic.com/css-tutorial/',
+});
+
+export const html5 = createSkillFactory({
+  name: 'html5',
+  icon: 'simple-icons:html5',
+  iconColor: '#FF5D01',
+  url: 'https://lenguajehtml.com/html/',
+});
+
+export const boostrap = createSkillFactory({
+  name: 'Boostrap',
+  icon: 'simple-icons:bootstrap',
+  iconColor: '#4B32C3',
+  url: 'https://getbootstrap.com/',
+});
+
+export const Angular = createSkillFactory({
+  name: 'Angular',
+  icon: 'simple-icons:angular',
+  iconColor: '#E0234E',
+  url: 'https://angular.io/',
+});
+
+export const Python = createSkillFactory({
+  name: 'Python',
+  icon: 'simple-icons:python',
+  iconColor: '#4FC08D',
+  url: 'https://www.python.org/',
+});
+export const Azure = createSkillFactory({
+  name: 'Azure',
+  icon: 'simple-icons:azuredevops',
+  iconColor: '#61DAFB',
+  url: 'https://azure.microsoft.com/es-es',
 });

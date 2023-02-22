@@ -37,62 +37,28 @@ const favoritesSectionData = {
       },
     ],
   },
-  people: {
-    title: 'People I learn from',
-    data: [
-      {
-        image: import('@/assets/favorites/people/person-1.jpg'),
-        name: 'Kent C. Dodds',
-        url: 'https://kentcdodds.com/',
-      },
-      {
-        image: import('@/assets/favorites/people/person-2.jpeg'),
-        name: 'Kent Beck',
-        url: 'https://www.kentbeck.com/',
-      },
-      {
-        image: import('@/assets/favorites/people/person-3.jpeg'),
-        name: 'Eric Evans',
-        url: 'https://www.domainlanguage.com/',
-      },
-      {
-        image: import('@/assets/favorites/people/person-4.jpeg'),
-        name: 'Martin Fowler',
-        url: 'https://martinfowler.com/',
-      },
-      {
-        image: import('@/assets/favorites/people/person-5.jpg'),
-        name: 'Robert C. Martin',
-        url: 'http://cleancoder.com/',
-      },
-      {
-        image: import('@/assets/favorites/people/person-6.jpeg'),
-        name: 'Adam Dymitruk',
-        url: 'https://eventmodeling.org/',
-      },
-    ],
-  },
+ 
   videos: {
     title: 'Videos I watched',
     data: [
       {
-        image: import('@/assets/favorites/videos/video-1.jpeg'),
-        title: 'Building Resilient Frontend Architecture • Monica Lent • GOTO 2019',
-        url: 'https://youtu.be/TqfbAXCCVwE',
+        image: import('@/assets/favorites/videos/progr1.png'),
+        title: 'Why Programming Is Important?',
+        url: 'https://www.youtube.com/watch?v=Dv7gLpW91DM&ab_channel=BugraKilic',
       },
       {
-        image: import('@/assets/favorites/videos/video-2.jpeg'),
-        title: 'Scaling Yourself • Scott Hanselman • GOTO 2012',
-        url: 'https://youtu.be/FS1mnISoG7U',
+        image: import('@/assets/favorites/videos/hctor1.png'),
+        title: 'Modificando los Operadores de C# .NET • hdeleon.net',
+        url: 'https://www.youtube.com/watch?v=I9Sg0FcaQ4Y&ab_channel=hdeleon.net',
       },
       {
-        image: import('@/assets/favorites/videos/video-3.jpeg'),
-        title: "Why Isn't Functional Programming the Norm? - Richard Feldman",
-        url: 'https://youtu.be/QyJZzq0v7Z4',
+        image: import('@/assets/favorites/videos/hecc1.png'),
+        title: "Arquitectura Limpia - Gavilanch2",
+        url: 'https://www.youtube.com/watch?v=zEXf37fSUIs&ab_channel=gavilanch2',
       },
     ],
   },
-  medias: {
+ /* medias: {
     title: 'Media I follow',
     data: [
       {
@@ -132,7 +98,7 @@ const favoritesSectionData = {
         url: 'https://cult.honeypot.io/',
       },
     ],
-  },
+  },*/
 } as const satisfies ReadonlyDeep<FavoritesSection>;
 
 export default favoritesSectionData;

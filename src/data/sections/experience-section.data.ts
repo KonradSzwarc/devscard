@@ -2,17 +2,13 @@ import type { ExperienceSection } from '@/types/sections/experience-section.type
 import type { ReadonlyDeep } from 'type-fest';
 import { facebook, github, instagram, linkedin, twitter, website } from '../helpers/links';
 import {
-  chakraUi,
-  eslint,
-  firebase,
-  nextJs,
-  nx,
-  pnpm,
-  react,
-  reactQuery,
-  tailwindCss,
+
+  SQL,
+  JavaScript,
   typescript,
-  vue,
+  Net,
+  Api,
+  Azure,
 } from '../helpers/skills';
 
 const experienceSectionData = {
@@ -24,57 +20,59 @@ const experienceSectionData = {
   },
   jobs: [
     {
-      role: 'Senior front-end developer',
-      company: 'Google',
-      image: import('@/assets/logos/google-logo.jpg'),
-      dates: [new Date('2020-02'), null],
+      role: 'Programming Manager',
+      company: 'SUCRE ARIAS & REYES',
+      image: import('@/assets/logos/SarLogo.jpg'),
+      dates: [new Date('2022-08'), null],
       description: `
-        - In tristique vulputate augue vel egestas.
-        - Quisque ac imperdiet tortor, at lacinia ex.
-        - Duis vel ex hendrerit, commodo odio sed, aliquam enim.
-        - Ut arcu nulla, tincidunt eget arcu eget, molestie vulputate nisi.
-        - Nunc malesuada leo et est iaculis facilisis.
-        - Fusce eu urna ut magna malesuada fringilla.
+        - Serve in a project lead role on selected multiple projects..
+        - Reviews and ensures adherence to departmental working practice documents and SOPs and contributes to their development.
+        - Monitors and ensures adherence to contractual obligations or limits with our clients.
+        - Works directly with project team leaders and client representatives to assess and develop project goals and timelines.
+        - Provides general infrastructure support to the department. Examples include giving presentations at department meetings, contributing to documents or policies, contributing to and/or leading process improvement initiatives, and assisting with departmental web page development.
       `,
       tagsList: {
         title: 'Technologies',
-        tags: [react(), nextJs(), typescript(), nx(), firebase()],
+        tags: [Net(), JavaScript(), typescript(), Api(), Azure(), SQL()],
       },
       links: [facebook({ url: '#' }), linkedin({ url: '#' })],
     },
     {
-      role: 'React.js developer',
-      company: 'Facebook',
-      image: import('@/assets/logos/facebook-logo.png'),
-      dates: [new Date('2019-04'), new Date('2020-02')],
+      role: 'Senior Full Stack Developer',
+      company: 'SUCRE ARIAS & REYES',
+      image: import('@/assets/logos/SarLogo.jpg'),
+      dates: [new Date('2018-03'), new Date('2022-08')],
       description: `
-        - Aenean eget ultricies felis. Pellentesque dictum massa ut tellus eleifend, sed posuere massa mattis.
-        - Ut posuere massa lacus, eleifend molestie tortor auctor vel.
-        - Sed sed sollicitudin eros, id ultricies mi. Aliquam sodales elit vel ante tempor, non vehicula nibh facilisis.
-        - Cras feugiat ultricies maximus. Aliquam tristique ex odio, ac semper urna accumsan a.
+      - Web applications development.
+      - Development Web pages.
+      - Creation of console applications.
+      - Creation of Reporting Service.
+      - Maintenance of the Aderant application.
+      - Creation of HotDocs templates.
       `,
       tagsList: {
         title: 'Technologies',
-        tags: [react(), reactQuery(), chakraUi(), eslint()],
+        tags: [Net(), JavaScript(), typescript(), Api(), SQL()],
       },
       links: [website({ url: '#' }), instagram({ url: '#' })],
     },
     {
-      role: 'Junior front-end developer',
-      company: 'GitLab',
-      image: import('@/assets/logos/gitlab-logo.png'),
+      role: 'Junior Full Stack Developer',
+      company: 'Grupo Primavera Holding',
+      image: import('@/assets/logos/Gprimavera.png'),
       dates: [new Date('2016-09'), new Date('2019-04')],
       description: `
-        Nulla volutpat justo ante, rhoncus posuere massa egestas in:
+        These are some of the tasks performed:
 
-        - Quisque pellentesque, dolor nec sollicitudin iaculis, sem velit consequat ligula, eget tempus ligula leo et est.
-        - Maecenas ut elit sit amet nibh maximus condimentum in nec lorem. Pellentesque tincidunt odio vel leo suscipit, in interdum mi gravida.
+        - Web applications development.
+        - Creation of console applications.
+        - Creation of Data base.
 
-        Donec non vulputate augue 🤓
+        Improvements in work processes by implementing technological tools. 🤓
       `,
       tagsList: {
         title: 'Technologies',
-        tags: [vue(), tailwindCss(), pnpm()],
+        tags: [Net(), JavaScript(), SQL()],
       },
       links: [twitter({ url: '#' }), github({ url: '#' })],
     },
