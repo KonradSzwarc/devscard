@@ -68,7 +68,7 @@ const experienceSectionData = {
         - Creation of console applications.
         - Creation of Data base.
 
-        Improvements in work processes by implementing technological tools. 🤓
+        Improvements in work processes by implementing technological tools.  🤓
       `,
       tagsList: {
         title: 'Technologies',
