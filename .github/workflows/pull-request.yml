@@ -4,6 +4,9 @@ on:
   pull_request:
     branches: [main]
     types: [opened, edited, synchronize]
+  push:
+    branches: [renovate/**]
+    paths: ['CHANGELOG.md']
 
 jobs:
   lint-title:
