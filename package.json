@@ -30,13 +30,13 @@
     "nanoid": "4.0.1"
   },
   "devDependencies": {
-    "@astrojs/image": "0.15.0",
+    "@astrojs/image": "0.15.1",
     "@astrojs/react": "2.0.2",
     "@astrojs/tailwind": "3.0.1",
     "@percy/cli": "1.20.0",
     "@types/marked": "4.0.8",
-    "astro": "2.0.14",
-    "astro-compress": "1.1.33",
+    "astro": "2.0.15",
+    "astro-compress": "1.1.35",
     "concurrently": "7.6.0",
     "date-fns": "2.29.3",
     "favicons": "7.1.0",
@@ -45,7 +45,7 @@
     "locales-ts": "1.0.0",
     "marked": "4.2.12",
     "move-file-cli": "3.0.0",
-    "photoswipe": "5.3.5",
+    "photoswipe": "5.3.6",
     "postcss": "8.4.21",
     "prettier": "2.8.4",
     "prettier-plugin-astro": "0.8.0",
@@ -55,7 +55,7 @@
     "rollup-plugin-visualizer": "5.9.0",
     "tailwindcss": "3.2.7",
     "ts-node": "10.9.1",
-    "type-fest": "3.6.0",
+    "type-fest": "3.6.1",
     "typescript": "4.9.5"
   },
   "repository": {
