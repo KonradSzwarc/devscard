@@ -13,6 +13,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       - name: Get project information
         id: projectinfo
         uses: gregoranders/nodejs-project-info@v0.0.19
