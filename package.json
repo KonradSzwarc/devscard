@@ -25,7 +25,7 @@
     "check": "concurrently npm:*:check"
   },
   "dependencies": {
-    "@floating-ui/dom": "1.2.1",
+    "@floating-ui/dom": "1.2.3",
     "iconify-icon": "1.0.7",
     "nanoid": "4.0.1"
   },
@@ -33,9 +33,9 @@
     "@astrojs/image": "0.15.1",
     "@astrojs/react": "2.0.2",
     "@astrojs/tailwind": "3.0.1",
-    "@percy/cli": "1.20.0",
+    "@percy/cli": "1.20.2",
     "@types/marked": "4.0.8",
-    "astro": "2.0.15",
+    "astro": "2.0.17",
     "astro-compress": "1.1.35",
     "concurrently": "7.6.0",
     "date-fns": "2.29.3",
@@ -49,7 +49,7 @@
     "postcss": "8.4.21",
     "prettier": "2.8.4",
     "prettier-plugin-astro": "0.8.0",
-    "prettier-plugin-tailwindcss": "0.2.3",
+    "prettier-plugin-tailwindcss": "0.2.4",
     "puppeteer": "19.7.2",
     "puppeteer-report": "3.1.0",
     "rollup-plugin-visualizer": "5.9.0",
