@@ -10,7 +10,7 @@ const { image, name, url } = Astro.props;
 
 <a href={url} target="_blank" class="flex w-full flex-col gap-3 transition duration-300 hover:translate-y-2">
   <Photo
-    class="rounded-lg shadow-md transition duration-300 aspect-square object-cover"
+    class="aspect-square rounded-lg object-cover shadow-md transition duration-300"
     src={image}
     alt={name}
     width={200}
