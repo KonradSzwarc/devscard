@@ -9,7 +9,7 @@ const { title, url, image } = Astro.props;
 ---
 
 <a href={url} target="_blank" class="flex w-full flex-col gap-3 transition duration-300 hover:translate-y-2">
-  <Photo class="rounded-lg shadow-md aspect-video object-cover" src={image} alt={title} width={480} height={270} />
+  <Photo class="aspect-video rounded-lg object-cover shadow-md" src={image} alt={title} width={480} height={270} />
   <Typography variant="tile-title">
     {title}
   </Typography>
