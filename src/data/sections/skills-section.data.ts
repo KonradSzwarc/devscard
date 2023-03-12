@@ -44,7 +44,7 @@ const skillsSectionData = {
           description: 'Nulla interdum pellentesque ultricies. Ut id eros commodo, ultrices ligula eu, elementum ante.',
         }),
         chakraUi({ level: 5 }),
-        tailwindCss({ level: 2 }),
+        tailwindCss({ level: 3 }),
         prettier({ level: 5 }),
         eslint({
           level: 4,
@@ -52,7 +52,7 @@ const skillsSectionData = {
             'Nulla tempor turpis at vehicula pharetra. Vestibulum tellus tortor, commodo et suscipit id, lobortis id nunc.',
         }),
         nestJs({
-          level: 2,
+          level: 3,
           description:
             'Praesent feugiat ultricies iaculis. In posuere vehicula odio, sed consequat velit porta viverra.',
         }),
