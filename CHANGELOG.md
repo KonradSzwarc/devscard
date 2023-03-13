@@ -2,11 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.0.7] - 2023-03-13
+## [0.1.0] - 2023-03-13
 
-### Dependencies
+### Features
 
-- chore(deps): update dependencies ([details](https://api.github.com/repos/KonradSzwarc/devscard/pulls/211))
+- feat: improved target attribute in labelled values ([details](https://github.com/KonradSzwarc/devscard/pull/210))
 
 ## [0.0.6] - 2023-03-06
 

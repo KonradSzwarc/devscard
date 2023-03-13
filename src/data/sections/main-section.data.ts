@@ -13,13 +13,13 @@ const mainSectionData = {
   fullName: 'Mark Freeman',
   role: 'Senior React Developer',
   details: [
-    { label: 'Phone', value: '+48 604 343 212' },
-    { label: 'Email', value: 'mark.freeman.dev@gmail.com' },
+    { label: 'Phone', value: '605 475 6961', url: 'tel:605 475 6961' },
+    { label: 'Email', value: 'mark.freeman.dev@gmail.com', url: 'mailto:mark.freeman.dev@gmail.com' },
     { label: 'From', value: 'Warsaw, Poland' },
     { label: 'Salary range', value: '18 000 - 25 000 PLN' },
   ],
   pdfDetails: [
-    { label: 'Phone', value: '+48 604 343 212' },
+    { label: 'Phone', value: '605 475 6961' },
     { label: 'Email', value: 'mark.freeman.dev@gmail.com' },
     { label: 'LinkedIn', value: '/in/mark-freeman', url: 'https://linkedin.com' },
     { label: 'GitHub', value: '/mark-freeman', url: 'https://github.com' },

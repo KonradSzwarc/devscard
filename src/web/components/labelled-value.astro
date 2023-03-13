@@ -7,13 +7,16 @@ export interface Props extends LabelledValue {}
 const { label, value, url } = Astro.props;
 
 const parsedValue = Array.isArray(value) ? value.join(', ') : value;
+
+const isHttpLink = url?.startsWith('http');
+const target = isHttpLink ? '_blank' : '_self';
 ---
 
 <div>
   <Typography variant="label">{label}:</Typography>
   {
     url ? (
-      <Typography as="a" href={url} target="_blank" class="underline">
+      <Typography as="a" href={url} target={target} class="underline">
         {parsedValue}
       </Typography>
     ) : (

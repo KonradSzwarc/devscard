@@ -66,7 +66,7 @@ export interface LabelledValue {
   value: string | string[];
 
   /**
-   * URL that will be opened in a new tab, when the value is clicked.
+   * URL that will be opened, when the value is clicked.
    */
   url?: string;
 
