@@ -13,8 +13,6 @@
     "noEmit": true,
     // Enable strict type checking.
     "strict": true,
-    // Error when a value import is only used as a type.
-    "importsNotUsedAsValues": "error",
     // Report errors for fallthrough cases in switch statements
     "noFallthroughCasesInSwitch": true,
     // Force functions designed to override their parent class to be specified as `override`.
