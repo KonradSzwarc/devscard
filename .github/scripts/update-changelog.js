@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = (version, prUrl) => {
+module.exports = (version, prNumber) => {
   const changelog = fs.readFileSync('CHANGELOG.md', 'utf8');
   const changelogLines = changelog.split('\n');
   const lastChangeIndex = changelogLines.findIndex((line) => line.startsWith('## ['));
@@ -10,7 +10,7 @@ module.exports = (version, prUrl) => {
 
 ### Dependencies
 
-- chore(deps): update dependencies ([details](${prUrl}))
+- chore(deps): update dependencies ([details](https://github.com/KonradSzwarc/devscard/pull/${prNumber}))
 `.trim();
 
   changelogLines.splice(lastChangeIndex, 0, textToAppend + '\n');

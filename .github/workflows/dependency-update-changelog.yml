@@ -33,8 +33,8 @@ jobs:
           script: |
             const script = require('.github/scripts/update-changelog.js');
             const version = '${{ steps.semvers.outputs.patch }}';
-            const prUrl = '${{ github.event.pull_request.url }}';
+            const prNumber = '${{ github.event.pull_request.number }}';
 
-            script(version, prUrl);
+            script(version, prNumber);
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
