@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.3] - 2023-03-27
+
+### Dependencies
+
+- chore(deps): update dependencies ([details](https://api.github.com/repos/KonradSzwarc/devscard/pulls/214))
+
 ## [0.1.2] - 2023-03-24
 
 ### Dependencies
