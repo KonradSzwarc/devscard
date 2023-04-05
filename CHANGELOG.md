@@ -2,23 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.4] - 2023-04-05
+
+### Workflow
+
+- ci: use pull request URL instead of its API endpoint when generating changelog for dependency updates.
+
 ## [0.1.3] - 2023-03-27
 
 ### Dependencies
 
-- chore(deps): update dependencies ([details](https://api.github.com/repos/KonradSzwarc/devscard/pulls/214))
+- chore(deps): update dependencies ([details](https://github.com/KonradSzwarc/devscard/pull/214))
 
 ## [0.1.2] - 2023-03-24
 
 ### Dependencies
 
-- chore(deps): update dependencies ([details](https://api.github.com/repos/KonradSzwarc/devscard/pulls/212))
+- chore(deps): update dependencies ([details](https://github.com/KonradSzwarc/devscard/pull/212))
 
 ## [0.1.1] - 2023-03-20
 
 ### Dependencies
 
-- chore(deps): update dependencies ([details](https://api.github.com/repos/KonradSzwarc/devscard/pulls/213))
+- chore(deps): update dependencies ([details](https://github.com/KonradSzwarc/devscard/pull/213))
 
 ## [0.1.0] - 2023-03-13
 
@@ -30,13 +36,13 @@ All notable changes to this project will be documented in this file.
 
 ### Dependencies
 
-- chore(deps): update dependencies ([details](https://api.github.com/repos/KonradSzwarc/devscard/pulls/209))
+- chore(deps): update dependencies ([details](https://github.com/KonradSzwarc/devscard/pull/209))
 
 ## [0.0.5] - 2023-02-27
 
 ### Dependencies
 
-- chore(deps): update dependencies ([details](https://api.github.com/repos/KonradSzwarc/devscard/pulls/207))
+- chore(deps): update dependencies ([details](https://github.com/KonradSzwarc/devscard/pull/207))
 
 ## [0.0.4] - 2023-02-22
 
