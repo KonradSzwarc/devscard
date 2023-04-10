@@ -37,7 +37,7 @@
     "@types/marked": "4.0.8",
     "astro": "2.1.7",
     "astro-compress": "1.1.35",
-    "concurrently": "7.6.0",
+    "concurrently": "8.0.1",
     "date-fns": "2.29.3",
     "favicons": "7.1.1",
     "iconify-icon-names": "1.1.0",
