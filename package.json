@@ -41,7 +41,7 @@
     "date-fns": "2.29.3",
     "favicons": "7.1.1",
     "iconify-icon-names": "1.1.0",
-    "immer": "9.0.21",
+    "immer": "10.0.1",
     "locales-ts": "1.0.0",
     "marked": "4.3.0",
     "move-file-cli": "3.0.0",
