@@ -1,5 +1,5 @@
 import type { Data } from '@/types/data';
-import produce from 'immer';
+import { produce } from 'immer';
 import type { PreciseData } from './get-cv-data';
 import type { DataTransformer } from './transformers';
 
