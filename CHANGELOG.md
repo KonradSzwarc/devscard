@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.6] - 2023-05-08
+
+### Dependencies
+
+- chore(deps): update dependencies ([details](https://github.com/KonradSzwarc/devscard/pull/220))
+
 ## [0.1.5] - 2023-05-01
 
 ### Dependencies
