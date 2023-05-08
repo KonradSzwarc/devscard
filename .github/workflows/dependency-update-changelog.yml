@@ -24,7 +24,7 @@ jobs:
         with:
           version: ${{ steps.projectinfo.outputs.version }}
       - name: Update package.json version
-        uses: reedyuk/npm-version@1.1.1
+        uses: reedyuk/npm-version@1.2.1
         with:
           version: ${{ steps.semvers.outputs.patch }}
       - name: Update CHANGELOG.md
