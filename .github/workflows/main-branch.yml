@@ -121,7 +121,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Get project information
         id: projectinfo
-        uses: gregoranders/nodejs-project-info@v0.0.19
+        uses: gregoranders/nodejs-project-info@v0.0.20
       - name: Get changelog entries
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2
