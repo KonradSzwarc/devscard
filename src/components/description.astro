@@ -24,10 +24,17 @@ const stripIndent = (str: string) => {
   return str.replace(regex, '');
 };
 
+const parseMarkdown = (str: string) =>
+  marked.parse(stripIndent(str), {
+    breaks: true,
+    headerIds: false,
+    mangle: false,
+  });
+
 const { content, classList } = Astro.props;
 ---
 
-<div set:html={marked.parse(stripIndent(content), { breaks: true })} class:list={['description', ...classList]} />
+<div set:html={parseMarkdown(content)} class:list={['description', ...classList]} />
 
 <style is:global>
   .description ul {
