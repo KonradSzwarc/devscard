@@ -28,14 +28,14 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Get project information
         id: projectinfo-current
-        uses: gregoranders/nodejs-project-info@v0.0.19
+        uses: gregoranders/nodejs-project-info@v0.0.20
       - name: Checkout main branch
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.base.sha }}
       - name: Get project information
         id: projectinfo-main
-        uses: gregoranders/nodejs-project-info@v0.0.19
+        uses: gregoranders/nodejs-project-info@v0.0.20
       - name: Get next possible versions
         id: semvers
         uses: WyriHaximus/github-action-next-semvers@v1
@@ -59,7 +59,7 @@ jobs:
           fetch-depth: 0
       - name: Get project information
         id: projectinfo
-        uses: gregoranders/nodejs-project-info@v0.0.19
+        uses: gregoranders/nodejs-project-info@v0.0.20
       - name: Enforce changelog update
         uses: dangoslen/changelog-enforcer@v3
         with:
