@@ -1,7 +1,7 @@
 {
   "name": "devscard",
   "description": "Template for creating a comprehensive virtual CV for developers.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "engines": {
     "node": ">=18",
@@ -36,7 +36,7 @@
     "@percy/cli": "1.26.2",
     "@types/marked": "5.0.0",
     "astro": "2.8.0",
-    "astro-compress": "1.1.49",
+    "astro-compress": "2.0.0",
     "concurrently": "8.2.0",
     "date-fns": "2.30.0",
     "favicons": "7.1.3",
