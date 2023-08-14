@@ -1,7 +1,7 @@
 {
   "name": "devscard",
   "description": "Template for creating a comprehensive virtual CV for developers.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "engines": {
     "node": ">=18",
@@ -43,7 +43,7 @@
     "iconify-icon-names": "1.1.0",
     "immer": "10.0.2",
     "locales-ts": "1.0.0",
-    "marked": "5.1.1",
+    "marked": "7.0.2",
     "move-file-cli": "3.0.0",
     "photoswipe": "5.3.8",
     "postcss": "8.4.25",
