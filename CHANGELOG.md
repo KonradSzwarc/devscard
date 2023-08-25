@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.2] - 2023-07-10
+
+### Breaking
+
+- Bump astro-compress version to prevent failing install
+
 ## [0.2.1] - 2023-07-10
 
 ### Dependencies
