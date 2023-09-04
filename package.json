@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@astrojs/image": "0.17.2",
-    "@astrojs/react": "2.2.1",
+    "@astrojs/react": "3.0.0",
     "@astrojs/tailwind": "4.0.0",
     "@percy/cli": "1.26.2",
     "@types/marked": "5.0.0",
