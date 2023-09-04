@@ -1,7 +1,7 @@
 {
   "name": "devscard",
   "description": "Template for creating a comprehensive virtual CV for developers.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "engines": {
     "node": ">=18",
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@astrojs/image": "0.17.2",
     "@astrojs/react": "2.2.1",
-    "@astrojs/tailwind": "4.0.0",
+    "@astrojs/tailwind": "5.0.0",
     "@percy/cli": "1.26.2",
     "@types/marked": "5.0.0",
     "astro": "2.8.0",
