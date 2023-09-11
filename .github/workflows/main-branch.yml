@@ -9,7 +9,7 @@ jobs:
     name: Run Prettier check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -23,7 +23,7 @@ jobs:
     name: Run TypeScript check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -37,7 +37,7 @@ jobs:
     name: Run Astro check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -55,7 +55,7 @@ jobs:
     outputs:
       deploy-url: ${{ steps.netlify.outputs.deploy-url }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -82,7 +82,7 @@ jobs:
     if: github.repository == 'KonradSzwarc/devscard'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -104,7 +104,7 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Lighthouse check
         uses: foo-software/lighthouse-check-action@master
         with:
@@ -118,7 +118,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Get project information
         id: projectinfo
         uses: gregoranders/nodejs-project-info@v0.0.20
