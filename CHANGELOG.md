@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2023-10-11
+
+### Workflow
+
+- cd: Add PDF generation as `postinstall`
+
+### Dependencies
+
+- Remove `puppeteer`, and add `puppeteer-core` + `@sparticuz/chromium` for PDF generation
+
 ## [0.3.0] - 2023-08-25
 
 ### Breaking
