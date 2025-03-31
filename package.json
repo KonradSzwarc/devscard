@@ -31,11 +31,11 @@
   },
   "devDependencies": {
     "@astrojs/image": "0.17.2",
-    "@astrojs/react": "2.2.1",
+    "@astrojs/react": "4.2.2",
     "@astrojs/tailwind": "4.0.0",
     "@percy/cli": "1.26.2",
     "@types/marked": "5.0.0",
-    "astro": "2.8.0",
+    "astro": "4.16.18",
     "astro-compress": "2.0.14",
     "concurrently": "8.2.0",
     "date-fns": "2.30.0",
