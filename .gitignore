@@ -11,3 +11,4 @@ stats.html
 # Favicon generation
 public/favicons
 *.generated.astro
+public/cv.pdf

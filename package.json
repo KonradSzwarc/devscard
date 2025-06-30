@@ -1,7 +1,7 @@
 {
   "name": "devscard",
   "description": "Template for creating a comprehensive virtual CV for developers.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "engines": {
     "node": ">=18",
@@ -10,9 +10,9 @@
     "pnpm": "please-use-npm"
   },
   "scripts": {
-    "postinstall": "npm run generate-favicons",
+    "postinstall": "npm run generate-favicons && npm run generate-pdf",
     "dev": "astro dev",
-    "prebuild": "move-file ./src/pages/pdf.astro ./src/pages/_pdf.astro && npm run generate-favicons",
+    "prebuild": "move-file ./src/pages/pdf.astro ./src/pages/_pdf.astro",
     "build": "astro build",
     "postbuild": "move-file ./src/pages/_pdf.astro ./src/pages/pdf.astro",
     "preview": "astro preview",
@@ -34,6 +34,7 @@
     "@astrojs/react": "2.2.1",
     "@astrojs/tailwind": "4.0.0",
     "@percy/cli": "1.26.2",
+    "@sparticuz/chromium": "112.0.2",
     "@types/marked": "5.0.0",
     "astro": "2.8.0",
     "astro-compress": "2.0.14",
@@ -50,7 +51,7 @@
     "prettier": "2.8.8",
     "prettier-plugin-astro": "0.10.0",
     "prettier-plugin-tailwindcss": "0.3.0",
-    "puppeteer": "20.8.0",
+    "puppeteer-core": "19.8.0",
     "puppeteer-report": "3.1.0",
     "rollup-plugin-visualizer": "5.9.2",
     "tailwindcss": "3.3.2",
