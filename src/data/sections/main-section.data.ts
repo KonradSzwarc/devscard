@@ -23,7 +23,7 @@ const mainSectionData = {
     { label: 'Email', value: 'arshiasoori2000@gmail.com' },
     { label: 'LinkedIn', value: '/in/arshia-soori', url: 'https://linkedin.com/in/arshia-soori' },
     { label: 'GitHub', value: '/CaptainArshia', url: 'https://github.com/CaptainArshia' },
-    { label: 'Website', value: 'arshiasoori.com', url: '/', fullRow: true },
+    { label: 'Website', value: 'https://arshiasoori.vercel.app/', url: 'https://arshiasoori.vercel.app/', fullRow: true },
   ],
   description:
     "**Senior Python and AI engineer**, passionate about building AI-powered products and leading engineering teams. Excellent problem-solving skills and a track record of turning complex data into meaningful, production-ready systems. Looking to take on new challenges and keep growing as an engineer and technical leader.",
