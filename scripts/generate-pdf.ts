@@ -32,6 +32,7 @@ const retry = async ({ promise, retries, retryTime }: RetryOptions): GoToReturn 
 const pdfs = [
   { url: 'http://localhost:3000/pdf', fileName: 'cv.pdf' },
   { url: 'http://localhost:3000/pdf/backend', fileName: 'cv-backend.pdf' },
+  { url: 'http://localhost:3000/pdf/general', fileName: 'cv-general.pdf' },
 ];
 
 const main = async () => {

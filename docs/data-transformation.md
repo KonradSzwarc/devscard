@@ -61,11 +61,12 @@ cv(
 
 ## Resume variants
 
-This resume ships in two variants defined in `src/data/variants`, each a list of data transformers:
+This resume ships in three variants defined in `src/data/variants`, each a list of data transformers:
 
 | Variant           | Web        | PDF preview    | Generated PDF           |
 | ----------------- | ---------- | -------------- | ----------------------- |
 | AI Engineer       | `/`        | `/pdf`         | `public/cv.pdf`         |
 | Backend Tech Lead | `/backend` | `/pdf/backend` | `public/cv-backend.pdf` |
+| Backend & AI      | `/general` | `/pdf/general` | `public/cv-general.pdf` |
 
 The web pages include a switcher to move between variants. To add another variant, create a transformer list in `src/data/variants`, register it in `src/data/variants/index.ts`, add web and PDF pages rendering `<Resume variant="..." />`, and add it to `scripts/generate-pdf.ts`.
