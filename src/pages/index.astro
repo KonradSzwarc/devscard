@@ -1,30 +1,5 @@
 ---
-import Layout from '@/web/components/layout.astro';
-import Sidebar from '@/web/components/sidebar.astro';
-import ThemeToggle from '@/web/components/theme-toggle.astro';
-import MainSection from '@/web/sections/main/main-section.web.astro';
-import SkillsSection from '@/web/sections/skills/skills-section.web.astro';
-import ExperienceSection from '@/web/sections/experience/experience-section.web.astro';
-import PortfolioSection from '@/web/sections/portfolio/portfolio-section.web.astro';
-import EducationSection from '@/web/sections/education/education-section.web.astro';
-import TestimonialsSection from '@/web/sections/testimonials/testimonials-section.web.astro';
-import FavoritesSection from '@/web/sections/favorites/favorites-section.web.astro';
-import cv from '@/data';
-
-const { config, sections } = cv();
+import Resume from '@/web/resume.astro';
 ---
 
-<Layout {...config} sections={sections}>
-  <ThemeToggle />
-  <main class="w-full max-w-5xl space-y-4 px-2 py-3 sm:space-y-6 sm:px-8 sm:py-12 lg:space-y-8 lg:py-20">
-    <MainSection {...sections.main} />
-    <SkillsSection {...sections.skills} />
-    <ExperienceSection {...sections.experience} />
-    <PortfolioSection {...sections.portfolio} />
-    <EducationSection {...sections.education} />
-    <TestimonialsSection {...sections.testimonials} />
-    <FavoritesSection {...sections.favorites} />
-  </main>
-  <Sidebar sections={sections} className="sticky top-8 mt-20" />
-  <script src="../web/scripts/initialize-tooltips.ts"></script>
-</Layout>
+<Resume variant="ai" />

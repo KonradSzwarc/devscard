@@ -1,0 +1,17 @@
+FROM node:18-bullseye-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends chromium && rm -rf /var/lib/apt/lists/*
+
+ENV PUPPETEER_SKIP_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+
+# full source before install: postinstall (generate-favicons) needs ./scripts + ./src
+COPY . .
+ENV NPM_CONFIG_REGISTRY=https://npm.devneeds.ir/
+RUN npm install
+
+EXPOSE 3000
+
+CMD ["sh", "-c", "npm run generate-favicons && npm run dev -- --host"]

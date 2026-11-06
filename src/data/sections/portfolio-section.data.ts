@@ -1,21 +1,27 @@
 import type { PortfolioSection } from '@/types/sections/portfolio-section.types';
 import type { ReadonlyDeep } from 'type-fest';
-import { demo, github, mockups, website } from '../helpers/links';
+import { website } from '../helpers/links';
 import {
-  chakraUi,
-  eslint,
-  firebase,
-  jest,
-  nestJs,
-  nextJs,
-  nx,
-  pnpm,
+  bluetooth,
+  django,
+  gpu,
+  huggingFace,
+  jupyter,
+  kaggle,
+  langChain,
+  llamaIndex,
+  opencv,
+  rust,
+  djangoNinja,
   postgreSql,
-  prettier,
-  react,
-  sass,
-  tailwindCss,
-  typescript,
+  pydanticAi,
+  python,
+  pytorch,
+  tensorflow,
+  timescaleDb,
+  wifi,
+  yolo,
+  mqtt,
 } from '../helpers/skills';
 
 const portfolioSectionData = {
@@ -31,97 +37,65 @@ const portfolioSectionData = {
   },
   projects: [
     {
-      name: 'Golden Bulls',
-      image: import('@/assets/portfolio/project-1.jpeg'),
-      dates: [new Date('2020-03'), null],
+      name: 'DelBand',
+      image: import('@/assets/DelBand.png'),
+      dates: [new Date('2026-03'), null],
       details: [
-        { label: 'Team size', value: '1 person' },
-        { label: 'My role', value: ['Front-end Developer', 'Designer'] },
-        { label: 'Company', value: 'None' },
-        { label: 'Category', value: ['Web app', 'Open source'] },
-      ],
-      pdfDetails: [
-        { label: 'Demo', value: 'https://golden-bulls-d73jd7.netlify.app', url: '#' },
-        { label: 'Repository', value: 'https://github.com/mark-freeman/golden-bulls', url: '#' },
-      ],
-      screenshots: [
-        { src: import('@/assets/portfolio/project-1-screenshot-1.jpg'), alt: 'First screenshot' },
-        { src: import('@/assets/portfolio/project-1-screenshot-2.jpg'), alt: 'Second screenshot' },
-        { src: import('@/assets/portfolio/project-1-screenshot-3.jpg'), alt: 'Third screenshot' },
+        { label: 'My role', value: 'CTO' },
+        { label: 'Company', value: 'Ayandeh Pardaz' },
+        { label: 'Backed by', value: ['Hamrahe Aval (MCI)', 'Harekat Aval'] },
+        { label: 'Category', value: ['Health tech', 'AI agents'] },
+        {
+          label: 'Recognition',
+          value: [
+            'Certified knowledge-based product',
+            'Selected Health & Care project, Presidential Innovation and Prosperity Fund',
+            '6th International mHealth Congress of Shiraz University of Medical Sciences',
+          ],
+        },
       ],
       description:
-        'In tristique vulputate augue vel egestas. Quisque ac imperdiet tortor, at lacinia ex. Duis vel ex hendrerit, commodo odio sed, aliquam enim. Ut arcu nulla, tincidunt eget arcu eget, molestie vulputate nisi. Nunc malesuada leo et est iaculis facilisis.',
+        "Iran's first smart health monitoring service, and the first to hold a Med 3.0 license. Owned and operated by Ayandeh Pardaz, developed in collaboration with and supported by MCI, backed by MCI's investment fund Harekat Aval.\n\nWearable devices (rings, watches) capture sensor signals which are processed and turned into meaningful health insights shown in the app. AI agents answer users' questions about their data, help them understand it, and give recommendations on exercise, food, and sleep plans. For elderly users, the platform tracks ECG, HRV, sleep, falls, blood sugar, and blood oxygen, and can send notifications and emergency calls to observant family members or caregivers.",
       tagsList: {
         title: 'Technologies',
-        tags: [nextJs(), sass(), pnpm(), eslint(), prettier()],
+        tags: [python(), rust(), django(), djangoNinja(), pydanticAi(),langChain(), llamaIndex(), huggingFace(), postgreSql(), timescaleDb(), gpu()]
       },
-      links: [mockups({ url: '#' }), demo({ url: '#' })],
+      links: [website({ url: 'https://delbandcare.com/' })],
     },
     {
-      name: 'TruQuest',
-      image: import('@/assets/portfolio/project-2.jpeg'),
-      dates: [new Date('2019-06'), new Date('2020-02')],
+      name: 'IndoorA',
+      image: import('@/assets/IndoorA.png'),
+      dates: [new Date('2022-09'), new Date('2026-02')],
       details: [
-        { label: 'Team size', value: '7 people' },
-        { label: 'My role', value: ['Front-end Developer', 'Mobile Developer', 'Designer'] },
-        { label: 'Company', value: 'Facebook' },
-        { label: 'Category', value: ['Web app', 'Mobile app'] },
-      ],
-      pdfDetails: [
-        { label: 'Demo', value: 'https://tru-quest-ck7ea3.netlify.app', url: '#' },
-        { label: 'Repository', value: 'https://github.com/mark-freeman/tru-quest', url: '#' },
+        { label: 'My role', value: 'CTO and AI Tech Lead' },
+        { label: 'Company', value: 'Ayandeh Pardaz' },
+        { label: 'Category', value: ['Indoor positioning', 'Navigation'] },
+        { label: 'Recognition', value: 'Member of Iran\'s Knowledge-Based Companies' },
       ],
       description:
-        'Ut ultricies tortor at sodales aliquam. Vivamus metus ante, fringilla nec ligula in, suscipit rhoncus mauris. Praesent hendrerit velit odio, at accumsan urna faucibus convallis. Nunc at massa eget ligula volutpat dictum a sit amet libero. Vestibulum iaculis molestie maximus. In hac habitasse platea dictumst.',
+        "The first indoor positioning and navigation system in the Middle East, owned and operated by Ayandeh Pardaz. A single knowledge-based positioning and navigation engine (BLE, Wi-Fi, UWB, beacons, and gateways with KNN, neural networks, CNNs, LSTMs, Kalman filters, and particle filters) powering three business models:\n\n- Indoor positioning for organizations managing physical and human assets: employee productivity, asset inventory, access control, and guest movement management. (Radin, MCI)\n- Life safety: continuous monitoring of access levels, movement through hazardous areas, and incidents, sending alerts to rescue teams and managers. (Mobarakeh Steel Company)\n- Positioning, wayfinding, visitor management, and personalized offers in malls and exhibitions, connecting business owners with their customers. (Tehran International Exhibition Center, Iran Mall)",
       tagsList: {
         title: 'Technologies',
-        tags: [react(), tailwindCss(), nestJs(), postgreSql()],
+        tags: [python(), rust(), django(), djangoNinja(), postgreSql(), timescaleDb(), bluetooth(), wifi(), tensorflow(), pytorch(), huggingFace(), mqtt(), gpu()],
       },
-      links: [mockups({ url: '#' }), demo({ url: '#' })],
+      links: [website({ url: 'https://indoora.net/' })],
     },
     {
-      name: 'Software Chasers',
-      image: import('@/assets/portfolio/project-3.jpeg'),
-      dates: [new Date('2018-01'), new Date('2020-12')],
+      name: 'Intelligent Traffic and Movement Management System',
+      image: import('@/assets/KNTU.png'),
+      dates: [new Date('2021-09'), new Date('2022-08')],
       details: [
-        { label: 'Team size', value: '3 people' },
-        { label: 'My role', value: ['Front-end Developer', 'Designer'] },
-        { label: 'Company', value: 'None' },
-        { label: 'Category', value: ['Web app', 'Open source'] },
-      ],
-      pdfDetails: [
-        { label: 'Demo', value: 'https://software-chasers-e82l8e.netlify.app', url: '#' },
-        { label: 'Repository', value: 'https://github.com/mark-freeman/software-chasers', url: '#' },
+        { label: 'My role', value: 'Tech Lead' },
+        { label: 'Company', value: 'Advanced Aerospace Structures Laboratory, K. N. Toosi University of Technology' },
+        { label: 'Category', value: ['Computer vision', 'AI'] },
       ],
       description:
-        'Quisque id consectetur eros. In hac habitasse platea dictumst. Sed eu pulvinar orci. Mauris consequat, est in dignissim varius, neque nisl commodo mauris, id blandit risus justo eu nulla.',
+        "An intelligent traffic and movement management platform combining computer vision and language models to automate entry/exit control. CNN-based image processing detects and identifies vehicles and people in real time, driving automated door open/close control and streamlined guest management. Language models interpret activity and generate human-readable summaries, surfaced through a dashboard with detailed reports for facility operators.",
       tagsList: {
         title: 'Technologies',
-        tags: [react(), chakraUi(), typescript(), nx(), pnpm()],
+        tags: [python(), opencv(), yolo(), pytorch(), tensorflow(), jupyter(), kaggle(), gpu()],
       },
-      links: [website({ url: '#' }), github({ url: '#' })],
-    },
-    {
-      name: 'Disco Ninjas',
-      image: import('@/assets/portfolio/project-4.jpeg'),
-      dates: [new Date('2016-05'), new Date('2018-07')],
-      details: [
-        { label: 'Team size', value: '11 people' },
-        { label: 'My role', value: 'Front-end Developer' },
-        { label: 'Company', value: 'Google' },
-        { label: 'Category', value: ['Mobile app', 'Open source'] },
-      ],
-      pdfDetails: [
-        { label: 'Demo', value: 'https://disco-ninjas-g321ol.netlify.app', url: '#' },
-        { label: 'Repository', value: 'https://github.com/mark-freeman/disco-ninjas', url: '#' },
-      ],
-      description:
-        'Praesent eu neque tortor. Vestibulum ac magna nisl. Vivamus massa sem, feugiat in pharetra non, convallis egestas purus. Ut consequat ullamcorper sem, in euismod nibh posuere ut. ',
-      tagsList: {
-        title: 'Technologies',
-        tags: [typescript(), jest(), firebase()],
-      },
-      links: [mockups({ url: '#' }), github({ url: '#' })],
+      links: [],
     },
   ],
 } as const satisfies ReadonlyDeep<PortfolioSection>;

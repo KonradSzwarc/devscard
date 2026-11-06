@@ -1,18 +1,20 @@
 import type { ExperienceSection } from '@/types/sections/experience-section.types';
 import type { ReadonlyDeep } from 'type-fest';
-import { facebook, github, instagram, linkedin, twitter, website } from '../helpers/links';
+import { website } from '../helpers/links';
 import {
-  chakraUi,
-  eslint,
-  firebase,
-  nextJs,
-  nx,
-  pnpm,
-  react,
-  reactQuery,
-  tailwindCss,
-  typescript,
-  vue,
+  bluetooth,
+  django,
+  gpu,
+  huggingFace,
+  langChain,
+  llamaIndex,
+  opencv,
+  pydanticAi,
+  python,
+  pytorch,
+  tensorflow,
+  wifi,
+  yolo,
 } from '../helpers/skills';
 
 const experienceSectionData = {
@@ -24,59 +26,58 @@ const experienceSectionData = {
   },
   jobs: [
     {
-      role: 'Senior front-end developer',
-      company: 'Google',
-      image: import('@/assets/logos/google-logo.jpg'),
-      dates: [new Date('2020-02'), null],
+      role: 'CTO',
+      company: 'DelBand',
+      image: import('@/assets/DelBand.png'),
+      dates: [new Date('2026-03'), null],
       description: `
-        - In tristique vulputate augue vel egestas.
-        - Quisque ac imperdiet tortor, at lacinia ex.
-        - Duis vel ex hendrerit, commodo odio sed, aliquam enim.
-        - Ut arcu nulla, tincidunt eget arcu eget, molestie vulputate nisi.
-        - Nunc malesuada leo et est iaculis facilisis.
-        - Fusce eu urna ut magna malesuada fringilla.
+        Iran's first smart health monitoring service, and the first to hold a Med 3.0 license. Owned and operated by Ayandeh Pardaz, backed by MCI's investment fund Harekat Aval, with Hamrahe Aval (MCI) as investor and business partner.
+
+        - Leading the engineering team and owning technical strategy for the company's health monitoring platform.
+        - Leading a team dedicated to medical algorithms, turning raw wearable sensor data into meaningful health insights using ML and AI.
+        - Directing product and architecture decisions across backend, AI, and infrastructure.
+        - Hiring, mentoring, and managing the engineering team.
       `,
       tagsList: {
         title: 'Technologies',
-        tags: [react(), nextJs(), typescript(), nx(), firebase()],
+        tags: [python(), django(), langChain(), llamaIndex(), pydanticAi()],
       },
-      links: [facebook({ url: '#' }), linkedin({ url: '#' })],
+      links: [website({ url: 'https://delbandcare.com/' })],
     },
     {
-      role: 'React.js developer',
-      company: 'Facebook',
-      image: import('@/assets/logos/facebook-logo.png'),
-      dates: [new Date('2019-04'), new Date('2020-02')],
+      role: 'CTO and AI Tech Lead',
+      company: 'IndoorA',
+      image: import('@/assets/IndoorA.png'),
+      dates: [new Date('2022-09'), new Date('2026-02')],
       description: `
-        - Aenean eget ultricies felis. Pellentesque dictum massa ut tellus eleifend, sed posuere massa mattis.
-        - Ut posuere massa lacus, eleifend molestie tortor auctor vel.
-        - Sed sed sollicitudin eros, id ultricies mi. Aliquam sodales elit vel ante tempor, non vehicula nibh facilisis.
-        - Cras feugiat ultricies maximus. Aliquam tristique ex odio, ac semper urna accumsan a.
+        The first indoor positioning and navigation system in the Middle East, owned and operated by Ayandeh Pardaz.
+
+        - Led the engineering team from early product to a knowledge-based positioning and navigation platform.
+        - Owned technical strategy, architecture, and hiring for the engineering organization.
+        - Led collaborations with MCI, Radin, Tehran International Exhibition Center, Iran Mall, and Mobarakeh Steel Company.
       `,
       tagsList: {
         title: 'Technologies',
-        tags: [react(), reactQuery(), chakraUi(), eslint()],
+        tags: [python(), django(), bluetooth(), wifi(), pytorch(), tensorflow(), huggingFace(), gpu()],
       },
-      links: [website({ url: '#' }), instagram({ url: '#' })],
+      links: [website({ url: 'https://indoora.net/' })],
     },
     {
-      role: 'Junior front-end developer',
-      company: 'GitLab',
-      image: import('@/assets/logos/gitlab-logo.png'),
-      dates: [new Date('2016-09'), new Date('2019-04')],
+      role: 'Tech Lead',
+      company: 'Advanced Aerospace Structures Laboratory, K. N. Toosi University of Technology',
+      image: import('@/assets/KNTU.png'),
+      dates: [new Date('2021-09'), new Date('2022-08')],
       description: `
-        Nulla volutpat justo ante, rhoncus posuere massa egestas in:
+        Led the development of an intelligent traffic and movement management system combining image processing, CNNs, and language models for entry/exit management, automated door control, guest management, and reporting.
 
-        - Quisque pellentesque, dolor nec sollicitudin iaculis, sem velit consequat ligula, eget tempus ligula leo et est.
-        - Maecenas ut elit sit amet nibh maximus condimentum in nec lorem. Pellentesque tincidunt odio vel leo suscipit, in interdum mi gravida.
-
-        Donec non vulputate augue 🤓
+        - Led a team of 7 engineers, setting technical direction and reviewing implementation.
+        - Coordinated with university researchers and stakeholders on project scope and delivery.
       `,
       tagsList: {
         title: 'Technologies',
-        tags: [vue(), tailwindCss(), pnpm()],
+        tags: [python(), opencv(), yolo(), gpu()],
       },
-      links: [twitter({ url: '#' }), github({ url: '#' })],
+      links: [],
     },
   ],
 } as const satisfies ReadonlyDeep<ExperienceSection>;

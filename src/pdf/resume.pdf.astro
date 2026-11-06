@@ -7,9 +7,13 @@ import MainSection from '@/pdf/sections/main-section.pdf.astro';
 import PortfolioSection from '@/pdf/sections/portfolio-section.pdf.astro';
 import SkillsSection from '@/pdf/sections/skills-section.pdf.astro';
 
-import cv from '@/data';
+import cv, { variants, type VariantKey } from '@/data';
 
-const { config, sections } = cv();
+export interface Props {
+  variant: VariantKey;
+}
+
+const { config, sections } = cv(...variants[Astro.props.variant].transformers);
 
 const shouldRenderSection = (section: keyof typeof sections) => sections[section] && sections[section].config.visible;
 ---

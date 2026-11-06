@@ -11,7 +11,14 @@ const { image, fullName, role, details, pdfDetails, description } = Astro.props;
 
 <div class="flex flex-col gap-4">
   <div class="flex gap-6">
-    <Photo src={image} alt={fullName} class="h-40 max-h-[160px] w-40 max-w-[160px] rounded-2xl" />
+    <Photo
+      src={image}
+      alt={fullName}
+      width={480}
+      height={480}
+      quality={85}
+      class="h-40 max-h-[160px] w-40 max-w-[160px] rounded-2xl"
+    />
     <div>
       <div class="text-3xl font-extrabold text-gray-900">{fullName}</div>
       <div class="text-lg font-medium text-gray-700">{role}</div>

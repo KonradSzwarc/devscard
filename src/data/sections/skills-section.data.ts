@@ -1,22 +1,27 @@
 import type { SkillsSection } from '@/types/sections/skills-section.types';
 import type { ReadonlyDeep } from 'type-fest';
 import {
-  apolloGraphql,
-  astro,
-  chakraUi,
-  cypress,
-  eslint,
-  firebase,
-  mongoDb,
-  nestJs,
-  pnpm,
+  celery,
+  django,
+  djangoNinja,
+  djangoRestFramework,
+  docker,
+  fastApi,
+  git,
+  huggingFace,
+  kubernetes,
+  langChain,
+  linux,
+  llamaIndex,
+  mqtt,
   postgreSql,
-  prettier,
-  react,
-  sass,
-  supabase,
-  tailwindCss,
-  typescript,
+  pydantic,
+  pydanticAi,
+  python,
+  pytorch,
+  rabbitMq,
+  redis,
+  tensorflow,
 } from '../helpers/skills';
 
 const skillsSectionData = {
@@ -30,48 +35,60 @@ const skillsSectionData = {
     {
       title: 'I already know',
       skills: [
-        react({
+        python({
           level: 5,
-          description:
-            'Proin ut erat sed massa tempus suscipit. Mauris efficitur nunc sem, nec scelerisque ligula bibendum ut.',
+          description: 'Primary language for backend services, automation, and AI/LLM systems.',
         }),
-        typescript({
+        django({
+          level: 5,
+          description: 'Building full-featured backend services and internal platforms.',
+        }),
+        djangoRestFramework({
+          level: 5,
+          description: 'DRF and ADRF, FBVs and CBVs, for building REST APIs and microservices.',
+        }),
+        djangoNinja({
+          level: 5,
+          description: 'Building REST APIs with Django Ninja. Best choice for LLM agents and RAG pipelines.',
+        }),
+        celery({ level: 4, description: 'Distributed task queue for handling background tasks.' }),
+        redis({ level: 4, description: 'In-memory data structure store.' }),
+        pydantic({ level: 3, description: 'Data validation and settings management using Pydantic.' }),
+        postgreSql({ level: 4, description: 'Relational database management system.' }),
+        fastApi({
           level: 4,
-          description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+          description: 'REST APIs for AI agents and microservices.',
         }),
-        sass({
+        pydanticAi({ level: 4, description: 'AI-focused data validation using Pydantic.' }),
+        langChain({
           level: 4,
-          description: 'Nulla interdum pellentesque ultricies. Ut id eros commodo, ultrices ligula eu, elementum ante.',
+          description: 'Building LLM agents and orchestration pipelines.',
         }),
-        chakraUi({ level: 5 }),
-        tailwindCss({ level: 3 }),
-        prettier({ level: 5 }),
-        eslint({
-          level: 4,
-          description:
-            'Nulla tempor turpis at vehicula pharetra. Vestibulum tellus tortor, commodo et suscipit id, lobortis id nunc.',
-        }),
-        nestJs({
+        llamaIndex({
           level: 3,
-          description:
-            'Praesent feugiat ultricies iaculis. In posuere vehicula odio, sed consequat velit porta viverra.',
+          description: 'RAG pipelines and document indexing for LLM apps.',
         }),
-        postgreSql({ level: 2 }),
-        mongoDb({ level: 1 }),
-        firebase({ level: 1 }),
-        pnpm({ level: 3 }),
+        huggingFace({ level: 3, description: 'Hugging Face for LLM apps and models.' }),
+        
+        
+        pytorch({ level: 3, description: 'Deep learning framework for building and training neural networks.' }),
+        tensorflow({ level: 3, description: 'Machine learning library for building and training models.' }),
+        
+        // mongoDb({ level: 2, description: 'Document-oriented database.' }),
+        rabbitMq({ level: 3, description: 'Message broker for asynchronous communication.' }),
+        mqtt({ level: 4, description: 'Lightweight messaging protocol for IoT applications.' }),
+        // qt({ level: 2, description: 'Cross-platform application framework.' }),
+        docker({ level: 4, description: 'Containerization platform for deploying applications.' }),
+        kubernetes({ level: 2, description: 'Orchestration platform for managing containerized applications.' }),
+        linux({ level: 4, description: 'Open-source operating system.' }),
+        git({ level: 5, description: 'Version control system for tracking changes in source code.' }),
       ],
-    },
-    {
-      title: 'I want to learn',
-      skills: [apolloGraphql(), astro(), supabase(), cypress()],
     },
     {
       title: 'I speak',
       skills: [
-        { icon: 'circle-flags:pl', name: 'Polish - native' },
-        { icon: 'circle-flags:us', name: 'English - C1' },
-        { icon: 'circle-flags:es-variant', name: 'Spanish - B1' },
+        { icon: 'circle-flags:ir', name: 'Persian - native' },
+        { icon: 'circle-flags:us', name: 'English - fluent' },
       ],
     },
   ],

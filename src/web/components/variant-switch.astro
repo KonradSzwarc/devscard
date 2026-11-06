@@ -1,0 +1,31 @@
+---
+import { variants, type VariantKey } from '@/data';
+
+export interface Props {
+  current: VariantKey;
+}
+
+const { current } = Astro.props;
+---
+
+<nav
+  aria-label="Resume version"
+  class="fixed bottom-3 left-16 z-10 inline-flex h-10 items-center gap-1 rounded-lg bg-gray-100 p-1 text-sm font-medium shadow-xl dark:bg-gray-600"
+>
+  {
+    Object.entries(variants).map(([key, variant]) => (
+      <a
+        href={variant.webPath}
+        aria-current={key === current ? 'page' : undefined}
+        class:list={[
+          'rounded-md px-3 py-1.5 transition focus:ring-primary-500',
+          key === current
+            ? 'bg-white text-gray-900 shadow dark:bg-gray-800 dark:text-gray-50'
+            : 'text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50',
+        ]}
+      >
+        {variant.label}
+      </a>
+    ))
+  }
+</nav>

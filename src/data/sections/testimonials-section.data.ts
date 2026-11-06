@@ -7,7 +7,7 @@ const testimonialsSectionData = {
     title: 'Testimonials',
     slug: 'testimonials',
     icon: 'fa6-solid:comment',
-    visible: true,
+    visible: false,
   },
   testimonials: [
     {

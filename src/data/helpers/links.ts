@@ -91,6 +91,16 @@ export const stackoverflow = createLinkFactory({
   icon: 'fa6-brands:stack-overflow',
 });
 
+export const telegram = createLinkFactory({
+  name: 'Telegram',
+  icon: 'fa6-brands:telegram',
+});
+
+export const whatsapp = createLinkFactory({
+  name: 'WhatsApp',
+  icon: 'fa6-brands:whatsapp',
+});
+
 // DESIGN
 
 export const instagram = createLinkFactory({

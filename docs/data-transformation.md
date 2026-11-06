@@ -39,10 +39,34 @@ cv(
 
 `hideProject(projectName)` — hides project with a specified name.
 
+### Main section and meta
+
+`updateMeta(meta)` — overrides chosen page metadata properties (e.g. `title`, `description`).
+
+`updateMainSection(main)` — overrides chosen main section properties (e.g. `role`, `description`, `tags`, `action`).
+
+### Skills ordering
+
+`sortSkills(skillSetTitle, skillNames[])` — moves the listed skills to the front of the skill set, in the given order. Unlisted skills keep their relative order after them.
+
 ### Experience
+
+`updateJob(company, job)` — overrides chosen properties (e.g. `description`, `tagsList`) of jobs at a specified company.
 
 `hideJob(role, company?)` — hides job where you had a specified role. If you had same role in multiple companies, you can provide a precise company as the second parameter.
 
 ### Education
 
 `hideDiploma(title, institution?)` — hides education record by its title. If you have multiple diplomas with the same title, you can provide a an institution name as the second parameter to narrow the filter.
+
+## Resume variants
+
+This resume ships in three variants defined in `src/data/variants`, each a list of data transformers:
+
+| Variant           | Web        | PDF preview    | Generated PDF           |
+| ----------------- | ---------- | -------------- | ----------------------- |
+| AI Engineer       | `/`        | `/pdf`         | `public/cv.pdf`         |
+| Backend Tech Lead | `/backend` | `/pdf/backend` | `public/cv-backend.pdf` |
+| Backend & AI      | `/general` | `/pdf/general` | `public/cv-general.pdf` |
+
+The web pages include a switcher to move between variants. To add another variant, create a transformer list in `src/data/variants`, register it in `src/data/variants/index.ts`, add web and PDF pages rendering `<Resume variant="..." />`, and add it to `scripts/generate-pdf.ts`.

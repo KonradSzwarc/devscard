@@ -6,7 +6,7 @@ const favoritesSectionData = {
     title: 'My favorites',
     slug: 'favorites',
     icon: 'fa6-solid:star',
-    visible: true,
+    visible: false,
   },
   books: {
     title: 'Books I read',

@@ -90,3 +90,45 @@ export const hideSkills =
       };
     });
   };
+
+export const updateMeta =
+  (meta: Partial<DraftData['config']['meta']>): DataTransformer =>
+  (draft) => {
+    Object.assign(draft.config.meta, meta);
+  };
+
+export const updateMainSection =
+  (main: Partial<DraftData['sections']['main']>): DataTransformer =>
+  (draft) => {
+    Object.assign(draft.sections.main, main);
+  };
+
+export const updateJob =
+  (company: JobCompany, job: Partial<DraftData['sections']['experience']['jobs'][number]>): DataTransformer =>
+  (draft) => {
+    draft.sections.experience.jobs.forEach((draftJob) => {
+      if (draftJob.company === company) Object.assign(draftJob, job);
+    });
+  };
+
+export const sortSkills =
+  <SkillSet extends SkillSetTitle>(skillSetTitle: SkillSet, skills: SkillsBySkillSet<SkillSet>[]): DataTransformer =>
+  (draft) => {
+    const rank = (name: string) => {
+      const index = skills.indexOf(name as (typeof skills)[number]);
+      return index === -1 ? skills.length : index;
+    };
+
+    draft.sections.skills.skillSets.forEach((skillSet) => {
+      if (skillSet.title === skillSetTitle) skillSet.skills.sort((a, b) => rank(a.name) - rank(b.name));
+    });
+  };
+
+export const addSkillSet =
+  (skillSet: DraftData['sections']['skills']['skillSets'][number], before?: SkillSetTitle): DataTransformer =>
+  (draft) => {
+    const skillSets = draft.sections.skills.skillSets;
+    const index = skillSets.findIndex((draftSkillSet) => draftSkillSet.title === before);
+
+    skillSets.splice(index === -1 ? skillSets.length : index, 0, skillSet);
+  };

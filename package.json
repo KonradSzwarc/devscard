@@ -12,9 +12,9 @@
   "scripts": {
     "postinstall": "npm run generate-favicons",
     "dev": "astro dev",
-    "prebuild": "move-file ./src/pages/pdf.astro ./src/pages/_pdf.astro && npm run generate-favicons",
+    "prebuild": "move-file ./src/pages/pdf ./src/pages/_pdf && npm run generate-favicons",
     "build": "astro build",
-    "postbuild": "move-file ./src/pages/_pdf.astro ./src/pages/pdf.astro",
+    "postbuild": "move-file ./src/pages/_pdf ./src/pages/pdf",
     "preview": "astro preview",
     "generate-pdf": "ts-node scripts/generate-pdf.ts",
     "generate-favicons": "ts-node scripts/generate-favicons.ts",

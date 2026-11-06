@@ -29,27 +29,35 @@ const retry = async ({ promise, retries, retryTime }: RetryOptions): GoToReturn 
   }
 };
 
+const pdfs = [
+  { url: 'http://localhost:3000/pdf', fileName: 'cv.pdf' },
+  { url: 'http://localhost:3000/pdf/backend', fileName: 'cv-backend.pdf' },
+  { url: 'http://localhost:3000/pdf/general', fileName: 'cv-general.pdf' },
+];
+
 const main = async () => {
   const child = exec('npm run dev');
 
-  const browser = await puppeteer.launch({ headless: 'new' });
+  const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox', '--disable-setuid-sandbox'] });
 
   const page = await browser.newPage();
 
   await page.setViewport({ width: 794, height: 1122, deviceScaleFactor: 2 });
 
-  await retry({
-    promise: () => goTo(page, 'http://localhost:3000/pdf'),
-    retries: 5,
-    retryTime: 1000,
-  });
+  for (const { url, fileName } of pdfs) {
+    await retry({
+      promise: () => goTo(page, url),
+      retries: 5,
+      retryTime: 1000,
+    });
 
-  await pdfPage(page, {
-    path: path.join(__dirname, '..', 'public', 'cv.pdf'),
-    format: 'A4',
-    printBackground: true,
-    margin: { top: '10mm', right: '10mm', bottom: '10mm', left: '10mm' },
-  });
+    await pdfPage(page, {
+      path: path.join(__dirname, '..', 'public', fileName),
+      format: 'A4',
+      printBackground: true,
+      margin: { top: '10mm', right: '10mm', bottom: '10mm', left: '10mm' },
+    });
+  }
 
   await browser.close();
 
