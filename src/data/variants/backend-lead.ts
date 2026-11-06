@@ -47,7 +47,7 @@ const backendLeadVariant: DataTransformer[] = [
     details: [
       { label: 'Phone', value: '+98 913 563 5155', url: 'tel:+98 913 563 5155' },
       { label: 'Email', value: 'arshiasoori2000@gmail.com', url: 'mailto:arshiasoori2000@gmail.com' },
-      { label: 'From', value: 'Isfahan, Iran' },
+      { label: 'From', value: 'Tehran, Iran' },
       { label: 'Military service', value: 'Exempt (guardianship exemption)' },
     ],
     pdfDetails: [
